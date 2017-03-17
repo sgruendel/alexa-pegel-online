@@ -1,0 +1,552 @@
+aalbude
+abbenfleth sperrwerk
+achleiten
+achthöfen fleth
+affoldern
+ahlden
+ahsen schleuse
+aken
+albertsheim
+alken
+allendorf
+alsleben
+altengamme
+althagen
+andernach
+anderten
+anklam
+artlenburg
+artlenburg-elk
+ask strohbrück
+astheim
+auhammer
+auheim brücke
+bad essen
+bahnitz
+bake a
+bake c - scharhörn
+bake z
+bamberg
+banzkow
+barby
+bardowick
+barhöft
+barkow
+barth
+basel-rheinhalle
+belum
+berenbusch
+bergeshövede
+berlin-charlottenburg
+berlin-köpenick
+berlin-mühlendamm
+berlin-oberschleuse
+berlin-ploetzensee
+berlin-schmoeckwitz
+berlin-spandau schleuse
+berlin-unterschleuse
+bernburg
+bevensen
+bhv alter leuchtturm
+bingen
+bischofswerder
+blankenese uf
+bleckede
+blexen abz
+bobzin
+bodenwerder
+boizenburg
+bolzum
+bonaforth
+bonn
+boppard
+borgfeld
+borgsdorf
+borkum fischerbalje
+borkum südstrand
+brake
+bramsche
+brandenburg
+braubach
+bredereiche
+breisach
+breitenberg
+bremervörde
+brokdorf
+broxten
+brunsbüttel mole 1
+buessau
+bunthaus
+burg
+büsum
+buttelerhörne
+buxtehude
+calbe
+calbe grizehne
+celle
+coburg
+cochem
+coswig
+cranz
+cuxhaven steubenhöft
+d1 hanskalbsand oberfläche
+d7
+dagebüll
+dalum
+dalwigksthal
+damnatz
+datteln schleuse
+deggendorf
+demmin
+demmin-meyenkrebsbrücke
+dessau
+detershagen
+dgw1
+dgw2
+diemeltalsperre
+diez hafen
+doemitz
+dömitz
+dorsten schleuse
+dörverden
+drakenburg
+dresden
+dreye
+dreyschloot
+duisburg-meiderich schleuse
+dukegat
+düsseldorf
+dwarsgat
+eckernförde
+edertalsperre
+eichhorst
+eider-sperrwerk
+eisenhuettenstadt schl.
+eisenhüttenstadt
+eiserne brücke
+eitze
+eldena
+elmshorn
+elmshorn hafen
+elsfleth
+elsfleth ohrt
+elster
+emden neue seeschleuse
+emmerich
+emshörn
+erlau
+fahrenholz
+farge
+faulbach
+findshier
+flaesheim schleuse
+flensburg
+frankfurt1 (oder)
+frankfurt osthafen
+freiburg sperrwerk
+fremersdorf
+friedrichsfeld schleuse
+friedrichstadt strassenbrücke
+friedrichstadt treene
+friedrichsthal
+fuerstenwalde
+fuestrup
+fuhse-ost
+fürstenberg
+gartz
+garwitz
+garz
+geesthacht
+gelsenkirchen schleuse
+genthin
+geversdorf brücke
+giessen klärwerk
+gießen klärwerk
+glückstadt
+gnevsdorf
+gorleben
+grabow
+grauerort
+grebenau
+greifswald oie
+greifswald-wieck
+grevenmacher
+grönhude
+grosse tränke wehr
+grosse weserbrücke
+gross rosenburg
+grütz
+gülpe
+gundelsheim
+guntershausen
+hahlen
+hahnöfer sand west siel
+haldensleben
+hamburg st. pauli
+hameln wehrbergen
+hamm
+hanau brücke
+hann. list
+hann.muenden
+hasehubbrücke
+hattingen
+havelberg
+havelberg stadt
+hechthausen
+heidelberg
+heiligenhafen
+heldra
+helgoland binnenhafen
+helgoland südhafen
+helminghausen
+henrichenburg
+herbrum hafendamm
+herne
+herrenhausen
+herzhausen
+hessigheim schleuse
+hetlingen
+himmelpfort
+hitzacker
+hoerstel
+hofkirchen
+hohensaaten-finow
+hohensaaten ost
+hohensaaten west
+hohnstorf
+hollersiel
+hooksielplate
+horneburg
+hörnum
+höxter
+hoya
+hundsmühlen
+huntebrueck
+hünxe schleuse
+husum
+hüttendorf
+iffezheim
+ilmenau
+ilmenau sperrwerk
+ilmenau-sperrwerk
+ingolstadt luitpoldstrasse
+inneres estesperrwerk
+inneres este-sperrwerk
+intschede
+itzehoe hafen
+jarmen
+kade
+kalkofen neu
+kanalbrücke
+kannenburg
+kappeln
+karlshafen
+karlshagen
+karnin
+kaub
+kehl-kronenhof
+kelheimwinzer
+kersdorf
+ketzin
+kiel-holtenau
+kienitz
+kietz
+kleinheubach
+klein laasch wehr
+kleinmachnow
+kleinostheim
+kleinostheim_wuk
+kloster
+knock
+kns nok
+kns ostsee
+koblenz
+koblenz-lützel
+kollmar
+köln
+konstanz
+konstanz-rhein
+koserow
+kotthausen
+krautsand
+krotzenburg
+krückau-sperrwerk
+kummersdorf
+lahnstein schleuse
+langballigau
+langeoog
+lauffen
+lauterbach
+ledasperrwerk
+leerort
+lehnitz
+lenzen
+letzter heller
+leuchtturm alte weser
+leun neu
+lewitz
+lexfähre
+liebenau
+liebenwalde
+lingen-darme
+list auf sylt
+lohnde
+louny
+lt kalkgrund
+lt kiel
+lübeck-bauhof
+lübz
+lüdinghausen
+luebbecke
+lueneburg
+lühesperrwerk
+lühort
+lüne
+magdeburg-buckau
+magdeburg-ro nws
+magdeburg-strombrücke
+mainflingen
+mainz
+malchow wehr
+malliss
+mannheim
+mannheim neckar
+marbach wehr
+marburg
+marienleuchte
+marienthal
+marklendorf
+maxau
+mehrum
+meissen
+mellumplate
+mescherin
+minden
+mirow
+mittelgrund
+mölln
+muesse
+müggendorf
+mühlberg
+münster
+nalje siel
+neuburg
+neu darchau
+neue mühle
+neue mühle schleuse
+neuendorf hafen
+neuhaus
+neustadt
+neustadt glewe
+neuwerben
+neuwied stadt
+niederblockland
+niederfinow shw
+niederwinzer
+niegripp
+nienbruegge
+nienburg
+nienburg (saale)
+nierstein-oppenheim
+nok breiholz
+nok brunsbüttel
+nok dükerswisch
+nok königsförde
+nok rendsburg
+nordenham
+norderney riffgat
+nordfeld
+oberhausen schleuse
+obernau
+oberndorf
+oberwinter
+oestrich
+oldenburg-drielake
+oslebshausen
+osloss
+osteriff mpm
+oste-sperrwerk
+ottenheim
+otterndorf mpm
+over
+papenburg
+parchim güte
+parey
+passau donau
+passau ilzstadt
+passau luitpoldbrücke
+passau steinbachbrücke
+pellworm anleger
+perl
+petershagen
+pettstadt
+pfatter
+pfelling
+philippsburg
+pinnau-sperrwerk
+pirna
+plau
+plaue
+plittersdorf
+plochingen
+pogum
+porta
+potsdam
+predmerice
+prelouc
+pretzsch-mauken
+priorau
+quitzöbel
+rathenow
+ratzdorf
+raunheim
+rechtenfleth
+recke
+rees
+reithoerne
+rensing
+rethem
+rhede
+rheine unterschleuse
+rheinweiler
+riedenburg
+riedenburg_up
+riesa
+rinteln
+rischmühle
+ritterhude
+robbensüdsteert
+rockenau ska
+rodenberger aue-ost
+rodenberger aue-west
+rogätz
+röpzig
+rosslau
+rostock mühlendamm
+rotenburg
+rothenburg
+rothensee
+ruden
+ruehen
+ruhrort
+ruhrwehr
+rusbend
+rust
+ruthenstrom sperrwerk
+ruwer
+sachsenhausen
+sandau
+sankt arnual
+sankt goar
+sassnitz
+scharleuk
+schillig
+schleimünde sp
+schleswig
+schleuse rothensee
+schlossbrücke mülheim
+schmittlotheim
+schnackenburg
+schöna
+schönebeck
+schöneworth siel
+schönwalde
+schöpfstelle
+schulau
+schwabelweis
+schwarmstedt
+schwedt-oderbrücke
+schwedt schleuse
+schweinfurt neuer hafen
+schweinfurt nh
+schwerin werderbrücke
+schwinge sperrwerk
+seemannshöft
+sehnde
+siel twielenfleth
+speyer
+stadersand
+stadtbredimus
+stahlbrode
+steinbach
+stolzenau
+storkau
+storkow
+stör-sperrwerk
+stralsund
+straubing
+stützkow
+suelfeld
+tangermünde
+templin
+terborg
+thiessow
+thune
+tieckow
+timmendorf poel
+tönning
+torgau
+travemünde
+trier
+trotha
+truebengraben polder
+trunstadt
+tyniste
+ueckermünde
+uelzen
+uetersen
+vegesack
+velsdorf
+versen-wd
+vilshofen
+vlotho
+vockerode
+vorsfelde
+voslapp
+vranany
+wahmbeck
+waltrop
+wangerooge nord
+wangerooge ost
+wangerooge west 
+wanne eickel schleuse
+warber graben
+waren
+warnau polder
+warnemünde
+wasserhorst
+weener
+wehr geesthacht
+wendisch rietz
+wernsdorf
+werries
+wertheim
+wesel
+wesenberg
+weser
+weserwehr
+wettin
+whv alter vorhafen
+whv neuer vorhafen
+wilhelmsbrücke
+wincheringen
+wischhafen sperrwerk
+wismar-baumhaus
+wittdün
+wittenberg
+wittenberge
+wittingen
+wittorf
+wittower fähre
+wolfsbruch
+wolgast
+woltersdorf
+worms
+würzburg
+wusterwitz
+zehdenick
+zehnerloch
+zeltingen
+zerben
+ziegelhausen ams
+zollenspieker
