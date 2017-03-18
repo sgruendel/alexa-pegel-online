@@ -17,7 +17,7 @@ describe('REST-API helpers', function() {
 
     describe('#getCurrentMeasurement()', function() {
         it('should give current measurement for Würzburg', function(done) {
-            pegelonline.getCurrentMeasurement('Würzburg', function(err, result) {
+            pegelonline.getCurrentMeasurement('915d76e1-3bf9-4e37-9a9a-4d144cd771cc', function(err, result) {
                 expect(err).to.be.null;
                 expect(result.unit).to.be.a('string');
                 expect(result.currentMeasurement.value).to.be.a('number');
@@ -31,6 +31,20 @@ describe('REST-API helpers', function() {
                 expect(result).to.be.undefined;
                 done();
             });
+        });
+    });
+
+    describe('#getSmallImageUrl()', function() {
+        it('should give URL for Würzburg', function() {
+            var result = pegelonline.getSmallImageUrl('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
+            expect(result).to.be.a('string');
+        });
+    });
+
+    describe('#getLargeImageUrl()', function() {
+        it('should give URL for Würzburg', function() {
+            var result = pegelonline.getLargeImageUrl('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
+            expect(result).to.be.a('string');
         });
     });
 });

@@ -1,552 +1,650 @@
-aalbude
-abbenfleth sperrwerk
-achleiten
-achthöfen fleth
-affoldern
-ahlden
-ahsen schleuse
-aken
-albertsheim
-alken
-allendorf
-alsleben
-altengamme
-althagen
-andernach
-anderten
-anklam
-artlenburg
-artlenburg-elk
-ask strohbrück
-astheim
-auhammer
-auheim brücke
-bad essen
-bahnitz
-bake a
-bake c - scharhörn
-bake z
-bamberg
-banzkow
-barby
-bardowick
-barhöft
-barkow
-barth
-basel-rheinhalle
-belum
-berenbusch
-bergeshövede
-berlin-charlottenburg
-berlin-köpenick
-berlin-mühlendamm
-berlin-oberschleuse
-berlin-ploetzensee
-berlin-schmoeckwitz
-berlin-spandau schleuse
-berlin-unterschleuse
-bernburg
-bevensen
-bhv alter leuchtturm
-bingen
-bischofswerder
-blankenese uf
-bleckede
-blexen abz
-bobzin
-bodenwerder
-boizenburg
-bolzum
-bonaforth
-bonn
-boppard
-borgfeld
-borgsdorf
-borkum fischerbalje
-borkum südstrand
-brake
-bramsche
-brandenburg
-braubach
-bredereiche
-breisach
-breitenberg
-bremervörde
-brokdorf
-broxten
-brunsbüttel mole 1
-buessau
-bunthaus
-burg
-büsum
-buttelerhörne
-buxtehude
-calbe
-calbe grizehne
-celle
-coburg
-cochem
-coswig
-cranz
-cuxhaven steubenhöft
-d1 hanskalbsand oberfläche
-d7
-dagebüll
-dalum
-dalwigksthal
-damnatz
-datteln schleuse
-deggendorf
-demmin
-demmin-meyenkrebsbrücke
-dessau
-detershagen
-dgw1
-dgw2
-diemeltalsperre
-diez hafen
-doemitz
-dömitz
-dorsten schleuse
-dörverden
-drakenburg
-dresden
-dreye
-dreyschloot
-duisburg-meiderich schleuse
-dukegat
-düsseldorf
-dwarsgat
-eckernförde
-edertalsperre
-eichhorst
-eider-sperrwerk
-eisenhuettenstadt schl.
-eisenhüttenstadt
-eiserne brücke
-eitze
-eldena
-elmshorn
-elmshorn hafen
-elsfleth
-elsfleth ohrt
-elster
-emden neue seeschleuse
-emmerich
-emshörn
-erlau
-fahrenholz
-farge
-faulbach
-findshier
-flaesheim schleuse
-flensburg
-frankfurt1 (oder)
-frankfurt osthafen
-freiburg sperrwerk
-fremersdorf
-friedrichsfeld schleuse
-friedrichstadt strassenbrücke
-friedrichstadt treene
-friedrichsthal
-fuerstenwalde
-fuestrup
-fuhse-ost
-fürstenberg
-gartz
-garwitz
-garz
-geesthacht
-gelsenkirchen schleuse
-genthin
-geversdorf brücke
-giessen klärwerk
-gießen klärwerk
-glückstadt
-gnevsdorf
-gorleben
-grabow
-grauerort
-grebenau
-greifswald oie
-greifswald-wieck
-grevenmacher
-grönhude
-grosse tränke wehr
-grosse weserbrücke
-gross rosenburg
-grütz
-gülpe
-gundelsheim
-guntershausen
-hahlen
-hahnöfer sand west siel
-haldensleben
-hamburg st. pauli
-hameln wehrbergen
-hamm
-hanau brücke
-hann. list
-hann.muenden
-hasehubbrücke
-hattingen
-havelberg
-havelberg stadt
-hechthausen
-heidelberg
-heiligenhafen
-heldra
-helgoland binnenhafen
-helgoland südhafen
-helminghausen
-henrichenburg
-herbrum hafendamm
-herne
-herrenhausen
-herzhausen
-hessigheim schleuse
-hetlingen
-himmelpfort
-hitzacker
-hoerstel
-hofkirchen
-hohensaaten-finow
-hohensaaten ost
-hohensaaten west
-hohnstorf
-hollersiel
-hooksielplate
-horneburg
-hörnum
-höxter
-hoya
-hundsmühlen
-huntebrueck
-hünxe schleuse
-husum
-hüttendorf
-iffezheim
-ilmenau
-ilmenau sperrwerk
-ilmenau-sperrwerk
-ingolstadt luitpoldstrasse
-inneres estesperrwerk
-inneres este-sperrwerk
-intschede
-itzehoe hafen
-jarmen
-kade
-kalkofen neu
-kanalbrücke
-kannenburg
-kappeln
-karlshafen
-karlshagen
-karnin
-kaub
-kehl-kronenhof
-kelheimwinzer
-kersdorf
-ketzin
-kiel-holtenau
-kienitz
-kietz
-kleinheubach
-klein laasch wehr
-kleinmachnow
-kleinostheim
-kleinostheim_wuk
-kloster
-knock
-kns nok
-kns ostsee
-koblenz
-koblenz-lützel
-kollmar
-köln
-konstanz
-konstanz-rhein
-koserow
-kotthausen
-krautsand
-krotzenburg
-krückau-sperrwerk
-kummersdorf
-lahnstein schleuse
-langballigau
-langeoog
-lauffen
-lauterbach
-ledasperrwerk
-leerort
-lehnitz
-lenzen
-letzter heller
-leuchtturm alte weser
-leun neu
-lewitz
-lexfähre
-liebenau
-liebenwalde
-lingen-darme
-list auf sylt
-lohnde
-louny
-lt kalkgrund
-lt kiel
-lübeck-bauhof
-lübz
-lüdinghausen
-luebbecke
-lueneburg
-lühesperrwerk
-lühort
-lüne
-magdeburg-buckau
-magdeburg-ro nws
-magdeburg-strombrücke
-mainflingen
-mainz
-malchow wehr
-malliss
-mannheim
-mannheim neckar
-marbach wehr
-marburg
-marienleuchte
-marienthal
-marklendorf
-maxau
-mehrum
-meissen
-mellumplate
-mescherin
-minden
-mirow
-mittelgrund
-mölln
-muesse
-müggendorf
-mühlberg
-münster
-nalje siel
-neuburg
-neu darchau
-neue mühle
-neue mühle schleuse
-neuendorf hafen
-neuhaus
-neustadt
-neustadt glewe
-neuwerben
-neuwied stadt
-niederblockland
-niederfinow shw
-niederwinzer
-niegripp
-nienbruegge
-nienburg
-nienburg (saale)
-nierstein-oppenheim
-nok breiholz
-nok brunsbüttel
-nok dükerswisch
-nok königsförde
-nok rendsburg
-nordenham
-norderney riffgat
-nordfeld
-oberhausen schleuse
-obernau
-oberndorf
-oberwinter
-oestrich
-oldenburg-drielake
-oslebshausen
-osloss
-osteriff mpm
-oste-sperrwerk
-ottenheim
-otterndorf mpm
-over
-papenburg
-parchim güte
-parey
-passau donau
-passau ilzstadt
-passau luitpoldbrücke
-passau steinbachbrücke
-pellworm anleger
-perl
-petershagen
-pettstadt
-pfatter
-pfelling
-philippsburg
-pinnau-sperrwerk
-pirna
-plau
-plaue
-plittersdorf
-plochingen
-pogum
-porta
-potsdam
-predmerice
-prelouc
-pretzsch-mauken
-priorau
-quitzöbel
-rathenow
-ratzdorf
-raunheim
-rechtenfleth
-recke
-rees
-reithoerne
-rensing
-rethem
-rhede
-rheine unterschleuse
-rheinweiler
-riedenburg
-riedenburg_up
-riesa
-rinteln
-rischmühle
-ritterhude
-robbensüdsteert
-rockenau ska
-rodenberger aue-ost
-rodenberger aue-west
-rogätz
-röpzig
-rosslau
-rostock mühlendamm
-rotenburg
-rothenburg
-rothensee
-ruden
-ruehen
-ruhrort
-ruhrwehr
-rusbend
-rust
-ruthenstrom sperrwerk
-ruwer
-sachsenhausen
-sandau
-sankt arnual
-sankt goar
-sassnitz
-scharleuk
-schillig
-schleimünde sp
-schleswig
-schleuse rothensee
-schlossbrücke mülheim
-schmittlotheim
-schnackenburg
-schöna
-schönebeck
-schöneworth siel
-schönwalde
-schöpfstelle
-schulau
-schwabelweis
-schwarmstedt
-schwedt-oderbrücke
-schwedt schleuse
-schweinfurt neuer hafen
-schweinfurt nh
-schwerin werderbrücke
-schwinge sperrwerk
-seemannshöft
-sehnde
-siel twielenfleth
-speyer
-stadersand
-stadtbredimus
-stahlbrode
-steinbach
-stolzenau
-storkau
-storkow
-stör-sperrwerk
-stralsund
-straubing
-stützkow
-suelfeld
-tangermünde
-templin
-terborg
-thiessow
-thune
-tieckow
-timmendorf poel
-tönning
-torgau
-travemünde
-trier
-trotha
-truebengraben polder
-trunstadt
-tyniste
-ueckermünde
-uelzen
-uetersen
-vegesack
-velsdorf
-versen-wd
-vilshofen
-vlotho
-vockerode
-vorsfelde
-voslapp
-vranany
-wahmbeck
-waltrop
-wangerooge nord
-wangerooge ost
-wangerooge west 
-wanne eickel schleuse
-warber graben
-waren
-warnau polder
-warnemünde
-wasserhorst
-weener
-wehr geesthacht
-wendisch rietz
-wernsdorf
-werries
-wertheim
-wesel
-wesenberg
-weser
-weserwehr
-wettin
-whv alter vorhafen
-whv neuer vorhafen
-wilhelmsbrücke
-wincheringen
-wischhafen sperrwerk
-wismar-baumhaus
-wittdün
-wittenberg
-wittenberge
-wittingen
-wittorf
-wittower fähre
-wolfsbruch
-wolgast
-woltersdorf
-worms
-würzburg
-wusterwitz
-zehdenick
-zehnerloch
-zeltingen
-zerben
-ziegelhausen ams
-zollenspieker
+Aalbude
+Abbenfleth Sperrwerk
+Achleiten
+Achthöfen Fleth
+Affoldern
+Ahlden
+Ahsen Schleuse Oberwasser
+Ahsen Schleuse Unterwasser
+Aken
+Albertsheim
+Alken
+Allendorf
+Alsleben Oberpegel
+Alsleben Unterpegel
+Altengamme
+Althagen
+Andernach
+Anderten
+Anderten Oberwasser
+Anderten Unterwasser
+Anklam
+Artlenburg
+Artlenburg Elk
+Ask Strohbrück
+Astheim
+Auhammer
+Auheim Brücke Dfh
+Bad Essen
+Bahnitz Oberpegel
+Bahnitz Unterpegel
+Bake A
+Bake C Scharhörn
+Bake Z
+Bamberg
+Banzkow Oberpegel
+Banzkow Unterpegel
+Barby
+Bardowick Oberpegel
+Bardowick Unterpegel
+Barhöft
+Barkow Oberpegel
+Barth
+Basel Rheinhalle
+Belum
+Berenbusch
+Bergeshövede
+Berlin Charlottenburg Oberpegel
+Berlin Charlottenburg Unterpegel
+Berlin Köpenick
+Berlin Mühlendamm Oberpegel
+Berlin Mühlendamm Unterpegel
+Berlin Oberschleuse Oberpegel
+Berlin Oberschleuse Unterpegel
+Berlin Ploetzensee Oberpegel
+Berlin Ploetzensee Unterpegel
+Berlin Schmoeckwitz
+Berlin Spandau Schleuse Oberpegel
+Berlin Spandau Schleuse Unterpegel
+Berlin Unterschleuse Oberpegel
+Berlin Unterschleuse Unterpegel
+Bernburg Oberpegel
+Bernburg Unterpegel
+Bevensen
+Bhv Alter Leuchtturm
+Bingen
+Bischofswerder Oberpegel
+Bischofswerder Unterpegel
+Blankenese Uf
+Bleckede
+Blexen Abz
+Bobzin Oberpegel
+Bodenwerder
+Boizenburg
+Bolzum
+Bonaforth
+Bonn
+Boppard
+Borgfeld
+Borgsdorf
+Borkum Fischerbalje
+Borkum Südstrand
+Brake
+Bramsche
+Brandenburg Oberpegel
+Brandenburg Unterpegel
+Braubach
+Bredereiche Oberpegel
+Bredereiche Unterpegel
+Breisach
+Breitenberg
+Bremervörde
+Brokdorf
+Broxten
+Brunsbüttel Mole 1
+Buessau Unterpegel
+Bunthaus
+Burg
+Buttelerhörne
+Buxtehude
+Büsum
+Calbe Grizehne
+Calbe Oberpegel
+Calbe Unterpegel
+Celle
+Coburg
+Cochem
+Coswig
+Cranz
+Cuxhaven Steubenhöft
+D1 Hanskalbsand Oberfläche
+D2 Lühesand Oberfläche
+D7
+Dagebüll
+Dalum
+Dalwigksthal
+Damnatz
+Datteln Schleuse Oberwasser
+Datteln Schleuse Unterwasser
+Deggendorf
+Demmin Meyenkrebsbrücke
+Dessau
+Detershagen
+Dgw1
+Dgw2
+Diemeltalsperre
+Diez Hafen
+Doemitz Oberpegel
+Doemitz Unterpegel
+Dorsten Schleuse Oberwasser
+Dorsten Schleuse Unterwasser
+Drakenburg
+Dresden
+Dreye
+Dreyschloot
+Duisburg Meiderich Schleuse Oberwasser
+Duisburg Meiderich Schleuse Unterwasser
+Dukegat
+Dwarsgat
+Dömitz
+Dörverden
+Düsseldorf
+Eckernförde
+Edertalsperre
+Eichhorst Oberpegel
+Eichhorst Unterpegel
+Eider Sperrwerk Ap
+Eider Sperrwerk Bp
+Eisenhuettenstadt Schleuse Oberpegel
+Eisenhuettenstadt Schleuse Unterpegel
+Eisenhüttenstadt
+Eiserne Brücke
+Eitze
+Eldena Oberpegel
+Elmshorn
+Elmshorn Hafen
+Elsfleth
+Elsfleth Ohrt
+Elster
+Emden Neue Seeschleuse
+Emmerich
+Emshörn
+Erlau
+Fahrenholz Oberpegel
+Fahrenholz Unterpegel
+Farge
+Faulbach
+Findshier Oberpegel
+Flaesheim Schleuse Oberwasser
+Flaesheim Schleuse Unterwasser
+Flensburg
+Frankfurt Osthafen
+Frankfurt1 (oder)
+Freiburg Sperrwerk
+Fremersdorf
+Friedrichsfeld Schleuse Oberwasser
+Friedrichsfeld Schleuse Unterwasser
+Friedrichstadt Strassenbrücke
+Friedrichstadt Treene
+Friedrichsthal
+Fuerstenwalde Oberpegel
+Fuerstenwalde Unterpegel
+Fuestrup
+Fuhse Ost
+Fürstenberg Oberpegel
+Fürstenberg Unterpegel
+Gartz
+Garwitz Unterpegel
+Garz Oberpegel
+Garz Unterpegel
+Geesthacht
+Gelsenkirchen Schleuse Oberwasser
+Gelsenkirchen Schleuse Unterwasser
+Genthin
+Geversdorf Brücke
+Giessen Klärwerk
+Glückstadt
+Gnevsdorf Ep
+Gnevsdorf Oberpegel
+Gorleben
+Grabow Oberpegel
+Grauerort
+Grebenau
+Greifswald Oie
+Greifswald Wieck
+Grevenmacher Unterpegel
+Gross Rosenburg
+Grosse Tränke Wehr Oberpegel
+Grosse Tränke Wehr Unterpegel
+Grosse Weserbrücke
+Grönhude
+Grütz Oberpegel
+Grütz Unterpegel
+Gundelsheim Unterpegel
+Guntershausen
+Gw Pwdrfp 01
+Gw Pwdrfp 02
+Gw Pwdrfp 03
+Gw Pwdrfp 04
+Gw Pwdrfp 05
+Gw Pwdrfp 06
+Gw Pwdrfp 07
+Gw Pwdrfp 08
+Gw Pwdrfp 09
+Gülpe Oberpegel
+Hahlen
+Hahnöfer Sand West Siel
+Haldensleben
+Hamburg Sankt Pauli
+Hameln Wehrbergen
+Hamm Oberwasser
+Hamm Unterwasser
+Hanau Brücke Dfh
+Hannover List
+Hannover Muenden
+Hasehubbrücke
+Hattingen
+Havelberg Ep
+Havelberg Stadt
+Havelberg Unterpegel
+Hechthausen
+Heidelberg Unterpegel
+Heiligenhafen
+Heldra
+Helgoland Binnenhafen
+Helgoland Südhafen
+Helminghausen
+Henrichenburg Oberwasser
+Henrichenburg Unterwasser
+Herbrum Hafendamm
+Herne Oberwasser
+Herne Unterwasser
+Herrenhausen
+Herzhausen
+Hessigheim Schleuse Unterpegel
+Hetlingen
+Himmelpfort Oberpegel
+Himmelpfort Unterpegel
+Hitzacker
+Hoerstel
+Hofkirchen
+Hohensaaten Finow
+Hohensaaten Ost Ap
+Hohensaaten West Ap
+Hohensaaten West Bp
+Hohnstorf
+Hollersiel
+Hooksielplate
+Horneburg
+Hoya
+Hundsmühlen
+Huntebrueck
+Husum
+Hörnum
+Höxter
+Hünxe Schleuse Oberwasser
+Hünxe Schleuse Unterwasser
+Hüttendorf
+Iffezheim
+Ilmenau
+Ilmenau Sperrwerk Ap
+Ingolstadt Luitpoldstrasse
+Inneres Este Sperrwerk Bp
+Inneres Estesperrwerk Ap
+Intschede
+Itzehoe Hafen
+Jarmen
+Kade
+Kalkofen Neu
+Kanalbrücke
+Kannenburg Oberpegel
+Kannenburg Unterpegel
+Kappeln
+Karlshafen
+Karlshagen
+Karnin
+Kaub
+Kehl Kronenhof
+Kelheimwinzer
+Kersdorf Oberpegel
+Kersdorf Unterpegel
+Ketzin
+Kiel Holtenau
+Kienitz
+Kietz
+Klein Laasch Wehr Oberpegel
+Kleinheubach
+Kleinmachnow Oberpegel
+Kleinmachnow Unterpegel
+Kleinostheim Wuk
+Kloster
+Knock
+Kns Nok
+Kns Ostsee
+Koblenz
+Koblenz Lützel Dfh
+Koblenz Unterpegel
+Kollmar
+Konstanz
+Konstanz Rhein
+Koserow
+Kotthausen
+Krautsand
+Krotzenburg
+Krückau Sperrwerk Ap
+Krückau Sperrwerk Bp
+Kummersdorf Oberpegel
+Kummersdorf Unterpegel
+Köln
+Lahnstein Schleuse Unterpegel
+Langballigau
+Langeoog
+Lauffen
+Lauterbach
+Ledasperrwerk Unterpegel
+Leerort
+Lehnitz Oberpegel
+Lehnitz Unterpegel
+Lenzen
+Letzter Heller
+Leuchtturm Alte Weser
+Leun Neu
+Lewitz Oberpegel
+Lexfähre Oberwasser
+Lexfähre Unterwasser
+Liebenau
+Liebenwalde Oberpegel
+Liebenwalde Unterpegel
+Lingen Darme
+List Auf Sylt
+Lohnde
+Louny
+Lt Kalkgrund
+Lt Kiel
+Luebbecke
+Lueneburg
+Lueneburg Oberwasser
+Lueneburg Unterwasser
+Lübeck Bauhof
+Lübz Oberpegel
+Lüdinghausen
+Lühesperrwerk
+Lühort
+Lüne
+Magdeburg Buckau
+Magdeburg Ro Nws
+Magdeburg Strombrücke
+Mainflingen
+Mainz
+Malchow Wehr Oberpegel
+Malliss Oberpegel
+Malliss Unterpegel
+Mannheim
+Mannheim Neckar
+Marbach Wehr Unterpegel
+Marburg
+Marienleuchte
+Marienthal Oberpegel
+Marienthal Unterpegel
+Marklendorf
+Maxau
+Mehrum
+Meissen
+Mellumplate
+Mescherin
+Minden
+Mirow Oberpegel
+Mirow Unterpegel
+Mittelgrund
+Muesse
+Mölln
+Müggendorf
+Mühlberg
+Münster Oberwasser
+Münster Unterwasser
+Nalje Siel
+Neu Darchau
+Neuburg Oberpegel
+Neue Mühle Oberpegel
+Neue Mühle Unterpegel
+Neuendorf Hafen
+Neuhaus Oberpegel
+Neuhaus Unterpegel
+Neustadt
+Neustadt Glewe Oberpegel
+Neuwerben Ep
+Neuwied Stadt
+Niederblockland
+Niederfinow Shw Oberpegel
+Niederfinow Shw Unterpegel
+Niederwinzer
+Niegripp Ap
+Niegripp Bp
+Nienbruegge
+Nienburg
+Nienburg (saale)
+Nierstein Oppenheim
+Nok Breiholz
+Nok Brunsbüttel
+Nok Dükerswisch
+Nok Königsförde
+Nok Rendsburg
+Nordenham
+Norderney Riffgat
+Nordfeld Oberwasser
+Nordfeld Unterwasser
+Oberhausen Schleuse Oberwasser
+Oberhausen Schleuse Unterwasser
+Obernau
+Oberndorf
+Oberwinter
+Oestrich
+Oldenburg Drielake
+Oslebshausen
+Osloss
+Oste Sperrwerk Ap
+Oste Sperrwerk Bp
+Osteriff Mpm
+Ottenheim
+Otterndorf Mpm
+Over
+Papenburg
+Parchim Güte
+Parey Ep
+Parey Unterpegel
+Passau Donau
+Passau Ilzstadt
+Passau Luitpoldbrücke Dfh
+Passau Steinbachbrücke Dfh
+Pellworm Anleger
+Perl
+Petershagen
+Pettstadt
+Pfatter
+Pfelling
+Philippsburg
+Pinnau Sperrwerk Ap
+Pinnau Sperrwerk Bp
+Pirna
+Plau Oberpegel
+Plau Unterpegel
+Plaue Oberpegel
+Plaue Unterpegel
+Plittersdorf
+Plochingen
+Pogum
+Porta
+Potsdam
+Predmerice
+Prelouc
+Pretzsch Mauken
+Priorau
+Quitzöbel Oberpegel
+Quitzöbel Unterpegel
+Rathenow Oberpegel
+Rathenow Unterpegel
+Ratzdorf
+Raunheim
+Rechtenfleth
+Recke
+Rees
+Reithoerne
+Rensing
+Rethem
+Rhede
+Rheine Unterschleuse
+Rheinweiler
+Riedenburg Up
+Riesa
+Rinteln
+Rischmühle Unterpegel
+Ritterhude
+Robbensüdsteert
+Rockenau Ska
+Rodenberger Aue Ost
+Rodenberger Aue West
+Rogätz
+Rosslau
+Rostock Mühlendamm Oberwasser
+Rostock Mühlendamm Unterwasser
+Rotenburg
+Rothenburg Oberpegel
+Rothenburg Unterpegel
+Rothensee
+Ruden
+Ruehen
+Ruhrort
+Ruhrwehr Oberwasser
+Rusbend
+Rust
+Ruthenstrom Sperrwerk
+Ruwer
+Röpzig
+Sachsenhausen Oberpegel
+Sachsenhausen Unterpegel
+Sandau
+Sankt Arnual
+Sankt Goar
+Sassnitz
+Scharleuk
+Schillig
+Schleimünde Sp
+Schleswig
+Schleuse Rothensee Unterpegel
+Schlossbrücke Mülheim
+Schmittlotheim
+Schnackenburg
+Schulau
+Schwabelweis
+Schwarmstedt
+Schwedt Oderbrücke
+Schwedt Schleuse Ap
+Schwedt Schleuse Bp
+Schweinfurt Neuer Hafen
+Schwerin Werderbrücke
+Schwinge Sperrwerk
+Schöna
+Schönebeck
+Schöneworth Siel
+Schönwalde Oberpegel
+Schönwalde Unterpegel
+Schöpfstelle
+Seemannshöft
+Sehnde
+Siel Twielenfleth
+Speyer
+Stadersand
+Stadtbredimus Unterpegel
+Stahlbrode
+Steinbach
+Stolzenau
+Storkau
+Storkow Oberpegel
+Storkow Unterpegel
+Stralsund
+Straubing
+Stör Sperrwerk Ap
+Stör Sperrwerk Bp
+Stützkow
+Suelfeld
+Suelfeld Oberwasser
+Suelfeld Unterwasser
+Tangermünde
+Templin Oberpegel
+Templin Unterpegel
+Terborg
+Thiessow
+Thune
+Tieckow
+Timmendorf Poel
+Torgau
+Travemünde
+Trier Unterpegel
+Trotha Oberpegel
+Trotha Unterpegel
+Truebengraben Polder
+Trunstadt
+Tyniste
+Tönning
+Ueckermünde
+Uelzen
+Uelzen Oberwasser
+Uelzen Unterwasser
+Uetersen
+Vegesack
+Velsdorf
+Versen Wd
+Vilshofen
+Vlotho
+Vockerode
+Vorsfelde
+Voslapp
+Vranany
+Wahmbeck
+Waltrop
+Wangerooge Nord
+Wangerooge Ost
+Wangerooge West
+Wanne Eickel Schleuse Oberwasser
+Wanne Eickel Schleuse Unterwasser
+Warber Graben
+Waren
+Warnau Polder
+Warnemünde
+Wasserhorst
+Weener
+Wehr Geesthacht Unterpegel
+Wendisch Rietz Oberpegel
+Wendisch Rietz Unterpegel
+Wernsdorf Oberpegel
+Wernsdorf Unterpegel
+Werries Oberwasser
+Wertheim
+Wesel
+Wesenberg Oberpegel
+Wesenberg Unterpegel
+Weser
+Weserwehr Oberwasser
+Weserwehr Unterwasser
+Wettin Oberpegel
+Wettin Unterpegel
+Wilhelmsbrücke
+Wilhelmshaven Alter Vorhafen
+Wilhelmshaven Neuer Vorhafen
+Wincheringen
+Wischhafen Sperrwerk
+Wismar Baumhaus
+Wittdün
+Wittenberg
+Wittenberge
+Wittingen
+Wittorf Oberpegel
+Wittorf Unterpegel
+Wittower Fähre
+Wolfsbruch Oberpegel
+Wolfsbruch Unterpegel
+Wolgast
+Woltersdorf Oberpegel
+Woltersdorf Unterpegel
+Worms
+Wusterwitz Oberpegel
+Wusterwitz Unterpegel
+Würzburg
+Zehdenick Oberpegel
+Zehdenick Unterpegel
+Zehnerloch
+Zeltingen Unterpegel
+Zerben Oberpegel
+Zerben Unterpegel
+Ziegelhausen Ams
+Zollenspieker

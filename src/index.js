@@ -14,10 +14,20 @@ const Alexa = require('alexa-sdk');
 const pegelonline = require('./pegelonlineRestAPI');
 
 const APP_ID = 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1';
+const uuids = require('./uuids.json');
+const names = require('./names.json');
+
+var uuidsForLowerNames = {};
+Object.keys(uuids).forEach(name => {
+    uuidsForLowerNames[name.toLowerCase()] = uuids[name];
+});
 
 const languageStrings = {
-    'de-DE': {
+    'de': {
         translation: {
+            CURRENT_WATER_LEVEL_MESSAGE: 'Der Wasserstand bei {station} beträgt {value} {unit}.',
+            NO_RESULT_MESSAGE: 'Ich kann diesen Messwert zur Zeit leider nicht bestimmen.',
+            UNKNOWN_STATION_MESSAGE: 'Ich kenne diese Messstelle leider nicht.',
             HELP_MESSAGE: 'Du kannst sagen, „Frag Pegel Online nach dem Wasserstand an einer Messstation“, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
             HELP_REPROMPT: 'Wie kann ich dir helfen?',
             STOP_MESSAGE: 'Auf Wiedersehen!',
@@ -25,38 +35,86 @@ const languageStrings = {
     },
 };
 
+function pad(minutes) {
+    return (minutes < 10) ? ("0" + minutes) : minutes;
+}
+
 const handlers = {
     'LaunchRequest': function () {
-        this.emit('GetWaterLevel');
+        this.emit('AMAZON.HelpIntent');
     },
     'WaterLevelIntent': function () {
-        this.emit('GetWaterLevel');
+        this.emit('WaterLevel');
     },
-    'GetWaterLevel': function () {
-        var stationSlot = this.event.request.intent.slots.Station;
-        var station;
+    'WaterLevel': function () {
+        const stationSlot = this.event.request.intent.slots.Station;
         if (stationSlot && stationSlot.value) {
-            station = stationSlot.value;
-        }
-        console.log("station: " + station);
+            var station = stationSlot.value.toLowerCase();
+            console.log("searching for station " + station);
+            var uuid = uuidsForLowerNames[station];
 
-        // TODO get station names via
-        // curl -s http://www.pegelonline.wsv.de/webservices/rest-api/v2/stations.json | grep '^    "longname":' >/tmp/stations.txt
-        // generate slot values by normalized short names/longnames, store mapping from slot value to uuid or list of uuid for OW/UW stations
-        
-        // TODO request stations via uuid, which is the only id guaranteed to remain unchanged
-        
-        // TODO Alexa dialog for UW/OW or UP/OP stations, or return both values
-        
-        // TODO return card including PNG graph
-
-        var myRequest = station;
-        pegelonline.getCurrentMeasurement(station, (err, result) => {
-            // TODO add unit
-            if (result) {
-                this.emit(':tell', 'Der Wasserstand beträgt ' + result.currentMeasurement.value + ' ' + result.unit);
+            if (!uuid) {
+                // search for best match
+                Object.keys(uuidsForLowerNames).forEach(name => {
+                    if (name.startsWith(station)) {
+                        uuid = uuidsForLowerNames[name];
+                    }
+                });
             }
-        });
+
+            // TODO Alexa dialog for UW/OW or UP/OP stations, or return both values
+            // TODO /stations.json?fuzzyId=berlin
+
+            if (uuid) {
+                station = names[uuid];
+                console.log('using station ' + station + '/uuid ' + uuid);
+                pegelonline.getCurrentMeasurement(uuid, (err, result) => {
+                    if (result) {
+                        if (result.unit.endsWith('+NN')) {
+                            // Bad Essen liefert "m+NN"
+                            result.unit = result.unit.slice(0, result.unit.length - 3);
+                        }
+                        
+                        const currentWaterLevel = this.t('CURRENT_WATER_LEVEL_MESSAGE')
+                              .replace('{station}', station)
+                              .replace('{value}', new String(result.currentMeasurement.value).replace('.', ','))
+                              .replace('{unit}', result.unit);
+                        const speechOutput = currentWaterLevel;
+                        var cardContent = currentWaterLevel;
+                        if (result.currentMeasurement.timestamp) {
+                            const measurementDate = new Date(result.currentMeasurement.timestamp);
+                            const today = new Date();
+                            var measurementTimeDesc;
+                            if (measurementDate.getDate() == today.getDate()) {
+                                // today, use "hours:minutes"
+                                measurementTimeDesc = measurementDate.getHours() + ':' + pad(measurementDate.getMinutes());
+                            } else if ((measurementDate.getDate() + 1) == today.getDate()) {
+                                // yesterday, use "yesterday hours:minutes"
+                                // TODO this won't work on first day of month
+                                measurementTimeDesc = 'gestern ' + measurementDate.getHours() + ':' + pad(measurementDate.getMinutes());
+                            } else {
+                                measurementTimeDesc = measurementDate.toDateString();
+                            }
+                            console.log(measurementTimeDesc);
+                            cardContent = 'Messung von ' + measurementTimeDesc + ' Uhr: ' + cardContent;
+                        }
+                        
+                        const imageObj = {
+                            smallImageUrl: pegelonline.getSmallImageUrl(uuid),
+                            largeImageUrl: pegelonline.getLargeImageUrl(uuid),
+                        }
+
+                        this.emit(':tellWithCard', speechOutput, 'Pegel bei ' + station, cardContent, imageObj);
+                    } else {
+                        this.emit(':tell', this.t('NO_RESULT_MESSAGE'));
+                    }
+                });
+            } else {
+                this.emit(':tell', this.t('UNKNOWN_STATION_MESSAGE'));
+            }
+        } else {
+            this.emit(':tell', this.t('UNKNOWN_STATION_MESSAGE'));
+        }
     },
     'AMAZON.HelpIntent': function () {
         const speechOutput = this.t('HELP_MESSAGE');

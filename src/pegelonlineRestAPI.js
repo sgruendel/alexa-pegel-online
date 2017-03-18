@@ -18,6 +18,8 @@ exports.getStations = function(callback) {
 
     request.on('response', (response) => {
         if (response.statusCode < 200 || response.statusCode > 299) {
+            console.error('error in response for stations.json',
+                          response.statusCode + ' ' + response.statusMessage);
             callback(new Error(response.statusMessage));
         }
         response.on('error', err => {
@@ -28,12 +30,10 @@ exports.getStations = function(callback) {
         response.setEncoding('utf8');
 
         var output;
-        console.log('encoding', response.headers['content-encoding']);
         if (response.headers['content-encoding'] == 'gzip') {
             var gzip = zlib.createGunzip();
             response.pipe(gzip);
             output = gzip;
-            console.log('using gunzip');
         } else {
             output = response;
         }
@@ -45,11 +45,6 @@ exports.getStations = function(callback) {
         });
             
         output.on('end', () => {
-            // we have now received the raw return data in the returnData variable.
-            // We can see it in the log output via:
-            //console.log(JSON.stringify(body));
-            // we may need to parse through it to extract the needed data
-    
             // TODO error handling for returnData
             // {"status":404,"message":"Station id 'XYZ' does not exist."}
             try {
@@ -81,6 +76,8 @@ exports.getCurrentMeasurement = function(station, callback) {
 
     request.on('response', (response) => {
         if (response.statusCode < 200 || response.statusCode > 299) {
+            console.error('error in response for currentmeasurement.json',
+                          response.statusCode + ' ' + response.statusMessage);
             callback(new Error(response.statusMessage));
         }
         response.on('error', err => {
@@ -91,12 +88,10 @@ exports.getCurrentMeasurement = function(station, callback) {
         response.setEncoding('utf8');
 
         var output;
-        console.log('encoding', response.headers['content-encoding']);
         if (response.headers['content-encoding'] == 'gzip') {
             var gzip = zlib.createGunzip();
             response.pipe(gzip);
             output = gzip;
-            console.log('using gunzip');
         } else {
             output = response;
         }
@@ -108,21 +103,22 @@ exports.getCurrentMeasurement = function(station, callback) {
         });
             
         output.on('end', () => {
-            // we have now received the raw return data in the returnData variable.
-            // We can see it in the log output via:
-            //console.log(JSON.stringify(body))
-            // we may need to parse through it to extract the needed data
-
-            // TODO error handling for returnData
-            // {"status":404,"message":"Station id 'XYZ' does not exist."}
             try {
-                return callback(null, JSON.parse(body));
+                const result = JSON.parse(body);
+                if (result.currentMeasurement) {
+                    return callback(null, result);
+                }
+                if (result.status && result.message) {
+                    // error handling for response like
+                    // {"status":404,"message":"Station id 'XYZ' does not exist."}
+                    console.error('error in response for currentmeasurement.json', result.status, result.message);
+                    // No need to callback here, this has already been done when checking response.statusCode above
+                }
             } catch (err) {
                 console.error('error parsing currentmeasurement.json', err);
                 callback(err);
             }
         });
-
     });
 
     request.on('error', err => {
@@ -132,3 +128,11 @@ exports.getCurrentMeasurement = function(station, callback) {
     
     request.end();
 };
+
+exports.getSmallImageUrl = function(station) {
+    return 'https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/' + station + '/W/measurements.png?start=P7D&width=720&height=480';
+}
+
+exports.getLargeImageUrl = function(station) {
+    return 'https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/' + station + '/W/measurements.png?start=P7D&width=1200&height=800';
+}
