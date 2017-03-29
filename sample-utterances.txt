@@ -1,15 +1,25 @@
-WaterLevelIntent nach dem Messwert bei {Station}
-WaterLevelIntent nach dem Messwert in {Station}
 WaterLevelIntent nach dem Messwert an {Station}
-WaterLevelIntent nach dem Pegel bei {Station}
-WaterLevelIntent nach dem Pegel in {Station}
+WaterLevelIntent nach dem Messwert an der {Station}
+WaterLevelIntent nach dem Messwert bei {Station}
+WaterLevelIntent nach dem Messwert bei der {Station}
+WaterLevelIntent nach dem Messwert in {Station}
 WaterLevelIntent nach dem Pegel an {Station}
+WaterLevelIntent nach dem Pegel an der {Station}
+WaterLevelIntent nach dem Pegel bei {Station}
+WaterLevelIntent nach dem Pegel bei der {Station}
+WaterLevelIntent nach dem Pegel in {Station}
+WaterLevelIntent nach dem Pegelstand an {Station}
+WaterLevelIntent nach dem Pegelstand an der {Station}
 WaterLevelIntent nach dem Pegelstand bei {Station}
+WaterLevelIntent nach dem Pegelstand bei der {Station}
 WaterLevelIntent nach dem Pegelstand in {Station}
-WaterLevelIntent nach dem Pegelstand and {Station}
-WaterLevelIntent nach dem Wasserstand bei {Station}
-WaterLevelIntent nach dem Wasserstand in {Station}
 WaterLevelIntent nach dem Wasserstand an {Station}
-WaterLevelIntent nach dem Wert bei {Station}
-WaterLevelIntent nach dem Wert in {Station}
+WaterLevelIntent nach dem Wasserstand an der {Station}
+WaterLevelIntent nach dem Wasserstand bei {Station}
+WaterLevelIntent nach dem Wasserstand bei der {Station}
+WaterLevelIntent nach dem Wasserstand in {Station}
 WaterLevelIntent nach dem Wert an {Station}
+WaterLevelIntent nach dem Wert an der {Station}
+WaterLevelIntent nach dem Wert bei {Station}
+WaterLevelIntent nach dem Wert bei der {Station}
+WaterLevelIntent nach dem Wert in {Station}
