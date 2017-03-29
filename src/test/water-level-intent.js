@@ -6,7 +6,7 @@ var index = require('../index');
 const context = require('aws-lambda-mock-context');
 const ctx = context();
 
-describe('Testing a session with the WaterLevelIntent', () => {
+describe('Testing a session with the WaterLevelIntent:', () => {
     var speechResponse = null
     var speechError = null
     
@@ -19,14 +19,15 @@ describe('Testing a session with the WaterLevelIntent', () => {
                 },
                 "attributes": {},
                 "user": {
-                    "userId": null
+                    "userId": "amzn1.ask.account.[unique-value-here]"
                 },
                 "new": true
             },
             "request": {
                 "type": "IntentRequest",
-                "requestId": "EdwRequestId.474c15c8-14d2-4a77-a4ce-154291c5",
-                "timestamp": "2016-07-05T22:02:01Z",
+                "requestId": "amzn1.echo-api.request.[unique-value-here]",
+                "locale": "de-DE",
+                "timestamp": "2017-03-29T07:52:30Z",
                 "intent": {
                     "name": "WaterLevelIntent",
                     "slots": {
@@ -35,8 +36,7 @@ describe('Testing a session with the WaterLevelIntent', () => {
                             "value": "bad essen"
                         }
                     }
-                },
-                "locale": "de-DE"
+                }
             },
             "version": "1.0"
         }, ctx)
@@ -46,7 +46,7 @@ describe('Testing a session with the WaterLevelIntent', () => {
             .catch(err => { speechError = err; done(); })
     })
     
-    describe('The response is structurally correct for Alexa Speech Services', () => {
+    describe('The response', () => {
         it('should not have errored', () => {
             expect(speechError).to.be.null
         })
@@ -67,12 +67,6 @@ describe('Testing a session with the WaterLevelIntent', () => {
             expect(speechResponse.response.card).to.exist
         })
 
-        /*
-        it('should have session attributes', () => {
-            expect(speechResponse.response.sessionAttributes).to.exist
-        })
-        */
-        
         it('should end the alexa session', () => {
             expect(speechResponse.response.shouldEndSession).to.be.true
         })
