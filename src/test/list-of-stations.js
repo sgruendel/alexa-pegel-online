@@ -2,23 +2,23 @@
 
 const expect = require('chai').expect;
 const fs = require('fs');
-const pegelonline = require('../pegelonlineRestAPI');
+//const pegelonline = require('../pegelonlineRestAPI');
 
 const stations = fs.readFileSync('../slot-LIST_OF_STATIONS.txt').toString().split('\n');
 const uuids = require('../uuids.json');
 const names = require('../names.json');
 
-describe('REST-API helpers', function() {
+describe('stations data', function() {
 
-    stations.forEach(function(station) {
+    stations.forEach(station => {
         if (station) {
             // skip trailing empty line
 
             const uuid = uuids[station];
-            it('should have a uuid for ' + station, function() {
+            it('should have a uuid for ' + station, () => {
                 expect(uuid).to.exist;
             });
-            it('should have a name for ' + station, function() {
+            it('should have a name for ' + station, () => {
                 expect(names[uuid]).to.exist;
             });
 
