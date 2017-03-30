@@ -36,7 +36,59 @@ const languageStrings = {
 };
 
 function pad(minutes) {
-    return (minutes < 10) ? ("0" + minutes) : minutes;
+    return (minutes < 10) ? ('0' + minutes) : minutes;
+}
+
+function emitCurrentMeasurement(alexa, uuid) {
+    const station = names[uuid];
+    console.log('using station ' + station + '/uuid ' + uuid);
+    pegelonline.getCurrentMeasurement(uuid, (err, result) => {
+        if (result) {
+            if (result.unit.endsWith('+NN')) {
+                // Bad Essen liefert "m+NN"
+                result.unit = result.unit.slice(0, result.unit.length - 3);
+            }
+            
+            const currentWaterLevel = alexa.t('CURRENT_WATER_LEVEL_MESSAGE')
+                  .replace('{station}', station)
+                  .replace('{value}', new String(result.currentMeasurement.value).replace('.', ','))
+                  .replace('{unit}', result.unit);
+            const speechOutput = currentWaterLevel;
+            var cardContent = currentWaterLevel;
+            if (result.currentMeasurement.timestamp) {
+                const measurementDate = new Date(result.currentMeasurement.timestamp);
+                const today = new Date();
+                var measurementTimeDesc;
+                if (measurementDate.getDate() == today.getDate()) {
+                    // today, use "hours:minutes"
+                    measurementTimeDesc = measurementDate.getHours() + ':' + pad(measurementDate.getMinutes());
+                } else if ((measurementDate.getDate() + 1) == today.getDate()) {
+                    // yesterday, use "yesterday hours:minutes"
+                    // TODO this won't work on first day of month
+                    measurementTimeDesc = 'gestern ' + measurementDate.getHours() + ':' + pad(measurementDate.getMinutes());
+                } else {
+                    measurementTimeDesc = measurementDate.toDateString();
+                }
+                //console.log(measurementTimeDesc);
+                cardContent = 'Messung von ' + measurementTimeDesc + ' Uhr: ' + cardContent;
+            }
+            
+            const imageObj = {
+                smallImageUrl: pegelonline.getSmallImageUrl(uuid),
+                largeImageUrl: pegelonline.getLargeImageUrl(uuid),
+            }
+
+            alexa.emit(':tellWithCard', speechOutput, 'Pegel bei ' + station, cardContent, imageObj);
+        } else {
+            alexa.emit(':tell', alexa.t('NO_RESULT_MESSAGE'));
+        }
+    });
+}
+
+function emitForUuids(alexa, uuids) {
+    // TODO Alexa dialog for multiple fuzzy matches (like UW/OW or UP/OP stations), or return both values
+    const uuid = uuids[0];
+    emitCurrentMeasurement(alexa, uuid);
 }
 
 const handlers = {
@@ -49,70 +101,42 @@ const handlers = {
     'WaterLevel': function () {
         const stationSlot = this.event.request.intent.slots.Station;
         if (stationSlot && stationSlot.value) {
-            var station = stationSlot.value.toLowerCase();
-            console.log("searching for station " + station);
-            var uuid = uuidsForLowerNames[station];
-
-            if (!uuid) {
-                // search for best match
-                Object.keys(uuidsForLowerNames).forEach(name => {
-                    if (name.startsWith(station)) {
-                        uuid = uuidsForLowerNames[name];
-                    }
-                });
-            }
-
-            // TODO Alexa dialog for UW/OW or UP/OP stations, or return both values
-            // TODO /stations.json?fuzzyId=berlin
+            const station = stationSlot.value.toLowerCase();
+            console.log('searching for station ' + station);
+            const uuid = uuidsForLowerNames[station];
 
             if (uuid) {
-                station = names[uuid];
-                console.log('using station ' + station + '/uuid ' + uuid);
-                pegelonline.getCurrentMeasurement(uuid, (err, result) => {
-                    if (result) {
-                        if (result.unit.endsWith('+NN')) {
-                            // Bad Essen liefert "m+NN"
-                            result.unit = result.unit.slice(0, result.unit.length - 3);
-                        }
-                        
-                        const currentWaterLevel = this.t('CURRENT_WATER_LEVEL_MESSAGE')
-                              .replace('{station}', station)
-                              .replace('{value}', new String(result.currentMeasurement.value).replace('.', ','))
-                              .replace('{unit}', result.unit);
-                        const speechOutput = currentWaterLevel;
-                        var cardContent = currentWaterLevel;
-                        if (result.currentMeasurement.timestamp) {
-                            const measurementDate = new Date(result.currentMeasurement.timestamp);
-                            const today = new Date();
-                            var measurementTimeDesc;
-                            if (measurementDate.getDate() == today.getDate()) {
-                                // today, use "hours:minutes"
-                                measurementTimeDesc = measurementDate.getHours() + ':' + pad(measurementDate.getMinutes());
-                            } else if ((measurementDate.getDate() + 1) == today.getDate()) {
-                                // yesterday, use "yesterday hours:minutes"
-                                // TODO this won't work on first day of month
-                                measurementTimeDesc = 'gestern ' + measurementDate.getHours() + ':' + pad(measurementDate.getMinutes());
-                            } else {
-                                measurementTimeDesc = measurementDate.toDateString();
-                            }
-                            console.log(measurementTimeDesc);
-                            cardContent = 'Messung von ' + measurementTimeDesc + ' Uhr: ' + cardContent;
-                        }
-                        
-                        const imageObj = {
-                            smallImageUrl: pegelonline.getSmallImageUrl(uuid),
-                            largeImageUrl: pegelonline.getLargeImageUrl(uuid),
-                        }
+                // we have a perfect match!
+                console.log('found perfect match:', uuid);
+                emitForUuids(this, [ uuid ]);
+                return;
+            }
+            
+            pegelonline.getUuidsFuzzy(station, (err, uuids) => {
+                if (uuids && uuids.length > 0) {
+                    // we have at least one fuzzy match
+                    console.log('found fuzzy matches:', uuids);
+                    emitForUuids(this, uuids);
+                    return;
+                }
 
-                        this.emit(':tellWithCard', speechOutput, 'Pegel bei ' + station, cardContent, imageObj);
-                    } else {
-                        this.emit(':tell', this.t('NO_RESULT_MESSAGE'));
+                // search for best match
+                uuids = [];
+                Object.keys(uuidsForLowerNames).forEach(name => {
+                    if (name.startsWith(station)) {
+                        uuids.push(uuidsForLowerNames[name]);
                     }
                 });
-            } else {
+                if (uuids.length > 0) {
+                    console.log('found matches:', uuids);
+                    emitForUuids(this, uuids);
+                    return;
+                }
+                console.error('No match found for ' + station);
                 this.emit(':tell', this.t('UNKNOWN_STATION_MESSAGE'));
-            }
+            });
         } else {
+            console.error('No slot value given for station');
             this.emit(':tell', this.t('UNKNOWN_STATION_MESSAGE'));
         }
     },
