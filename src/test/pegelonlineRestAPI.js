@@ -22,6 +22,34 @@ describe('pegelonline', () => {
         });
     });
 
+    describe('#getUuidsFuzzy()', () => {
+        it('should return UUID for Würzburg', done => {
+            pegelonline.getUuidsFuzzy('wuerzburg', (err, result) => {
+                expect(err).to.be.null;
+                expect(result.length).to.equal(1);
+                expect(result[0]).to.equal('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
+                done();
+            });
+        });
+
+        it('should return at least 15 UUIDs for Berlin', done => {
+            pegelonline.getUuidsFuzzy('berlin', (err, result) => {
+                expect(err).to.be.null;
+                expect(result).to.have.length.of.at.least(15);
+                done();
+            });
+        });
+
+        it('should return UUID for Affoldern', done => {
+            pegelonline.getUuidsFuzzy('affoltern', (err, result) => {
+                expect(err).to.be.null;
+                expect(result.length).to.equal(1);
+                expect(result[0]).to.equal('ab9d5a42-2b8d-491b-9fd1-8120df23c8e6');
+                done();
+            });
+        });
+    });
+
     describe('#getCurrentMeasurement()', () => {
         it('should give current measurement for Würzburg', done => {
             pegelonline.getCurrentMeasurement('915d76e1-3bf9-4e37-9a9a-4d144cd771cc', (err, result) => {
