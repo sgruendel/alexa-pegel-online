@@ -394,6 +394,7 @@ Mühlberg
 Münster Oberwasser
 Münster Unterwasser
 Nalje Siel
+Neckarsulm Wehr Unterpegel
 Neu Darchau
 Neuburg Oberpegel
 Neue Mühle Oberpegel
@@ -544,6 +545,7 @@ Seemannshöft
 Sehnde
 Siel Twielenfleth
 Speyer
+Spiekeroog
 Stadersand
 Stadtbredimus Unterpegel
 Stahlbrode
