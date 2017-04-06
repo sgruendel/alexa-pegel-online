@@ -67,6 +67,10 @@ describe('Testing a session with the WaterLevelIntent:', () => {
             expect(speechResponse.response.card).to.exist
         })
 
+        it('should not contain +NN in card response', () => {
+            expect(speechResponse.response.card.text).to.not.contain('+NN')
+        })
+
         it('should end the alexa session', () => {
             expect(speechResponse.response.shouldEndSession).to.be.true
         })
