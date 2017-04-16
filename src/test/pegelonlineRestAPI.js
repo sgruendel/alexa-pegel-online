@@ -50,6 +50,17 @@ describe('pegelonline', () => {
         });
     });
 
+    describe('#getUuidsForWater()', () => {
+        it('should return UUID for Konstanz', done => {
+            pegelonline.getUuidsForWater('bodensee', (err, result) => {
+                expect(err).to.be.null;
+                expect(result.length).to.equal(1);
+                expect(result[0]).to.equal('aa9179c1-17ef-4c61-a48a-74193fa7bfdf');
+                done();
+            });
+        });
+    });
+
     describe('#getCurrentMeasurement()', () => {
         it('should give current measurement for Würzburg', done => {
             pegelonline.getCurrentMeasurement('915d76e1-3bf9-4e37-9a9a-4d144cd771cc', (err, result) => {

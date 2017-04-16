@@ -112,28 +112,38 @@ const handlers = {
                 return;
             }
             
-            pegelonline.getUuidsFuzzy(station, (err, uuids) => {
+            // try to interpret station as water body
+            pegelonline.getUuidsForWater(station, (err, uuids) => {
                 if (uuids && uuids.length > 0) {
-                    // we have at least one fuzzy match
-                    console.log('found fuzzy matches:', uuids);
+                    // we have at least one water body match
+                    console.log('found water matches:', uuids);
                     emitForUuids(this, uuids);
                     return;
                 }
 
-                // search for best match
-                uuids = [];
-                Object.keys(uuidsForLowerNames).forEach(name => {
-                    if (name.startsWith(station)) {
-                        uuids.push(uuidsForLowerNames[name]);
+                pegelonline.getUuidsFuzzy(station, (err, uuids) => {
+                    if (uuids && uuids.length > 0) {
+                        // we have at least one fuzzy match
+                        console.log('found fuzzy matches:', uuids);
+                        emitForUuids(this, uuids);
+                        return;
                     }
+
+                    // search for best match
+                    uuids = [];
+                    Object.keys(uuidsForLowerNames).forEach(name => {
+                        if (name.startsWith(station)) {
+                            uuids.push(uuidsForLowerNames[name]);
+                        }
+                    });
+                    if (uuids.length > 0) {
+                        console.log('found matches:', uuids);
+                        emitForUuids(this, uuids);
+                        return;
+                    }
+                    console.error('No match found for ' + station);
+                    this.emit(':tell', this.t('UNKNOWN_STATION_MESSAGE'));
                 });
-                if (uuids.length > 0) {
-                    console.log('found matches:', uuids);
-                    emitForUuids(this, uuids);
-                    return;
-                }
-                console.error('No match found for ' + station);
-                this.emit(':tell', this.t('UNKNOWN_STATION_MESSAGE'));
             });
         } else {
             console.error('No slot value given for station');
