@@ -69,6 +69,7 @@ describe('Testing a session with the WaterLevelIntent and fuzzy station name:', 
         
         it('should have a card response', () => {
             expect(speechResponse.response.card).to.exist
+            expect(speechResponse.response.card.title).contains('Affoldern')
         })
 
         it('should end the alexa session', () => {
