@@ -617,7 +617,6 @@ Wertheim
 Wesel
 Wesenberg Oberpegel
 Wesenberg Unterpegel
-Weser
 Weserwehr Oberwasser
 Weserwehr Unterwasser
 Wettin Oberpegel
