@@ -1,6 +1,6 @@
 {
   "name": "pegel-online",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Lambda function for Alexa",
   "repository": {
     "type": "git",

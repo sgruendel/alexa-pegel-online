@@ -13,6 +13,8 @@ function normalizeName(name) {
         name = name.replace('schl.', 'schleuse');
     }
 
+    // Hann. Münden => Hannoversch Münden
+    name = name.replace('hann.muenden', 'hannoversch münden');
     // Hann. => Hannover
     pos = name.indexOf('hann.');
     if (pos >= 0) {
