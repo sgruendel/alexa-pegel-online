@@ -41,7 +41,7 @@ function emitCurrentMeasurement(alexa, uuid) {
 
             const currentWaterLevel = alexa.t('CURRENT_WATER_LEVEL_MESSAGE')
                 .replace('{station}', station)
-                .replace('{value}', new String(result.currentMeasurement.value).replace('.', ','))
+                .replace('{value}', result.currentMeasurement.value.toString().replace('.', ','))
                 .replace('{unit}', result.unit);
             const speechOutput = currentWaterLevel;
             var cardContent = currentWaterLevel;
