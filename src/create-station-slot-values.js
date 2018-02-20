@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require('fs');
-const pegelonline = require('./src/pegelonlineRestAPI');
+const pegelonline = require('./pegelonlineRestAPI');
 
 function normalizeName(name) {
     name = name.toLowerCase();
@@ -49,7 +49,7 @@ function normalizeName(name) {
     // replace hyphens and underscores by spaces as Alexa won't add them to slot values
     // replace multiple spaces by one and remove trailing space
     name = name.replace('-', ' ').replace('_', ' ').replace(/ +/g, ' ').trim();
-    
+
     // capitalize letters after spaces
     name = name.split(' ').map(str => {
         return str.charAt(0).toUpperCase() + str.slice(1);
@@ -62,7 +62,7 @@ pegelonline.getStations((err, result) => {
     if (result) {
         var uuids = {};
         var names = {};
-        
+
         result.forEach(station => {
             // map station uuids to names
             const longname = normalizeName(station.longname);
@@ -103,8 +103,8 @@ pegelonline.getStations((err, result) => {
         Object.keys(uuids).forEach(name => {
             namesArray.push(name);
         });
-            
-        stream = fs.createWriteStream('slot-LIST_OF_STATIONS.txt');
+
+        stream = fs.createWriteStream('skill/slot-LIST_OF_STATIONS.txt');
         namesArray.sort().forEach(name => {
             stream.write(name + '\n');
         });

@@ -63,7 +63,7 @@ Wümme
 Aalbude
 Abbenfleth Sperrwerk
 Achleiten
-Achthöfen Fleth
+Achthöfener Fleth Siel
 Affoldern
 Ahlden
 Ahsen Schleuse Oberwasser
@@ -83,10 +83,9 @@ Anderten Unterwasser
 Anklam
 Artlenburg
 Artlenburg Elk
-Ask Strohbrück
 Astheim
-Auhammer
 Auheim Brücke Dfh
+Awk Strohbrück
 Bad Essen
 Bahnitz Oberpegel
 Bahnitz Unterpegel
@@ -157,6 +156,7 @@ Brunsbüttel Mole 1
 Buessau Unterpegel
 Bunthaus
 Burg
+Burow
 Buttelerhörne
 Buxtehude
 Büsum
@@ -169,7 +169,6 @@ Cochem
 Coswig
 Cranz
 Cuxhaven Steubenhöft
-D1 Hanskalbsand Oberfläche
 D2 Lühesand Oberfläche
 D7
 Dagebüll
@@ -182,12 +181,14 @@ Deggendorf
 Demmin Meyenkrebsbrücke
 Dessau
 Detershagen
+Detzem Unterpegel
 Dgw1
 Dgw2
 Diemeltalsperre
 Diez Hafen
 Doemitz Oberpegel
 Doemitz Unterpegel
+Dornbusch Brücke
 Dorsten Schleuse Oberwasser
 Dorsten Schleuse Unterwasser
 Drakenburg
@@ -196,11 +197,13 @@ Dreye
 Dreyschloot
 Duisburg Meiderich Schleuse Oberwasser
 Duisburg Meiderich Schleuse Unterwasser
+Duisburg Ruhrort
 Dukegat
 Dwarsgat
 Dömitz
 Dörverden
 Düsseldorf
+Eberswalde Oberpegel
 Eckernförde
 Edertalsperre
 Eichhorst Oberpegel
@@ -213,7 +216,6 @@ Eisenhüttenstadt
 Eiserne Brücke
 Eitze
 Eldena Oberpegel
-Elmshorn
 Elmshorn Hafen
 Elsfleth
 Elsfleth Ohrt
@@ -222,6 +224,8 @@ Emden Neue Seeschleuse
 Emmerich
 Emshörn
 Erlau
+Este Inneres Sperrwerk Ap
+Este Inneres Sperrwerk Bp
 Fahrenholz Oberpegel
 Fahrenholz Unterpegel
 Farge
@@ -260,6 +264,7 @@ Gnevsdorf Ep
 Gnevsdorf Oberpegel
 Gorleben
 Grabow Oberpegel
+Grafenbrueck Oberpegel
 Grauerort
 Grebenau
 Greifswald Oie
@@ -272,6 +277,7 @@ Grosse Weserbrücke
 Grönhude
 Grütz Oberpegel
 Grütz Unterpegel
+Gueritz Oberpegel
 Gundelsheim Unterpegel
 Guntershausen
 Gw Pwdrfp 01
@@ -287,6 +293,7 @@ Gülpe Oberpegel
 Hahlen
 Hahnöfer Sand West Siel
 Haldensleben
+Hamburg Harburg
 Hamburg Sankt Pauli
 Hameln Wehrbergen
 Hamm Oberwasser
@@ -342,8 +349,6 @@ Iffezheim
 Ilmenau
 Ilmenau Sperrwerk Ap
 Ingolstadt Luitpoldstrasse
-Inneres Este Sperrwerk Bp
-Inneres Estesperrwerk Ap
 Intschede
 Itzehoe Hafen
 Jarmen
@@ -396,6 +401,7 @@ Lauffen
 Lauterbach
 Ledasperrwerk Unterpegel
 Leerort
+Leesenbrueck Oberpegel
 Lehnitz Oberpegel
 Lehnitz Unterpegel
 Lenzen
@@ -408,6 +414,8 @@ Lexfähre Unterwasser
 Liebenau
 Liebenwalde Oberpegel
 Liebenwalde Unterpegel
+Liepe Oberpegel
+Liepe Unterpegel
 Lingen Darme
 List Auf Sylt
 Lohnde
@@ -421,8 +429,8 @@ Lueneburg Unterwasser
 Lübeck Bauhof
 Lübz Oberpegel
 Lüdinghausen
-Lühesperrwerk
 Lühort
+Lühort Lfk
 Lüne
 Magdeburg Buckau
 Magdeburg Ro Nws
@@ -446,7 +454,6 @@ Meissen
 Mellumplate
 Mescherin
 Minden
-Minsener Oog
 Mirow Oberpegel
 Mirow Unterpegel
 Mittelgrund
@@ -457,7 +464,6 @@ Mühlberg
 Münster Oberwasser
 Münster Unterwasser
 Nalje Siel
-Neckarsulm Wehr Unterpegel
 Neu Darchau
 Neuburg Oberpegel
 Neue Mühle Oberpegel
@@ -472,7 +478,6 @@ Neuwied Stadt
 Niederblockland
 Niederfinow Shw Oberpegel
 Niederfinow Shw Unterpegel
-Niederwinzer
 Niegripp Ap
 Niegripp Bp
 Nienbruegge
@@ -522,7 +527,6 @@ Pinnau Sperrwerk Ap
 Pinnau Sperrwerk Bp
 Pirna
 Plau Oberpegel
-Plau Unterpegel
 Plaue Oberpegel
 Plaue Unterpegel
 Plittersdorf
@@ -533,9 +537,9 @@ Potsdam
 Predmerice
 Prelouc
 Pretzsch Mauken
-Priorau
 Quitzöbel Oberpegel
 Quitzöbel Unterpegel
+Ragoese Oberpegel
 Rathenow Oberpegel
 Rathenow Unterpegel
 Ratzdorf
@@ -568,7 +572,7 @@ Rothenburg Unterpegel
 Rothensee
 Ruden
 Ruehen
-Ruhrort
+Ruhlsdorf Oberpegel
 Ruhrwehr Oberwasser
 Rusbend
 Rust
@@ -589,6 +593,7 @@ Schleuse Rothensee Unterpegel
 Schlossbrücke Mülheim
 Schmittlotheim
 Schnackenburg
+Schoepfurth Oberpegel
 Schulau
 Schwabelweis
 Schwarmstedt
@@ -606,12 +611,12 @@ Schönwalde Unterpegel
 Schöpfstelle
 Seemannshöft
 Sehnde
-Siel Twielenfleth
 Speyer
 Spiekeroog
 Stadersand
 Stadtbredimus Unterpegel
 Stahlbrode
+Stecher Oberpegel
 Steinbach
 Stolzenau
 Storkau
@@ -619,6 +624,7 @@ Storkow Oberpegel
 Storkow Unterpegel
 Stralsund
 Straubing
+Strohplao
 Stör Sperrwerk Ap
 Stör Sperrwerk Bp
 Stützkow
@@ -640,6 +646,7 @@ Trotha Oberpegel
 Trotha Unterpegel
 Truebengraben Polder
 Trunstadt
+Twielenfleth Siel
 Tyniste
 Tönning
 Ueckermünde
@@ -679,6 +686,7 @@ Wertheim
 Wesel
 Wesenberg Oberpegel
 Wesenberg Unterpegel
+Weser
 Weserwehr Oberwasser
 Weserwehr Unterwasser
 Wettin Oberpegel
@@ -687,6 +695,7 @@ Wilhelmsbrücke
 Wilhelmshaven Alter Vorhafen
 Wilhelmshaven Neuer Vorhafen
 Wincheringen
+Wintrich Unterpegel
 Wischhafen Sperrwerk
 Wismar Baumhaus
 Wittdün
