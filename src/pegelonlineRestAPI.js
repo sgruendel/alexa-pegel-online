@@ -9,17 +9,20 @@ const zlib = require('zlib');
 var exports = module.exports = {};
 
 exports.getStations = function(callback) {
-    const request = http.get({ host: 'www.pegelonline.wsv.de',
-                               port: 80,
-                               path: '/webservices/rest-api/v2/stations.json?prettyprint=false',
-                               headers: { 'Accept': 'application/json',
-                                          'xxxAccept-Encoding': 'gzip' },
-                             });
+    const request = http.get({
+        host: 'www.pegelonline.wsv.de',
+        port: 80,
+        path: '/webservices/rest-api/v2/stations.json?prettyprint=false',
+        headers: {
+            Accept: 'application/json',
+            'xxxAccept-Encoding': 'gzip',
+        },
+    });
 
     request.on('response', (response) => {
         if (response.statusCode < 200 || response.statusCode > 299) {
             console.error('error in response for stations.json',
-                          response.statusCode + ' ' + response.statusMessage);
+                response.statusCode + ' ' + response.statusMessage);
             callback(new Error(response.statusMessage));
         }
         response.on('error', err => {
@@ -30,54 +33,57 @@ exports.getStations = function(callback) {
         response.setEncoding('utf8');
 
         var output;
-        if (response.headers['content-encoding'] == 'gzip') {
+        if (response.headers['content-encoding'] === 'gzip') {
             var gzip = zlib.createGunzip();
             response.pipe(gzip);
             output = gzip;
         } else {
             output = response;
         }
-        
-        // incrementally capture the incoming response body        
+
+        // incrementally capture the incoming response body
         var body = '';
         output.on('data', chunk => {
             body += chunk;
         });
-            
+
         output.on('end', () => {
             // TODO error handling for returnData
             // {"status":404,"message":"Station id 'XYZ' does not exist."}
             try {
-                //console.log('body', body);
+                // console.log('body', body);
                 return callback(null, JSON.parse(body));
             } catch (err) {
                 console.error('error parsing stations.json', err);
                 callback(err);
             }
         });
-    
+
     });
 
     request.on('error', err => {
         console.error('error requesting stations.json', err.message);
         callback(err);
     });
-    
+
     request.end();
-}
+};
 
 exports.getUuidsFuzzy = function(station, callback) {
-    const request = http.get({ host: 'www.pegelonline.wsv.de',
-                               port: 80,
-                               path: '/webservices/rest-api/v2/stations.json?fuzzyId=' + encodeURI(station) + '&prettyprint=false',
-                               headers: { 'Accept': 'application/json',
-                                          'xxxAccept-Encoding': 'gzip' },
-                             });
+    const request = http.get({
+        host: 'www.pegelonline.wsv.de',
+        port: 80,
+        path: '/webservices/rest-api/v2/stations.json?fuzzyId=' + encodeURI(station) + '&prettyprint=false',
+        headers: {
+            Accept: 'application/json',
+            'xxxAccept-Encoding': 'gzip',
+        },
+    });
 
     request.on('response', (response) => {
         if (response.statusCode < 200 || response.statusCode > 299) {
             console.error('error in response for stations.json',
-                          response.statusCode + ' ' + response.statusMessage);
+                response.statusCode + ' ' + response.statusMessage);
             callback(new Error(response.statusMessage));
         }
         response.on('error', err => {
@@ -88,7 +94,7 @@ exports.getUuidsFuzzy = function(station, callback) {
         response.setEncoding('utf8');
 
         var output;
-        if (response.headers['content-encoding'] == 'gzip') {
+        if (response.headers['content-encoding'] === 'gzip') {
             var gzip = zlib.createGunzip();
             response.pipe(gzip);
             output = gzip;
@@ -96,12 +102,12 @@ exports.getUuidsFuzzy = function(station, callback) {
             output = response;
         }
 
-        // incrementally capture the incoming response body        
+        // incrementally capture the incoming response body
         var body = '';
         output.on('data', chunk => {
             body += chunk;
         });
-            
+
         output.on('end', () => {
             try {
                 const result = JSON.parse(body);
@@ -119,22 +125,25 @@ exports.getUuidsFuzzy = function(station, callback) {
         console.error('error requesting stations.json', err.message);
         callback(err);
     });
-    
+
     request.end();
-}
+};
 
 exports.getUuidsForWater = function(water, callback) {
-    const request = http.get({ host: 'www.pegelonline.wsv.de',
-                               port: 80,
-                               path: '/webservices/rest-api/v2/stations.json?waters=' + encodeURI(water) + '&prettyprint=false',
-                               headers: { 'Accept': 'application/json',
-                                          'xxxAccept-Encoding': 'gzip' },
-                             });
+    const request = http.get({
+        host: 'www.pegelonline.wsv.de',
+        port: 80,
+        path: '/webservices/rest-api/v2/stations.json?waters=' + encodeURI(water) + '&prettyprint=false',
+        headers: {
+            Accept: 'application/json',
+            'xxxAccept-Encoding': 'gzip',
+        },
+    });
 
     request.on('response', (response) => {
         if (response.statusCode < 200 || response.statusCode > 299) {
             console.error('error in response for stations.json',
-                          response.statusCode + ' ' + response.statusMessage);
+                response.statusCode + ' ' + response.statusMessage);
             callback(new Error(response.statusMessage));
         }
         response.on('error', err => {
@@ -145,7 +154,7 @@ exports.getUuidsForWater = function(water, callback) {
         response.setEncoding('utf8');
 
         var output;
-        if (response.headers['content-encoding'] == 'gzip') {
+        if (response.headers['content-encoding'] === 'gzip') {
             var gzip = zlib.createGunzip();
             response.pipe(gzip);
             output = gzip;
@@ -153,12 +162,12 @@ exports.getUuidsForWater = function(water, callback) {
             output = response;
         }
 
-        // incrementally capture the incoming response body        
+        // incrementally capture the incoming response body
         var body = '';
         output.on('data', chunk => {
             body += chunk;
         });
-            
+
         output.on('end', () => {
             try {
                 const result = JSON.parse(body);
@@ -176,22 +185,25 @@ exports.getUuidsForWater = function(water, callback) {
         console.error('error requesting stations.json', err.message);
         callback(err);
     });
-    
+
     request.end();
-}
+};
 
 exports.getCurrentMeasurement = function(station, callback) {
-    const request = http.get({ host: 'www.pegelonline.wsv.de',
-                               port: 80,
-                               path: '/webservices/rest-api/v2/stations/' + encodeURI(station) + '/W.json?includeCurrentMeasurement=true&prettyprint=false',
-                               headers: { 'Accept': 'application/json',
-                                          'xxxAccept-Encoding': 'gzip' },
-                             });
+    const request = http.get({
+        host: 'www.pegelonline.wsv.de',
+        port: 80,
+        path: '/webservices/rest-api/v2/stations/' + encodeURI(station) + '/W.json?includeCurrentMeasurement=true&prettyprint=false',
+        headers: {
+            Accept: 'application/json',
+            'xxxAccept-Encoding': 'gzip',
+        },
+    });
 
     request.on('response', (response) => {
         if (response.statusCode < 200 || response.statusCode > 299) {
             console.error('error in response for currentmeasurement.json',
-                          response.statusCode + ' ' + response.statusMessage);
+                response.statusCode + ' ' + response.statusMessage);
             callback(new Error(response.statusMessage));
         }
         response.on('error', err => {
@@ -202,7 +214,7 @@ exports.getCurrentMeasurement = function(station, callback) {
         response.setEncoding('utf8');
 
         var output;
-        if (response.headers['content-encoding'] == 'gzip') {
+        if (response.headers['content-encoding'] === 'gzip') {
             var gzip = zlib.createGunzip();
             response.pipe(gzip);
             output = gzip;
@@ -210,12 +222,12 @@ exports.getCurrentMeasurement = function(station, callback) {
             output = response;
         }
 
-        // incrementally capture the incoming response body        
+        // incrementally capture the incoming response body
         var body = '';
         output.on('data', chunk => {
             body += chunk;
         });
-            
+
         output.on('end', () => {
             try {
                 const result = JSON.parse(body);
@@ -239,14 +251,14 @@ exports.getCurrentMeasurement = function(station, callback) {
         console.error('error requesting currentmeasurement.json', err.message);
         callback(err);
     });
-    
+
     request.end();
-}
+};
 
 exports.getSmallImageUrl = function(station) {
     return 'https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/' + station + '/W/measurements.png?start=P7D&width=720&height=480';
-}
+};
 
 exports.getLargeImageUrl = function(station) {
     return 'https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/' + station + '/W/measurements.png?start=P7D&width=1200&height=800';
-}
+};

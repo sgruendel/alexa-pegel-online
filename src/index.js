@@ -1,13 +1,3 @@
-/* eslint-disable  func-names */
-/* eslint quote-props: ["error", "consistent"]*/
-/**
- * This sample demonstrates a simple skill built with the Amazon Alexa Skills
- * nodejs skill development kit.
- * This sample supports multiple lauguages. (en-US, en-GB, de-DE).
- * The Intent Schema, Custom Slots and Sample Utterances for this skill, as well
- * as testing instructions are located at https://github.com/alexa/skill-sample-nodejs-fact
- **/
-
 'use strict';
 
 const Alexa = require('alexa-sdk');
@@ -23,7 +13,7 @@ Object.keys(uuids).forEach(name => {
 });
 
 const languageStrings = {
-    'de': {
+    de: {
         translation: {
             CURRENT_WATER_LEVEL_MESSAGE: 'Der Wasserstand bei {station} beträgt {value} {unit}.',
             NO_RESULT_MESSAGE: 'Ich kann diesen Messwert zur Zeit leider nicht bestimmen.',
@@ -48,38 +38,39 @@ function emitCurrentMeasurement(alexa, uuid) {
                 // Bad Essen liefert "m+NN"
                 result.unit = result.unit.slice(0, result.unit.length - 3);
             }
-            
+
             const currentWaterLevel = alexa.t('CURRENT_WATER_LEVEL_MESSAGE')
-                  .replace('{station}', station)
-                  .replace('{value}', new String(result.currentMeasurement.value).replace('.', ','))
-                  .replace('{unit}', result.unit);
+                .replace('{station}', station)
+                .replace('{value}', new String(result.currentMeasurement.value).replace('.', ','))
+                .replace('{unit}', result.unit);
             const speechOutput = currentWaterLevel;
             var cardContent = currentWaterLevel;
             if (result.currentMeasurement.timestamp) {
                 const measurementDate = new Date(result.currentMeasurement.timestamp);
                 const today = new Date();
                 var measurementTimeDesc;
-                if (measurementDate.getDate() == today.getDate()) {
+                if (measurementDate.getDate() === today.getDate()) {
                     // today, use "hours:minutes"
                     measurementTimeDesc = measurementDate.getHours() + ':' + pad(measurementDate.getMinutes());
-                } else if ((measurementDate.getDate() + 1) == today.getDate()) {
+                } else if ((measurementDate.getDate() + 1) === today.getDate()) {
                     // yesterday, use "yesterday hours:minutes"
                     // TODO this won't work on first day of month
                     measurementTimeDesc = 'gestern ' + measurementDate.getHours() + ':' + pad(measurementDate.getMinutes());
                 } else {
                     measurementTimeDesc = measurementDate.toDateString();
                 }
-                //console.log(measurementTimeDesc);
+                // console.log(measurementTimeDesc);
                 cardContent = 'Messung von ' + measurementTimeDesc + ' Uhr: ' + cardContent;
             }
-            
+
             const imageObj = {
                 smallImageUrl: pegelonline.getSmallImageUrl(uuid),
                 largeImageUrl: pegelonline.getLargeImageUrl(uuid),
-            }
+            };
 
             alexa.emit(':tellWithCard', speechOutput, 'Pegel bei ' + station, cardContent, imageObj);
         } else {
+            console.error('Error getting current measurement', err);
             alexa.emit(':tell', alexa.t('NO_RESULT_MESSAGE'));
         }
     });
@@ -92,13 +83,13 @@ function emitForUuids(alexa, uuids) {
 }
 
 const handlers = {
-    'LaunchRequest': function () {
+    LaunchRequest: function() {
         this.emit('AMAZON.HelpIntent');
     },
-    'WaterLevelIntent': function () {
+    WaterLevelIntent: function() {
         this.emit('WaterLevel');
     },
-    'WaterLevel': function () {
+    WaterLevel: function() {
         const stationSlot = this.event.request.intent.slots.Station;
         if (stationSlot && stationSlot.value) {
             const station = stationSlot.value.toLowerCase();
@@ -111,7 +102,7 @@ const handlers = {
                 emitForUuids(this, [ uuid ]);
                 return;
             }
-            
+
             // try to interpret station as water body
             pegelonline.getUuidsForWater(station, (err, uuids) => {
                 if (uuids && uuids.length > 0) {
@@ -150,18 +141,18 @@ const handlers = {
             this.emit(':tell', this.t('UNKNOWN_STATION_MESSAGE'));
         }
     },
-    'AMAZON.HelpIntent': function () {
+    'AMAZON.HelpIntent': function() {
         const speechOutput = this.t('HELP_MESSAGE');
         const reprompt = this.t('HELP_REPROMPT');
         this.emit(':ask', speechOutput, reprompt);
     },
-    'AMAZON.CancelIntent': function () {
+    'AMAZON.CancelIntent': function() {
         this.emit(':tell', this.t('STOP_MESSAGE'));
     },
-    'AMAZON.StopIntent': function () {
+    'AMAZON.StopIntent': function() {
         this.emit(':tell', this.t('STOP_MESSAGE'));
     },
-    'SessionEndedRequest': function () {
+    SessionEndedRequest: function() {
         this.emit(':tell', this.t('STOP_MESSAGE'));
     },
 };

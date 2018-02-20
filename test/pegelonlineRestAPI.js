@@ -1,9 +1,9 @@
 'use strict';
 
 var expect = require('chai').expect;
-var pegelonline = require('../pegelonlineRestAPI');
+var pegelonline = require('../src/pegelonlineRestAPI');
 
-const names = require('../names.json');
+const names = require('../src/names.json');
 
 describe('pegelonline', () => {
     describe('#getStations()', () => {
@@ -16,7 +16,7 @@ describe('pegelonline', () => {
                     // There seems to be an error in station data as
                     // Weser is returned as station but cannot be
                     // requested, so we skip it
-                    if (station.longname != 'WESER') {
+                    if (station.longname !== 'WESER') {
                         expect(station.uuid).to.be.a('string');
                         expect(names[station.uuid]).to.exist;
                     }
