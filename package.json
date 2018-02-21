@@ -8,6 +8,7 @@
   },
   "main": "index.js",
   "scripts": {
+    "update-stations": "node src/create-station-slot-values.js",
     "invoke": "aws lambda invoke --function-name 'pegelOnline' --payload fileb://../tests/events/alexa-start-session.json ../tests/out.txt && cat ../tests/out.txt",
     "test": "mocha",
     "deploy": "npm prune --production && npm run zip && npm run upload",
