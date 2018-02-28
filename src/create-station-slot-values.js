@@ -42,6 +42,10 @@ function normalizeName(name) {
         name = name.replace(' op', ' oberpegel');
     } else if (name.endsWith(' up')) {
         name = name.replace(' up', ' unterpegel');
+    } else if (name.endsWith(' ap')) {
+        name = name.replace(' ap', ' außenpegel');
+    } else if (name.endsWith(' bp')) {
+        name = name.replace(' bp', ' binnenpegel');
     }
 
     // TODO AP/BP/EP ???
