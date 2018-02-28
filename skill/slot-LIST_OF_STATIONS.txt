@@ -208,8 +208,8 @@ Eckernförde
 Edertalsperre
 Eichhorst Oberpegel
 Eichhorst Unterpegel
-Eider Sperrwerk Ap
-Eider Sperrwerk Bp
+Eider Sperrwerk Außenpegel
+Eider Sperrwerk Binnenpegel
 Eisenhuettenstadt Schleuse Oberpegel
 Eisenhuettenstadt Schleuse Unterpegel
 Eisenhüttenstadt
@@ -224,8 +224,8 @@ Emden Neue Seeschleuse
 Emmerich
 Emshörn
 Erlau
-Este Inneres Sperrwerk Ap
-Este Inneres Sperrwerk Bp
+Este Inneres Sperrwerk Außenpegel
+Este Inneres Sperrwerk Binnenpegel
 Fahrenholz Oberpegel
 Fahrenholz Unterpegel
 Farge
@@ -329,9 +329,9 @@ Hitzacker
 Hoerstel
 Hofkirchen
 Hohensaaten Finow
-Hohensaaten Ost Ap
-Hohensaaten West Ap
-Hohensaaten West Bp
+Hohensaaten Ost Außenpegel
+Hohensaaten West Außenpegel
+Hohensaaten West Binnenpegel
 Hohnstorf
 Hollersiel
 Hooksielplate
@@ -347,7 +347,7 @@ Hünxe Schleuse Unterwasser
 Hüttendorf
 Iffezheim
 Ilmenau
-Ilmenau Sperrwerk Ap
+Ilmenau Sperrwerk Außenpegel
 Ingolstadt Luitpoldstrasse
 Intschede
 Itzehoe Hafen
@@ -389,8 +389,8 @@ Koserow
 Kotthausen
 Krautsand
 Krotzenburg
-Krückau Sperrwerk Ap
-Krückau Sperrwerk Bp
+Krückau Sperrwerk Außenpegel
+Krückau Sperrwerk Binnenpegel
 Kummersdorf Oberpegel
 Kummersdorf Unterpegel
 Köln
@@ -478,8 +478,8 @@ Neuwied Stadt
 Niederblockland
 Niederfinow Shw Oberpegel
 Niederfinow Shw Unterpegel
-Niegripp Ap
-Niegripp Bp
+Niegripp Außenpegel
+Niegripp Binnenpegel
 Nienbruegge
 Nienburg
 Nienburg (saale)
@@ -502,8 +502,8 @@ Oestrich
 Oldenburg Drielake
 Oslebshausen
 Osloss
-Oste Sperrwerk Ap
-Oste Sperrwerk Bp
+Oste Sperrwerk Außenpegel
+Oste Sperrwerk Binnenpegel
 Osteriff Mpm
 Ottenheim
 Otterndorf Mpm
@@ -516,6 +516,7 @@ Passau Donau
 Passau Ilzstadt
 Passau Luitpoldbrücke Dfh
 Passau Steinbachbrücke Dfh
+Pegelmodell
 Pellworm Anleger
 Perl
 Petershagen
@@ -523,10 +524,11 @@ Pettstadt
 Pfatter
 Pfelling
 Philippsburg
-Pinnau Sperrwerk Ap
-Pinnau Sperrwerk Bp
+Pinnau Sperrwerk Außenpegel
+Pinnau Sperrwerk Binnenpegel
 Pirna
 Plau Oberpegel
+Plau Unterpegel
 Plaue Oberpegel
 Plaue Unterpegel
 Plittersdorf
@@ -598,8 +600,8 @@ Schulau
 Schwabelweis
 Schwarmstedt
 Schwedt Oderbrücke
-Schwedt Schleuse Ap
-Schwedt Schleuse Bp
+Schwedt Schleuse Außenpegel
+Schwedt Schleuse Binnenpegel
 Schweinfurt Neuer Hafen
 Schwerin Werderbrücke
 Schwinge Sperrwerk
@@ -625,8 +627,8 @@ Storkow Unterpegel
 Stralsund
 Straubing
 Strohplao
-Stör Sperrwerk Ap
-Stör Sperrwerk Bp
+Stör Sperrwerk Außenpegel
+Stör Sperrwerk Binnenpegel
 Stützkow
 Suelfeld
 Suelfeld Oberwasser
@@ -686,7 +688,6 @@ Wertheim
 Wesel
 Wesenberg Oberpegel
 Wesenberg Unterpegel
-Weser
 Weserwehr Oberwasser
 Weserwehr Unterwasser
 Wettin Oberpegel
