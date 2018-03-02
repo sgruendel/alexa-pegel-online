@@ -63,8 +63,12 @@ describe('Testing a session with the WaterLevelIntent:', () => {
             expect(speechResponse.response.outputSpeech).to.exist;
         });
 
-        it('should have a card response', () => {
+        it('should have a standard card response', () => {
             expect(speechResponse.response.card).to.exist;
+            expect(speechResponse.response.card.type).to.eq('Standard');
+            expect(speechResponse.response.card.image).to.exist;
+            expect(speechResponse.response.card.image.smallImageUrl).to.match(/^https:\/\/.*\.png/);
+            expect(speechResponse.response.card.image.largeImageUrl).to.match(/^https:\/\/.*\.png/);
         });
 
         it('should not contain +NN in card response', () => {
