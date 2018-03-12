@@ -70,3 +70,8 @@ WaterLevelIntent nach dem Wert des {Station}
 WaterLevelIntent nach dem Wert in {Station}
 WaterLevelIntent nach dem Wert vom {Station}
 WaterLevelIntent nach dem Wert von {Station}
+WaterLevelIntent wie der Messwert bei {Station} ist
+WaterLevelIntent wie der Pegel bei {Station} ist
+WaterLevelIntent wie der Pegelstand bei {Station} ist
+WaterLevelIntent wie der Wasserstand bei {Station} ist
+WaterLevelIntent wie der Wert bei {Station} ist
