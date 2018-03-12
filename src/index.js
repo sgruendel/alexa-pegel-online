@@ -2,6 +2,7 @@
 
 const Alexa = require('alexa-sdk');
 const pegelonline = require('./pegelonlineRestAPI');
+const util = require('./util');
 
 const APP_ID = 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1';
 const uuids = require('./uuids.json');
@@ -25,10 +26,6 @@ const languageStrings = {
     },
 };
 
-function pad(minutes) {
-    return (minutes < 10) ? ('0' + minutes) : minutes;
-}
-
 function emitCurrentMeasurement(alexa, uuid) {
     const station = names[uuid];
     console.log('using station ' + station + '/uuid ' + uuid);
@@ -46,19 +43,7 @@ function emitCurrentMeasurement(alexa, uuid) {
             const speechOutput = currentWaterLevel;
             var cardContent = currentWaterLevel;
             if (result.currentMeasurement.timestamp) {
-                const measurementDate = new Date(result.currentMeasurement.timestamp);
-                const today = new Date();
-                var measurementTimeDesc;
-                if (measurementDate.getDate() === today.getDate()) {
-                    // today, use "hours:minutes"
-                    measurementTimeDesc = measurementDate.getHours() + ':' + pad(measurementDate.getMinutes());
-                } else if ((measurementDate.getDate() + 1) === today.getDate()) {
-                    // yesterday, use "yesterday hours:minutes"
-                    // TODO this won't work on first day of month
-                    measurementTimeDesc = 'gestern ' + measurementDate.getHours() + ':' + pad(measurementDate.getMinutes());
-                } else {
-                    measurementTimeDesc = measurementDate.toDateString();
-                }
+                const measurementTimeDesc = util.getTimeDesc(new Date(result.currentMeasurement.timestamp));
                 // console.log(measurementTimeDesc);
                 cardContent = 'Messung von ' + measurementTimeDesc + ' Uhr: ' + cardContent;
             }
@@ -157,8 +142,8 @@ const handlers = {
     },
 };
 
-exports.handler = (event, context) => {
-    const alexa = Alexa.handler(event, context);
+exports.handler = (event, context, callback) => {
+    const alexa = Alexa.handler(event, context, callback);
     alexa.appId = APP_ID;
     // To enable string internationalization (i18n) features, set a resources object.
     alexa.resources = languageStrings;
