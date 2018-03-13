@@ -23,11 +23,11 @@ exports.getStations = function(callback) {
         if (response.statusCode < 200 || response.statusCode > 299) {
             console.error('error in response for stations.json',
                 response.statusCode + ' ' + response.statusMessage);
-            callback(new Error(response.statusMessage));
+            return callback(new Error(response.statusMessage));
         }
         response.on('error', err => {
             console.error('error in response for stations.json', err);
-            callback(err);
+            return callback(err);
         });
         // explicitly treat incoming data as utf8
         response.setEncoding('utf8');
@@ -55,7 +55,7 @@ exports.getStations = function(callback) {
                 return callback(null, JSON.parse(body));
             } catch (err) {
                 console.error('error parsing stations.json', err);
-                callback(err);
+                return callback(err);
             }
         });
 
@@ -63,7 +63,7 @@ exports.getStations = function(callback) {
 
     request.on('error', err => {
         console.error('error requesting stations.json', err.message);
-        callback(err);
+        return callback(err);
     });
 
     request.end();
@@ -84,11 +84,11 @@ exports.getUuidsFuzzy = function(station, callback) {
         if (response.statusCode < 200 || response.statusCode > 299) {
             console.error('error in response for stations.json',
                 response.statusCode + ' ' + response.statusMessage);
-            callback(new Error(response.statusMessage));
+            return callback(new Error(response.statusMessage));
         }
         response.on('error', err => {
             console.error('error in response for stations.json', err);
-            callback(err);
+            return callback(err);
         });
         // explicitly treat incoming data as utf8
         response.setEncoding('utf8');
@@ -116,14 +116,14 @@ exports.getUuidsFuzzy = function(station, callback) {
                 }));
             } catch (err) {
                 console.error('error parsing stations.json', err);
-                callback(err);
+                return callback(err);
             }
         });
     });
 
     request.on('error', err => {
         console.error('error requesting stations.json', err.message);
-        callback(err);
+        return callback(err);
     });
 
     request.end();
@@ -144,11 +144,11 @@ exports.getUuidsForWater = function(water, callback) {
         if (response.statusCode < 200 || response.statusCode > 299) {
             console.error('error in response for stations.json',
                 response.statusCode + ' ' + response.statusMessage);
-            callback(new Error(response.statusMessage));
+            return callback(new Error(response.statusMessage));
         }
         response.on('error', err => {
             console.error('error in response for stations.json', err);
-            callback(err);
+            return callback(err);
         });
         // explicitly treat incoming data as utf8
         response.setEncoding('utf8');
@@ -176,14 +176,14 @@ exports.getUuidsForWater = function(water, callback) {
                 }));
             } catch (err) {
                 console.error('error parsing stations.json', err);
-                callback(err);
+                return callback(err);
             }
         });
     });
 
     request.on('error', err => {
         console.error('error requesting stations.json', err.message);
-        callback(err);
+        return callback(err);
     });
 
     request.end();
@@ -204,11 +204,11 @@ exports.getCurrentMeasurement = function(station, callback) {
         if (response.statusCode < 200 || response.statusCode > 299) {
             console.error('error in response for currentmeasurement.json',
                 response.statusCode + ' ' + response.statusMessage);
-            callback(new Error(response.statusMessage));
+            return callback(new Error(response.statusMessage));
         }
         response.on('error', err => {
             console.error('error in response for currentmeasurement.json', err);
-            callback(err);
+            return callback(err);
         });
         // explicitly treat incoming data as utf8
         response.setEncoding('utf8');
@@ -242,14 +242,14 @@ exports.getCurrentMeasurement = function(station, callback) {
                 }
             } catch (err) {
                 console.error('error parsing currentmeasurement.json', err);
-                callback(err);
+                return callback(err);
             }
         });
     });
 
     request.on('error', err => {
         console.error('error requesting currentmeasurement.json', err.message);
-        callback(err);
+        return callback(err);
     });
 
     request.end();
