@@ -2,6 +2,7 @@
 Alexa Skill for interacting with http://www.pegelonline.wsv.de
 
 ## TODOs
+- Switch to request-promise-native https://github.com/request/request-promise-native
 - Water bodies shouldn't be part of slot-LIST_OF_STATIONS.txt, they
 get overwritten by create-station-slot-values.js and make
 test/list-of-statons.js fail, so better come up with separate
