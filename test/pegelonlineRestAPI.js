@@ -1,7 +1,7 @@
 'use strict';
 
-var expect = require('chai').expect;
-var pegelonline = require('../src/pegelonlineRestAPI');
+const expect = require('chai').expect;
+const pegelonline = require('../src/pegelonlineRestAPI');
 
 const names = require('../src/names.json');
 
@@ -73,7 +73,7 @@ describe('pegelonline', () => {
 
         it('should not find Eisingen', done => {
             pegelonline.getCurrentMeasurement('Eisingen', (err, result) => {
-                expect(err.message).to.equal('Not Found');
+                expect(err.statusCode).to.equal(404);
                 expect(result).to.be.undefined;
                 done();
             });

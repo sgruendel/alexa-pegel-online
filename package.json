@@ -18,7 +18,9 @@
   "author": "Stefan Gründel",
   "license": "GPL-3.0",
   "dependencies": {
-    "alexa-sdk": "^1.0.25"
+    "alexa-sdk": "^1.0.25",
+    "request": "^2.85.0",
+    "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
     "chai": "^4.1.2",
