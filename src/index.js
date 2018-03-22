@@ -16,10 +16,13 @@ Object.keys(uuids).forEach(name => {
 const languageStrings = {
     de: {
         translation: {
-            CURRENT_WATER_LEVEL_MESSAGE: 'Der Wasserstand bei {station} beträgt {value} {unit}.',
+            CURRENT_WATER_LEVEL_MESSAGE: 'Der Wasserstand bei {station} beträgt {value} {unit}',
+            TREND_RISING: ', die Tendenz ist steigend',
+            TREND_FALLING: ', die Tendenz ist fallend',
+            TREND_STABLE: ', die Tendenz ist gleichbleibend',
             NO_RESULT_MESSAGE: 'Ich kann diesen Messwert zur Zeit leider nicht bestimmen.',
             UNKNOWN_STATION_MESSAGE: 'Ich kenne diese Messstelle leider nicht.',
-            HELP_MESSAGE: 'Du kannst sagen, „Frag Pegel Online nach dem Wasserstand an einer Messstation“, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
+            HELP_MESSAGE: 'Du kannst sagen, „Frag Pegel Online nach dem Wasserstand an einer Messstelle, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
             HELP_REPROMPT: 'Wie kann ich dir helfen?',
             STOP_MESSAGE: 'Auf Wiedersehen!',
         },
@@ -28,7 +31,7 @@ const languageStrings = {
 
 function emitCurrentMeasurement(alexa, uuid) {
     const station = names[uuid];
-    console.log('using station ' + station + '/uuid ' + uuid);
+    console.log('using station', station, ' / uuid', uuid);
     pegelonline.getCurrentMeasurement(uuid, (err, result) => {
         if (result) {
             if (result.unit.endsWith('+NN')) {
@@ -36,10 +39,28 @@ function emitCurrentMeasurement(alexa, uuid) {
                 result.unit = result.unit.slice(0, result.unit.length - 3);
             }
 
-            const currentWaterLevel = alexa.t('CURRENT_WATER_LEVEL_MESSAGE')
+            var currentWaterLevel = alexa.t('CURRENT_WATER_LEVEL_MESSAGE')
                 .replace('{station}', station)
                 .replace('{value}', result.currentMeasurement.value.toString().replace('.', ','))
                 .replace('{unit}', result.unit);
+            switch (result.currentMeasurement.trend) {
+            case -1:
+                currentWaterLevel += alexa.t('TREND_FALLING');
+                break;
+            case 0:
+                currentWaterLevel += alexa.t('TREND_STABLE');
+                break;
+            case 1:
+                currentWaterLevel += alexa.t('TREND_RISING');
+                break;
+            case -999:
+                console.log('Tendenz kann nicht ermittelt werden.');
+                break;
+            default:
+                console.error('Undefinierte Tendenz:', result.currentMeasurement.trend);
+            }
+            currentWaterLevel += '.';
+
             const speechOutput = currentWaterLevel;
             var cardContent = currentWaterLevel;
             if (result.currentMeasurement.timestamp) {
@@ -78,7 +99,7 @@ const handlers = {
         const stationSlot = this.event.request.intent.slots.Station;
         if (stationSlot && stationSlot.value) {
             const station = stationSlot.value.toLowerCase();
-            console.log('searching for station ' + station);
+            console.log('searching for station', station);
             const uuid = uuidsForLowerNames[station];
 
             if (uuid) {
