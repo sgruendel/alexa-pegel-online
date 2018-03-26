@@ -64,7 +64,8 @@ function emitCurrentMeasurement(alexa, uuid) {
             const speechOutput = currentWaterLevel;
             var cardContent = currentWaterLevel;
             if (result.currentMeasurement.timestamp) {
-                const measurementTimeDesc = util.getTimeDesc(new Date(result.currentMeasurement.timestamp));
+                const localTimestamp = result.currentMeasurement.timestamp.replace(/[-+][0-9][0-9]:[0-9][0-9]/, '');
+                const measurementTimeDesc = util.getTimeDesc(new Date(localTimestamp));
                 // console.log(measurementTimeDesc);
                 cardContent = 'Messung von ' + measurementTimeDesc + ' Uhr: ' + cardContent;
             }
