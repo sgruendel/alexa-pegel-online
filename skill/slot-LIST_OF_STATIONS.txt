@@ -169,7 +169,8 @@ Cochem
 Coswig
 Cranz
 Cuxhaven Steubenhöft
-D2 Lühesand Oberfläche
+D1 Hanskalbsand Oberfläche
+D3 Pagensand Nord Oberfläche
 D7
 Dagebüll
 Dalum
@@ -516,7 +517,6 @@ Passau Donau
 Passau Ilzstadt
 Passau Luitpoldbrücke Dfh
 Passau Steinbachbrücke Dfh
-Pegelmodell
 Pellworm Anleger
 Perl
 Petershagen
@@ -625,7 +625,6 @@ Storkau
 Storkow Oberpegel
 Storkow Unterpegel
 Stralsund
-Straubing
 Strohplao
 Stör Sperrwerk Außenpegel
 Stör Sperrwerk Binnenpegel
