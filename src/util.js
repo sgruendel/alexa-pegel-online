@@ -6,7 +6,7 @@ function pad(minutes) {
 
 var exports = module.exports = {};
 
-exports.getTimeDesc = function(date) {
+exports.getTimeDesc = function(date, locale) {
     const today = new Date();
     if (date.getDate() === today.getDate()) {
         // today, use "hours:minutes"
@@ -15,5 +15,5 @@ exports.getTimeDesc = function(date) {
         // yesterday, use "yesterday hours:minutes"
         return 'gestern ' + pad(date.getHours()) + ':' + pad(date.getMinutes());
     }
-    return date.toLocaleString('de-DE');
+    return date.toLocaleString(locale);
 };

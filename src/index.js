@@ -31,7 +31,7 @@ const languageStrings = {
 
 function emitCurrentMeasurement(alexa, uuid) {
     const station = names[uuid];
-    console.log('using station', station, ' / uuid', uuid);
+    console.log('using station', station, '/ uuid', uuid);
     pegelonline.getCurrentMeasurement(uuid, (err, result) => {
         if (result) {
             if (result.unit.endsWith('+NN')) {
@@ -65,7 +65,7 @@ function emitCurrentMeasurement(alexa, uuid) {
             var cardContent = currentWaterLevel;
             if (result.currentMeasurement.timestamp) {
                 const localTimestamp = result.currentMeasurement.timestamp.replace(/[-+][0-9][0-9]:[0-9][0-9]/, '');
-                const measurementTimeDesc = util.getTimeDesc(new Date(localTimestamp));
+                const measurementTimeDesc = util.getTimeDesc(new Date(localTimestamp), alexa.event.request.locale);
                 // console.log(measurementTimeDesc);
                 cardContent = 'Messung von ' + measurementTimeDesc + ' Uhr: ' + cardContent;
             }
