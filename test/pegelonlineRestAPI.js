@@ -26,8 +26,7 @@ describe('pegelonline', () => {
         it('should return UUID for Würzburg', done => {
             pegelonline.getUuidsFuzzy('wuerzburg', (err, result) => {
                 expect(err).to.be.null;
-                expect(result.length).to.equal(1);
-                expect(result[0]).to.equal('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
+                expect(result).to.eql(['915d76e1-3bf9-4e37-9a9a-4d144cd771cc']);
                 done();
             });
         });
@@ -43,8 +42,7 @@ describe('pegelonline', () => {
         it('should return UUID for Affoldern', done => {
             pegelonline.getUuidsFuzzy('affoltern', (err, result) => {
                 expect(err).to.be.null;
-                expect(result.length).to.equal(1);
-                expect(result[0]).to.equal('ab9d5a42-2b8d-491b-9fd1-8120df23c8e6');
+                expect(result).to.eql(['ab9d5a42-2b8d-491b-9fd1-8120df23c8e6']);
                 done();
             });
         });
@@ -54,8 +52,7 @@ describe('pegelonline', () => {
         it('should return UUID for Konstanz', done => {
             pegelonline.getUuidsForWater('bodensee', (err, result) => {
                 expect(err).to.be.null;
-                expect(result.length).to.equal(1);
-                expect(result[0]).to.equal('aa9179c1-17ef-4c61-a48a-74193fa7bfdf');
+                expect(result).to.eql(['aa9179c1-17ef-4c61-a48a-74193fa7bfdf']);
                 done();
             });
         });
