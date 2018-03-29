@@ -24,7 +24,7 @@ exports.getStations = function(callback) {
             return callback(null, result);
         })
         .catch(err => {
-            console.error('error requesting stations.json:', err.statusCode);
+            console.error('error requesting stations.json:', err);
             return callback(err);
         });
 };
@@ -44,7 +44,7 @@ exports.getUuidsFuzzy = function(station, callback) {
             }));
         })
         .catch(err => {
-            console.error('error requesting stations.json:', err.statusCode);
+            console.error('error requesting stations.json for fuzzyId:', err);
             return callback(err);
         });
 };
@@ -64,7 +64,7 @@ exports.getUuidsForWater = function(water, callback) {
             }));
         })
         .catch(err => {
-            console.error('error requesting stations.json:', err.statusCode);
+            console.error('error requesting stations.json for waters:', err);
             return callback(err);
         });
 };
@@ -82,7 +82,8 @@ exports.getCurrentMeasurement = function(station, callback) {
             return callback(null, result);
         })
         .catch(err => {
-            console.error('error getting current measurement:', err.statusCode);
+            const e = err.error || err;
+            console.error('error getting current measurement:', e);
             return callback(err);
         });
 };
