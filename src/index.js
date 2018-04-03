@@ -9,7 +9,7 @@ const APP_ID = 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1';
 const languageStrings = {
     de: {
         translation: {
-            CURRENT_WATER_LEVEL_MESSAGE: 'Der Wasserstand bei {station} beträgt {value} {unit}',
+            CURRENT_WATER_LEVEL_MESSAGE: 'Der Wasserstand bei {{result.station}} beträgt {{result.currentMeasurement.value}} {{result.unit}}',
             TREND_RISING: ', die Tendenz ist steigend',
             TREND_FALLING: ', die Tendenz ist fallend',
             TREND_STABLE: ', die Tendenz ist gleichbleibend',
@@ -41,10 +41,8 @@ const handlers = {
                 } else {
                     manager.currentMeasurementForUuids(uuids, (err, result) => {
                         if (result) {
-                            var currentWaterLevel = this.t('CURRENT_WATER_LEVEL_MESSAGE')
-                                .replace('{station}', result.station)
-                                .replace('{value}', result.currentMeasurement.value.toString().replace('.', ','))
-                                .replace('{unit}', result.unit);
+                            result.currentMeasurement.value = result.currentMeasurement.value.toString().replace('.', ',');
+                            var currentWaterLevel = this.t('CURRENT_WATER_LEVEL_MESSAGE', { result });
                             switch (result.currentMeasurement.trend) {
                             case -1:
                                 currentWaterLevel += this.t('TREND_FALLING');
