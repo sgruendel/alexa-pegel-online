@@ -108,7 +108,7 @@ pegelonline.getStations((err, result) => {
             namesArray.push(name);
         });
 
-        stream = fs.createWriteStream('skill/slot-LIST_OF_STATIONS.txt');
+        stream = fs.createWriteStream('models/slot-LIST_OF_STATIONS.txt');
         namesArray.sort().forEach(name => {
             stream.write(name + '\n');
         });

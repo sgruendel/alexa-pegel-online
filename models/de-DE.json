@@ -1,0 +1,3733 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "pegel online",
+      "intents": [
+        {
+          "name": "WaterLevelIntent",
+          "slots": [
+            {
+              "name": "Station",
+              "type": "LIST_OF_STATIONS"
+            }
+          ],
+          "samples": [
+            "nach der Messstelle {Station}",
+            "nach der Messstelle am {Station}",
+            "nach der Messstelle auf {Station}",
+            "nach der Messstelle an {Station}",
+            "nach der Messstelle an der {Station}",
+            "nach der Messstelle bei {Station}",
+            "nach der Messstelle bei der {Station}",
+            "nach der Messstelle der {Station}",
+            "nach der Messstelle des {Station}",
+            "nach der Messstelle in {Station}",
+            "nach der Messstelle vom {Station}",
+            "nach der Messstelle von {Station}",
+            "nach dem Messwert {Station}",
+            "nach dem Messwert am {Station}",
+            "nach dem Messwert auf {Station}",
+            "nach dem Messwert an {Station}",
+            "nach dem Messwert an der {Station}",
+            "nach dem Messwert bei {Station}",
+            "nach dem Messwert bei der {Station}",
+            "nach dem Messwert der {Station}",
+            "nach dem Messwert des {Station}",
+            "nach dem Messwert in {Station}",
+            "nach dem Messwert vom {Station}",
+            "nach dem Messwert von {Station}",
+            "nach dem Pegel {Station}",
+            "nach dem Pegel am {Station}",
+            "nach dem Pegel auf {Station}",
+            "nach dem Pegel an {Station}",
+            "nach dem Pegel an der {Station}",
+            "nach dem Pegel bei {Station}",
+            "nach dem Pegel bei der {Station}",
+            "nach dem Pegel der {Station}",
+            "nach dem Pegel des {Station}",
+            "nach dem Pegel in {Station}",
+            "nach dem Pegel vom {Station}",
+            "nach dem Pegel von {Station}",
+            "nach dem Pegelstand {Station}",
+            "nach dem Pegelstand am {Station}",
+            "nach dem Pegelstand auf {Station}",
+            "nach dem Pegelstand an {Station}",
+            "nach dem Pegelstand an der {Station}",
+            "nach dem Pegelstand bei {Station}",
+            "nach dem Pegelstand bei der {Station}",
+            "nach dem Pegelstand der {Station}",
+            "nach dem Pegelstand des {Station}",
+            "nach dem Pegelstand in {Station}",
+            "nach dem Pegelstand vom {Station}",
+            "nach dem Pegelstand von {Station}",
+            "nach dem Wasserstand {Station}",
+            "nach dem Wasserstand am {Station}",
+            "nach dem Wasserstand auf {Station}",
+            "nach dem Wasserstand an {Station}",
+            "nach dem Wasserstand an der {Station}",
+            "nach dem Wasserstand bei {Station}",
+            "nach dem Wasserstand bei der {Station}",
+            "nach dem Wasserstand der {Station}",
+            "nach dem Wasserstand des {Station}",
+            "nach dem Wasserstand in {Station}",
+            "nach dem Wasserstand vom {Station}",
+            "nach dem Wasserstand von {Station}",
+            "nach dem Wert {Station}",
+            "nach dem Wert am {Station}",
+            "nach dem Wert auf {Station}",
+            "nach dem Wert an {Station}",
+            "nach dem Wert an der {Station}",
+            "nach dem Wert bei {Station}",
+            "nach dem Wert bei der {Station}",
+            "nach dem Wert der {Station}",
+            "nach dem Wert des {Station}",
+            "nach dem Wert in {Station}",
+            "nach dem Wert vom {Station}",
+            "nach dem Wert von {Station}",
+            "wie der Messwert bei {Station} ist",
+            "wie der Pegel bei {Station} ist",
+            "wie der Pegelstand bei {Station} ist",
+            "wie der Wasserstand bei {Station} ist",
+            "wie der Wert bei {Station} ist"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent"
+        },
+        {
+          "name": "AMAZON.StopIntent"
+        },
+        {
+          "name": "AMAZON.CancelIntent"
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Aller"
+              }
+            },
+            {
+              "name": {
+                "value": "Bodensee"
+              }
+            },
+            {
+              "name": {
+                "value": "Diemel"
+              }
+            },
+            {
+              "name": {
+                "value": "Donau"
+              }
+            },
+            {
+              "name": {
+                "value": "Dyhrssenmoor"
+              }
+            },
+            {
+              "name": {
+                "value": "Eder"
+              }
+            },
+            {
+              "name": {
+                "value": "Eger"
+              }
+            },
+            {
+              "name": {
+                "value": "Eider"
+              }
+            },
+            {
+              "name": {
+                "value": "Elbe"
+              }
+            },
+            {
+              "name": {
+                "value": "Ems"
+              }
+            },
+            {
+              "name": {
+                "value": "Este"
+              }
+            },
+            {
+              "name": {
+                "value": "Fulda"
+              }
+            },
+            {
+              "name": {
+                "value": "Hamme"
+              }
+            },
+            {
+              "name": {
+                "value": "Havelkanal"
+              }
+            },
+            {
+              "name": {
+                "value": "Hunte"
+              }
+            },
+            {
+              "name": {
+                "value": "Ilm"
+              }
+            },
+            {
+              "name": {
+                "value": "Itz"
+              }
+            },
+            {
+              "name": {
+                "value": "Jade"
+              }
+            },
+            {
+              "name": {
+                "value": "Jizera"
+              }
+            },
+            {
+              "name": {
+                "value": "Krückau"
+              }
+            },
+            {
+              "name": {
+                "value": "Küstenkanal"
+              }
+            },
+            {
+              "name": {
+                "value": "Lahn"
+              }
+            },
+            {
+              "name": {
+                "value": "Landwehrkanal"
+              }
+            },
+            {
+              "name": {
+                "value": "Leda"
+              }
+            },
+            {
+              "name": {
+                "value": "Leine"
+              }
+            },
+            {
+              "name": {
+                "value": "Lesum"
+              }
+            },
+            {
+              "name": {
+                "value": "Lychener Gewässer"
+              }
+            },
+            {
+              "name": {
+                "value": "Lühe"
+              }
+            },
+            {
+              "name": {
+                "value": "Main"
+              }
+            },
+            {
+              "name": {
+                "value": "Mittellandkanal"
+              }
+            },
+            {
+              "name": {
+                "value": "Moldau"
+              }
+            },
+            {
+              "name": {
+                "value": "Mosel"
+              }
+            },
+            {
+              "name": {
+                "value": "Mulde"
+              }
+            },
+            {
+              "name": {
+                "value": "Müggelspree"
+              }
+            },
+            {
+              "name": {
+                "value": "Neckar"
+              }
+            },
+            {
+              "name": {
+                "value": "Nord-Ostsee-Kanal"
+              }
+            },
+            {
+              "name": {
+                "value": "Nordsee"
+              }
+            },
+            {
+              "name": {
+                "value": "Oder"
+              }
+            },
+            {
+              "name": {
+                "value": "Ohre"
+              }
+            },
+            {
+              "name": {
+                "value": "Orke"
+              }
+            },
+            {
+              "name": {
+                "value": "Orlice"
+              }
+            },
+            {
+              "name": {
+                "value": "Oste"
+              }
+            },
+            {
+              "name": {
+                "value": "Ostsee"
+              }
+            },
+            {
+              "name": {
+                "value": "Peene"
+              }
+            },
+            {
+              "name": {
+                "value": "Pinnau"
+              }
+            },
+            {
+              "name": {
+                "value": "Regnitz"
+              }
+            },
+            {
+              "name": {
+                "value": "Rhein"
+              }
+            },
+            {
+              "name": {
+                "value": "Ruhr"
+              }
+            },
+            {
+              "name": {
+                "value": "Ruthenstrom"
+              }
+            },
+            {
+              "name": {
+                "value": "Saale"
+              }
+            },
+            {
+              "name": {
+                "value": "Saar"
+              }
+            },
+            {
+              "name": {
+                "value": "Schwinge"
+              }
+            },
+            {
+              "name": {
+                "value": "Stör"
+              }
+            },
+            {
+              "name": {
+                "value": "Teltowkanal"
+              }
+            },
+            {
+              "name": {
+                "value": "Trave"
+              }
+            },
+            {
+              "name": {
+                "value": "Treene"
+              }
+            },
+            {
+              "name": {
+                "value": "Vlatava"
+              }
+            },
+            {
+              "name": {
+                "value": "Warnow"
+              }
+            },
+            {
+              "name": {
+                "value": "Werra"
+              }
+            },
+            {
+              "name": {
+                "value": "Weser"
+              }
+            },
+            {
+              "name": {
+                "value": "Westoder"
+              }
+            },
+            {
+              "name": {
+                "value": "Wümme"
+              }
+            },
+            {
+              "name": {
+                "value": "Aalbude"
+              }
+            },
+            {
+              "name": {
+                "value": "Abbenfleth Sperrwerk"
+              }
+            },
+            {
+              "name": {
+                "value": "Achleiten"
+              }
+            },
+            {
+              "name": {
+                "value": "Achthöfener Fleth Siel"
+              }
+            },
+            {
+              "name": {
+                "value": "Affoldern"
+              }
+            },
+            {
+              "name": {
+                "value": "Ahlden"
+              }
+            },
+            {
+              "name": {
+                "value": "Ahsen Schleuse Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Ahsen Schleuse Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Aken"
+              }
+            },
+            {
+              "name": {
+                "value": "Albertsheim"
+              }
+            },
+            {
+              "name": {
+                "value": "Alken"
+              }
+            },
+            {
+              "name": {
+                "value": "Allendorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Alsleben Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Alsleben Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Altengamme"
+              }
+            },
+            {
+              "name": {
+                "value": "Althagen"
+              }
+            },
+            {
+              "name": {
+                "value": "Andernach"
+              }
+            },
+            {
+              "name": {
+                "value": "Anderten"
+              }
+            },
+            {
+              "name": {
+                "value": "Anderten Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Anderten Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Anklam"
+              }
+            },
+            {
+              "name": {
+                "value": "Artlenburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Artlenburg Elk"
+              }
+            },
+            {
+              "name": {
+                "value": "Astheim"
+              }
+            },
+            {
+              "name": {
+                "value": "Auheim Brücke Dfh"
+              }
+            },
+            {
+              "name": {
+                "value": "Awk Strohbrück"
+              }
+            },
+            {
+              "name": {
+                "value": "Bad Essen"
+              }
+            },
+            {
+              "name": {
+                "value": "Bahnitz Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Bahnitz Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Bake A"
+              }
+            },
+            {
+              "name": {
+                "value": "Bake C Scharhörn"
+              }
+            },
+            {
+              "name": {
+                "value": "Bake Z"
+              }
+            },
+            {
+              "name": {
+                "value": "Bamberg"
+              }
+            },
+            {
+              "name": {
+                "value": "Banzkow Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Banzkow Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Barby"
+              }
+            },
+            {
+              "name": {
+                "value": "Bardowick Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Bardowick Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Barhöft"
+              }
+            },
+            {
+              "name": {
+                "value": "Barkow Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Barth"
+              }
+            },
+            {
+              "name": {
+                "value": "Basel Rheinhalle"
+              }
+            },
+            {
+              "name": {
+                "value": "Belum"
+              }
+            },
+            {
+              "name": {
+                "value": "Berenbusch"
+              }
+            },
+            {
+              "name": {
+                "value": "Bergeshövede"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Charlottenburg Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Charlottenburg Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Köpenick"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Mühlendamm Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Mühlendamm Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Oberschleuse Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Oberschleuse Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Ploetzensee Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Ploetzensee Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Schmoeckwitz"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Spandau Schleuse Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Spandau Schleuse Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Unterschleuse Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Berlin Unterschleuse Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Bernburg Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Bernburg Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Bevensen"
+              }
+            },
+            {
+              "name": {
+                "value": "Bhv Alter Leuchtturm"
+              }
+            },
+            {
+              "name": {
+                "value": "Bingen"
+              }
+            },
+            {
+              "name": {
+                "value": "Bischofswerder Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Bischofswerder Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Blankenese Uf"
+              }
+            },
+            {
+              "name": {
+                "value": "Bleckede"
+              }
+            },
+            {
+              "name": {
+                "value": "Blexen Abz"
+              }
+            },
+            {
+              "name": {
+                "value": "Bobzin Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Bodenwerder"
+              }
+            },
+            {
+              "name": {
+                "value": "Boizenburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Bolzum"
+              }
+            },
+            {
+              "name": {
+                "value": "Bonaforth"
+              }
+            },
+            {
+              "name": {
+                "value": "Bonn"
+              }
+            },
+            {
+              "name": {
+                "value": "Boppard"
+              }
+            },
+            {
+              "name": {
+                "value": "Borgfeld"
+              }
+            },
+            {
+              "name": {
+                "value": "Borgsdorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Borkum Fischerbalje"
+              }
+            },
+            {
+              "name": {
+                "value": "Borkum Südstrand"
+              }
+            },
+            {
+              "name": {
+                "value": "Brake"
+              }
+            },
+            {
+              "name": {
+                "value": "Bramsche"
+              }
+            },
+            {
+              "name": {
+                "value": "Brandenburg Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Brandenburg Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Braubach"
+              }
+            },
+            {
+              "name": {
+                "value": "Bredereiche Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Bredereiche Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Breisach"
+              }
+            },
+            {
+              "name": {
+                "value": "Breitenberg"
+              }
+            },
+            {
+              "name": {
+                "value": "Bremervörde"
+              }
+            },
+            {
+              "name": {
+                "value": "Brokdorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Broxten"
+              }
+            },
+            {
+              "name": {
+                "value": "Brunsbüttel Mole 1"
+              }
+            },
+            {
+              "name": {
+                "value": "Buessau Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Bunthaus"
+              }
+            },
+            {
+              "name": {
+                "value": "Burg"
+              }
+            },
+            {
+              "name": {
+                "value": "Burow"
+              }
+            },
+            {
+              "name": {
+                "value": "Buttelerhörne"
+              }
+            },
+            {
+              "name": {
+                "value": "Buxtehude"
+              }
+            },
+            {
+              "name": {
+                "value": "Büsum"
+              }
+            },
+            {
+              "name": {
+                "value": "Calbe Grizehne"
+              }
+            },
+            {
+              "name": {
+                "value": "Calbe Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Calbe Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Celle"
+              }
+            },
+            {
+              "name": {
+                "value": "Coburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Cochem"
+              }
+            },
+            {
+              "name": {
+                "value": "Coswig"
+              }
+            },
+            {
+              "name": {
+                "value": "Cranz"
+              }
+            },
+            {
+              "name": {
+                "value": "Cuxhaven Steubenhöft"
+              }
+            },
+            {
+              "name": {
+                "value": "D1 Hanskalbsand Oberfläche"
+              }
+            },
+            {
+              "name": {
+                "value": "D3 Pagensand Nord Oberfläche"
+              }
+            },
+            {
+              "name": {
+                "value": "D7"
+              }
+            },
+            {
+              "name": {
+                "value": "Dagebüll"
+              }
+            },
+            {
+              "name": {
+                "value": "Dalum"
+              }
+            },
+            {
+              "name": {
+                "value": "Dalwigksthal"
+              }
+            },
+            {
+              "name": {
+                "value": "Damnatz"
+              }
+            },
+            {
+              "name": {
+                "value": "Datteln Schleuse Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Datteln Schleuse Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Deggendorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Demmin Meyenkrebsbrücke"
+              }
+            },
+            {
+              "name": {
+                "value": "Dessau"
+              }
+            },
+            {
+              "name": {
+                "value": "Detershagen"
+              }
+            },
+            {
+              "name": {
+                "value": "Detzem Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Dgw1"
+              }
+            },
+            {
+              "name": {
+                "value": "Dgw2"
+              }
+            },
+            {
+              "name": {
+                "value": "Diemeltalsperre"
+              }
+            },
+            {
+              "name": {
+                "value": "Diez Hafen"
+              }
+            },
+            {
+              "name": {
+                "value": "Doemitz Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Doemitz Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Dornbusch Brücke"
+              }
+            },
+            {
+              "name": {
+                "value": "Dorsten Schleuse Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Dorsten Schleuse Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Drakenburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Dresden"
+              }
+            },
+            {
+              "name": {
+                "value": "Dreye"
+              }
+            },
+            {
+              "name": {
+                "value": "Dreyschloot"
+              }
+            },
+            {
+              "name": {
+                "value": "Duisburg Meiderich Schleuse Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Duisburg Meiderich Schleuse Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Duisburg Ruhrort"
+              }
+            },
+            {
+              "name": {
+                "value": "Dukegat"
+              }
+            },
+            {
+              "name": {
+                "value": "Dwarsgat"
+              }
+            },
+            {
+              "name": {
+                "value": "Dömitz"
+              }
+            },
+            {
+              "name": {
+                "value": "Dörverden"
+              }
+            },
+            {
+              "name": {
+                "value": "Düsseldorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Eberswalde Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Eckernförde"
+              }
+            },
+            {
+              "name": {
+                "value": "Edertalsperre"
+              }
+            },
+            {
+              "name": {
+                "value": "Eichhorst Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Eichhorst Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Eider Sperrwerk Außenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Eider Sperrwerk Binnenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Eisenhuettenstadt Schleuse Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Eisenhuettenstadt Schleuse Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Eisenhüttenstadt"
+              }
+            },
+            {
+              "name": {
+                "value": "Eiserne Brücke"
+              }
+            },
+            {
+              "name": {
+                "value": "Eitze"
+              }
+            },
+            {
+              "name": {
+                "value": "Eldena Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Elmshorn Hafen"
+              }
+            },
+            {
+              "name": {
+                "value": "Elsfleth"
+              }
+            },
+            {
+              "name": {
+                "value": "Elsfleth Ohrt"
+              }
+            },
+            {
+              "name": {
+                "value": "Elster"
+              }
+            },
+            {
+              "name": {
+                "value": "Emden Neue Seeschleuse"
+              }
+            },
+            {
+              "name": {
+                "value": "Emmerich"
+              }
+            },
+            {
+              "name": {
+                "value": "Emshörn"
+              }
+            },
+            {
+              "name": {
+                "value": "Erlau"
+              }
+            },
+            {
+              "name": {
+                "value": "Este Inneres Sperrwerk Außenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Este Inneres Sperrwerk Binnenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Fahrenholz Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Fahrenholz Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Farge"
+              }
+            },
+            {
+              "name": {
+                "value": "Faulbach"
+              }
+            },
+            {
+              "name": {
+                "value": "Findshier Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Flaesheim Schleuse Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Flaesheim Schleuse Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Flensburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Frankfurt Osthafen"
+              }
+            },
+            {
+              "name": {
+                "value": "Frankfurt1 (oder)"
+              }
+            },
+            {
+              "name": {
+                "value": "Freiburg Sperrwerk"
+              }
+            },
+            {
+              "name": {
+                "value": "Fremersdorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Friedrichsfeld Schleuse Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Friedrichsfeld Schleuse Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Friedrichstadt Strassenbrücke"
+              }
+            },
+            {
+              "name": {
+                "value": "Friedrichstadt Treene"
+              }
+            },
+            {
+              "name": {
+                "value": "Friedrichsthal"
+              }
+            },
+            {
+              "name": {
+                "value": "Fuerstenwalde Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Fuerstenwalde Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Fuestrup"
+              }
+            },
+            {
+              "name": {
+                "value": "Fuhse Ost"
+              }
+            },
+            {
+              "name": {
+                "value": "Fürstenberg Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Fürstenberg Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Gartz"
+              }
+            },
+            {
+              "name": {
+                "value": "Garwitz Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Garz Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Garz Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Geesthacht"
+              }
+            },
+            {
+              "name": {
+                "value": "Gelsenkirchen Schleuse Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Gelsenkirchen Schleuse Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Genthin"
+              }
+            },
+            {
+              "name": {
+                "value": "Geversdorf Brücke"
+              }
+            },
+            {
+              "name": {
+                "value": "Giessen Klärwerk"
+              }
+            },
+            {
+              "name": {
+                "value": "Glückstadt"
+              }
+            },
+            {
+              "name": {
+                "value": "Gnevsdorf Ep"
+              }
+            },
+            {
+              "name": {
+                "value": "Gnevsdorf Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Gorleben"
+              }
+            },
+            {
+              "name": {
+                "value": "Grabow Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Grafenbrueck Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Grauerort"
+              }
+            },
+            {
+              "name": {
+                "value": "Grebenau"
+              }
+            },
+            {
+              "name": {
+                "value": "Greifswald Oie"
+              }
+            },
+            {
+              "name": {
+                "value": "Greifswald Wieck"
+              }
+            },
+            {
+              "name": {
+                "value": "Grevenmacher Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Gross Rosenburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Grosse Tränke Wehr Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Grosse Tränke Wehr Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Grosse Weserbrücke"
+              }
+            },
+            {
+              "name": {
+                "value": "Grönhude"
+              }
+            },
+            {
+              "name": {
+                "value": "Grütz Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Grütz Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Gueritz Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Gundelsheim Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Guntershausen"
+              }
+            },
+            {
+              "name": {
+                "value": "Gw Pwdrfp 01"
+              }
+            },
+            {
+              "name": {
+                "value": "Gw Pwdrfp 02"
+              }
+            },
+            {
+              "name": {
+                "value": "Gw Pwdrfp 03"
+              }
+            },
+            {
+              "name": {
+                "value": "Gw Pwdrfp 04"
+              }
+            },
+            {
+              "name": {
+                "value": "Gw Pwdrfp 05"
+              }
+            },
+            {
+              "name": {
+                "value": "Gw Pwdrfp 06"
+              }
+            },
+            {
+              "name": {
+                "value": "Gw Pwdrfp 07"
+              }
+            },
+            {
+              "name": {
+                "value": "Gw Pwdrfp 08"
+              }
+            },
+            {
+              "name": {
+                "value": "Gw Pwdrfp 09"
+              }
+            },
+            {
+              "name": {
+                "value": "Gülpe Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Hahlen"
+              }
+            },
+            {
+              "name": {
+                "value": "Hahnöfer Sand West Siel"
+              }
+            },
+            {
+              "name": {
+                "value": "Haldensleben"
+              }
+            },
+            {
+              "name": {
+                "value": "Hamburg Harburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Hamburg Sankt Pauli"
+              }
+            },
+            {
+              "name": {
+                "value": "Hameln Wehrbergen"
+              }
+            },
+            {
+              "name": {
+                "value": "Hamm Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Hamm Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Hanau Brücke Dfh"
+              }
+            },
+            {
+              "name": {
+                "value": "Hannover List"
+              }
+            },
+            {
+              "name": {
+                "value": "Hannoversch Münden"
+              }
+            },
+            {
+              "name": {
+                "value": "Hanweiler"
+              }
+            },
+            {
+              "name": {
+                "value": "Hasehubbrücke"
+              }
+            },
+            {
+              "name": {
+                "value": "Hattingen"
+              }
+            },
+            {
+              "name": {
+                "value": "Havelberg Ep"
+              }
+            },
+            {
+              "name": {
+                "value": "Havelberg Stadt"
+              }
+            },
+            {
+              "name": {
+                "value": "Havelberg Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Hechthausen"
+              }
+            },
+            {
+              "name": {
+                "value": "Heidelberg Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Heiligenhafen"
+              }
+            },
+            {
+              "name": {
+                "value": "Heldra"
+              }
+            },
+            {
+              "name": {
+                "value": "Helgoland Binnenhafen"
+              }
+            },
+            {
+              "name": {
+                "value": "Helgoland Südhafen"
+              }
+            },
+            {
+              "name": {
+                "value": "Helminghausen"
+              }
+            },
+            {
+              "name": {
+                "value": "Henrichenburg Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Henrichenburg Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Herbrum Hafendamm"
+              }
+            },
+            {
+              "name": {
+                "value": "Herne Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Herne Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Herrenhausen"
+              }
+            },
+            {
+              "name": {
+                "value": "Herzhausen"
+              }
+            },
+            {
+              "name": {
+                "value": "Hessigheim Schleuse Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Hetlingen"
+              }
+            },
+            {
+              "name": {
+                "value": "Himmelpfort Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Himmelpfort Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Hitzacker"
+              }
+            },
+            {
+              "name": {
+                "value": "Hoerstel"
+              }
+            },
+            {
+              "name": {
+                "value": "Hofkirchen"
+              }
+            },
+            {
+              "name": {
+                "value": "Hohensaaten Finow"
+              }
+            },
+            {
+              "name": {
+                "value": "Hohensaaten Ost Außenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Hohensaaten West Außenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Hohensaaten West Binnenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Hohnstorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Hollersiel"
+              }
+            },
+            {
+              "name": {
+                "value": "Hooksielplate"
+              }
+            },
+            {
+              "name": {
+                "value": "Horneburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Hoya"
+              }
+            },
+            {
+              "name": {
+                "value": "Hundsmühlen"
+              }
+            },
+            {
+              "name": {
+                "value": "Huntebrueck"
+              }
+            },
+            {
+              "name": {
+                "value": "Husum"
+              }
+            },
+            {
+              "name": {
+                "value": "Hörnum"
+              }
+            },
+            {
+              "name": {
+                "value": "Höxter"
+              }
+            },
+            {
+              "name": {
+                "value": "Hünxe Schleuse Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Hünxe Schleuse Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Hüttendorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Iffezheim"
+              }
+            },
+            {
+              "name": {
+                "value": "Ilmenau"
+              }
+            },
+            {
+              "name": {
+                "value": "Ilmenau Sperrwerk Außenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Ingolstadt Luitpoldstrasse"
+              }
+            },
+            {
+              "name": {
+                "value": "Intschede"
+              }
+            },
+            {
+              "name": {
+                "value": "Itzehoe Hafen"
+              }
+            },
+            {
+              "name": {
+                "value": "Jarmen"
+              }
+            },
+            {
+              "name": {
+                "value": "Kade"
+              }
+            },
+            {
+              "name": {
+                "value": "Kalkofen Neu"
+              }
+            },
+            {
+              "name": {
+                "value": "Kanalbrücke"
+              }
+            },
+            {
+              "name": {
+                "value": "Kannenburg Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Kannenburg Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Kappeln"
+              }
+            },
+            {
+              "name": {
+                "value": "Karlshafen"
+              }
+            },
+            {
+              "name": {
+                "value": "Karlshagen"
+              }
+            },
+            {
+              "name": {
+                "value": "Karnin"
+              }
+            },
+            {
+              "name": {
+                "value": "Kaub"
+              }
+            },
+            {
+              "name": {
+                "value": "Kehl Kronenhof"
+              }
+            },
+            {
+              "name": {
+                "value": "Kelheimwinzer"
+              }
+            },
+            {
+              "name": {
+                "value": "Kersdorf Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Kersdorf Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Ketzin"
+              }
+            },
+            {
+              "name": {
+                "value": "Kiel Holtenau"
+              }
+            },
+            {
+              "name": {
+                "value": "Kienitz"
+              }
+            },
+            {
+              "name": {
+                "value": "Kietz"
+              }
+            },
+            {
+              "name": {
+                "value": "Klein Laasch Wehr Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Kleinheubach"
+              }
+            },
+            {
+              "name": {
+                "value": "Kleinmachnow Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Kleinmachnow Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Kleinostheim Wuk"
+              }
+            },
+            {
+              "name": {
+                "value": "Kloster"
+              }
+            },
+            {
+              "name": {
+                "value": "Knock"
+              }
+            },
+            {
+              "name": {
+                "value": "Kns Nok"
+              }
+            },
+            {
+              "name": {
+                "value": "Kns Ostsee"
+              }
+            },
+            {
+              "name": {
+                "value": "Koblenz"
+              }
+            },
+            {
+              "name": {
+                "value": "Koblenz Lützel Dfh"
+              }
+            },
+            {
+              "name": {
+                "value": "Koblenz Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Kollmar"
+              }
+            },
+            {
+              "name": {
+                "value": "Konstanz"
+              }
+            },
+            {
+              "name": {
+                "value": "Konstanz Rhein"
+              }
+            },
+            {
+              "name": {
+                "value": "Koserow"
+              }
+            },
+            {
+              "name": {
+                "value": "Kotthausen"
+              }
+            },
+            {
+              "name": {
+                "value": "Krautsand"
+              }
+            },
+            {
+              "name": {
+                "value": "Krotzenburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Krückau Sperrwerk Außenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Krückau Sperrwerk Binnenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Kummersdorf Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Kummersdorf Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Köln"
+              }
+            },
+            {
+              "name": {
+                "value": "Lahnstein Schleuse Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Langballigau"
+              }
+            },
+            {
+              "name": {
+                "value": "Langeoog"
+              }
+            },
+            {
+              "name": {
+                "value": "Lauffen"
+              }
+            },
+            {
+              "name": {
+                "value": "Lauterbach"
+              }
+            },
+            {
+              "name": {
+                "value": "Ledasperrwerk Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Leerort"
+              }
+            },
+            {
+              "name": {
+                "value": "Leesenbrueck Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Lehnitz Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Lehnitz Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Lenzen"
+              }
+            },
+            {
+              "name": {
+                "value": "Letzter Heller"
+              }
+            },
+            {
+              "name": {
+                "value": "Leuchtturm Alte Weser"
+              }
+            },
+            {
+              "name": {
+                "value": "Leun Neu"
+              }
+            },
+            {
+              "name": {
+                "value": "Lewitz Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Lexfähre Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Lexfähre Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Liebenau"
+              }
+            },
+            {
+              "name": {
+                "value": "Liebenwalde Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Liebenwalde Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Liepe Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Liepe Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Lingen Darme"
+              }
+            },
+            {
+              "name": {
+                "value": "List Auf Sylt"
+              }
+            },
+            {
+              "name": {
+                "value": "Lohnde"
+              }
+            },
+            {
+              "name": {
+                "value": "Louny"
+              }
+            },
+            {
+              "name": {
+                "value": "Lt Kalkgrund"
+              }
+            },
+            {
+              "name": {
+                "value": "Lt Kiel"
+              }
+            },
+            {
+              "name": {
+                "value": "Luebbecke"
+              }
+            },
+            {
+              "name": {
+                "value": "Lueneburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Lueneburg Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Lueneburg Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Lübeck Bauhof"
+              }
+            },
+            {
+              "name": {
+                "value": "Lübz Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Lüdinghausen"
+              }
+            },
+            {
+              "name": {
+                "value": "Lühort"
+              }
+            },
+            {
+              "name": {
+                "value": "Lühort Lfk"
+              }
+            },
+            {
+              "name": {
+                "value": "Lüne"
+              }
+            },
+            {
+              "name": {
+                "value": "Magdeburg Buckau"
+              }
+            },
+            {
+              "name": {
+                "value": "Magdeburg Ro Nws"
+              }
+            },
+            {
+              "name": {
+                "value": "Magdeburg Strombrücke"
+              }
+            },
+            {
+              "name": {
+                "value": "Mainflingen"
+              }
+            },
+            {
+              "name": {
+                "value": "Mainz"
+              }
+            },
+            {
+              "name": {
+                "value": "Malchow Wehr Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Malliss Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Malliss Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Mannheim"
+              }
+            },
+            {
+              "name": {
+                "value": "Mannheim Neckar"
+              }
+            },
+            {
+              "name": {
+                "value": "Marbach Wehr Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Marburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Marienleuchte"
+              }
+            },
+            {
+              "name": {
+                "value": "Marienthal Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Marienthal Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Marklendorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Maxau"
+              }
+            },
+            {
+              "name": {
+                "value": "Mehrum"
+              }
+            },
+            {
+              "name": {
+                "value": "Meissen"
+              }
+            },
+            {
+              "name": {
+                "value": "Mellumplate"
+              }
+            },
+            {
+              "name": {
+                "value": "Mescherin"
+              }
+            },
+            {
+              "name": {
+                "value": "Minden"
+              }
+            },
+            {
+              "name": {
+                "value": "Mirow Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Mirow Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Mittelgrund"
+              }
+            },
+            {
+              "name": {
+                "value": "Muesse"
+              }
+            },
+            {
+              "name": {
+                "value": "Mölln"
+              }
+            },
+            {
+              "name": {
+                "value": "Müggendorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Mühlberg"
+              }
+            },
+            {
+              "name": {
+                "value": "Münster Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Münster Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Nalje Siel"
+              }
+            },
+            {
+              "name": {
+                "value": "Neu Darchau"
+              }
+            },
+            {
+              "name": {
+                "value": "Neuburg Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Neue Mühle Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Neue Mühle Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Neuendorf Hafen"
+              }
+            },
+            {
+              "name": {
+                "value": "Neuhaus Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Neuhaus Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Neustadt"
+              }
+            },
+            {
+              "name": {
+                "value": "Neustadt Glewe Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Neuwerben Ep"
+              }
+            },
+            {
+              "name": {
+                "value": "Neuwied Stadt"
+              }
+            },
+            {
+              "name": {
+                "value": "Niederblockland"
+              }
+            },
+            {
+              "name": {
+                "value": "Niederfinow Shw Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Niederfinow Shw Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Niegripp Außenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Niegripp Binnenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Nienbruegge"
+              }
+            },
+            {
+              "name": {
+                "value": "Nienburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Nienburg (saale)"
+              }
+            },
+            {
+              "name": {
+                "value": "Nierstein Oppenheim"
+              }
+            },
+            {
+              "name": {
+                "value": "Nok Breiholz"
+              }
+            },
+            {
+              "name": {
+                "value": "Nok Brunsbüttel"
+              }
+            },
+            {
+              "name": {
+                "value": "Nok Dükerswisch"
+              }
+            },
+            {
+              "name": {
+                "value": "Nok Königsförde"
+              }
+            },
+            {
+              "name": {
+                "value": "Nok Rendsburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Nordenham"
+              }
+            },
+            {
+              "name": {
+                "value": "Norderney Riffgat"
+              }
+            },
+            {
+              "name": {
+                "value": "Nordfeld Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Nordfeld Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Oberhausen Schleuse Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Oberhausen Schleuse Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Obernau"
+              }
+            },
+            {
+              "name": {
+                "value": "Oberndorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Oberwinter"
+              }
+            },
+            {
+              "name": {
+                "value": "Oestrich"
+              }
+            },
+            {
+              "name": {
+                "value": "Oldenburg Drielake"
+              }
+            },
+            {
+              "name": {
+                "value": "Oslebshausen"
+              }
+            },
+            {
+              "name": {
+                "value": "Osloss"
+              }
+            },
+            {
+              "name": {
+                "value": "Oste Sperrwerk Außenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Oste Sperrwerk Binnenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Osteriff Mpm"
+              }
+            },
+            {
+              "name": {
+                "value": "Ottenheim"
+              }
+            },
+            {
+              "name": {
+                "value": "Otterndorf Mpm"
+              }
+            },
+            {
+              "name": {
+                "value": "Over"
+              }
+            },
+            {
+              "name": {
+                "value": "Papenburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Parchim Güte"
+              }
+            },
+            {
+              "name": {
+                "value": "Parey Ep"
+              }
+            },
+            {
+              "name": {
+                "value": "Parey Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Passau Donau"
+              }
+            },
+            {
+              "name": {
+                "value": "Passau Ilzstadt"
+              }
+            },
+            {
+              "name": {
+                "value": "Passau Luitpoldbrücke Dfh"
+              }
+            },
+            {
+              "name": {
+                "value": "Passau Steinbachbrücke Dfh"
+              }
+            },
+            {
+              "name": {
+                "value": "Pellworm Anleger"
+              }
+            },
+            {
+              "name": {
+                "value": "Perl"
+              }
+            },
+            {
+              "name": {
+                "value": "Petershagen"
+              }
+            },
+            {
+              "name": {
+                "value": "Pettstadt"
+              }
+            },
+            {
+              "name": {
+                "value": "Pfatter"
+              }
+            },
+            {
+              "name": {
+                "value": "Pfelling"
+              }
+            },
+            {
+              "name": {
+                "value": "Philippsburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Pinnau Sperrwerk Außenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Pinnau Sperrwerk Binnenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Pirna"
+              }
+            },
+            {
+              "name": {
+                "value": "Plau Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Plau Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Plaue Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Plaue Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Plittersdorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Plochingen"
+              }
+            },
+            {
+              "name": {
+                "value": "Pogum"
+              }
+            },
+            {
+              "name": {
+                "value": "Porta"
+              }
+            },
+            {
+              "name": {
+                "value": "Potsdam"
+              }
+            },
+            {
+              "name": {
+                "value": "Predmerice"
+              }
+            },
+            {
+              "name": {
+                "value": "Prelouc"
+              }
+            },
+            {
+              "name": {
+                "value": "Pretzsch Mauken"
+              }
+            },
+            {
+              "name": {
+                "value": "Quitzöbel Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Quitzöbel Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Ragoese Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Rathenow Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Rathenow Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Ratzdorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Raunheim"
+              }
+            },
+            {
+              "name": {
+                "value": "Rechtenfleth"
+              }
+            },
+            {
+              "name": {
+                "value": "Recke"
+              }
+            },
+            {
+              "name": {
+                "value": "Rees"
+              }
+            },
+            {
+              "name": {
+                "value": "Reithoerne"
+              }
+            },
+            {
+              "name": {
+                "value": "Rensing"
+              }
+            },
+            {
+              "name": {
+                "value": "Rethem"
+              }
+            },
+            {
+              "name": {
+                "value": "Rhede"
+              }
+            },
+            {
+              "name": {
+                "value": "Rheine Unterschleuse"
+              }
+            },
+            {
+              "name": {
+                "value": "Rheinweiler"
+              }
+            },
+            {
+              "name": {
+                "value": "Riedenburg Up"
+              }
+            },
+            {
+              "name": {
+                "value": "Riesa"
+              }
+            },
+            {
+              "name": {
+                "value": "Rinteln"
+              }
+            },
+            {
+              "name": {
+                "value": "Rischmühle Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Ritterhude"
+              }
+            },
+            {
+              "name": {
+                "value": "Robbensüdsteert"
+              }
+            },
+            {
+              "name": {
+                "value": "Rockenau Ska"
+              }
+            },
+            {
+              "name": {
+                "value": "Rodenberger Aue Ost"
+              }
+            },
+            {
+              "name": {
+                "value": "Rodenberger Aue West"
+              }
+            },
+            {
+              "name": {
+                "value": "Rogätz"
+              }
+            },
+            {
+              "name": {
+                "value": "Rosslau"
+              }
+            },
+            {
+              "name": {
+                "value": "Rostock Mühlendamm Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Rostock Mühlendamm Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Rotenburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Rothenburg Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Rothenburg Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Rothensee"
+              }
+            },
+            {
+              "name": {
+                "value": "Ruden"
+              }
+            },
+            {
+              "name": {
+                "value": "Ruehen"
+              }
+            },
+            {
+              "name": {
+                "value": "Ruhlsdorf Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Ruhrwehr Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Rusbend"
+              }
+            },
+            {
+              "name": {
+                "value": "Rust"
+              }
+            },
+            {
+              "name": {
+                "value": "Ruthenstrom Sperrwerk"
+              }
+            },
+            {
+              "name": {
+                "value": "Ruwer"
+              }
+            },
+            {
+              "name": {
+                "value": "Röpzig"
+              }
+            },
+            {
+              "name": {
+                "value": "Sachsenhausen Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Sachsenhausen Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Sandau"
+              }
+            },
+            {
+              "name": {
+                "value": "Sankt Arnual"
+              }
+            },
+            {
+              "name": {
+                "value": "Sankt Goar"
+              }
+            },
+            {
+              "name": {
+                "value": "Sassnitz"
+              }
+            },
+            {
+              "name": {
+                "value": "Scharleuk"
+              }
+            },
+            {
+              "name": {
+                "value": "Schillig"
+              }
+            },
+            {
+              "name": {
+                "value": "Schleimünde Sp"
+              }
+            },
+            {
+              "name": {
+                "value": "Schleswig"
+              }
+            },
+            {
+              "name": {
+                "value": "Schleuse Rothensee Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Schlossbrücke Mülheim"
+              }
+            },
+            {
+              "name": {
+                "value": "Schmittlotheim"
+              }
+            },
+            {
+              "name": {
+                "value": "Schnackenburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Schoepfurth Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Schulau"
+              }
+            },
+            {
+              "name": {
+                "value": "Schwabelweis"
+              }
+            },
+            {
+              "name": {
+                "value": "Schwarmstedt"
+              }
+            },
+            {
+              "name": {
+                "value": "Schwedt Oderbrücke"
+              }
+            },
+            {
+              "name": {
+                "value": "Schwedt Schleuse Außenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Schwedt Schleuse Binnenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Schweinfurt Neuer Hafen"
+              }
+            },
+            {
+              "name": {
+                "value": "Schwerin Werderbrücke"
+              }
+            },
+            {
+              "name": {
+                "value": "Schwinge Sperrwerk"
+              }
+            },
+            {
+              "name": {
+                "value": "Schöna"
+              }
+            },
+            {
+              "name": {
+                "value": "Schönebeck"
+              }
+            },
+            {
+              "name": {
+                "value": "Schöneworth Siel"
+              }
+            },
+            {
+              "name": {
+                "value": "Schönwalde Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Schönwalde Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Schöpfstelle"
+              }
+            },
+            {
+              "name": {
+                "value": "Seemannshöft"
+              }
+            },
+            {
+              "name": {
+                "value": "Sehnde"
+              }
+            },
+            {
+              "name": {
+                "value": "Speyer"
+              }
+            },
+            {
+              "name": {
+                "value": "Spiekeroog"
+              }
+            },
+            {
+              "name": {
+                "value": "Stadersand"
+              }
+            },
+            {
+              "name": {
+                "value": "Stadtbredimus Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Stahlbrode"
+              }
+            },
+            {
+              "name": {
+                "value": "Stecher Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Steinbach"
+              }
+            },
+            {
+              "name": {
+                "value": "Stolzenau"
+              }
+            },
+            {
+              "name": {
+                "value": "Storkau"
+              }
+            },
+            {
+              "name": {
+                "value": "Storkow Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Storkow Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Stralsund"
+              }
+            },
+            {
+              "name": {
+                "value": "Strohplao"
+              }
+            },
+            {
+              "name": {
+                "value": "Stör Sperrwerk Außenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Stör Sperrwerk Binnenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Stützkow"
+              }
+            },
+            {
+              "name": {
+                "value": "Suelfeld"
+              }
+            },
+            {
+              "name": {
+                "value": "Suelfeld Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Suelfeld Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Tangermünde"
+              }
+            },
+            {
+              "name": {
+                "value": "Templin Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Templin Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Terborg"
+              }
+            },
+            {
+              "name": {
+                "value": "Thiessow"
+              }
+            },
+            {
+              "name": {
+                "value": "Thune"
+              }
+            },
+            {
+              "name": {
+                "value": "Tieckow"
+              }
+            },
+            {
+              "name": {
+                "value": "Timmendorf Poel"
+              }
+            },
+            {
+              "name": {
+                "value": "Torgau"
+              }
+            },
+            {
+              "name": {
+                "value": "Travemünde"
+              }
+            },
+            {
+              "name": {
+                "value": "Trier Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Trotha Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Trotha Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Truebengraben Polder"
+              }
+            },
+            {
+              "name": {
+                "value": "Trunstadt"
+              }
+            },
+            {
+              "name": {
+                "value": "Twielenfleth Siel"
+              }
+            },
+            {
+              "name": {
+                "value": "Tyniste"
+              }
+            },
+            {
+              "name": {
+                "value": "Tönning"
+              }
+            },
+            {
+              "name": {
+                "value": "Ueckermünde"
+              }
+            },
+            {
+              "name": {
+                "value": "Uelzen"
+              }
+            },
+            {
+              "name": {
+                "value": "Uelzen Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Uelzen Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Uetersen"
+              }
+            },
+            {
+              "name": {
+                "value": "Vegesack"
+              }
+            },
+            {
+              "name": {
+                "value": "Velsdorf"
+              }
+            },
+            {
+              "name": {
+                "value": "Versen Wd"
+              }
+            },
+            {
+              "name": {
+                "value": "Vilshofen"
+              }
+            },
+            {
+              "name": {
+                "value": "Vlotho"
+              }
+            },
+            {
+              "name": {
+                "value": "Vockerode"
+              }
+            },
+            {
+              "name": {
+                "value": "Vorsfelde"
+              }
+            },
+            {
+              "name": {
+                "value": "Voslapp"
+              }
+            },
+            {
+              "name": {
+                "value": "Vranany"
+              }
+            },
+            {
+              "name": {
+                "value": "Wahmbeck"
+              }
+            },
+            {
+              "name": {
+                "value": "Waltrop"
+              }
+            },
+            {
+              "name": {
+                "value": "Wangerooge Nord"
+              }
+            },
+            {
+              "name": {
+                "value": "Wangerooge Ost"
+              }
+            },
+            {
+              "name": {
+                "value": "Wangerooge West"
+              }
+            },
+            {
+              "name": {
+                "value": "Wanne Eickel Schleuse Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Wanne Eickel Schleuse Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Warber Graben"
+              }
+            },
+            {
+              "name": {
+                "value": "Waren"
+              }
+            },
+            {
+              "name": {
+                "value": "Warnau Polder"
+              }
+            },
+            {
+              "name": {
+                "value": "Warnemünde"
+              }
+            },
+            {
+              "name": {
+                "value": "Wasserhorst"
+              }
+            },
+            {
+              "name": {
+                "value": "Weener"
+              }
+            },
+            {
+              "name": {
+                "value": "Wehr Geesthacht Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wendisch Rietz Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wendisch Rietz Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wernsdorf Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wernsdorf Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Werries Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Wertheim"
+              }
+            },
+            {
+              "name": {
+                "value": "Wesel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wesenberg Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wesenberg Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Weserwehr Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Weserwehr Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Wettin Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wettin Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wilhelmsbrücke"
+              }
+            },
+            {
+              "name": {
+                "value": "Wilhelmshaven Alter Vorhafen"
+              }
+            },
+            {
+              "name": {
+                "value": "Wilhelmshaven Neuer Vorhafen"
+              }
+            },
+            {
+              "name": {
+                "value": "Wincheringen"
+              }
+            },
+            {
+              "name": {
+                "value": "Wintrich Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wischhafen Sperrwerk"
+              }
+            },
+            {
+              "name": {
+                "value": "Wismar Baumhaus"
+              }
+            },
+            {
+              "name": {
+                "value": "Wittdün"
+              }
+            },
+            {
+              "name": {
+                "value": "Wittenberg"
+              }
+            },
+            {
+              "name": {
+                "value": "Wittenberge"
+              }
+            },
+            {
+              "name": {
+                "value": "Wittingen"
+              }
+            },
+            {
+              "name": {
+                "value": "Wittorf Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wittorf Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wittower Fähre"
+              }
+            },
+            {
+              "name": {
+                "value": "Wolfsbruch Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wolfsbruch Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wolgast"
+              }
+            },
+            {
+              "name": {
+                "value": "Woltersdorf Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Woltersdorf Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Worms"
+              }
+            },
+            {
+              "name": {
+                "value": "Wusterwitz Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Wusterwitz Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Würzburg"
+              }
+            },
+            {
+              "name": {
+                "value": "Zehdenick Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Zehdenick Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Zehnerloch"
+              }
+            },
+            {
+              "name": {
+                "value": "Zeltingen Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Zerben Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Zerben Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Ziegelhausen Ams"
+              }
+            },
+            {
+              "name": {
+                "value": "Zollenspieker"
+              }
+            }
+          ],
+          "name": "LIST_OF_STATIONS"
+        }
+      ]
+    }
+  }
+}

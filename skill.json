@@ -1,0 +1,47 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "de-DE": {
+          "summary": "Aktuelle Pegelstände in Deutschland",
+          "examplePhrases": [
+            "Alexa, öffne Pegel Online",
+            "Alexa, frage Pegel Online nach dem Wasserstand in Würzburg",
+            "Alexa, frage Pegel Online nach dem Pegel bei Husum"
+          ],
+          "keywords": [
+            "gewässer",
+            "wasserstand",
+            "pegelstand",
+            "pegelonline"
+          ],
+          "name": "Pegel Online",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/e6053a0a41924c859dd9be47afe20699/APP_ICON?versionId=_eM8a3H2G3PGFA5jPU8YuccrTg1hKmwH&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537440311&Signature=gSgLSx19ts1Gh1DlJstshzMTJI0%3D",
+          "description": "Liefert die aktuellen Pegelstände von über 500 Messstellen in Deutschland zurück; Quelle www.pegelonline.wsv.de. Die Karte in der Alexa App zeigt zusätzlich den Pegelverlauf der letzten 7 Tage.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4dfe/b330178ef7f84b85b1759abe853bef2d/APP_ICON_LARGE?versionId=RLJTatpRh3OxobKUNXnN6vkz6dE0FMSk&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537440311&Signature=O2MLyVdrIo4sFVcqf3qgZaxMVUc%3D"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Änderungen zur letzten Version (Lambda function :5):\n* Unterstützung von Aufrufen der Art \"wie der Messwert/Pegel/... bei {Station} *ist*\" \n* Pegel-Tendenz hinzugefügt (steigend/fallend/gleichbleibend)\n* Lokale Zeit statt UTC als Messzeitpunkt\n* Aktuelle Messstellen laut pegelonline.wsv.de",
+      "category": "WEATHER",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "./src"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}
