@@ -4,7 +4,7 @@ const request = require('request-promise-native');
 
 const BASE_URL = 'https://www.pegelonline.wsv.de/webservices/rest-api/v2/';
 
-const baseRequest = request.defaults({
+const wsvRequest = request.defaults({
     baseUrl: BASE_URL,
     gzip: true,
     json: true,
@@ -12,24 +12,17 @@ const baseRequest = request.defaults({
 
 var exports = module.exports = {};
 
-exports.getStations = function(callback) {
+exports.getStations = async function() {
     const options = {
         uri: 'stations.json',
         qs: {
             prettyprint: false,
         },
     };
-    baseRequest(options)
-        .then(result => {
-            return callback(null, result);
-        })
-        .catch(err => {
-            console.error('error requesting stations.json:', err);
-            return callback(err);
-        });
+    return wsvRequest(options);
 };
 
-exports.getUuidsFuzzy = function(station, callback) {
+exports.getUuidsFuzzy = async function(station) {
     const options = {
         uri: 'stations.json',
         qs: {
@@ -37,19 +30,10 @@ exports.getUuidsFuzzy = function(station, callback) {
             prettyprint: false,
         },
     };
-    baseRequest(options)
-        .then(result => {
-            return callback(null, result.map(station => {
-                return station.uuid;
-            }));
-        })
-        .catch(err => {
-            console.error('error requesting stations.json for fuzzyId:', err);
-            return callback(err);
-        });
+    return (await wsvRequest(options)).map(station => { return station.uuid; });
 };
 
-exports.getUuidsForWater = function(water, callback) {
+exports.getUuidsForWater = async function(water) {
     const options = {
         uri: 'stations.json',
         qs: {
@@ -57,19 +41,10 @@ exports.getUuidsForWater = function(water, callback) {
             prettyprint: false,
         },
     };
-    baseRequest(options)
-        .then(result => {
-            return callback(null, result.map(station => {
-                return station.uuid;
-            }));
-        })
-        .catch(err => {
-            console.error('error requesting stations.json for waters:', err);
-            return callback(err);
-        });
+    return (await wsvRequest(options)).map(station => { return station.uuid; });
 };
 
-exports.getCurrentMeasurement = function(station, callback) {
+exports.getCurrentMeasurement = async function(station) {
     const options = {
         uri: 'stations/' + encodeURI(station) + '/W.json',
         qs: {
@@ -77,21 +52,13 @@ exports.getCurrentMeasurement = function(station, callback) {
             prettyprint: false,
         },
     };
-    baseRequest(options)
-        .then(result => {
-            return callback(null, result);
-        })
-        .catch(err => {
-            const e = err.error || err;
-            console.error('error getting current measurement:', e);
-            return callback(err);
-        });
+    return wsvRequest(options);
 };
 
-exports.getSmallImageUrl = function(station) {
+exports.getSmallImageUrl = (station) => {
     return BASE_URL + 'stations/' + station + '/W/measurements.png?start=P7D&width=720&height=480';
 };
 
-exports.getLargeImageUrl = function(station) {
+exports.getLargeImageUrl = (station) => {
     return BASE_URL + 'stations/' + station + '/W/measurements.png?start=P7D&width=1200&height=800';
 };

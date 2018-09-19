@@ -3,6 +3,7 @@ Alexa Skill for interacting with http://www.pegelonline.wsv.de
 
 ## TODOs
 - Test manager.js using mock REST API, see http://bulkan-evcimen.com/testing_with_mocha_sinon.html
+- switch to SDK V2 ApiClient http://www.talkingtocomputers.com/alexa-skills-kit-ask-sdk-v2#apiclient
 - Water bodies shouldn't be part of slot-LIST_OF_STATIONS.txt, they
 get overwritten by create-station-slot-values.js and make
 test/list-of-statons.js fail, so better come up with separate
