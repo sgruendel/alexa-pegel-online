@@ -62,56 +62,57 @@ function normalizeName(name) {
     return name;
 }
 
-pegelonline.getStations((err, result) => {
-    if (result) {
-        var uuids = {};
-        var names = {};
+async function getStations() {
+    var uuids = {};
+    var names = {};
 
-        result.forEach(station => {
-            // map station uuids to names
-            const longname = normalizeName(station.longname);
+    const result = await pegelonline.getStations();
+    result.forEach(station => {
+        // map station uuids to names
+        const longname = normalizeName(station.longname);
 
-            // const shortname = normalizeName(station.shortname);
-            // if (shortname != longname) {
-            //     console.log(shortname, '<=>', longname);
-            // }
-            //
-            // Nur in folgenden Fällen unterscheiden sich shortname <=> longname:
-            // neue mühle schleuse unterpegel <=> neue mühle unterpegel
-            // neue mühle schleuse oberpegel <=> neue mühle oberpegel
-            // hamburg-st.pauli <=> hamburg st. pauli
-            // ilmenau sperrwerk ap <=> ilmenau-sperrwerk ap
-            // gießen klärwerk <=> giessen klärwerk
-            // schweinfurt nh <=> schweinfurt neuer hafen
-            // timmendorf/poel <=> timmendorf poel
-            // demmin <=> demmin-meyenkrebsbrücke
-            //
-            // Wir nehmen einfach immer den longname
+        // const shortname = normalizeName(station.shortname);
+        // if (shortname != longname) {
+        //     console.log(shortname, '<=>', longname);
+        // }
+        //
+        // Nur in folgenden Fällen unterscheiden sich shortname <=> longname:
+        // neue mühle schleuse unterpegel <=> neue mühle unterpegel
+        // neue mühle schleuse oberpegel <=> neue mühle oberpegel
+        // hamburg-st.pauli <=> hamburg st. pauli
+        // ilmenau sperrwerk ap <=> ilmenau-sperrwerk ap
+        // gießen klärwerk <=> giessen klärwerk
+        // schweinfurt nh <=> schweinfurt neuer hafen
+        // timmendorf/poel <=> timmendorf poel
+        // demmin <=> demmin-meyenkrebsbrücke
+        //
+        // Wir nehmen einfach immer den longname
 
-            uuids[longname] = station.uuid;
-            names[station.uuid] = longname;
-        });
+        uuids[longname] = station.uuid;
+        names[station.uuid] = longname;
+    });
 
-        // serialize station uuid to name mapping to be used when calling Alexa Intent with station name
-        var stream = fs.createWriteStream('src/uuids.json');
-        stream.write(JSON.stringify(uuids, null, 2));
-        stream.end();
+    // serialize station uuid to name mapping to be used when calling Alexa Intent with station name
+    var stream = fs.createWriteStream('src/uuids.json');
+    stream.write(JSON.stringify(uuids, null, 2));
+    stream.end();
 
-        // serialize normalized station name to uuid mapping to be used when showing the actual station found
-        stream = fs.createWriteStream('src/names.json');
-        stream.write(JSON.stringify(names, null, 2));
-        stream.end();
+    // serialize normalized station name to uuid mapping to be used when showing the actual station found
+    stream = fs.createWriteStream('src/names.json');
+    stream.write(JSON.stringify(names, null, 2));
+    stream.end();
 
-        // write sorted list of station names to be used as slot values for the Alexa Intent
-        var namesArray = [];
-        Object.keys(uuids).forEach(name => {
-            namesArray.push(name);
-        });
+    // write sorted list of station names to be used as slot values for the Alexa Intent
+    var namesArray = [];
+    Object.keys(uuids).forEach(name => {
+        namesArray.push(name);
+    });
 
-        stream = fs.createWriteStream('models/slot-LIST_OF_STATIONS.txt');
-        namesArray.sort().forEach(name => {
-            stream.write(name + '\n');
-        });
-        stream.end();
-    }
-});
+    stream = fs.createWriteStream('models/slot-LIST_OF_STATIONS.txt');
+    namesArray.sort().forEach(name => {
+        stream.write(name + '\n');
+    });
+    stream.end();
+}
+
+getStations();
