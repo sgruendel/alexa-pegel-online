@@ -56,9 +56,38 @@ describe('Pegel Online Skill', () => {
     describe('WaterLevelIntent', () => {
         alexaTest.test([
             {
-                request: alexaTest.getIntentRequest('WaterLevelIntent', { Station: 'Würzburg' }),
+                request: alexaTest.getIntentRequest('WaterLevelIntent', { Station: 'würzburg' }),
                 saysLike: 'Der Wasserstand bei Würzburg beträgt',
                 hasCardTitle: 'Pegel bei Würzburg',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
+                request: alexaTest.getIntentRequest('WaterLevelIntent', { Station: 'affoltern' }),
+                saysLike: 'Der Wasserstand bei Affoldern beträgt',
+                hasCardTitle: 'Pegel bei Affoldern',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
+                request: alexaTest.getIntentRequest('WaterLevelIntent', { Station: 'aller' }),
+                saysLike: 'Der Wasserstand bei Eitze beträgt',
+                hasCardTitle: 'Pegel bei Eitze',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
+                request: alexaTest.getIntentRequest('WaterLevelIntent', { Station: 'bodensee' }),
+                saysLike: 'Der Wasserstand bei Konstanz beträgt',
+                hasCardTitle: 'Pegel bei Konstanz',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
+                request: alexaTest.getIntentRequest('WaterLevelIntent', { Station: 'wilhelmshaven' }),
+                saysLike: 'Der Wasserstand bei Wilhelmshaven Alter Vorhafen beträgt',
+                hasCardTitle: 'Pegel bei Wilhelmshaven Alter Vorhafen',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
+                request: alexaTest.getIntentRequest('WaterLevelIntent', { Station: 'xyzxyzxyz' }),
+                saysLike: 'Ich kenne diese Messstelle leider nicht.',
                 repromptsNothing: true, shouldEndSession: true,
             },
         ]);

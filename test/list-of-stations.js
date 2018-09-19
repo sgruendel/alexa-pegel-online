@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 const fs = require('fs');
 // const pegelonline = require('../src/pegelonlineRestAPI');
 
-const stations = fs.readFileSync('skill/slot-LIST_OF_STATIONS.txt').toString().split('\n');
+const stations = fs.readFileSync('models/slot-LIST_OF_STATIONS.txt').toString().split('\n');
 const uuids = require('../src/uuids.json');
 const names = require('../src/names.json');
 
