@@ -24,10 +24,20 @@ const languageStrings = {
     },
 };
 
+// returns true if the skill is running on a device with a display (show|spot)
+function supportsDisplay(handlerInput) {
+    const { context } = handlerInput.requestEnvelope;
+    return context
+        && context.System
+        && context.System.device
+        && context.System.device.supportedInterfaces
+        && context.System.device.supportedInterfaces.Display;
+}
+
 const WaterLevelIntentHandler = {
     canHandle(handlerInput) {
-        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-            && handlerInput.requestEnvelope.request.intent.name === 'WaterLevelIntent';
+        const request = handlerInput.requestEnvelope.request;
+        return request.type === 'IntentRequest' && request.intent.name === 'WaterLevelIntent';
     },
     async handle(handlerInput) {
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
@@ -54,6 +64,8 @@ const WaterLevelIntentHandler = {
             const result = await manager.currentMeasurementForUuids(uuids);
             result.currentMeasurement.value = result.currentMeasurement.value.toString().replace('.', ',');
 
+            const title = 'Pegel bei ' + result.station;
+
             var currentWaterLevel = requestAttributes.t('CURRENT_WATER_LEVEL_MESSAGE', { result });
             switch (result.currentMeasurement.trend) {
             case -1:
@@ -74,19 +86,41 @@ const WaterLevelIntentHandler = {
             currentWaterLevel += '.';
 
             const speechOutput = currentWaterLevel;
+            console.log(speechOutput);
+
+            var measurementTime;
             var cardContent = currentWaterLevel;
             if (result.currentMeasurement.timestamp) {
-                const measurementTimeDesc =
-                    util.getTimeDesc(
+                measurementTime = 'Messung von '
+                    + util.getTimeDesc(
                         new Date(result.currentMeasurement.timestamp),
-                        handlerInput.requestEnvelope.request.locale);
-                cardContent = 'Messung von ' + measurementTimeDesc + ' Uhr: ' + cardContent;
+                        handlerInput.requestEnvelope.request.locale)
+                    + ' Uhr';
+                cardContent = measurementTime + ': ' + cardContent;
             }
 
-            console.log(speechOutput);
+            if (supportsDisplay(handlerInput)) {
+                const measurementImage = new Alexa.ImageHelper()
+                    .withDescription('Wasserstandsdaten')
+                    .addImageInstance(result.image.xsmall.url, 'X_SMALL', result.image.xsmall.width, result.image.xsmall.height)
+                    .addImageInstance(result.image.medium.url, 'MEDIUM', result.image.medium.width, result.image.medium.height)
+                    .getImage();
+                const textContent = new Alexa.PlainTextContentHelper()
+                    .withPrimaryText(speechOutput)
+                    .withSecondaryText(measurementTime)
+                    .getTextContent();
+                handlerInput.responseBuilder
+                    .addRenderTemplateDirective({
+                        type: 'BodyTemplate2',
+                        backButton: 'HIDDEN',
+                        image: measurementImage,
+                        title: title,
+                        textContent: textContent,
+                    });
+            }
             return handlerInput.responseBuilder
                 .speak(speechOutput)
-                .withStandardCard('Pegel bei ' + result.station, cardContent, result.smallImageUrl, result.largeImageUrl)
+                .withStandardCard(title, cardContent, result.image.small.url, result.image.large.url)
                 .getResponse();
         } catch (err) {
             console.error('Error getting current measurement', err);
@@ -100,9 +134,9 @@ const WaterLevelIntentHandler = {
 
 const HelpIntentHandler = {
     canHandle(handlerInput) {
-        return handlerInput.requestEnvelope.request.type === 'LaunchRequest'
-            || (handlerInput.requestEnvelope.request.type === 'IntentRequest'
-                && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent');
+        const request = handlerInput.requestEnvelope.request;
+        return request.type === 'LaunchRequest'
+            || (request.type === 'IntentRequest' && request.intent.name === 'AMAZON.HelpIntent');
     },
     handle(handlerInput) {
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
@@ -117,9 +151,9 @@ const HelpIntentHandler = {
 
 const CancelAndStopIntentHandler = {
     canHandle(handlerInput) {
-        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-            && (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent'
-                || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
+        const request = handlerInput.requestEnvelope.request;
+        return request.type === 'IntentRequest'
+            && (request.intent.name === 'AMAZON.CancelIntent' || request.intent.name === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
@@ -130,13 +164,22 @@ const CancelAndStopIntentHandler = {
     },
 };
 
+const SessionEndedRequestHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
+    },
+    handle(handlerInput) {
+        console.log('Session ended with reason:', handlerInput.requestEnvelope.request.reason);
+        return handlerInput.responseBuilder.getResponse();
+    },
+};
+
 const ErrorHandler = {
     canHandle() {
         return true;
     },
     handle(handlerInput, error) {
-        console.log(`Error handled: ${error.message}`);
-
+        console.error('Error handled:', error);
         return handlerInput.responseBuilder
             .speak('Entschuldigung, das verstehe ich nicht. Bitte wiederholen Sie das?')
             .reprompt('Entschuldigung, das verstehe ich nicht. Bitte wiederholen Sie das?')
@@ -164,7 +207,8 @@ exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         WaterLevelIntentHandler,
         HelpIntentHandler,
-        CancelAndStopIntentHandler)
+        CancelAndStopIntentHandler,
+        SessionEndedRequestHandler)
     .addRequestInterceptors(LocalizationInterceptor)
     .addErrorHandlers(ErrorHandler)
     .withSkillId(SKILL_ID)

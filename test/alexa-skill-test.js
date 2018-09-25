@@ -53,6 +53,15 @@ describe('Pegel Online Skill', () => {
         ]);
     });
 
+    describe('SessionEndedRequest', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.getSessionEndedRequest(),
+                saysNothing: true, repromptsNothing: true, shouldEndSession: true,
+            },
+        ]);
+    });
+
     describe('WaterLevelIntent', () => {
         alexaTest.test([
             {

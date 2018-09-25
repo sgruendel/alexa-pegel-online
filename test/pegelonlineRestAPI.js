@@ -58,17 +58,37 @@ describe('pegelonline', () => {
         });
     });
 
-    describe('#getSmallImageUrl()', () => {
-        it('should give URL for Würzburg', () => {
-            const result = pegelonline.getSmallImageUrl('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
-            expect(result).to.be.a('string');
-        });
-    });
+    describe('#getImage()', () => {
+        const result = pegelonline.getImage('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
 
-    describe('#getLargeImageUrl()', () => {
-        it('should give URL for Würzburg', () => {
-            const result = pegelonline.getLargeImageUrl('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
-            expect(result).to.be.a('string');
+        it('should give xsmall image for Würzburg', () => {
+            expect(result.xsmall.url).to.be.a('string');
+            expect(result.xsmall.width).to.be.a('number');
+            expect(result.xsmall.height).to.be.a('number');
+        });
+
+        it('should give small image for Würzburg', () => {
+            expect(result.small.url).to.be.a('string');
+            expect(result.small.width).to.be.a('number');
+            expect(result.small.height).to.be.a('number');
+        });
+
+        it('should give medium image for Würzburg', () => {
+            expect(result.medium.url).to.be.a('string');
+            expect(result.medium.width).to.be.a('number');
+            expect(result.medium.height).to.be.a('number');
+        });
+
+        it('should give large image for Würzburg', () => {
+            expect(result.large.url).to.be.a('string');
+            expect(result.large.width).to.be.a('number');
+            expect(result.large.height).to.be.a('number');
+        });
+
+        it('should give xlarge image for Würzburg', () => {
+            expect(result.xlarge.url).to.be.a('string');
+            expect(result.xlarge.width).to.be.a('number');
+            expect(result.xlarge.height).to.be.a('number');
         });
     });
 });

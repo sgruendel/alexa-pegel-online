@@ -23,7 +23,7 @@ exports.findUuidsFor = async function(station) {
 
     // try to interpret station as water body
     var uuids;
-    
+
     try {
         uuids = await pegelonline.getUuidsForWater(station);
         if (uuids && uuids.length > 0) {
@@ -79,8 +79,7 @@ exports.currentMeasurementForUuids = async function(uuids) {
             result.currentMeasurement.timestamp = result.currentMeasurement.timestamp.replace(/[-+][0-9][0-9]:[0-9][0-9]/, '');
         }
 
-        result.smallImageUrl = pegelonline.getSmallImageUrl(uuid);
-        result.largeImageUrl = pegelonline.getLargeImageUrl(uuid);
+        result.image = pegelonline.getImage(uuid);
 
         return result;
     } catch (err) {
