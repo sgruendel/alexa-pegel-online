@@ -3,8 +3,6 @@
 const expect = require('chai').expect;
 const pegelonline = require('../src/pegelonlineRestAPI');
 
-const names = require('../src/names.json');
-
 describe('pegelonline', () => {
     describe('#getStations()', () => {
         it('should return all stations', async function() {
@@ -13,7 +11,18 @@ describe('pegelonline', () => {
 
             result.forEach(station => {
                 expect(station.uuid).to.be.a('string');
-                expect(names[station.uuid]).to.exist;
+            });
+        });
+    });
+
+    describe('#getWaters()', () => {
+        it('should return all waters', async function() {
+            const result = await pegelonline.getWaters();
+            expect(result).to.have.length.above(99);
+
+            result.forEach(water => {
+                expect(water.shortname).to.be.a('string');
+                expect(water.longname).to.be.a('string');
             });
         });
     });

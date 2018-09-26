@@ -34,16 +34,17 @@ function supportsDisplay(handlerInput) {
         && context.System.device.supportedInterfaces.Display;
 }
 
-const WaterLevelIntentHandler = {
+const QueryStationIntentHandler = {
     canHandle(handlerInput) {
         const request = handlerInput.requestEnvelope.request;
-        return request.type === 'IntentRequest' && request.intent.name === 'WaterLevelIntent';
+        return request.type === 'IntentRequest' && request.intent.name === 'QueryStationIntent';
     },
     async handle(handlerInput) {
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
 
         const slots = handlerInput.requestEnvelope.request.intent.slots;
-        if (!slots.Station.value) {
+        console.log('Station', slots.station);
+        if (!slots.station.value) {
             console.error('No slot value given for station');
             const speechOutput = requestAttributes.t('UNKNOWN_STATION_MESSAGE');
             return handlerInput.responseBuilder
@@ -51,8 +52,8 @@ const WaterLevelIntentHandler = {
                 .getResponse();
         }
 
-        console.log('searching for station', slots.Station.value);
-        const uuids = await manager.findUuidsFor(slots.Station.value);
+        console.log('searching for station', slots.station.value);
+        const uuids = await manager.findUuidsFor(slots.station.value);
         if (!uuids) {
             const speechOutput = requestAttributes.t('UNKNOWN_STATION_MESSAGE');
             return handlerInput.responseBuilder
@@ -132,6 +133,31 @@ const WaterLevelIntentHandler = {
     },
 };
 
+const QueryWaterIntentHandler = {
+    canHandle(handlerInput) {
+        const request = handlerInput.requestEnvelope.request;
+        return request.type === 'IntentRequest' && request.intent.name === 'QueryWaterIntent';
+    },
+    async handle(handlerInput) {
+        const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+
+        const slots = handlerInput.requestEnvelope.request.intent.slots;
+        console.log('Water', slots.water);
+        if (!slots.water.value) {
+            console.error('No slot value given for water');
+            const speechOutput = requestAttributes.t('UNKNOWN_STATION_MESSAGE');
+            return handlerInput.responseBuilder
+                .speak(speechOutput)
+                .getResponse();
+        }
+
+        console.log('searching for water', slots.water.value);
+        return handlerInput.responseBuilder
+            .speak('Gewässer in Arbeit.')
+            .getResponse();
+    },
+};
+
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         const request = handlerInput.requestEnvelope.request;
@@ -205,7 +231,8 @@ const LocalizationInterceptor = {
 
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
-        WaterLevelIntentHandler,
+        QueryStationIntentHandler,
+        QueryWaterIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler)

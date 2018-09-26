@@ -22,6 +22,16 @@ exports.getStations = async function() {
     return wsvRequest(options);
 };
 
+exports.getWaters = async function() {
+    const options = {
+        uri: 'waters.json',
+        qs: {
+            prettyprint: false,
+        },
+    };
+    return wsvRequest(options);
+};
+
 exports.getUuidsFuzzy = async function(station) {
     const options = {
         uri: 'stations.json',

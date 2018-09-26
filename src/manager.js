@@ -2,14 +2,6 @@
 
 const pegelonline = require('./pegelonlineRestAPI');
 
-const uuids = require('./uuids.json');
-const names = require('./names.json');
-
-var uuidsForLowerNames = {};
-Object.keys(uuids).forEach(name => {
-    uuidsForLowerNames[name.toLowerCase()] = uuids[name];
-});
-
 var exports = module.exports = {};
 
 exports.findUuidsFor = async function(station) {
