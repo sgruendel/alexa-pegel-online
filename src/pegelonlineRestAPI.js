@@ -32,17 +32,6 @@ exports.getWaters = async function() {
     return wsvRequest(options);
 };
 
-exports.getUuidsFuzzy = async function(station) {
-    const options = {
-        uri: 'stations.json',
-        qs: {
-            fuzzyId: encodeURI(station),
-            prettyprint: false,
-        },
-    };
-    return (await wsvRequest(options)).map(station => { return station.uuid; });
-};
-
 exports.getUuidsForWater = async function(water) {
     const options = {
         uri: 'stations.json',

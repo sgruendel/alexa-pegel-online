@@ -9,10 +9,12 @@ const manager = require('./manager');
 const util = require('./util');
 
 const SKILL_ID = 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1';
+const ER_SUCCESS_MATCH = 'ER_SUCCESS_MATCH';
+const ER_SUCCESS_NO_MATCH = 'ER_SUCCESS_NO_MATCH';
 const languageStrings = {
     de: {
         translation: {
-            CURRENT_WATER_LEVEL_MESSAGE: 'Der Wasserstand bei {{result.station}} beträgt {{result.currentMeasurement.value}} {{result.unit}}',
+            CURRENT_WATER_LEVEL_MESSAGE: 'Der Wasserstand bei {{slots.station.value}} beträgt {{result.currentMeasurement.value}} {{result.unit}}',
             TREND_RISING: ', die Tendenz ist steigend',
             TREND_FALLING: ', die Tendenz ist fallend',
             TREND_STABLE: ', die Tendenz ist gleichbleibend',
@@ -37,38 +39,62 @@ function supportsDisplay(handlerInput) {
 
 const QueryStationIntentHandler = {
     canHandle(handlerInput) {
-        const request = handlerInput.requestEnvelope.request;
+        const { request } = handlerInput.requestEnvelope;
         return request.type === 'IntentRequest' && request.intent.name === 'QueryStationIntent';
     },
     async handle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        // delegate to Alexa to collect all the required slots
+        if (request.dialogState && request.dialogState !== 'COMPLETED') {
+            console.log('dialog state is', request.dialogState, '=> adding delegate directive');
+            return handlerInput.responseBuilder
+                .addDelegateDirective()
+                .getResponse();
+        }
+
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+        const { slots } = request.intent;
 
-        const slots = handlerInput.requestEnvelope.request.intent.slots;
-        console.log('Station', slots.station);
-        if (!slots.station.value) {
-            console.error('No slot value given for station');
+        console.log('station', JSON.stringify(slots.station));
+        const rpa = slots.station
+            && slots.station.resolutions
+            && slots.station.resolutions.resolutionsPerAuthority[0];
+        switch (rpa.status.code) {
+        case ER_SUCCESS_NO_MATCH:
+            console.error('no match for station', slots.station.value);
             const speechOutput = requestAttributes.t('UNKNOWN_STATION_MESSAGE');
             return handlerInput.responseBuilder
                 .speak(speechOutput)
                 .getResponse();
+
+        case ER_SUCCESS_MATCH:
+            if (rpa.values.length > 1) {
+                var prompt = 'Welche Messstelle';
+                const size = rpa.values.length;
+
+                rpa.values.forEach((element, index) => {
+                    prompt += ((index === size - 1) ? ' oder ' : ', ') + element.value.name;
+                });
+
+                prompt += '?';
+                return handlerInput.responseBuilder
+                    .speak(prompt)
+                    .reprompt(prompt)
+                    .addElicitSlotDirective(slots.station.name)
+                    .getResponse();
+            }
+            break;
+
+        default:
+            console.error('unexpected status code', rpa.status.code);
         }
 
-        console.log('searching for station', slots.station.value);
-        const uuids = await manager.findUuidsFor(slots.station.value);
-        if (!uuids) {
-            const speechOutput = requestAttributes.t('UNKNOWN_STATION_MESSAGE');
-            return handlerInput.responseBuilder
-                .speak(speechOutput)
-                .getResponse();
-        }
-
+        const uuid = rpa.values[0].value.id;
         try {
-            const result = await manager.currentMeasurementForUuids(uuids);
+            const result = await manager.getCurrentMeasurement(uuid);
+
             result.currentMeasurement.value = result.currentMeasurement.value.toString().replace('.', ',');
-
-            const title = 'Pegel bei ' + result.station;
-
-            var currentWaterLevel = requestAttributes.t('CURRENT_WATER_LEVEL_MESSAGE', { result });
+            var currentWaterLevel = requestAttributes.t('CURRENT_WATER_LEVEL_MESSAGE', { result, slots });
             switch (result.currentMeasurement.trend) {
             case -1:
                 currentWaterLevel += requestAttributes.t('TREND_FALLING');
@@ -96,11 +122,12 @@ const QueryStationIntentHandler = {
                 measurementTime = 'Messung von '
                     + util.getTimeDesc(
                         new Date(result.currentMeasurement.timestamp),
-                        handlerInput.requestEnvelope.request.locale)
+                        request.locale)
                     + ' Uhr';
                 cardContent = measurementTime + ': ' + cardContent;
             }
 
+            const title = 'Pegel bei ' + slots.station.value;
             if (supportsDisplay(handlerInput)) {
                 const measurementImage = new Alexa.ImageHelper()
                     .withDescription('Wasserstandsdaten')
@@ -136,23 +163,24 @@ const QueryStationIntentHandler = {
 
 const QueryWaterIntentHandler = {
     canHandle(handlerInput) {
-        const request = handlerInput.requestEnvelope.request;
+        const { request } = handlerInput.requestEnvelope;
         return request.type === 'IntentRequest' && request.intent.name === 'QueryWaterIntent';
     },
     async handle(handlerInput) {
-        const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-
-        const slots = handlerInput.requestEnvelope.request.intent.slots;
-        console.log('Water', slots.water);
-        if (!slots.water.value) {
-            console.error('No slot value given for water');
-            const speechOutput = requestAttributes.t('UNKNOWN_STATION_MESSAGE');
+        const { request } = handlerInput.requestEnvelope;
+        // delegate to Alexa to collect all the required slots
+        if (request.dialogState && request.dialogState !== 'COMPLETED') {
+            console.log('dialog state is', request.dialogState, '=> adding delegate directive');
             return handlerInput.responseBuilder
-                .speak(speechOutput)
+                .addDelegateDirective()
                 .getResponse();
         }
 
-        console.log('searching for water', slots.water.value);
+        // const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+        const { slots } = request.intent;
+
+        console.log('water', JSON.stringify(slots.water));
+
         return handlerInput.responseBuilder
             .speak('Gewässer in Arbeit.')
             .getResponse();
@@ -161,7 +189,7 @@ const QueryWaterIntentHandler = {
 
 const HelpIntentHandler = {
     canHandle(handlerInput) {
-        const request = handlerInput.requestEnvelope.request;
+        const { request } = handlerInput.requestEnvelope;
         return request.type === 'LaunchRequest'
             || (request.type === 'IntentRequest' && request.intent.name === 'AMAZON.HelpIntent');
     },
@@ -178,7 +206,7 @@ const HelpIntentHandler = {
 
 const CancelAndStopIntentHandler = {
     canHandle(handlerInput) {
-        const request = handlerInput.requestEnvelope.request;
+        const { request } = handlerInput.requestEnvelope;
         return request.type === 'IntentRequest'
             && (request.intent.name === 'AMAZON.CancelIntent' || request.intent.name === 'AMAZON.StopIntent');
     },

@@ -27,23 +27,6 @@ describe('pegelonline', () => {
         });
     });
 
-    describe('#getUuidsFuzzy()', () => {
-        it('should return UUID for Würzburg', async function() {
-            const result = await pegelonline.getUuidsFuzzy('wuerzburg');
-            expect(result).to.eql(['915d76e1-3bf9-4e37-9a9a-4d144cd771cc']);
-        });
-
-        it('should return at least 15 UUIDs for Berlin', async function() {
-            const result = await pegelonline.getUuidsFuzzy('berlin');
-            expect(result).to.have.length.of.at.least(15);
-        });
-
-        it('should return UUID for Affoldern (wrong spelling)', async function() {
-            const result = await pegelonline.getUuidsFuzzy('affoltern');
-            expect(result).to.eql(['ab9d5a42-2b8d-491b-9fd1-8120df23c8e6']);
-        });
-    });
-
     describe('#getUuidsForWater()', () => {
         it('should return UUID for Konstanz when querying Bodensee', async function() {
             const result = await pegelonline.getUuidsForWater('bodensee');
