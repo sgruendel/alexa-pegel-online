@@ -3,7 +3,7 @@
 const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
 const sprintf = require('i18next-sprintf-postprocessor');
-const dashbot = require('dashbot')(process.env.DASHBOT_API_KEY).alexa;
+const dashbot = process.env.DASHBOT_API_KEY ? require('dashbot')(process.env.DASHBOT_API_KEY).alexa : undefined;
 
 const manager = require('./manager');
 const util = require('./util');
@@ -230,15 +230,15 @@ const LocalizationInterceptor = {
     },
 };
 
-exports.handler = dashbot.handler(
-    Alexa.SkillBuilders.custom()
-        .addRequestHandlers(
-            QueryStationIntentHandler,
-            QueryWaterIntentHandler,
-            HelpIntentHandler,
-            CancelAndStopIntentHandler,
-            SessionEndedRequestHandler)
-        .addRequestInterceptors(LocalizationInterceptor)
-        .addErrorHandlers(ErrorHandler)
-        .withSkillId(SKILL_ID)
-        .lambda());
+exports.handler = Alexa.SkillBuilders.custom()
+    .addRequestHandlers(
+        QueryStationIntentHandler,
+        QueryWaterIntentHandler,
+        HelpIntentHandler,
+        CancelAndStopIntentHandler,
+        SessionEndedRequestHandler)
+    .addRequestInterceptors(LocalizationInterceptor)
+    .addErrorHandlers(ErrorHandler)
+    .withSkillId(SKILL_ID)
+    .lambda();
+if (dashbot) exports.handler = dashbot.handler(exports.handler);
