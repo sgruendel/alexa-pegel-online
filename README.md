@@ -2,6 +2,7 @@
 Alexa Skill for interacting with http://www.pegelonline.wsv.de
 
 ## TODOs
+- Handle built-in intents for DisplayInterface like NavigateHome, More, Next ...
 - Add integration tests for single-slot utterances, see https://developer.amazon.com/de/docs/custom-skills/use-a-dialog-model-to-manage-ambiguous-responses.html#single-slot-utterances-for-an-intent
 and "Wilhelmshaven" and other values starting a dialog
 - Test manager.js using mock REST API, see http://bulkan-evcimen.com/testing_with_mocha_sinon.html
