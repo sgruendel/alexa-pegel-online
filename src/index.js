@@ -4,6 +4,17 @@ const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
 const sprintf = require('i18next-sprintf-postprocessor');
 const dashbot = process.env.DASHBOT_API_KEY ? require('dashbot')(process.env.DASHBOT_API_KEY).alexa : undefined;
+const winston = require('winston');
+
+const logger = winston.createLogger({
+    level: process.env.LOG_LEVEL || 'info',
+    transports: [
+        new winston.transports.Console({
+            format: winston.format.simple(),
+        }),
+    ],
+    exitOnError: false,
+});
 
 const manager = require('./manager');
 const util = require('./util');
@@ -14,15 +25,16 @@ const ER_SUCCESS_NO_MATCH = 'ER_SUCCESS_NO_MATCH';
 const languageStrings = {
     de: {
         translation: {
+            HELP_MESSAGE: 'Du kannst sagen, „Frag Pegel Online nach dem Wasserstand an einer Messstelle, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
+            HELP_REPROMPT: 'Welche Messstelle soll ich abfragen?',
+            STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
+            NOT_UNDERSTOOD_MESSAGE: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
             CURRENT_WATER_LEVEL_MESSAGE: 'Der Wasserstand bei {{slots.station.value}} beträgt {{result.currentMeasurement.value}} {{result.unit}}',
             TREND_RISING: ', die Tendenz ist steigend',
             TREND_FALLING: ', die Tendenz ist fallend',
             TREND_STABLE: ', die Tendenz ist gleichbleibend',
             NO_RESULT_MESSAGE: 'Ich kann diesen Messwert zur Zeit leider nicht bestimmen.',
             UNKNOWN_STATION_MESSAGE: 'Ich kenne diese Messstelle leider nicht.',
-            HELP_MESSAGE: 'Du kannst sagen, „Frag Pegel Online nach dem Wasserstand an einer Messstelle, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
-            HELP_REPROMPT: 'Wie kann ich dir helfen?',
-            STOP_MESSAGE: 'Auf Wiedersehen!',
         },
     },
 };
@@ -44,24 +56,33 @@ const QueryStationIntentHandler = {
     },
     async handle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
+        logger.debug('request', request);
+
         // delegate to Alexa to collect all the required slots
         if (request.dialogState && request.dialogState !== 'COMPLETED') {
-            console.log('dialog state is', request.dialogState, '=> adding delegate directive');
+            logger.debug('dialog state is ' + request.dialogState + ' => adding delegate directive');
             return handlerInput.responseBuilder
                 .addDelegateDirective()
                 .getResponse();
         }
 
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-        const { slots } = request.intent;
-
-        console.log('station', JSON.stringify(slots.station));
-        const rpa = slots.station
+        const slots = request.intent && request.intent.slots;
+        const rpa = slots
+            && slots.station
             && slots.station.resolutions
             && slots.station.resolutions.resolutionsPerAuthority[0];
+        if (!rpa) {
+            return handlerInput.responseBuilder
+                .speak('Welche Messstelle?')
+                .reprompt(requestAttributes.t('HELP_REPROMPT'))
+                .getResponse();
+        }
+        logger.debug('station slot', slots.station);
+
         switch (rpa.status.code) {
         case ER_SUCCESS_NO_MATCH:
-            console.error('no match for station', slots.station.value);
+            logger.error('no match for station ' + slots.station.value);
             const speechOutput = requestAttributes.t('UNKNOWN_STATION_MESSAGE');
             return handlerInput.responseBuilder
                 .speak(speechOutput)
@@ -86,10 +107,11 @@ const QueryStationIntentHandler = {
             break;
 
         default:
-            console.error('unexpected status code', rpa.status.code);
+            logger.error('unexpected status code ' + rpa.status.code);
         }
 
         const uuid = rpa.values[0].value.id;
+        logger.info('station value', rpa.values[0].value);
         try {
             const result = await manager.getCurrentMeasurement(uuid);
 
@@ -106,15 +128,15 @@ const QueryStationIntentHandler = {
                 currentWaterLevel += requestAttributes.t('TREND_RISING');
                 break;
             case -999:
-                console.log('Tendenz kann nicht ermittelt werden.');
+                logger.debug('Tendenz kann nicht ermittelt werden.');
                 break;
             default:
-                console.error('Undefinierte Tendenz:', result.currentMeasurement.trend);
+                logger.error('Undefinierte Tendenz: ' + result.currentMeasurement.trend);
             }
             currentWaterLevel += '.';
 
             const speechOutput = currentWaterLevel;
-            console.log(speechOutput);
+            logger.debug(speechOutput);
 
             var measurementTime;
             var cardContent = currentWaterLevel;
@@ -152,10 +174,9 @@ const QueryStationIntentHandler = {
                 .withStandardCard(title, cardContent, result.image.small.url, result.image.large.url)
                 .getResponse();
         } catch (err) {
-            console.error('Error getting current measurement', err);
-            const speechOutput = requestAttributes.t('NO_RESULT_MESSAGE');
+            logger.error(err.stack || err.toString());
             return handlerInput.responseBuilder
-                .speak(speechOutput)
+                .speak(requestAttributes.t('NO_RESULT_MESSAGE'))
                 .getResponse();
         }
     },
@@ -168,9 +189,11 @@ const QueryWaterIntentHandler = {
     },
     async handle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
+        logger.debug('request', request);
+
         // delegate to Alexa to collect all the required slots
         if (request.dialogState && request.dialogState !== 'COMPLETED') {
-            console.log('dialog state is', request.dialogState, '=> adding delegate directive');
+            logger.debug('dialog state is ' + request.dialogState + ' => adding delegate directive');
             return handlerInput.responseBuilder
                 .addDelegateDirective()
                 .getResponse();
@@ -178,8 +201,7 @@ const QueryWaterIntentHandler = {
 
         // const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         const { slots } = request.intent;
-
-        console.log('water', JSON.stringify(slots.water));
+        logger.debug('water slot', slots.water);
 
         return handlerInput.responseBuilder
             .speak('Gewässer in Arbeit.')
@@ -194,12 +216,13 @@ const HelpIntentHandler = {
             || (request.type === 'IntentRequest' && request.intent.name === 'AMAZON.HelpIntent');
     },
     handle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        logger.debug('request', request);
+
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-        const speechOutput = requestAttributes.t('HELP_MESSAGE');
-        const repromptSpeechOutput = requestAttributes.t('HELP_REPROMPT');
         return handlerInput.responseBuilder
-            .speak(speechOutput)
-            .reprompt(repromptSpeechOutput)
+            .speak(requestAttributes.t('HELP_MESSAGE'))
+            .reprompt(requestAttributes.t('HELP_REPROMPT'))
             .getResponse();
     },
 };
@@ -211,6 +234,9 @@ const CancelAndStopIntentHandler = {
             && (request.intent.name === 'AMAZON.CancelIntent' || request.intent.name === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        logger.debug('request', request);
+
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         const speechOutput = requestAttributes.t('STOP_MESSAGE');
         return handlerInput.responseBuilder
@@ -224,7 +250,16 @@ const SessionEndedRequestHandler = {
         return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
     },
     handle(handlerInput) {
-        console.log('Session ended with reason:', handlerInput.requestEnvelope.request.reason);
+        const { request } = handlerInput.requestEnvelope;
+        try {
+            if (request.reason === 'ERROR') {
+                logger.error(request.error.type + ': ' + request.error.message);
+            }
+        } catch (err) {
+            logger.error(err.stack || err.toString(), request);
+        }
+
+        logger.debug('session ended', request);
         return handlerInput.responseBuilder.getResponse();
     },
 };
@@ -234,10 +269,14 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
-        console.error('Error handled:', error);
+        const { request } = handlerInput.requestEnvelope;
+        logger.error(error.stack || error.toString(), request);
+
+        const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+        const speechOutput = requestAttributes.t('NOT_UNDERSTOOD_MESSAGE');
         return handlerInput.responseBuilder
-            .speak('Entschuldigung, das verstehe ich nicht. Bitte wiederholen Sie das?')
-            .reprompt('Entschuldigung, das verstehe ich nicht. Bitte wiederholen Sie das?')
+            .speak(speechOutput)
+            .reprompt(speechOutput)
             .getResponse();
     },
 };
