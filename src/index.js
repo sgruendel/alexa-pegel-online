@@ -17,7 +17,7 @@ const logger = winston.createLogger({
 });
 
 const manager = require('./manager');
-const util = require('./util');
+const utils = require('./utils');
 const stationVariants = require('./stationVariants.json');
 
 const SKILL_ID = 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1';
@@ -201,7 +201,7 @@ const QueryWaterLevelIntentHandler = {
             var cardContent = currentWaterLevel;
             if (result.currentMeasurement.timestamp) {
                 measurementTime = 'Messung von '
-                    + util.getTimeDesc(
+                    + utils.getTimeDesc(
                         new Date(result.currentMeasurement.timestamp),
                         request.locale)
                     + ' Uhr';
