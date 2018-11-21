@@ -4,7 +4,7 @@
       "invocationName": "pegel online",
       "intents": [
         {
-          "name": "QueryStationIntent",
+          "name": "QueryWaterLevelIntent",
           "slots": [
             {
               "name": "station",
@@ -23,92 +23,11 @@
                 "vom {station}",
                 "von {station}"
               ]
-            }
-          ],
-          "samples": [
-            "{station}",
-            "nach der Messstelle {station}",
-            "nach der Messstelle am {station}",
-            "nach der Messstelle auf {station}",
-            "nach der Messstelle an {station}",
-            "nach der Messstelle an der {station}",
-            "nach der Messstelle bei {station}",
-            "nach der Messstelle bei der {station}",
-            "nach der Messstelle der {station}",
-            "nach der Messstelle des {station}",
-            "nach der Messstelle in {station}",
-            "nach der Messstelle vom {station}",
-            "nach der Messstelle von {station}",
-            "nach dem Messwert {station}",
-            "nach dem Messwert am {station}",
-            "nach dem Messwert auf {station}",
-            "nach dem Messwert an {station}",
-            "nach dem Messwert an der {station}",
-            "nach dem Messwert bei {station}",
-            "nach dem Messwert bei der {station}",
-            "nach dem Messwert der {station}",
-            "nach dem Messwert des {station}",
-            "nach dem Messwert in {station}",
-            "nach dem Messwert vom {station}",
-            "nach dem Messwert von {station}",
-            "nach dem Pegel {station}",
-            "nach dem Pegel am {station}",
-            "nach dem Pegel auf {station}",
-            "nach dem Pegel an {station}",
-            "nach dem Pegel an der {station}",
-            "nach dem Pegel bei {station}",
-            "nach dem Pegel bei der {station}",
-            "nach dem Pegel der {station}",
-            "nach dem Pegel des {station}",
-            "nach dem Pegel in {station}",
-            "nach dem Pegel vom {station}",
-            "nach dem Pegel von {station}",
-            "nach dem Pegelstand {station}",
-            "nach dem Pegelstand am {station}",
-            "nach dem Pegelstand auf {station}",
-            "nach dem Pegelstand an {station}",
-            "nach dem Pegelstand an der {station}",
-            "nach dem Pegelstand bei {station}",
-            "nach dem Pegelstand bei der {station}",
-            "nach dem Pegelstand der {station}",
-            "nach dem Pegelstand des {station}",
-            "nach dem Pegelstand in {station}",
-            "nach dem Pegelstand vom {station}",
-            "nach dem Pegelstand von {station}",
-            "nach dem Wasserstand {station}",
-            "nach dem Wasserstand am {station}",
-            "nach dem Wasserstand auf {station}",
-            "nach dem Wasserstand an {station}",
-            "nach dem Wasserstand an der {station}",
-            "nach dem Wasserstand bei {station}",
-            "nach dem Wasserstand bei der {station}",
-            "nach dem Wasserstand der {station}",
-            "nach dem Wasserstand des {station}",
-            "nach dem Wasserstand in {station}",
-            "nach dem Wasserstand vom {station}",
-            "nach dem Wasserstand von {station}",
-            "nach dem Wert {station}",
-            "nach dem Wert am {station}",
-            "nach dem Wert auf {station}",
-            "nach dem Wert an {station}",
-            "nach dem Wert an der {station}",
-            "nach dem Wert bei {station}",
-            "nach dem Wert bei der {station}",
-            "nach dem Wert der {station}",
-            "nach dem Wert des {station}",
-            "nach dem Wert in {station}",
-            "nach dem Wert vom {station}",
-            "nach dem Wert von {station}",
-            "wie der Messwert bei {station} ist",
-            "wie der Pegel bei {station} ist",
-            "wie der Pegelstand bei {station} ist",
-            "wie der Wasserstand bei {station} ist",
-            "wie der Wert bei {station} ist"
-          ]
-        },
-        {
-          "name": "QueryWaterIntent",
-          "slots": [
+            },
+            {
+              "name": "variant",
+              "type": "LIST_OF_VARIANTS"
+            },
             {
               "name": "water",
               "type": "LIST_OF_WATERS",
@@ -126,87 +45,108 @@
                 "vom {water}",
                 "von {water}"
               ]
+            },
+            {
+              "name": "counterNoun",
+              "type": "LIST_OF_COUNTER_NOUNS"
             }
           ],
           "samples": [
+            "{station}",
+            "{station} {variant}",
             "{water}",
-            "nach der Messstelle {water}",
-            "nach der Messstelle am {water}",
-            "nach der Messstelle auf {water}",
-            "nach der Messstelle an {water}",
-            "nach der Messstelle an der {water}",
-            "nach der Messstelle bei {water}",
-            "nach der Messstelle bei der {water}",
-            "nach der Messstelle der {water}",
-            "nach der Messstelle des {water}",
-            "nach der Messstelle in {water}",
-            "nach der Messstelle vom {water}",
-            "nach der Messstelle von {water}",
-            "nach dem Messwert {water}",
-            "nach dem Messwert am {water}",
-            "nach dem Messwert auf {water}",
-            "nach dem Messwert an {water}",
-            "nach dem Messwert an der {water}",
-            "nach dem Messwert bei {water}",
-            "nach dem Messwert bei der {water}",
-            "nach dem Messwert der {water}",
-            "nach dem Messwert des {water}",
-            "nach dem Messwert in {water}",
-            "nach dem Messwert vom {water}",
-            "nach dem Messwert von {water}",
-            "nach dem Pegel {water}",
-            "nach dem Pegel am {water}",
-            "nach dem Pegel auf {water}",
-            "nach dem Pegel an {water}",
-            "nach dem Pegel an der {water}",
-            "nach dem Pegel bei {water}",
-            "nach dem Pegel bei der {water}",
-            "nach dem Pegel der {water}",
-            "nach dem Pegel des {water}",
-            "nach dem Pegel in {water}",
-            "nach dem Pegel vom {water}",
-            "nach dem Pegel von {water}",
-            "nach dem Pegelstand {water}",
-            "nach dem Pegelstand am {water}",
-            "nach dem Pegelstand auf {water}",
-            "nach dem Pegelstand an {water}",
-            "nach dem Pegelstand an der {water}",
-            "nach dem Pegelstand bei {water}",
-            "nach dem Pegelstand bei der {water}",
-            "nach dem Pegelstand der {water}",
-            "nach dem Pegelstand des {water}",
-            "nach dem Pegelstand in {water}",
-            "nach dem Pegelstand vom {water}",
-            "nach dem Pegelstand von {water}",
-            "nach dem Wasserstand {water}",
-            "nach dem Wasserstand am {water}",
-            "nach dem Wasserstand auf {water}",
-            "nach dem Wasserstand an {water}",
-            "nach dem Wasserstand an der {water}",
-            "nach dem Wasserstand bei {water}",
-            "nach dem Wasserstand bei der {water}",
-            "nach dem Wasserstand der {water}",
-            "nach dem Wasserstand des {water}",
-            "nach dem Wasserstand in {water}",
-            "nach dem Wasserstand vom {water}",
-            "nach dem Wasserstand von {water}",
-            "nach dem Wert {water}",
-            "nach dem Wert am {water}",
-            "nach dem Wert auf {water}",
-            "nach dem Wert an {water}",
-            "nach dem Wert an der {water}",
-            "nach dem Wert bei {water}",
-            "nach dem Wert bei der {water}",
-            "nach dem Wert der {water}",
-            "nach dem Wert des {water}",
-            "nach dem Wert in {water}",
-            "nach dem Wert vom {water}",
-            "nach dem Wert von {water}",
-            "wie der Messwert bei {water} ist",
-            "wie der Pegel bei {water} ist",
-            "wie der Pegelstand bei {water} ist",
-            "wie der Wasserstand bei {water} ist",
-            "wie der Wert bei {water} ist"
+            "am {station}",
+            "am {station} {variant}",
+            "auf {station}",
+            "auf {station} {variant}",
+            "an {station}",
+            "an {station} {variant}",
+            "an der {station}",
+            "an der {station} {variant}",
+            "bei {station}",
+            "bei {station} {variant}",
+            "bei der {station}",
+            "bei der {station} {variant}",
+            "der {station}",
+            "der {station} {variant}",
+            "des {station}",
+            "des {station} {variant}",
+            "für {station}",
+            "für {station} {variant}",
+            "in {station}",
+            "in {station} {variant}",
+            "vom {station}",
+            "vom {station} {variant}",
+            "von {station}",
+            "von {station} {variant}",
+            "der {counterNoun} {station} {variant}",
+            "dem {counterNoun} {station} {variant}",
+            "der {counterNoun} am {station} {variant}",
+            "dem {counterNoun} am {station} {variant}",
+            "der {counterNoun} auf {station} {variant}",
+            "dem {counterNoun} auf {station} {variant}",
+            "der {counterNoun} an {station} {variant}",
+            "dem {counterNoun} an {station} {variant}",
+            "der {counterNoun} an der {station} {variant}",
+            "dem {counterNoun} an der {station} {variant}",
+            "der {counterNoun} bei {station} {variant}",
+            "dem {counterNoun} bei {station} {variant}",
+            "der {counterNoun} bei der {station} {variant}",
+            "dem {counterNoun} bei der {station} {variant}",
+            "der {counterNoun} der {station} {variant}",
+            "dem {counterNoun} der {station} {variant}",
+            "der {counterNoun} des {station} {variant}",
+            "dem {counterNoun} des {station} {variant}",
+            "der {counterNoun} für {station} {variant}",
+            "dem {counterNoun} für {station} {variant}",
+            "der {counterNoun} in {station} {variant}",
+            "dem {counterNoun} in {station} {variant}",
+            "der {counterNoun} vom {station} {variant}",
+            "dem {counterNoun} vom {station} {variant}",
+            "der {counterNoun} von {station} {variant}",
+            "dem {counterNoun} von {station} {variant}",
+            "wie der {counterNoun} {station} {variant} ist",
+            "wie der {counterNoun} am {station} {variant} ist",
+            "wie der {counterNoun} auf {station} {variant} ist",
+            "wie der {counterNoun} an {station} {variant} ist",
+            "wie der {counterNoun} an der {station} {variant} ist",
+            "wie der {counterNoun} bei {station} {variant} ist",
+            "wie der {counterNoun} bei der {station} {variant} ist",
+            "wie der {counterNoun} der {station} {variant} ist",
+            "wie der {counterNoun} des {station} {variant} ist",
+            "wie der {counterNoun} für {station} {variant} ist",
+            "wie der {counterNoun} in {station} {variant} ist",
+            "wie der {counterNoun} vom {station} {variant} ist",
+            "wie der {counterNoun} von {station} {variant} ist",
+            "der {counterNoun} {water}",
+            "dem {counterNoun} {water}",
+            "der {counterNoun} am {water}",
+            "dem {counterNoun} am {water}",
+            "der {counterNoun} an der {water}",
+            "dem {counterNoun} an der {water}",
+            "der {counterNoun} der {water}",
+            "dem {counterNoun} der {water}",
+            "der {counterNoun} des {water}",
+            "dem {counterNoun} des {water}",
+            "der {counterNoun} für {water}",
+            "dem {counterNoun} für {water}",
+            "der {counterNoun} für den {water}",
+            "dem {counterNoun} für den {water}",
+            "der {counterNoun} für die {water}",
+            "dem {counterNoun} für die {water}",
+            "der {counterNoun} vom {water}",
+            "dem {counterNoun} vom {water}",
+            "der {counterNoun} von {water}",
+            "dem {counterNoun} von {water}",
+            "wie der {counterNoun} am {water} ist",
+            "wie der {counterNoun} an der {water} ist",
+            "wie der {counterNoun} der {water} ist",
+            "wie der {counterNoun} des {water} ist",
+            "wie der {counterNoun} für {water} ist",
+            "wie der {counterNoun} für den {water} ist",
+            "wie der {counterNoun} für die {water} ist",
+            "wie der {counterNoun} vom {water} ist",
+            "wie der {counterNoun} von {water} ist"
           ]
         },
         {
@@ -307,15 +247,9 @@
               }
             },
             {
-              "id": "2813f196-3404-4ac2-92be-e288fe1607af",
+              "id": "*7703d54d-ca33-44b9-b519-c618bae5bcc7",
               "name": {
-                "value": "Ahsen Schleuse Oberwasser"
-              }
-            },
-            {
-              "id": "7703d54d-ca33-44b9-b519-c618bae5bcc7",
-              "name": {
-                "value": "Ahsen Schleuse Unterwasser"
+                "value": "Ahsen Schleuse"
               }
             },
             {
@@ -343,15 +277,9 @@
               }
             },
             {
-              "id": "9fb9abce-e1ac-4c11-94b2-a32d63f6fb40",
+              "id": "*93ddc1e6-072c-45f6-99c0-d7d7df9d39cf",
               "name": {
-                "value": "Alsleben Oberpegel"
-              }
-            },
-            {
-              "id": "93ddc1e6-072c-45f6-99c0-d7d7df9d39cf",
-              "name": {
-                "value": "Alsleben Unterpegel"
+                "value": "Alsleben"
               }
             },
             {
@@ -373,21 +301,9 @@
               }
             },
             {
-              "id": "98daae03-5aaa-4284-9717-7d52da4fe063",
+              "id": "*dd41a7d6-9b11-4ec4-9518-388266750cfa",
               "name": {
                 "value": "Anderten"
-              }
-            },
-            {
-              "id": "bc20d819-1782-4588-885d-129f21a27cf9",
-              "name": {
-                "value": "Anderten Oberwasser"
-              }
-            },
-            {
-              "id": "dd41a7d6-9b11-4ec4-9518-388266750cfa",
-              "name": {
-                "value": "Anderten Unterwasser"
               }
             },
             {
@@ -397,15 +313,9 @@
               }
             },
             {
-              "id": "b3492c68-8373-4769-9b29-22f66635a478",
+              "id": "*b3492c68-8373-4769-9b29-22f66635a478",
               "name": {
                 "value": "Artlenburg"
-              }
-            },
-            {
-              "id": "7fec2f4f-6a2e-47ec-8f3c-016c581e4bbd",
-              "name": {
-                "value": "Artlenburg Elbe-Lübeck-Kanal"
               }
             },
             {
@@ -427,15 +337,9 @@
               }
             },
             {
-              "id": "6c76e98e-44ca-4d25-91e7-b07c68577c5e",
+              "id": "*6c76e98e-44ca-4d25-91e7-b07c68577c5e",
               "name": {
-                "value": "Bahnitz Oberpegel"
-              }
-            },
-            {
-              "id": "1ebd0f94-cc06-445c-8e73-43fe2b8c72dc",
-              "name": {
-                "value": "Bahnitz Unterpegel"
+                "value": "Bahnitz"
               }
             },
             {
@@ -463,15 +367,9 @@
               }
             },
             {
-              "id": "a9320108-ad58-41b8-b7b5-f52163a23927",
+              "id": "*69fb4730-4866-4838-9b18-2c0ee9dce80d",
               "name": {
-                "value": "Banzkow Oberpegel"
-              }
-            },
-            {
-              "id": "69fb4730-4866-4838-9b18-2c0ee9dce80d",
-              "name": {
-                "value": "Banzkow Unterpegel"
+                "value": "Banzkow"
               }
             },
             {
@@ -481,15 +379,9 @@
               }
             },
             {
-              "id": "07830b68-c5b8-42dd-bf48-7176802130d0",
+              "id": "*07830b68-c5b8-42dd-bf48-7176802130d0",
               "name": {
-                "value": "Bardowick Oberpegel"
-              }
-            },
-            {
-              "id": "a238b70f-1198-4b2f-8c03-41f3503e5389",
-              "name": {
-                "value": "Bardowick Unterpegel"
+                "value": "Bardowick"
               }
             },
             {
@@ -501,7 +393,7 @@
             {
               "id": "06d86c6b-5ed0-475f-805a-a3ceb59af083",
               "name": {
-                "value": "Barkow Oberpegel"
+                "value": "Barkow"
               }
             },
             {
@@ -535,15 +427,9 @@
               }
             },
             {
-              "id": "63a222c0-bd45-4af8-b9a7-27f9443a1936",
+              "id": "*d89eb759-58c4-43f4-9fe4-e6a21af23f5c",
               "name": {
-                "value": "Berlin Charlottenburg Oberpegel"
-              }
-            },
-            {
-              "id": "d89eb759-58c4-43f4-9fe4-e6a21af23f5c",
-              "name": {
-                "value": "Berlin Charlottenburg Unterpegel"
+                "value": "Berlin Charlottenburg"
               }
             },
             {
@@ -553,39 +439,21 @@
               }
             },
             {
-              "id": "6dc4e4a0-2c10-4c27-a08f-a0ca0aa13df2",
+              "id": "*09e15cf6-f155-4b76-b92f-6c260839121c",
               "name": {
-                "value": "Berlin Mühlendamm Oberpegel"
+                "value": "Berlin Mühlendamm"
               }
             },
             {
-              "id": "09e15cf6-f155-4b76-b92f-6c260839121c",
+              "id": "*c42ad3df-cfe3-4dca-9dcf-dbbaac569a2f",
               "name": {
-                "value": "Berlin Mühlendamm Unterpegel"
+                "value": "Berlin Oberschleuse"
               }
             },
             {
-              "id": "24ce3282-39dd-4f2f-ba80-9676e59de7c7",
+              "id": "*ee52ce62-212c-4735-b438-26fbdc37e3e2",
               "name": {
-                "value": "Berlin Oberschleuse Oberpegel"
-              }
-            },
-            {
-              "id": "c42ad3df-cfe3-4dca-9dcf-dbbaac569a2f",
-              "name": {
-                "value": "Berlin Oberschleuse Unterpegel"
-              }
-            },
-            {
-              "id": "ee52ce62-212c-4735-b438-26fbdc37e3e2",
-              "name": {
-                "value": "Berlin Ploetzensee Oberpegel"
-              }
-            },
-            {
-              "id": "45721a68-566c-4e2a-a6c7-a7595982a779",
-              "name": {
-                "value": "Berlin Ploetzensee Unterpegel"
+                "value": "Berlin Ploetzensee"
               }
             },
             {
@@ -595,39 +463,21 @@
               }
             },
             {
-              "id": "e607a4b6-85cc-4f12-a53d-116cb6eef4f5",
+              "id": "*2c68509c-bf1e-4866-9ec4-b26b231e5e04",
               "name": {
-                "value": "Berlin Spandau Schleuse Oberpegel"
+                "value": "Berlin Spandau Schleuse"
               }
             },
             {
-              "id": "2c68509c-bf1e-4866-9ec4-b26b231e5e04",
+              "id": "*d198c901-fe4e-4c3f-9323-d6a771f51960",
               "name": {
-                "value": "Berlin Spandau Schleuse Unterpegel"
+                "value": "Berlin Unterschleuse"
               }
             },
             {
-              "id": "503ad891-c9de-428c-b682-434510ed9de8",
+              "id": "*501aa608-ea81-4690-a491-6602114c14af",
               "name": {
-                "value": "Berlin Unterschleuse Oberpegel"
-              }
-            },
-            {
-              "id": "d198c901-fe4e-4c3f-9323-d6a771f51960",
-              "name": {
-                "value": "Berlin Unterschleuse Unterpegel"
-              }
-            },
-            {
-              "id": "e7f52bd2-f0cb-4194-aa85-4ad76a3a0671",
-              "name": {
-                "value": "Bernburg Oberpegel"
-              }
-            },
-            {
-              "id": "501aa608-ea81-4690-a491-6602114c14af",
-              "name": {
-                "value": "Bernburg Unterpegel"
+                "value": "Bernburg"
               }
             },
             {
@@ -643,21 +493,15 @@
               }
             },
             {
-              "id": "16a780aa-475d-41dc-a8ec-20488415b6d7",
+              "id": "*74134dc6-8e26-4195-9cdc-c22aa0a3558c",
               "name": {
-                "value": "Bischofswerder Oberpegel"
-              }
-            },
-            {
-              "id": "74134dc6-8e26-4195-9cdc-c22aa0a3558c",
-              "name": {
-                "value": "Bischofswerder Unterpegel"
+                "value": "Bischofswerder"
               }
             },
             {
               "id": "bacb459b-0f24-4233-bb35-cd224a51678e",
               "name": {
-                "value": "Blankenese Unterfeuer"
+                "value": "Blankenese"
               }
             },
             {
@@ -669,13 +513,13 @@
             {
               "id": "99dd338d-ef7d-43fd-a4e0-a9103406f0ad",
               "name": {
-                "value": "Blexen Außenbezirk"
+                "value": "Blexen"
               }
             },
             {
               "id": "faefa284-84cf-4c1e-aa73-dccdc3de729d",
               "name": {
-                "value": "Bobzin Oberpegel"
+                "value": "Bobzin"
               }
             },
             {
@@ -751,15 +595,9 @@
               }
             },
             {
-              "id": "16d180c2-63aa-486b-8966-81a6041360bc",
+              "id": "*16d180c2-63aa-486b-8966-81a6041360bc",
               "name": {
-                "value": "Brandenburg Oberpegel"
-              }
-            },
-            {
-              "id": "f8806fa4-cc2c-46e8-9b87-6231da0e3ddd",
-              "name": {
-                "value": "Brandenburg Unterpegel"
+                "value": "Brandenburg"
               }
             },
             {
@@ -769,21 +607,9 @@
               }
             },
             {
-              "id": "308f5979-4ab8-48ab-b618-081aa285559e",
+              "id": "*470acd2a-f3e7-4fd2-96b0-e90344ee51bf",
               "name": {
-                "value": "Bredereiche Oberpegel"
-              }
-            },
-            {
-              "id": "470acd2a-f3e7-4fd2-96b0-e90344ee51bf",
-              "name": {
-                "value": "Bredereiche Unterpegel"
-              }
-            },
-            {
-              "id": "4a904d59-d48f-4878-af7b-cbd955f342e0",
-              "name": {
-                "value": "Breiholz"
+                "value": "Bredereiche"
               }
             },
             {
@@ -837,7 +663,13 @@
             {
               "id": "bf7bb8e8-e81f-4655-9e84-28738feae936",
               "name": {
-                "value": "Buessau Unterpegel"
+                "value": "Buessau"
+              }
+            },
+            {
+              "id": "ae1b91d0-e746-4f65-9f64-2d2e23603a82",
+              "name": {
+                "value": "Bunthaus"
               }
             },
             {
@@ -871,21 +703,15 @@
               }
             },
             {
+              "id": "*46a3350b-f3e6-4f5d-a297-2652c43bfac8",
+              "name": {
+                "value": "Calbe"
+              }
+            },
+            {
               "id": "8d1fdc5b-b63a-4745-baeb-5e266d247e99",
               "name": {
                 "value": "Calbe Grizehne"
-              }
-            },
-            {
-              "id": "184200bc-cdb6-4116-a7cf-ac986c2d4fb8",
-              "name": {
-                "value": "Calbe Oberpegel"
-              }
-            },
-            {
-              "id": "46a3350b-f3e6-4f5d-a297-2652c43bfac8",
-              "name": {
-                "value": "Calbe Unterpegel"
               }
             },
             {
@@ -973,15 +799,9 @@
               }
             },
             {
-              "id": "4dd743e9-3040-4f11-8c7c-d5c5789d80b4",
+              "id": "*06c498e3-786a-48be-83be-6a6293ea3b8c",
               "name": {
-                "value": "Datteln Schleuse Oberwasser"
-              }
-            },
-            {
-              "id": "06c498e3-786a-48be-83be-6a6293ea3b8c",
-              "name": {
-                "value": "Datteln Schleuse Unterwasser"
+                "value": "Datteln Schleuse"
               }
             },
             {
@@ -1014,7 +834,7 @@
             {
               "id": "dc344605-c507-4054-b4e3-293cf0602bc4",
               "name": {
-                "value": "Detzem Unterpegel"
+                "value": "Detzem"
               }
             },
             {
@@ -1042,15 +862,9 @@
               }
             },
             {
-              "id": "ec8188ee-f4e4-4f5e-91ae-472e765060cd",
+              "id": "*ad3a51da-2e25-4818-b96f-6a6d8a20d803",
               "name": {
-                "value": "Doemitz Oberpegel"
-              }
-            },
-            {
-              "id": "ad3a51da-2e25-4818-b96f-6a6d8a20d803",
-              "name": {
-                "value": "Doemitz Unterpegel"
+                "value": "Doemitz"
               }
             },
             {
@@ -1060,15 +874,9 @@
               }
             },
             {
-              "id": "6610cf2e-7bfd-4686-b9ac-b105f492d708",
+              "id": "*5db8ab4b-315b-466e-b9d5-5ba5a19f5f08",
               "name": {
-                "value": "Dorsten Schleuse Oberwasser"
-              }
-            },
-            {
-              "id": "5db8ab4b-315b-466e-b9d5-5ba5a19f5f08",
-              "name": {
-                "value": "Dorsten Schleuse Unterwasser"
+                "value": "Dorsten Schleuse"
               }
             },
             {
@@ -1096,15 +904,9 @@
               }
             },
             {
-              "id": "f18e81da-1fec-4308-a881-6defa7c6d18b",
+              "id": "*f18e81da-1fec-4308-a881-6defa7c6d18b",
               "name": {
-                "value": "Duisburg Meiderich Schleuse Oberwasser"
-              }
-            },
-            {
-              "id": "48780245-36f2-453e-b430-5fa838851d6d",
-              "name": {
-                "value": "Duisburg Meiderich Schleuse Unterwasser"
+                "value": "Duisburg Meiderich Schleuse"
               }
             },
             {
@@ -1152,7 +954,7 @@
             {
               "id": "3cd46cc7-b94d-424f-a860-c389dd9992a4",
               "name": {
-                "value": "Eberswalde Oberpegel"
+                "value": "Eberswalde"
               }
             },
             {
@@ -1168,39 +970,21 @@
               }
             },
             {
-              "id": "42805eb1-aca9-4f32-a373-24a9cf839aed",
+              "id": "*42805eb1-aca9-4f32-a373-24a9cf839aed",
               "name": {
-                "value": "Eichhorst Oberpegel"
+                "value": "Eichhorst"
               }
             },
             {
-              "id": "5c4c2d52-6c0d-4aa2-beed-6ce47e3e2bd7",
+              "id": "*8ac85e6c-6167-496c-b16f-fa94f81cd94a",
               "name": {
-                "value": "Eichhorst Unterpegel"
+                "value": "Eider Sperrwerk"
               }
             },
             {
-              "id": "04acd7e5-3cbc-4cdd-b4a9-f452e868f4d6",
+              "id": "*df242a51-7ed5-4205-be60-47e0e1f46fad",
               "name": {
-                "value": "Eider Sperrwerk Außenpegel"
-              }
-            },
-            {
-              "id": "8ac85e6c-6167-496c-b16f-fa94f81cd94a",
-              "name": {
-                "value": "Eider Sperrwerk Binnenpegel"
-              }
-            },
-            {
-              "id": "df242a51-7ed5-4205-be60-47e0e1f46fad",
-              "name": {
-                "value": "Eisenhuettenstadt Schleuse Oberpegel"
-              }
-            },
-            {
-              "id": "9c336515-b238-4a1a-947f-dabe47f4b502",
-              "name": {
-                "value": "Eisenhuettenstadt Schleuse Unterpegel"
+                "value": "Eisenhuettenstadt Schleuse"
               }
             },
             {
@@ -1224,7 +1008,7 @@
             {
               "id": "0fab94c7-d51c-4b5a-a2ab-694c13efb024",
               "name": {
-                "value": "Eldena Oberpegel"
+                "value": "Eldena"
               }
             },
             {
@@ -1276,27 +1060,15 @@
               }
             },
             {
-              "id": "227b83f7-1302-4d7e-8d70-899036ff4ce2",
+              "id": "*5fea1a12-326f-4919-ac9a-02f9fa11ab57",
               "name": {
-                "value": "Este Inneres Sperrwerk Außenpegel"
+                "value": "Este Inneres Sperrwerk"
               }
             },
             {
-              "id": "5fea1a12-326f-4919-ac9a-02f9fa11ab57",
+              "id": "*c33c3667-b8c5-484a-8ea0-b92933b5a9f0",
               "name": {
-                "value": "Este Inneres Sperrwerk Binnenpegel"
-              }
-            },
-            {
-              "id": "c33c3667-b8c5-484a-8ea0-b92933b5a9f0",
-              "name": {
-                "value": "Fahrenholz Oberpegel"
-              }
-            },
-            {
-              "id": "bb62b28f-9947-42b1-92e4-743a1e0c4a76",
-              "name": {
-                "value": "Fahrenholz Unterpegel"
+                "value": "Fahrenholz"
               }
             },
             {
@@ -1314,19 +1086,13 @@
             {
               "id": "a5902c55-6ff4-4bbe-88a1-ebba45b03cec",
               "name": {
-                "value": "Findshier Oberpegel"
+                "value": "Findshier"
               }
             },
             {
-              "id": "f833a494-961b-42d3-9843-e4e61607b5be",
+              "id": "*a7ffcc9e-fecd-431c-8044-e004682d023f",
               "name": {
-                "value": "Flaesheim Schleuse Oberwasser"
-              }
-            },
-            {
-              "id": "a7ffcc9e-fecd-431c-8044-e004682d023f",
-              "name": {
-                "value": "Flaesheim Schleuse Unterwasser"
+                "value": "Flaesheim Schleuse"
               }
             },
             {
@@ -1360,15 +1126,9 @@
               }
             },
             {
-              "id": "e3409c98-72d7-425b-9e2d-da54f75b3be8",
+              "id": "*a98b4a84-e51f-4d03-86d9-3b8bdac10e69",
               "name": {
-                "value": "Friedrichsfeld Schleuse Oberwasser"
-              }
-            },
-            {
-              "id": "a98b4a84-e51f-4d03-86d9-3b8bdac10e69",
-              "name": {
-                "value": "Friedrichsfeld Schleuse Unterwasser"
+                "value": "Friedrichsfeld Schleuse"
               }
             },
             {
@@ -1390,15 +1150,9 @@
               }
             },
             {
-              "id": "53088d32-226a-49b7-962d-a5879c3aba29",
+              "id": "*e7440532-8033-44d6-99b4-037a05da0c54",
               "name": {
-                "value": "Fuerstenwalde Oberpegel"
-              }
-            },
-            {
-              "id": "e7440532-8033-44d6-99b4-037a05da0c54",
-              "name": {
-                "value": "Fuerstenwalde Unterpegel"
+                "value": "Fuerstenwalde"
               }
             },
             {
@@ -1414,15 +1168,9 @@
               }
             },
             {
-              "id": "2c95f83d-4669-4553-a18d-3f493176d34d",
+              "id": "*a5830277-af1d-4c64-be72-00591f36216c",
               "name": {
-                "value": "Fürstenberg Oberpegel"
-              }
-            },
-            {
-              "id": "a5830277-af1d-4c64-be72-00591f36216c",
-              "name": {
-                "value": "Fürstenberg Unterpegel"
+                "value": "Fürstenberg"
               }
             },
             {
@@ -1434,19 +1182,13 @@
             {
               "id": "12499527-9476-45ed-80a2-b2b729742414",
               "name": {
-                "value": "Garwitz Unterpegel"
+                "value": "Garwitz"
               }
             },
             {
-              "id": "4c8282c1-c9c5-40c2-b379-95495ce0deee",
+              "id": "*4c8282c1-c9c5-40c2-b379-95495ce0deee",
               "name": {
-                "value": "Garz Oberpegel"
-              }
-            },
-            {
-              "id": "914ce0a4-d900-4bf9-bace-47a6f73e7bed",
-              "name": {
-                "value": "Garz Unterpegel"
+                "value": "Garz"
               }
             },
             {
@@ -1456,15 +1198,9 @@
               }
             },
             {
-              "id": "5b9f8134-8bf0-4b51-a548-72a36303bbc2",
+              "id": "*427318d0-ee8d-4d9b-89f1-e8a8685b5d8c",
               "name": {
-                "value": "Gelsenkirchen Schleuse Oberwasser"
-              }
-            },
-            {
-              "id": "427318d0-ee8d-4d9b-89f1-e8a8685b5d8c",
-              "name": {
-                "value": "Gelsenkirchen Schleuse Unterwasser"
+                "value": "Gelsenkirchen Schleuse"
               }
             },
             {
@@ -1492,15 +1228,9 @@
               }
             },
             {
-              "id": "3079c709-9d83-4c59-bf91-6bed2d5ea372",
+              "id": "*ab53a592-0f5a-43e2-9133-bf3169b0f274",
               "name": {
-                "value": "Gnevsdorf Elbpegel"
-              }
-            },
-            {
-              "id": "ab53a592-0f5a-43e2-9133-bf3169b0f274",
-              "name": {
-                "value": "Gnevsdorf Oberpegel"
+                "value": "Gnevsdorf"
               }
             },
             {
@@ -1512,13 +1242,13 @@
             {
               "id": "db4a69b2-65ba-4dd8-8b3e-eadf2cc241c6",
               "name": {
-                "value": "Grabow Oberpegel"
+                "value": "Grabow"
               }
             },
             {
               "id": "547422fb-364e-4870-9977-c7782f0712e2",
               "name": {
-                "value": "Grafenbrueck Oberpegel"
+                "value": "Grafenbrueck"
               }
             },
             {
@@ -1548,7 +1278,7 @@
             {
               "id": "69308142-f78e-4877-9af8-e7221b01d303",
               "name": {
-                "value": "Grevenmacher Unterpegel"
+                "value": "Grevenmacher"
               }
             },
             {
@@ -1558,15 +1288,9 @@
               }
             },
             {
-              "id": "81630fdd-5949-412b-a2e0-d3da8bc8bcda",
+              "id": "*cfad4ee5-580f-4df2-918b-bc89c615ad0b",
               "name": {
-                "value": "Grosse Tränke Wehr Oberpegel"
-              }
-            },
-            {
-              "id": "cfad4ee5-580f-4df2-918b-bc89c615ad0b",
-              "name": {
-                "value": "Grosse Tränke Wehr Unterpegel"
+                "value": "Grosse Tränke Wehr"
               }
             },
             {
@@ -1582,27 +1306,21 @@
               }
             },
             {
-              "id": "5553e209-1b44-47f5-917d-2c6951ecc044",
+              "id": "*5553e209-1b44-47f5-917d-2c6951ecc044",
               "name": {
-                "value": "Grütz Oberpegel"
-              }
-            },
-            {
-              "id": "c62aa674-db07-4251-a50b-1676c11a9a25",
-              "name": {
-                "value": "Grütz Unterpegel"
+                "value": "Grütz"
               }
             },
             {
               "id": "956ce5ff-1fc8-461e-ab2e-0ac70758bb46",
               "name": {
-                "value": "Gueritz Oberpegel"
+                "value": "Gueritz"
               }
             },
             {
               "id": "fc1072e4-61d4-4e89-bc70-c7e8860fd208",
               "name": {
-                "value": "Gundelsheim Unterpegel"
+                "value": "Gundelsheim"
               }
             },
             {
@@ -1668,7 +1386,7 @@
             {
               "id": "f112a50a-d94a-49d3-a140-0a0402baf0d3",
               "name": {
-                "value": "Gülpe Oberpegel"
+                "value": "Gülpe"
               }
             },
             {
@@ -1708,15 +1426,9 @@
               }
             },
             {
-              "id": "4dbce62d-a015-4011-afcd-423bb8d4b7a1",
+              "id": "*4ef9dd9c-b32b-43fc-bc5e-3849d4ab7ecc",
               "name": {
-                "value": "Hamm Oberwasser"
-              }
-            },
-            {
-              "id": "4ef9dd9c-b32b-43fc-bc5e-3849d4ab7ecc",
-              "name": {
-                "value": "Hamm Unterwasser"
+                "value": "Hamm"
               }
             },
             {
@@ -1756,21 +1468,15 @@
               }
             },
             {
-              "id": "bb6fd2f0-458a-4ea5-aa58-e1c1a2fbd56d",
+              "id": "*ce086a21-29c2-444c-b53d-f3b70b086b2f",
               "name": {
-                "value": "Havelberg Elbpegel"
+                "value": "Havelberg"
               }
             },
             {
               "id": "c203d5fb-96d7-4643-b2ef-b13b1d88c75b",
               "name": {
                 "value": "Havelberg Stadt"
-              }
-            },
-            {
-              "id": "ce086a21-29c2-444c-b53d-f3b70b086b2f",
-              "name": {
-                "value": "Havelberg Unterpegel"
               }
             },
             {
@@ -1782,7 +1488,7 @@
             {
               "id": "827b2685-47ec-44df-a90f-980f5e0c1591",
               "name": {
-                "value": "Heidelberg Unterpegel"
+                "value": "Heidelberg"
               }
             },
             {
@@ -1816,15 +1522,9 @@
               }
             },
             {
-              "id": "70bee932-1c14-42f8-b4df-9a85589ca80e",
+              "id": "*70bee932-1c14-42f8-b4df-9a85589ca80e",
               "name": {
-                "value": "Henrichenburg Oberwasser"
-              }
-            },
-            {
-              "id": "e6b68bc2-6814-4bbf-b37e-44a0b7807c2d",
-              "name": {
-                "value": "Henrichenburg Unterwasser"
+                "value": "Henrichenburg"
               }
             },
             {
@@ -1834,15 +1534,9 @@
               }
             },
             {
-              "id": "ac6c4362-1fb1-4b7a-9406-016bed804804",
+              "id": "*ac6c4362-1fb1-4b7a-9406-016bed804804",
               "name": {
-                "value": "Herne Oberwasser"
-              }
-            },
-            {
-              "id": "b9975ea1-5b45-4e27-abb8-4c3f7878b1f7",
-              "name": {
-                "value": "Herne Unterwasser"
+                "value": "Herne"
               }
             },
             {
@@ -1860,7 +1554,7 @@
             {
               "id": "23517de9-9b81-4a34-ab82-adff6443c235",
               "name": {
-                "value": "Hessigheim Schleuse Unterpegel"
+                "value": "Hessigheim Schleuse"
               }
             },
             {
@@ -1870,15 +1564,9 @@
               }
             },
             {
-              "id": "bcdfa310-d887-49bf-a562-1e439759044a",
+              "id": "*9592d736-26af-46e5-84fd-e43e89b66566",
               "name": {
-                "value": "Himmelpfort Oberpegel"
-              }
-            },
-            {
-              "id": "9592d736-26af-46e5-84fd-e43e89b66566",
-              "name": {
-                "value": "Himmelpfort Unterpegel"
+                "value": "Himmelpfort"
               }
             },
             {
@@ -1908,19 +1596,13 @@
             {
               "id": "e0d0cc73-d3ef-41ff-a158-4692b62ed3f9",
               "name": {
-                "value": "Hohensaaten Ost Außenpegel"
+                "value": "Hohensaaten Ost"
               }
             },
             {
-              "id": "99309d3e-58d6-4200-b212-c8499467b4ce",
+              "id": "*3404a6e5-8dfe-42b1-90f6-c0c3741b6ac8",
               "name": {
-                "value": "Hohensaaten West Außenpegel"
-              }
-            },
-            {
-              "id": "3404a6e5-8dfe-42b1-90f6-c0c3741b6ac8",
-              "name": {
-                "value": "Hohensaaten West Binnenpegel"
+                "value": "Hohensaaten West"
               }
             },
             {
@@ -1984,15 +1666,9 @@
               }
             },
             {
-              "id": "5c1b6183-eaaf-436c-b863-8a191d9e1f5a",
+              "id": "*14699a51-aaa5-4ae4-98a6-d35aa9a80ec3",
               "name": {
-                "value": "Hünxe Schleuse Oberwasser"
-              }
-            },
-            {
-              "id": "14699a51-aaa5-4ae4-98a6-d35aa9a80ec3",
-              "name": {
-                "value": "Hünxe Schleuse Unterwasser"
+                "value": "Hünxe Schleuse"
               }
             },
             {
@@ -2016,7 +1692,7 @@
             {
               "id": "6b05e8dc-3089-497a-a602-f40c4283d8bb",
               "name": {
-                "value": "Ilmenau Sperrwerk Außenpegel"
+                "value": "Ilmenau Sperrwerk"
               }
             },
             {
@@ -2044,6 +1720,12 @@
               }
             },
             {
+              "id": "0fd56e0a-e32e-4b56-9cda-e0ce93d715c4",
+              "name": {
+                "value": "Kachlet"
+              }
+            },
+            {
               "id": "e4f29379-6fd3-4501-afc5-bc5a41cb6e93",
               "name": {
                 "value": "Kade"
@@ -2062,15 +1744,9 @@
               }
             },
             {
-              "id": "a869dd39-dcf7-46f2-b9bf-b210816109ac",
+              "id": "*4457a320-1f99-4352-8a43-ff24109d99ea",
               "name": {
-                "value": "Kannenburg Oberpegel"
-              }
-            },
-            {
-              "id": "4457a320-1f99-4352-8a43-ff24109d99ea",
-              "name": {
-                "value": "Kannenburg Unterpegel"
+                "value": "Kannenburg"
               }
             },
             {
@@ -2116,15 +1792,9 @@
               }
             },
             {
-              "id": "b577a043-b6b8-4db8-80e7-8abbb565c8c5",
+              "id": "*b2204ea2-eb50-439f-a64d-98062ea1d21f",
               "name": {
-                "value": "Kersdorf Oberpegel"
-              }
-            },
-            {
-              "id": "b2204ea2-eb50-439f-a64d-98062ea1d21f",
-              "name": {
-                "value": "Kersdorf Unterpegel"
+                "value": "Kersdorf"
               }
             },
             {
@@ -2154,7 +1824,7 @@
             {
               "id": "25530a3e-d0a8-456f-b7ea-6a3886843279",
               "name": {
-                "value": "Klein Laasch Wehr Oberpegel"
+                "value": "Klein Laasch Wehr"
               }
             },
             {
@@ -2164,15 +1834,9 @@
               }
             },
             {
-              "id": "bb23b276-2c1c-4cde-bc9c-9d90d5a04890",
+              "id": "*38414157-862e-428a-ae2c-77ff79871227",
               "name": {
-                "value": "Kleinmachnow Oberpegel"
-              }
-            },
-            {
-              "id": "38414157-862e-428a-ae2c-77ff79871227",
-              "name": {
-                "value": "Kleinmachnow Unterpegel"
+                "value": "Kleinmachnow"
               }
             },
             {
@@ -2206,7 +1870,7 @@
               }
             },
             {
-              "id": "4c7d796a-39f2-4f26-97a9-3aad01713e29",
+              "id": "*9dbcac54-db55-4d24-88b2-74a0d75a68c4",
               "name": {
                 "value": "Koblenz"
               }
@@ -2215,12 +1879,6 @@
               "id": "896aed46-8290-49b0-a6f8-90d53027cd1f",
               "name": {
                 "value": "Koblenz Lützel Durchfahrtshöhe"
-              }
-            },
-            {
-              "id": "9dbcac54-db55-4d24-88b2-74a0d75a68c4",
-              "name": {
-                "value": "Koblenz Unterpegel"
               }
             },
             {
@@ -2266,27 +1924,15 @@
               }
             },
             {
-              "id": "a653eb04-de2e-47f7-8e2c-09277cfe95ae",
+              "id": "*a653eb04-de2e-47f7-8e2c-09277cfe95ae",
               "name": {
-                "value": "Krückau Sperrwerk Außenpegel"
+                "value": "Krückau Sperrwerk"
               }
             },
             {
-              "id": "53c277c3-7ddb-4281-9937-97dcfe3753fa",
+              "id": "*2d9f473e-f2b6-4f50-bb4d-96362230a976",
               "name": {
-                "value": "Krückau Sperrwerk Binnenpegel"
-              }
-            },
-            {
-              "id": "9e4adf71-ed15-453a-b50e-de03d2077e04",
-              "name": {
-                "value": "Kummersdorf Oberpegel"
-              }
-            },
-            {
-              "id": "2d9f473e-f2b6-4f50-bb4d-96362230a976",
-              "name": {
-                "value": "Kummersdorf Unterpegel"
+                "value": "Kummersdorf"
               }
             },
             {
@@ -2304,7 +1950,7 @@
             {
               "id": "6b6b31e2-e5c7-4c85-8405-b8d0b6e158c4",
               "name": {
-                "value": "Lahnstein Schleuse Unterpegel"
+                "value": "Lahnstein Schleuse"
               }
             },
             {
@@ -2334,7 +1980,7 @@
             {
               "id": "5e6ae93a-7856-4005-bc77-fc6e4f5ad630",
               "name": {
-                "value": "Ledasperrwerk Unterpegel"
+                "value": "Ledasperrwerk"
               }
             },
             {
@@ -2346,19 +1992,13 @@
             {
               "id": "f099ce74-1a3d-4d47-9810-75c2b1b178b6",
               "name": {
-                "value": "Leesenbrueck Oberpegel"
+                "value": "Leesenbrueck"
               }
             },
             {
-              "id": "c8a1cf0a-9441-47aa-8c64-64e8962a9bd4",
+              "id": "*5bb1f56d-7c56-4b01-9da0-2a08a0aaedeb",
               "name": {
-                "value": "Lehnitz Oberpegel"
-              }
-            },
-            {
-              "id": "5bb1f56d-7c56-4b01-9da0-2a08a0aaedeb",
-              "name": {
-                "value": "Lehnitz Unterpegel"
+                "value": "Lehnitz"
               }
             },
             {
@@ -2400,19 +2040,13 @@
             {
               "id": "7bbd90ad-98e9-4415-8040-23500f2e01e7",
               "name": {
-                "value": "Lewitz Oberpegel"
+                "value": "Lewitz"
               }
             },
             {
-              "id": "86c5688f-2fac-4d58-a245-ad8ce14cafbf",
+              "id": "*86c5688f-2fac-4d58-a245-ad8ce14cafbf",
               "name": {
-                "value": "Lexfähre Oberwasser"
-              }
-            },
-            {
-              "id": "7f01fbd8-653c-40ba-8ed0-57386a9b4557",
-              "name": {
-                "value": "Lexfähre Unterwasser"
+                "value": "Lexfähre"
               }
             },
             {
@@ -2422,27 +2056,15 @@
               }
             },
             {
-              "id": "3f8ceb6d-e95d-46e6-b523-3d15fe706049",
+              "id": "*a1cf60be-8149-445d-a7a6-e7c7e7051944",
               "name": {
-                "value": "Liebenwalde Oberpegel"
+                "value": "Liebenwalde"
               }
             },
             {
-              "id": "a1cf60be-8149-445d-a7a6-e7c7e7051944",
+              "id": "*6f81b35f-8339-4012-8029-ca193403e52c",
               "name": {
-                "value": "Liebenwalde Unterpegel"
-              }
-            },
-            {
-              "id": "6f81b35f-8339-4012-8029-ca193403e52c",
-              "name": {
-                "value": "Liepe Oberpegel"
-              }
-            },
-            {
-              "id": "79d783d3-e423-4c6d-b914-d7b7d161a89f",
-              "name": {
-                "value": "Liepe Unterpegel"
+                "value": "Liepe"
               }
             },
             {
@@ -2476,24 +2098,6 @@
               }
             },
             {
-              "id": "f348f2f6-37c2-41c2-8d53-fd06a18acce0",
-              "name": {
-                "value": "Lueneburg"
-              }
-            },
-            {
-              "id": "c7364d1e-6139-4575-84cb-b420d21275c4",
-              "name": {
-                "value": "Lueneburg Oberwasser"
-              }
-            },
-            {
-              "id": "d18033cd-9cf6-4800-9176-57758bb444dc",
-              "name": {
-                "value": "Lueneburg Unterwasser"
-              }
-            },
-            {
               "id": "f4f9f7fb-eeff-46dc-9727-04d8aa56240a",
               "name": {
                 "value": "Lübeck Bauhof"
@@ -2502,7 +2106,7 @@
             {
               "id": "d75442cf-87f8-4a56-8ee0-8ed7f94fe738",
               "name": {
-                "value": "Lübz Oberpegel"
+                "value": "Lübz"
               }
             },
             {
@@ -2527,6 +2131,12 @@
               "id": "d7a8df36-2978-45b8-99d1-76d84cf34c01",
               "name": {
                 "value": "Lüne"
+              }
+            },
+            {
+              "id": "*c7364d1e-6139-4575-84cb-b420d21275c4",
+              "name": {
+                "value": "Lüneburg"
               }
             },
             {
@@ -2562,19 +2172,13 @@
             {
               "id": "bccaacb3-a9a5-44aa-b05b-3f29c3c6e38a",
               "name": {
-                "value": "Malchow Wehr Oberpegel"
+                "value": "Malchow Wehr"
               }
             },
             {
-              "id": "497c29ee-32b2-4535-ac5f-3881a106c793",
+              "id": "*a64918a6-e6f5-495e-ad2d-a8e3655c9424",
               "name": {
-                "value": "Malliss Oberpegel"
-              }
-            },
-            {
-              "id": "a64918a6-e6f5-495e-ad2d-a8e3655c9424",
-              "name": {
-                "value": "Malliss Unterpegel"
+                "value": "Malliss"
               }
             },
             {
@@ -2592,7 +2196,7 @@
             {
               "id": "a73a9cb4-5bc2-4d42-b7cd-191d5e1ee307",
               "name": {
-                "value": "Marbach Wehr Unterpegel"
+                "value": "Marbach Wehr"
               }
             },
             {
@@ -2608,15 +2212,9 @@
               }
             },
             {
-              "id": "60b6ecb0-4ed5-4b8a-b875-07ae33a92b07",
+              "id": "*23636a08-775b-4101-a1af-1b57fb466d81",
               "name": {
-                "value": "Marienthal Oberpegel"
-              }
-            },
-            {
-              "id": "23636a08-775b-4101-a1af-1b57fb466d81",
-              "name": {
-                "value": "Marienthal Unterpegel"
+                "value": "Marienthal"
               }
             },
             {
@@ -2662,15 +2260,9 @@
               }
             },
             {
-              "id": "ab13c115-6924-4d88-822c-0704b8df4767",
+              "id": "*19cc3b9a-546b-43dd-96a3-b0bf903672d2",
               "name": {
-                "value": "Mirow Oberpegel"
-              }
-            },
-            {
-              "id": "19cc3b9a-546b-43dd-96a3-b0bf903672d2",
-              "name": {
-                "value": "Mirow Unterpegel"
+                "value": "Mirow"
               }
             },
             {
@@ -2704,15 +2296,9 @@
               }
             },
             {
-              "id": "ccd3e8f1-39e9-4e09-aa41-625afda84460",
+              "id": "*ccd3e8f1-39e9-4e09-aa41-625afda84460",
               "name": {
-                "value": "Münster Oberwasser"
-              }
-            },
-            {
-              "id": "ed260406-bdd6-42ef-bf2a-1246eea392f9",
-              "name": {
-                "value": "Münster Unterwasser"
+                "value": "Münster"
               }
             },
             {
@@ -2728,26 +2314,23 @@
               }
             },
             {
+              "id": "30739ff3-9d71-4e38-991c-0f7a2f54ed2d",
+              "name": {
+                "value": "Neu Kalliss"
+              }
+            },
+            {
               "id": "541c508a-00bf-4a9d-bd47-17fda98b349d",
               "name": {
-                "value": "Neuburg Oberpegel"
+                "value": "Neuburg"
               }
             },
             {
-              "id": "0e0dbcc9-0a7d-494a-bc92-52e56a7fffe2",
+              "id": "*c9a6c3bf-02d4-4945-83e8-b7c6cf9701fa",
               "name": {
-                "value": "Neue Mühle Oberpegel",
+                "value": "Neue Mühle",
                 "synonyms": [
-                  "Neue Mühle Schleuse Oberpegel"
-                ]
-              }
-            },
-            {
-              "id": "c9a6c3bf-02d4-4945-83e8-b7c6cf9701fa",
-              "name": {
-                "value": "Neue Mühle Unterpegel",
-                "synonyms": [
-                  "Neue Mühle Schleuse Unterpegel"
+                  "Neue Mühle Schleuse"
                 ]
               }
             },
@@ -2758,25 +2341,13 @@
               }
             },
             {
-              "id": "963bdc26-34ad-43c8-b653-bbaa3466276a",
+              "id": "*963bdc26-34ad-43c8-b653-bbaa3466276a",
               "name": {
-                "value": "Neuhaus Oberpegel"
+                "value": "Neuhaus"
               }
             },
             {
-              "id": "bf48cefd-0d00-4186-a366-343c25f43615",
-              "name": {
-                "value": "Neuhaus Unterpegel"
-              }
-            },
-            {
-              "id": "3f0b6b74-80a9-4576-a3cb-ea967dfc349f",
-              "name": {
-                "value": "Neustadt"
-              }
-            },
-            {
-              "id": "dda39817-d01d-467f-a6a3-7487011a45d1",
+              "id": "*dda39817-d01d-467f-a6a3-7487011a45d1",
               "name": {
                 "value": "Neustadt"
               }
@@ -2784,13 +2355,13 @@
             {
               "id": "c4381eb3-d21f-4bd1-bc1c-66c03b7d8bcf",
               "name": {
-                "value": "Neustadt Glewe Oberpegel"
+                "value": "Neustadt Glewe"
               }
             },
             {
               "id": "c13fc7d0-beb1-42a3-b831-4816d7649059",
               "name": {
-                "value": "Neuwerben Elbpegel"
+                "value": "Neuwerben"
               }
             },
             {
@@ -2806,27 +2377,15 @@
               }
             },
             {
-              "id": "414dd4ee-b38b-489f-a1fe-19b1d62f3202",
+              "id": "*414dd4ee-b38b-489f-a1fe-19b1d62f3202",
               "name": {
-                "value": "Niederfinow Schiffshebewerk Oberpegel"
+                "value": "Niederfinow Schiffshebewerk"
               }
             },
             {
-              "id": "4eec6b25-6b02-4448-b5db-10843c8d6175",
+              "id": "*3adf88fd-fd7a-41d0-84f5-1143c98a6564",
               "name": {
-                "value": "Niederfinow Schiffshebewerk Unterpegel"
-              }
-            },
-            {
-              "id": "3adf88fd-fd7a-41d0-84f5-1143c98a6564",
-              "name": {
-                "value": "Niegripp Außenpegel"
-              }
-            },
-            {
-              "id": "e506460f-4577-4405-8cc3-cc36a4bb516d",
-              "name": {
-                "value": "Niegripp Binnenpegel"
+                "value": "Niegripp"
               }
             },
             {
@@ -2866,27 +2425,15 @@
               }
             },
             {
-              "id": "61394669-3f1b-44e5-ae37-50fd2512f4fa",
+              "id": "*61394669-3f1b-44e5-ae37-50fd2512f4fa",
               "name": {
-                "value": "Nordfeld Oberwasser"
+                "value": "Nordfeld"
               }
             },
             {
-              "id": "cb93548e-c1ce-43f6-b3a1-6903f8835b33",
+              "id": "*12f63015-c66a-4e89-a69b-ddd069872d40",
               "name": {
-                "value": "Nordfeld Unterwasser"
-              }
-            },
-            {
-              "id": "e251f943-ce2f-4003-b208-e2797aa72202",
-              "name": {
-                "value": "Oberhausen Schleuse Oberwasser"
-              }
-            },
-            {
-              "id": "12f63015-c66a-4e89-a69b-ddd069872d40",
-              "name": {
-                "value": "Oberhausen Schleuse Unterwasser"
+                "value": "Oberhausen Schleuse"
               }
             },
             {
@@ -2932,15 +2479,9 @@
               }
             },
             {
-              "id": "8c3295dc-fe73-45bc-9a7b-679d4aaad0cf",
+              "id": "*7cb4566b-c584-4167-8736-f52ca7fd837d",
               "name": {
-                "value": "Oste Sperrwerk Außenpegel"
-              }
-            },
-            {
-              "id": "7cb4566b-c584-4167-8736-f52ca7fd837d",
-              "name": {
-                "value": "Oste Sperrwerk Binnenpegel"
+                "value": "Oste Sperrwerk"
               }
             },
             {
@@ -2980,15 +2521,9 @@
               }
             },
             {
-              "id": "25ca1bef-4f8e-4523-89f5-7d8593e46370",
+              "id": "*25ca1bef-4f8e-4523-89f5-7d8593e46370",
               "name": {
-                "value": "Parey Elbpegel"
-              }
-            },
-            {
-              "id": "bafddcbf-4108-431e-9f57-568be08fd538",
-              "name": {
-                "value": "Parey Unterpegel"
+                "value": "Parey"
               }
             },
             {
@@ -3058,15 +2593,9 @@
               }
             },
             {
-              "id": "391bbba5-83d4-4791-b07e-65ab29b423f6",
+              "id": "*391bbba5-83d4-4791-b07e-65ab29b423f6",
               "name": {
-                "value": "Pinnau Sperrwerk Außenpegel"
-              }
-            },
-            {
-              "id": "26259e8f-7d2d-47e0-8851-0257542b63b3",
-              "name": {
-                "value": "Pinnau Sperrwerk Binnenpegel"
+                "value": "Pinnau Sperrwerk"
               }
             },
             {
@@ -3076,27 +2605,15 @@
               }
             },
             {
-              "id": "3ffddb2c-4c17-47d1-a7de-e1663d4031b7",
+              "id": "*506e6b03-1209-4650-8b3b-3cd2d4724b5f",
               "name": {
-                "value": "Plau Oberpegel"
+                "value": "Plau"
               }
             },
             {
-              "id": "506e6b03-1209-4650-8b3b-3cd2d4724b5f",
+              "id": "*aa97c894-ed26-4fdd-945f-db9667979268",
               "name": {
-                "value": "Plau Unterpegel"
-              }
-            },
-            {
-              "id": "aa97c894-ed26-4fdd-945f-db9667979268",
-              "name": {
-                "value": "Plaue Oberpegel"
-              }
-            },
-            {
-              "id": "9829cab0-746b-4d10-9124-79ddda0a843e",
-              "name": {
-                "value": "Plaue Unterpegel"
+                "value": "Plaue"
               }
             },
             {
@@ -3148,33 +2665,21 @@
               }
             },
             {
-              "id": "863359dd-3171-4641-97bb-b21f06859072",
+              "id": "*863359dd-3171-4641-97bb-b21f06859072",
               "name": {
-                "value": "Quitzöbel Oberpegel"
-              }
-            },
-            {
-              "id": "2d93f2be-6d57-4716-a775-92fb5a63f88f",
-              "name": {
-                "value": "Quitzöbel Unterpegel"
+                "value": "Quitzöbel"
               }
             },
             {
               "id": "b6bbe4f8-aa59-414a-8292-2d3919590a20",
               "name": {
-                "value": "Ragoese Oberpegel"
+                "value": "Ragoese"
               }
             },
             {
-              "id": "43ca90f5-3b4c-4b35-86ac-cab0fe1c2ce5",
+              "id": "*43ca90f5-3b4c-4b35-86ac-cab0fe1c2ce5",
               "name": {
-                "value": "Rathenow Oberpegel"
-              }
-            },
-            {
-              "id": "4de8a51c-4c6a-4334-92dd-0b1cbb8e0573",
-              "name": {
-                "value": "Rathenow Unterpegel"
+                "value": "Rathenow"
               }
             },
             {
@@ -3252,7 +2757,7 @@
             {
               "id": "4a69e82e-97a3-4573-8aeb-b695c1eaa0b1",
               "name": {
-                "value": "Riedenburg Unterpegel"
+                "value": "Riedenburg"
               }
             },
             {
@@ -3270,7 +2775,7 @@
             {
               "id": "cde0f9b6-6b13-4de9-adfe-cad1fe085e30",
               "name": {
-                "value": "Rischmühle Unterpegel"
+                "value": "Rischmühle"
               }
             },
             {
@@ -3316,15 +2821,9 @@
               }
             },
             {
-              "id": "ca0e4a68-bd50-494c-bd45-abb33c5e1b0a",
+              "id": "*ca0e4a68-bd50-494c-bd45-abb33c5e1b0a",
               "name": {
-                "value": "Rostock Mühlendamm Oberwasser"
-              }
-            },
-            {
-              "id": "4a0061f0-7355-4a95-9c70-f05c8920d790",
-              "name": {
-                "value": "Rostock Mühlendamm Unterwasser"
+                "value": "Rostock Mühlendamm"
               }
             },
             {
@@ -3334,15 +2833,9 @@
               }
             },
             {
-              "id": "5a7e1d4a-53aa-4f9f-a59b-50e01b7260c7",
+              "id": "*e70e39ec-e476-4991-a39d-7d0e009556ef",
               "name": {
-                "value": "Rothenburg Oberpegel"
-              }
-            },
-            {
-              "id": "e70e39ec-e476-4991-a39d-7d0e009556ef",
-              "name": {
-                "value": "Rothenburg Unterpegel"
+                "value": "Rothenburg"
               }
             },
             {
@@ -3366,13 +2859,13 @@
             {
               "id": "6629a4ca-4e2e-40b8-a66c-964d906c6911",
               "name": {
-                "value": "Ruhlsdorf Oberpegel"
+                "value": "Ruhlsdorf"
               }
             },
             {
               "id": "12a3037f-cbf3-49d3-8da5-77fb38730bba",
               "name": {
-                "value": "Ruhrwehr Oberwasser"
+                "value": "Ruhrwehr"
               }
             },
             {
@@ -3406,15 +2899,9 @@
               }
             },
             {
-              "id": "adbd3144-1774-45e8-8eb7-60f01a712426",
+              "id": "*0a6fe221-9fc9-46e0-802f-9c367a32ed72",
               "name": {
-                "value": "Sachsenhausen Oberpegel"
-              }
-            },
-            {
-              "id": "0a6fe221-9fc9-46e0-802f-9c367a32ed72",
-              "name": {
-                "value": "Sachsenhausen Unterpegel"
+                "value": "Sachsenhausen"
               }
             },
             {
@@ -3468,7 +2955,7 @@
             {
               "id": "4e4fac1a-6fb4-4ce2-a041-bdc4a668d95d",
               "name": {
-                "value": "Schleuse Rothensee Unterpegel"
+                "value": "Schleuse Rothensee"
               }
             },
             {
@@ -3492,7 +2979,7 @@
             {
               "id": "6386de1c-0426-4795-b23d-7ea2754ec782",
               "name": {
-                "value": "Schoepfurth Oberpegel"
+                "value": "Schoepfurth"
               }
             },
             {
@@ -3520,15 +3007,9 @@
               }
             },
             {
-              "id": "aac1846d-a0ea-46f3-984d-b3938b0cb82d",
+              "id": "*4ee515f9-8cfb-4835-8460-8dde0b978fbe",
               "name": {
-                "value": "Schwedt Schleuse Außenpegel"
-              }
-            },
-            {
-              "id": "4ee515f9-8cfb-4835-8460-8dde0b978fbe",
-              "name": {
-                "value": "Schwedt Schleuse Binnenpegel"
+                "value": "Schwedt Schleuse"
               }
             },
             {
@@ -3568,15 +3049,9 @@
               }
             },
             {
-              "id": "d8ef9f21-479e-4504-8bf7-aef2dbe6184d",
+              "id": "*d8ef9f21-479e-4504-8bf7-aef2dbe6184d",
               "name": {
-                "value": "Schönwalde Oberpegel"
-              }
-            },
-            {
-              "id": "b6650b13-582b-4d54-adac-991ac140e039",
-              "name": {
-                "value": "Schönwalde Unterpegel"
+                "value": "Schönwalde"
               }
             },
             {
@@ -3618,7 +3093,7 @@
             {
               "id": "dfdf753b-75bd-46f0-8cde-15545be9bfba",
               "name": {
-                "value": "Stadtbredimus Unterpegel"
+                "value": "Stadtbredimus"
               }
             },
             {
@@ -3630,7 +3105,7 @@
             {
               "id": "516fbf8c-dc08-4808-b39b-1fa65a462180",
               "name": {
-                "value": "Stecher Oberpegel"
+                "value": "Stecher"
               }
             },
             {
@@ -3652,15 +3127,9 @@
               }
             },
             {
-              "id": "4e6a3d17-1855-4458-b3fc-e71921a4da7b",
+              "id": "*b89b68fd-0d40-4941-9ee1-e4f7a56351a0",
               "name": {
-                "value": "Storkow Oberpegel"
-              }
-            },
-            {
-              "id": "b89b68fd-0d40-4941-9ee1-e4f7a56351a0",
-              "name": {
-                "value": "Storkow Unterpegel"
+                "value": "Storkow"
               }
             },
             {
@@ -3682,15 +3151,9 @@
               }
             },
             {
-              "id": "d9acdbec-61ff-4308-978a-2f4d1c2c4059",
+              "id": "*d9acdbec-61ff-4308-978a-2f4d1c2c4059",
               "name": {
-                "value": "Stör Sperrwerk Außenpegel"
-              }
-            },
-            {
-              "id": "e5b8e9f3-f0cc-4ad7-8707-577ee1b25b3e",
-              "name": {
-                "value": "Stör Sperrwerk Binnenpegel"
+                "value": "Stör Sperrwerk"
               }
             },
             {
@@ -3700,21 +3163,9 @@
               }
             },
             {
-              "id": "9dfb4b0b-daa6-4a90-9a82-60734d3d2f04",
+              "id": "*a8604e8f-9330-4431-8cf6-0a68fc793c82",
               "name": {
-                "value": "Suelfeld"
-              }
-            },
-            {
-              "id": "a8604e8f-9330-4431-8cf6-0a68fc793c82",
-              "name": {
-                "value": "Suelfeld Oberwasser"
-              }
-            },
-            {
-              "id": "892183d6-3a28-4347-afb4-bc89602ca927",
-              "name": {
-                "value": "Suelfeld Unterwasser"
+                "value": "Sülfeld"
               }
             },
             {
@@ -3724,15 +3175,9 @@
               }
             },
             {
-              "id": "71357738-c8e2-4cb7-a41a-365659bb8d58",
+              "id": "*5918b484-597f-4a1c-8262-0d0cbbb7986d",
               "name": {
-                "value": "Templin Oberpegel"
-              }
-            },
-            {
-              "id": "5918b484-597f-4a1c-8262-0d0cbbb7986d",
-              "name": {
-                "value": "Templin Unterpegel"
+                "value": "Templin"
               }
             },
             {
@@ -3780,19 +3225,13 @@
             {
               "id": "3bec53ca-444e-4014-a7b0-07b3591e954b",
               "name": {
-                "value": "Trier Unterpegel"
+                "value": "Trier"
               }
             },
             {
-              "id": "ea6870dc-507e-4ec4-a38c-cd8a5e8b7025",
+              "id": "*33193e2b-1203-4681-a23d-f87b9fab4b60",
               "name": {
-                "value": "Trotha Oberpegel"
-              }
-            },
-            {
-              "id": "33193e2b-1203-4681-a23d-f87b9fab4b60",
-              "name": {
-                "value": "Trotha Unterpegel"
+                "value": "Trotha"
               }
             },
             {
@@ -3832,21 +3271,9 @@
               }
             },
             {
-              "id": "3eba7da6-fbd6-431c-91d3-522ec49275f0",
+              "id": "*728bd3e3-23f2-41c6-8ac5-4cfa223a5a7e",
               "name": {
                 "value": "Uelzen"
-              }
-            },
-            {
-              "id": "728bd3e3-23f2-41c6-8ac5-4cfa223a5a7e",
-              "name": {
-                "value": "Uelzen Oberwasser"
-              }
-            },
-            {
-              "id": "0d0082cf-0b4b-4c8b-8e97-5d37b511916b",
-              "name": {
-                "value": "Uelzen Unterwasser"
               }
             },
             {
@@ -3934,15 +3361,9 @@
               }
             },
             {
-              "id": "05ca0e33-5c71-4368-b824-2243fcff656c",
+              "id": "*23045f8b-e7e8-4534-8162-b7dba81764db",
               "name": {
-                "value": "Wanne Eickel Schleuse Oberwasser"
-              }
-            },
-            {
-              "id": "23045f8b-e7e8-4534-8162-b7dba81764db",
-              "name": {
-                "value": "Wanne Eickel Schleuse Unterwasser"
+                "value": "Wanne Eickel Schleuse"
               }
             },
             {
@@ -3984,37 +3405,25 @@
             {
               "id": "0f7f58a8-411f-43d9-b42a-e897e63c4faa",
               "name": {
-                "value": "Wehr Geesthacht Unterpegel"
+                "value": "Wehr Geesthacht"
               }
             },
             {
-              "id": "a9299f0c-9eb8-4369-a260-4be929e72736",
+              "id": "*c1d6f464-f38a-4e38-9f74-4c5d22a42c88",
               "name": {
-                "value": "Wendisch Rietz Oberpegel"
+                "value": "Wendisch Rietz"
               }
             },
             {
-              "id": "c1d6f464-f38a-4e38-9f74-4c5d22a42c88",
+              "id": "*1b8ac909-8377-4887-ab70-748de2dd9775",
               "name": {
-                "value": "Wendisch Rietz Unterpegel"
-              }
-            },
-            {
-              "id": "9d7cc90a-7380-4dbf-8641-3201dfcbc75d",
-              "name": {
-                "value": "Wernsdorf Oberpegel"
-              }
-            },
-            {
-              "id": "1b8ac909-8377-4887-ab70-748de2dd9775",
-              "name": {
-                "value": "Wernsdorf Unterpegel"
+                "value": "Wernsdorf"
               }
             },
             {
               "id": "d31767ef-2cf8-4046-9881-d5651d81ade8",
               "name": {
-                "value": "Werries Oberwasser"
+                "value": "Werries"
               }
             },
             {
@@ -4030,15 +3439,9 @@
               }
             },
             {
-              "id": "7909d3f7-ef5d-4321-b76d-712d9b0a0c68",
+              "id": "*da3b5de9-bb1d-4545-a172-fa29301d552e",
               "name": {
-                "value": "Wesenberg Oberpegel"
-              }
-            },
-            {
-              "id": "da3b5de9-bb1d-4545-a172-fa29301d552e",
-              "name": {
-                "value": "Wesenberg Unterpegel"
+                "value": "Wesenberg"
               }
             },
             {
@@ -4048,27 +3451,15 @@
               }
             },
             {
-              "id": "c42ff4c7-f4c6-4568-8b5c-0b556bd55926",
+              "id": "*c42ff4c7-f4c6-4568-8b5c-0b556bd55926",
               "name": {
-                "value": "Weserwehr Oberwasser"
+                "value": "Weserwehr"
               }
             },
             {
-              "id": "aeb9ed1c-6c01-4829-94e4-e530dbf79821",
+              "id": "*af82bc24-a355-4247-9532-b305eb57e16f",
               "name": {
-                "value": "Weserwehr Unterwasser"
-              }
-            },
-            {
-              "id": "632a133b-fcc2-467f-8f9c-1ec63144f8d6",
-              "name": {
-                "value": "Wettin Oberpegel"
-              }
-            },
-            {
-              "id": "af82bc24-a355-4247-9532-b305eb57e16f",
-              "name": {
-                "value": "Wettin Unterpegel"
+                "value": "Wettin"
               }
             },
             {
@@ -4098,7 +3489,7 @@
             {
               "id": "a392113c-d040-4b36-b47d-9099275bb308",
               "name": {
-                "value": "Wintrich Unterpegel"
+                "value": "Wintrich"
               }
             },
             {
@@ -4138,15 +3529,9 @@
               }
             },
             {
-              "id": "eb3d4195-8c73-46b6-87e9-ef0de83edddf",
+              "id": "*eb3d4195-8c73-46b6-87e9-ef0de83edddf",
               "name": {
-                "value": "Wittorf Oberpegel"
-              }
-            },
-            {
-              "id": "308c39b6-475f-42c3-857f-7cf257426fa1",
-              "name": {
-                "value": "Wittorf Unterpegel"
+                "value": "Wittorf"
               }
             },
             {
@@ -4156,15 +3541,9 @@
               }
             },
             {
-              "id": "4d00c13e-e689-4dfc-85e6-a3fc8596ac8b",
+              "id": "*4d00c13e-e689-4dfc-85e6-a3fc8596ac8b",
               "name": {
-                "value": "Wolfsbruch Oberpegel"
-              }
-            },
-            {
-              "id": "3d43a8d7-e599-4fc4-bf62-65eb0794685e",
-              "name": {
-                "value": "Wolfsbruch Unterpegel"
+                "value": "Wolfsbruch"
               }
             },
             {
@@ -4174,15 +3553,9 @@
               }
             },
             {
-              "id": "2ae6cc12-5491-4f59-94c5-ccdbcb7474c8",
+              "id": "*99989609-7bd8-4f91-bd55-ad31fbf55ee4",
               "name": {
-                "value": "Woltersdorf Oberpegel"
-              }
-            },
-            {
-              "id": "99989609-7bd8-4f91-bd55-ad31fbf55ee4",
-              "name": {
-                "value": "Woltersdorf Unterpegel"
+                "value": "Woltersdorf"
               }
             },
             {
@@ -4192,15 +3565,9 @@
               }
             },
             {
-              "id": "c6a12d34-c78f-44a2-a7ff-4b8d88f316cc",
+              "id": "*c6a12d34-c78f-44a2-a7ff-4b8d88f316cc",
               "name": {
-                "value": "Wusterwitz Oberpegel"
-              }
-            },
-            {
-              "id": "3bfcf759-27b3-4042-b59a-f6c8ed9e533e",
-              "name": {
-                "value": "Wusterwitz Unterpegel"
+                "value": "Wusterwitz"
               }
             },
             {
@@ -4210,15 +3577,9 @@
               }
             },
             {
-              "id": "a9b8e24c-012a-48dc-a823-d48c1637cb42",
+              "id": "*721d7dbf-c947-405c-8dba-e672a091f4c0",
               "name": {
-                "value": "Zehdenick Oberpegel"
-              }
-            },
-            {
-              "id": "721d7dbf-c947-405c-8dba-e672a091f4c0",
-              "name": {
-                "value": "Zehdenick Unterpegel"
+                "value": "Zehdenick"
               }
             },
             {
@@ -4230,19 +3591,13 @@
             {
               "id": "d867e7e9-feb9-4d36-8757-4afd865e697b",
               "name": {
-                "value": "Zeltingen Unterpegel"
+                "value": "Zeltingen"
               }
             },
             {
-              "id": "64c37072-db97-4e08-8981-c67f0282de5c",
+              "id": "*64c37072-db97-4e08-8981-c67f0282de5c",
               "name": {
-                "value": "Zerben Oberpegel"
-              }
-            },
-            {
-              "id": "532d8718-6ec7-4f12-bb2f-bde2dec50182",
-              "name": {
-                "value": "Zerben Unterpegel"
+                "value": "Zerben"
               }
             },
             {
@@ -4255,6 +3610,61 @@
               "id": "3de8ea26-ab29-4e46-adad-06198ba2e0b7",
               "name": {
                 "value": "Zollenspieker"
+              }
+            }
+          ]
+        },
+        {
+          "name": "LIST_OF_VARIANTS",
+          "values": [
+            {
+              "name": {
+                "value": "Oberpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Unterpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Unterwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Binnenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Außenpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Unterfeuer"
+              }
+            },
+            {
+              "name": {
+                "value": "Elbe-Lübeck-Kanal"
+              }
+            },
+            {
+              "name": {
+                "value": "Elbpegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Außenbezirk"
               }
             }
           ]
@@ -4763,38 +4173,82 @@
               }
             }
           ]
+        },
+        {
+          "name": "LIST_OF_COUNTER_NOUNS",
+          "values": [
+            {
+              "name": {
+                "value": "Messstelle"
+              }
+            },
+            {
+              "name": {
+                "value": "Messwert"
+              }
+            },
+            {
+              "name": {
+                "value": "Pegel"
+              }
+            },
+            {
+              "name": {
+                "value": "Pegelstand"
+              }
+            },
+            {
+              "name": {
+                "value": "Wasserstand"
+              }
+            },
+            {
+              "name": {
+                "value": "Wert"
+              }
+            }
+          ]
         }
       ]
     },
     "dialog": {
       "intents": [
         {
-          "name": "QueryStationIntent",
+          "name": "QueryWaterLevelIntent",
           "confirmationRequired": false,
+          "prompts": {},
           "slots": [
             {
               "name": "station",
               "type": "LIST_OF_STATIONS",
               "confirmationRequired": false,
-              "elicitationRequired": true,
+              "elicitationRequired": false,
               "prompts": {
                 "elicitation": "Elicit.Slot.station"
               }
-            }
-          ]
-        },
-        {
-          "name": "QueryWaterIntent",
-          "confirmationRequired": false,
-          "slots": [
+            },
+            {
+              "name": "variant",
+              "type": "LIST_OF_VARIANTS",
+              "confirmationRequired": false,
+              "elicitationRequired": false,
+              "prompts": {}
+            },
             {
               "name": "water",
               "type": "LIST_OF_WATERS",
               "confirmationRequired": false,
-              "elicitationRequired": true,
+              "elicitationRequired": false,
               "prompts": {
                 "elicitation": "Elicit.Slot.water"
               }
+            },
+            {
+              "name": "counterNoun",
+              "type": "LIST_OF_COUNTER_NOUNS",
+              "confirmationRequired": false,
+              "elicitationRequired": false,
+              "prompts": {}
             }
           ]
         }

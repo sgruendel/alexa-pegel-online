@@ -5,7 +5,7 @@ const alexaTest = require('alexa-skill-test-framework');
 
 // custom slot types
 const LIST_OF_STATIONS = 'LIST_OF_STATIONS';
-const LIST_OF_WATERS = 'LIST_OF_WATERS';
+const LIST_OF_VARIANTS = 'LIST_OF_VARIANTS';
 
 // initialize the testing framework
 alexaTest.initialize(
@@ -15,12 +15,13 @@ alexaTest.initialize(
 alexaTest.setLocale('de-DE');
 
 describe('Pegel Online Skill', () => {
-    describe('LaunchRequest', () => {
+
+    describe('ErrorHandler', () => {
         alexaTest.test([
             {
-                request: alexaTest.getLaunchRequest(),
-                says: 'Du kannst sagen, „Frag Pegel Online nach dem Wasserstand an einer Messstelle, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
-                reprompts: 'Wie kann ich dir helfen?',
+                request: alexaTest.getIntentRequest(''),
+                says: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
+                reprompts: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
                 shouldEndSession: false,
             },
         ]);
@@ -31,7 +32,7 @@ describe('Pegel Online Skill', () => {
             {
                 request: alexaTest.getIntentRequest('AMAZON.HelpIntent'),
                 says: 'Du kannst sagen, „Frag Pegel Online nach dem Wasserstand an einer Messstelle, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
-                reprompts: 'Wie kann ich dir helfen?',
+                reprompts: 'Welche Messstelle soll ich abfragen?',
                 shouldEndSession: false,
             },
         ]);
@@ -41,7 +42,7 @@ describe('Pegel Online Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.CancelIntent'),
-                says: 'Auf Wiedersehen!',
+                says: '<say-as interpret-as="interjection">bis dann</say-as>.',
                 repromptsNothing: true, shouldEndSession: true,
             },
         ]);
@@ -51,7 +52,7 @@ describe('Pegel Online Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.StopIntent'),
-                says: 'Auf Wiedersehen!',
+                says: '<say-as interpret-as="interjection">bis dann</say-as>.',
                 repromptsNothing: true, shouldEndSession: true,
             },
         ]);
@@ -66,11 +67,22 @@ describe('Pegel Online Skill', () => {
         ]);
     });
 
-    describe('QueryStationIntent', () => {
+    describe('LaunchRequest', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.getLaunchRequest(),
+                says: 'Du kannst sagen, „Frag Pegel Online nach dem Wasserstand an einer Messstelle, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
+                reprompts: 'Welche Messstelle soll ich abfragen?',
+                shouldEndSession: false,
+            },
+        ]);
+    });
+
+    describe('QueryWaterLevelIntent', () => {
         alexaTest.test([
             {
                 request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryStationIntent'),
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'würzburg' }),
                     'station', LIST_OF_STATIONS, 'Würzburg', '915d76e1-3bf9-4e37-9a9a-4d144cd771cc'),
                 saysLike: 'Der Wasserstand bei Würzburg beträgt',
                 hasCardTitle: 'Pegel bei Würzburg',
@@ -78,7 +90,18 @@ describe('Pegel Online Skill', () => {
             },
             {
                 request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryStationIntent', { station: 'Wilhelmshaven' }),
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'lüneburg', variant: 'oberwasser' }),
+                    [
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Lüneburg', id: '*c7364d1e-6139-4575-84cb-b420d21275c4' },
+                        { slotName: 'variant', slotType: LIST_OF_VARIANTS, value: 'Oberwasser' },
+                    ]),
+                saysLike: 'Der Wasserstand bei Lüneburg Oberwasser beträgt',
+                hasCardTitle: 'Pegel bei Lüneburg Oberwasser',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
+                request: alexaTest.addEntityResolutionsToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'Wilhelmshaven' }),
                     [
                         { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Wilhelmshaven Alter Vorhafen', id: 'f85bd17b-06c7-49bd-8bfc-ee2bf3ffea99' },
                         { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Wilhelmshaven Neuer Vorhafen', id: 'f77317d9-654f-4f51-925e-004c592049da' },
@@ -116,33 +139,10 @@ describe('Pegel Online Skill', () => {
             */
             {
                 request: alexaTest.addEntityResolutionNoMatchToRequest(
-                    alexaTest.getIntentRequest('QueryStationIntent'),
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent'),
                     'station', LIST_OF_STATIONS, 'xyzxyzxyz'),
                 saysLike: 'Ich kenne diese Messstelle leider nicht.',
                 repromptsNothing: true, shouldEndSession: true,
-            },
-        ]);
-    });
-
-    describe('QueryWaterIntent', () => {
-        alexaTest.test([
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterIntent'),
-                    'water', LIST_OF_WATERS, 'Bodensee'),
-                says: 'Gewässer in Arbeit.',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-        ]);
-    });
-
-    describe('ErrorHandler', () => {
-        alexaTest.test([
-            {
-                request: alexaTest.getIntentRequest(''),
-                says: 'Entschuldigung, das verstehe ich nicht. Bitte wiederholen Sie das?',
-                reprompts: 'Entschuldigung, das verstehe ich nicht. Bitte wiederholen Sie das?',
-                shouldEndSession: false,
             },
         ]);
     });
