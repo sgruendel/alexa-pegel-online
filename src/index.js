@@ -23,6 +23,7 @@ const stationVariants = require('./stationVariants.json');
 const SKILL_ID = 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1';
 const ER_SUCCESS_MATCH = 'ER_SUCCESS_MATCH';
 const ER_SUCCESS_NO_MATCH = 'ER_SUCCESS_NO_MATCH';
+const COMPLETED = 'COMPLETED';
 const NORMAL = 'Normal';
 
 const languageStrings = {
@@ -38,6 +39,7 @@ const languageStrings = {
             TREND_STABLE: ', die Tendenz ist gleichbleibend',
             NO_RESULT_MESSAGE: 'Ich kann diesen Messwert zur Zeit leider nicht bestimmen.',
             UNKNOWN_STATION_MESSAGE: 'Ich kenne diese Messstelle leider nicht.',
+            UNKNOWN_WATER_MESSAGE: 'Ich kenne dieses Gewässer leider nicht.',
         },
     },
 };
@@ -61,55 +63,47 @@ const QueryWaterLevelIntentHandler = {
         const { request } = handlerInput.requestEnvelope;
         logger.debug('request', request);
 
-        // delegate to Alexa to collect all the required slots
-        if (request.dialogState && request.dialogState !== 'COMPLETED') {
-            logger.debug('dialog state is ' + request.dialogState + ' => adding delegate directive');
-            return handlerInput.responseBuilder
-                .addDelegateDirective()
-                .getResponse();
-        }
-
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         const slots = request.intent && request.intent.slots;
+
         const rpaStation = slots
             && slots.station
             && slots.station.resolutions
             && slots.station.resolutions.resolutionsPerAuthority[0];
-        if (!rpaStation) {
-            return handlerInput.responseBuilder
-                .speak('Welche Messstelle?')
-                .reprompt(requestAttributes.t('HELP_REPROMPT'))
-                .getResponse();
-        }
-
-        switch (rpaStation.status.code) {
-        case ER_SUCCESS_NO_MATCH:
-            logger.error('no match for station ' + slots.station.value);
-            const speechOutput = requestAttributes.t('UNKNOWN_STATION_MESSAGE');
-            return handlerInput.responseBuilder
-                .speak(speechOutput)
-                .getResponse();
-
-        case ER_SUCCESS_MATCH:
-            if (rpaStation.values.length > 1) {
-                var prompt = 'Welche Messstelle';
-                const size = rpaStation.values.length;
-
-                rpaStation.values.forEach((element, index) => {
-                    prompt += ((index === size - 1) ? ' oder ' : ', ') + element.value.name;
-                });
-
-                prompt += '?';
+        var station;
+        if (rpaStation) {
+            switch (rpaStation.status.code) {
+            case ER_SUCCESS_NO_MATCH:
+                logger.error('no match for station ' + slots.station.value);
+                const speechOutput = requestAttributes.t('UNKNOWN_STATION_MESSAGE');
                 return handlerInput.responseBuilder
-                    .speak(prompt)
-                    .reprompt(prompt)
-                    .addElicitSlotDirective(slots.station.name)
+                    .speak(speechOutput)
                     .getResponse();
-            }
-            break;
 
-        default:
-            logger.error('unexpected status code ' + rpaStation.status.code);
+            case ER_SUCCESS_MATCH:
+                if (rpaStation.values.length > 1) {
+                    var prompt = 'Welche Messstelle';
+                    const size = rpaStation.values.length;
+
+                    rpaStation.values.forEach((element, index) => {
+                        prompt += ((index === size - 1) ? ' oder ' : ', ') + element.value.name;
+                    });
+
+                    prompt += '?';
+                    logger.info('eliciting station slot: ' + prompt);
+                    return handlerInput.responseBuilder
+                        .speak(prompt)
+                        .reprompt(prompt)
+                        .addElicitSlotDirective(slots.station.name)
+                        .getResponse();
+                }
+                station = rpaStation.values[0].value.name;
+                logger.debug('using station ' + station);
+                break;
+
+            default:
+                logger.error('unexpected status code ' + rpaStation.status.code);
+            }
         }
 
         const rpaVariant = slots
@@ -128,6 +122,7 @@ const QueryWaterLevelIntentHandler = {
                     logger.error('multiple matches for variant ' + slots.variant.value);
                 }
                 variant = rpaVariant.values[0].value.name;
+                logger.debug('using variant ' + variant);
                 break;
 
             default:
@@ -135,7 +130,59 @@ const QueryWaterLevelIntentHandler = {
             }
         }
 
-        const station = rpaStation.values[0].value.name;
+        const rpaWater = slots
+            && slots.water
+            && slots.water.resolutions
+            && slots.water.resolutions.resolutionsPerAuthority[0];
+        var water;
+        if (rpaWater) {
+            switch (rpaWater.status.code) {
+            case ER_SUCCESS_NO_MATCH:
+                logger.error('no match for water ' + slots.water.value);
+                const speechOutput = requestAttributes.t('UNKNOWN_WATER_MESSAGE');
+                return handlerInput.responseBuilder
+                    .speak(speechOutput)
+                    .getResponse();
+
+            case ER_SUCCESS_MATCH:
+                if (rpaWater.values.length > 1) {
+                    prompt = 'Welches Gewässer';
+                    const size = rpaWater.values.length;
+
+                    rpaWater.values.forEach((element, index) => {
+                        prompt += ((index === size - 1) ? ' oder ' : ', ') + element.value.name;
+                    });
+
+                    prompt += '?';
+                    logger.info('eliciting water slot: ' + prompt);
+                    return handlerInput.responseBuilder
+                        .speak(prompt)
+                        .reprompt(prompt)
+                        .addElicitSlotDirective(slots.water.name)
+                        .getResponse();
+                }
+                water = rpaWater.values[0].value.name;
+                logger.debug('using water ' + water);
+                break;
+
+            default:
+                logger.error('unexpected status code ' + rpaWater.status.code);
+            }
+        }
+
+        if (station || water) {
+            logger.debug('setting dialog state from ' + request.dialogState + ' to ' + COMPLETED);
+            request.dialogState = COMPLETED;
+        }
+        // delegate to Alexa to collect all the required slots
+        if (request.dialogState !== COMPLETED) {
+            logger.debug('dialog state is ' + request.dialogState + ' => adding delegate directive');
+            return handlerInput.responseBuilder
+                .addDelegateDirective()
+                .getResponse();
+        }
+
+        // TODO what if water?
         const uuid = rpaStation.values[0].value.id;
         logger.debug('using station ' + station + ', uuid ' + uuid);
 
@@ -165,7 +212,7 @@ const QueryWaterLevelIntentHandler = {
                 return handlerInput.responseBuilder
                     .speak(prompt)
                     .reprompt(prompt)
-                    .addElicitSlotDirective('variant')
+                    .addElicitSlotDirective(slots.variant.name)
                     .getResponse();
             }
         }
@@ -207,6 +254,7 @@ const QueryWaterLevelIntentHandler = {
                     + ' Uhr';
                 cardContent = measurementTime + ': ' + cardContent;
             }
+            logger.info(cardContent);
 
             const title = 'Pegel bei ' + stationVariant;
             if (supportsDisplay(handlerInput)) {
@@ -301,9 +349,7 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
-        const { request } = handlerInput.requestEnvelope;
-        logger.error(error.stack || error.toString(), request);
-
+        logger.error(error.stack || error.toString(), handlerInput.requestEnvelope.request);
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         const speechOutput = requestAttributes.t('NOT_UNDERSTOOD_MESSAGE');
         return handlerInput.responseBuilder

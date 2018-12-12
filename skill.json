@@ -16,9 +16,9 @@
             "pegelonline"
           ],
           "name": "Pegel Online",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/e6053a0a41924c859dd9be47afe20699/APP_ICON?versionId=_eM8a3H2G3PGFA5jPU8YuccrTg1hKmwH&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537969346&Signature=QbPaykqwrG%2F7zE4UDFvcNWCyOs8%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/e6053a0a41924c859dd9be47afe20699/APP_ICON?versionId=_eM8a3H2G3PGFA5jPU8YuccrTg1hKmwH&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1544539728&Signature=n24NFStxkT8yUCKusbhLAi87TyE%3D",
           "description": "Liefert die aktuellen Pegelstände von über 500 Messstellen in Deutschland zurück; Quelle www.pegelonline.wsv.de. Die Karte in der Alexa App zeigt zusätzlich den Pegelverlauf der letzten 7 Tage.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4dfe/b330178ef7f84b85b1759abe853bef2d/APP_ICON_LARGE?versionId=RLJTatpRh3OxobKUNXnN6vkz6dE0FMSk&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537969346&Signature=FzAebMwClTYKir3lW1kmYCNxuu4%3D"
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4dfe/b330178ef7f84b85b1759abe853bef2d/APP_ICON_LARGE?versionId=RLJTatpRh3OxobKUNXnN6vkz6dE0FMSk&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1544539728&Signature=cWzVlbtLcZzVWAzmNaeuDxunieI%3D"
         }
       },
       "isAvailableWorldwide": true,

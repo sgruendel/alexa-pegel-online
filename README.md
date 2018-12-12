@@ -3,8 +3,9 @@ Alexa Skill for interacting with http://www.pegelonline.wsv.de
 
 ## TODOs
 - handle variant 'Normal'
-- Tests:
+- Special Cases/Tests:
   - Anderten UW and Anderten OW, but Anderten doesn't work
+  - Artlenburg and Artlenburg ELK
   - Koblenz and Koblenz UP
   - Lueneburg UW and Lueneburg OW, but Lueneburg doesn't work
   - Neustadt (Leine) vs. Neustadt (Ostsee)

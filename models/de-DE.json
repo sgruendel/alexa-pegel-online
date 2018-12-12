@@ -481,6 +481,12 @@
               }
             },
             {
+              "id": "46d8ed02-73fd-4958-8e2e-006c047d0576",
+              "name": {
+                "value": "Besigheim Seilkrananlage"
+              }
+            },
+            {
               "id": "b8997708-53d0-4932-8fbf-265083e11517",
               "name": {
                 "value": "Bevensen"
@@ -754,12 +760,6 @@
               "id": "1c80e441-a1d7-400c-b569-e038c9876a4f",
               "name": {
                 "value": "D1 Hanskalbsand Oberfläche"
-              }
-            },
-            {
-              "id": "3988cd01-1c7c-4bd3-a8ce-d324f73f346d",
-              "name": {
-                "value": "D2 Lühesand Oberfläche"
               }
             },
             {
@@ -4079,7 +4079,7 @@
             },
             {
               "name": {
-                "value": "Storkower Gewaesser"
+                "value": "Storkower Gewässer"
               }
             },
             {
@@ -4222,7 +4222,7 @@
               "name": "station",
               "type": "LIST_OF_STATIONS",
               "confirmationRequired": false,
-              "elicitationRequired": false,
+              "elicitationRequired": true,
               "prompts": {
                 "elicitation": "Elicit.Slot.station"
               }
@@ -4238,7 +4238,7 @@
               "name": "water",
               "type": "LIST_OF_WATERS",
               "confirmationRequired": false,
-              "elicitationRequired": false,
+              "elicitationRequired": true,
               "prompts": {
                 "elicitation": "Elicit.Slot.water"
               }
