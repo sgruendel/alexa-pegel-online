@@ -5,6 +5,7 @@ const pegelonline = require('./pegelonlineRestAPI');
 
 const MODEL_FILE = 'models/de-DE.json';
 const UTF8 = 'utf8';
+const COUNTER_NOUNS = [ 'Messstelle', 'Messwert', 'Pegel', 'Pegelstand', 'Wasserstand', 'Wert' ];
 
 function normalizeStation(name) {
     // AwK => '' (remove leading Achterwehrer Schifffahrtskanal)
@@ -119,6 +120,7 @@ function normalizeStation(name) {
 
 function normalizeWater(water) {
     water = water.toLowerCase()
+        .replace('gewaesser', 'gewässer')
         // capitalize letters after hyphens
         .split('-').map(str => {
             return str.charAt(0).toUpperCase() + str.slice(1);
@@ -132,6 +134,10 @@ function normalizeWater(water) {
 
 function getId(variant, uuid) {
     return (variant || '') + ':' + uuid;
+}
+
+function value(v) {
+    return { name: { value: v } };
 }
 
 async function createModel() {
@@ -173,9 +179,7 @@ async function createModel() {
 
                 if (variant) {
                     if (!listOfVariants.find(v => { return v.name.value === variant; })) {
-                        listOfVariants.push({
-                            name: { value: variant },
-                        });
+                        listOfVariants.push(value(variant));
                     }
                 }
             });
@@ -186,10 +190,7 @@ async function createModel() {
         .then((waters) => {
             waters.forEach(water => {
                 const name = (water.shortname.length > water.longname.length) ? water.shortname : water.longname;
-                const waterValue = {
-                    name: { value: normalizeWater(name) },
-                };
-                listOfWaters.push(waterValue);
+                listOfWaters.push(value(normalizeWater(name)));
             });
         });
 
@@ -232,41 +233,9 @@ async function createModel() {
             name: 'LIST_OF_WATERS',
             values: listOfWaters,
         },
-        // TODO: generate static lists from arrays to save LOC
         {
             name: 'LIST_OF_COUNTER_NOUNS',
-            values: [
-                {
-                    name: {
-                        value: 'Messstelle',
-                    },
-                },
-                {
-                    name: {
-                        value: 'Messwert',
-                    },
-                },
-                {
-                    name: {
-                        value: 'Pegel',
-                    },
-                },
-                {
-                    name: {
-                        value: 'Pegelstand',
-                    },
-                },
-                {
-                    name: {
-                        value: 'Wasserstand',
-                    },
-                },
-                {
-                    name: {
-                        value: 'Wert',
-                    },
-                },
-            ],
+            values: COUNTER_NOUNS.map(cn => value(cn)),
         },
     ];
     // serialize new interaction model
