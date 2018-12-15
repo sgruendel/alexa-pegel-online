@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require('fs');
-const pegelonline = require('./pegelonlineRestAPI');
+const pegelonline = require('./pegelonline');
 
 const MODEL_FILE = 'models/de-DE.json';
 const UTF8 = 'utf8';

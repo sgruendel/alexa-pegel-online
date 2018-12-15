@@ -1,6 +1,6 @@
 'use strict';
 
-const pegelonline = require('./pegelonlineRestAPI');
+const pegelonline = require('./pegelonline');
 
 var exports = module.exports = {};
 
