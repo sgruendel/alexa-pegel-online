@@ -25,9 +25,9 @@
   "homepage": "https://github.com/sgruendel/alexa-pegel-online#readme",
   "dependencies": {
     "ask-sdk-core": "^2.3.0",
-    "ask-sdk-model": "^1.9.0",
+    "ask-sdk-model": "^1.10.0",
     "dashbot": "^10.2.1",
-    "i18next": "^12.1.0",
+    "i18next": "^13.0.0",
     "i18next-sprintf-postprocessor": "^0.2.2",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "alexa-skill-test-framework": "^1.2.4",
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "eslint": "^5.10.0",
     "eslint-config-strongloop": "^2.1.0",
     "mocha": "^5.2.0",
