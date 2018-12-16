@@ -140,48 +140,74 @@ function value(v) {
     return { name: { value: v } };
 }
 
+function compareValues(v1, v2) {
+    return v1.name.value > v2.name.value ? 1 : ((v2.name.value > v1.name.value) ? -1 : 0);
+}
+
+// check if measurement is available for a station
+function hasMeasurement(station) {
+    return pegelonline.getCurrentMeasurement(station.uuid)
+        .then(() => {
+            return true;
+        })
+        .catch(err => {
+            console.log('Skipping', station.longname, err.message);
+            return false;
+        });
+}
+
+function addStation(station, listOfStations, listOfVariants) {
+    const long = normalizeStation(station.longname);
+    const short = normalizeStation(station.shortname);
+    const variant = long.variant || short.variant;
+
+    const index = listOfStations.findIndex(s => {
+        return s.name.value === long.name;
+    });
+    if (index < 0) {
+        var stationValue = {
+            id: getId(variant, station.uuid),
+            name: { value: long.name },
+        };
+        if (short.name !== long.name) {
+            stationValue.name.synonyms = [ short.name ];
+        }
+        listOfStations.push(stationValue);
+    } else {
+        stationValue = listOfStations[index];
+        stationValue.id += ',' + getId(variant, station.uuid);
+        if (short.name !== long.name) {
+            if (!stationValue.name.synonyms.includes(short.name)) {
+                stationValue.name.synonyms.push(short.name);
+            }
+        }
+        listOfStations[index] = stationValue;
+    }
+
+    if (variant) {
+        if (!listOfVariants.find(v => { return v.name.value === variant; })) {
+            listOfVariants.push(value(variant));
+        }
+    }
+}
+
 async function createModel() {
     const getStations = pegelonline.getStations();
     const getWaters = pegelonline.getWaters();
 
     var listOfStations = [];
     var listOfVariants = [];
-    var stationVariants = {};
+    var measurementChecks = [];
     getStations
-        .then((stations) => {
+        .then(stations => {
             stations.forEach(station => {
-                const long = normalizeStation(station.longname);
-                const short = normalizeStation(station.shortname);
-                const variant = long.variant || short.variant;
-
-                var index = listOfStations.findIndex(s => {
-                    return s.name.value === long.name;
+                const measurementCheck = hasMeasurement(station);
+                measurementChecks.push(measurementCheck);
+                measurementCheck.then(result => {
+                    if (result) {
+                        addStation(station, listOfStations, listOfVariants);
+                    }
                 });
-                if (index < 0) {
-                    var stationValue = {
-                        id: getId(variant, station.uuid),
-                        name: { value: long.name },
-                    };
-                    if (short.name !== long.name) {
-                        stationValue.name.synonyms = [ short.name ];
-                    }
-                    listOfStations.push(stationValue);
-                } else {
-                    stationValue = listOfStations[index];
-                    stationValue.id += ',' + getId(variant, station.uuid);
-                    if (short.name !== long.name) {
-                        if (!stationValue.name.synonyms.includes(short.name)) {
-                            stationValue.name.synonyms.push(short.name);
-                        }
-                    }
-                    listOfStations[index] = stationValue;
-                }
-
-                if (variant) {
-                    if (!listOfVariants.find(v => { return v.name.value === variant; })) {
-                        listOfVariants.push(value(variant));
-                    }
-                }
             });
         });
 
@@ -198,14 +224,19 @@ async function createModel() {
     var model = JSON.parse(fs.readFileSync(MODEL_FILE, UTF8));
 
     await getStations;
-    // sort stations by name, waters are already sorted
-    listOfStations.sort((a, b) => a.name.value > b.name.value ? 1 : ((b.name.value > a.name.value) ? -1 : 0));
+    await Promise.all(measurementChecks);
+
+    // sort stations by name
+    listOfStations.sort(compareValues);
+
+    var stationVariants = {};
     listOfStations = listOfStations.map(station => {
         const ids = station.id.split(',');
         if (ids.length === 1) {
             // only one variant, simply use the id after the ':
             station.id = station.id.split(':')[1];
         } else {
+            ids.sort();
             stationVariants[station.name.value] = ids;
             // mark id as non-unique so IntentHandler can start slot elicitation using variants
             // need to keep a unique part in the id, so we don't get duplicate values
@@ -213,6 +244,12 @@ async function createModel() {
         }
         return station;
     });
+
+    // sort variants by name
+    listOfVariants.sort(compareValues);
+
+    // sort waters by name
+    listOfWaters.sort(compareValues);
 
     // store station variants to resolve slots with ids starting with '*'
     const stream = fs.createWriteStream('src/stationVariants.json');
