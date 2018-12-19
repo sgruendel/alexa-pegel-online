@@ -9,7 +9,7 @@ const LIST_OF_VARIANTS = 'LIST_OF_VARIANTS';
 
 // initialize the testing framework
 alexaTest.initialize(
-    require('../src/index'),
+    require('../../src/index'),
     'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1',
     'amzn1.ask.account.VOID');
 alexaTest.setLocale('de-DE');
