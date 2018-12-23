@@ -12,7 +12,7 @@ const wsvRequest = request.defaults({
 
 var exports = module.exports = {};
 
-exports.getStations = async function() {
+exports.getStations = async => {
     const options = {
         uri: 'stations.json',
         qs: {
@@ -22,7 +22,7 @@ exports.getStations = async function() {
     return wsvRequest(options);
 };
 
-exports.getWaters = async function() {
+exports.getWaters = async => {
     const options = {
         uri: 'waters.json',
         qs: {
@@ -32,7 +32,7 @@ exports.getWaters = async function() {
     return wsvRequest(options);
 };
 
-exports.getUuidsForWater = async function(water) {
+exports.getUuidsForWater = async water => {
     const options = {
         uri: 'stations.json',
         qs: {
@@ -43,7 +43,7 @@ exports.getUuidsForWater = async function(water) {
     return (await wsvRequest(options)).map(station => { return station.uuid; });
 };
 
-exports.getCurrentMeasurement = async function(station) {
+exports.getCurrentMeasurement = async station => {
     const options = {
         uri: 'stations/' + encodeURI(station) + '/W.json',
         qs: {
@@ -54,7 +54,7 @@ exports.getCurrentMeasurement = async function(station) {
     return wsvRequest(options);
 };
 
-exports.getImage = (station) => {
+exports.getImage = station => {
     const common = BASE_URL + 'stations/' + station + '/W/measurements.png?start=P7D';
     return {
         xsmall: {
