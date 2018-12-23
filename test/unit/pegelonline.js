@@ -18,7 +18,7 @@ describe('pegelonline', () => {
     describe('#getWaters()', () => {
         it('should return all waters', async function() {
             const result = await pegelonline.getWaters();
-            expect(result).to.have.length.above(99);
+            expect(result).to.have.length.above(90);
 
             result.forEach(water => {
                 expect(water.shortname).to.be.a('string');

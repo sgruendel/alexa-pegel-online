@@ -88,6 +88,7 @@ describe('Pegel Online Skill', () => {
                 hasCardTitle: 'Pegel bei Würzburg',
                 repromptsNothing: true, shouldEndSession: true,
             },
+            /*
             {
                 request: alexaTest.addEntityResolutionsToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'lüneburg', variant: 'oberwasser' }),
@@ -99,6 +100,7 @@ describe('Pegel Online Skill', () => {
                 hasCardTitle: 'Pegel bei Lüneburg Oberwasser',
                 repromptsNothing: true, shouldEndSession: true,
             },
+            */
             {
                 request: alexaTest.addEntityResolutionsToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'Wilhelmshaven' }),
