@@ -24,7 +24,6 @@ const SKILL_ID = 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1';
 const ER_SUCCESS_MATCH = 'ER_SUCCESS_MATCH';
 const ER_SUCCESS_NO_MATCH = 'ER_SUCCESS_NO_MATCH';
 const COMPLETED = 'COMPLETED';
-const NORMAL = 'Normal';
 
 const languageStrings = {
     de: {
@@ -191,22 +190,19 @@ const QueryWaterLevelIntentHandler = {
             // Need to start slot elicitation for variants
             const variantsIds = stationVariants[station];
             logger.info('station variants/ids', variantsIds);
-            prompt = 'Welche Variante';
-            const size = variantsIds.length;
+            prompt = 'Welcher Pegel';
 
             variantsIds.forEach((elt, index) => {
                 const variantId = elt.split(':');
-                const variantName = variantId[0] || NORMAL;
-                prompt += ((index === size - 1) ? ' oder ' : ', ') + station + ' ' + variantName;
-                if ((variant === variantName) || (variant === '' && variantName === NORMAL)) {
+                const variantName = variantId[0];
+                prompt += ((index === variantsIds.length - 1) ? ' oder ' : ', ') + station + ' ' + variantName;
+                if (variant === variantName) {
                     uuidForVariant = variantId[1];
                     logger.info('found uuid ' + uuidForVariant + ' for variant ' + variantName);
                 }
             });
 
-            if (uuidForVariant) {
-                logger.debug('using variant ' + variant + ', uuid ' + uuidForVariant);
-            } else {
+            if (!uuidForVariant) {
                 prompt += '?';
                 logger.info('eliciting variant slot: ' + prompt);
                 return handlerInput.responseBuilder

@@ -82,35 +82,118 @@ describe('Pegel Online Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'würzburg' }),
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'würzburg', variant: '' }),
                     'station', LIST_OF_STATIONS, 'Würzburg', '915d76e1-3bf9-4e37-9a9a-4d144cd771cc'),
                 saysLike: 'Der Wasserstand bei Würzburg beträgt',
                 hasCardTitle: 'Pegel bei Würzburg',
                 repromptsNothing: true, shouldEndSession: true,
             },
-            /*
+            {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'anderten', variant: '' }),
+                    'station', LIST_OF_STATIONS, 'Anderten', '*bc20d819-1782-4588-885d-129f21a27cf9'),
+                elicitsSlot: 'variant',
+                says: 'Welcher Pegel, Anderten Oberwasser oder Anderten Unterwasser?',
+                reprompts: 'Welcher Pegel, Anderten Oberwasser oder Anderten Unterwasser?',
+                shouldEndSession: false,
+            },
             {
                 request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'lüneburg', variant: 'oberwasser' }),
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'artlenburg', variant: '' }),
                     [
-                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Lüneburg', id: '*c7364d1e-6139-4575-84cb-b420d21275c4' },
-                        { slotName: 'variant', slotType: LIST_OF_VARIANTS, value: 'Oberwasser' },
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Artlenburg (Elbe)', id: 'b3492c68-8373-4769-9b29-22f66635a478' },
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Artlenburg (Elbe-Seitenkanal)', id: '7fec2f4f-6a2e-47ec-8f3c-016c581e4bbd' },
                     ]),
-                saysLike: 'Der Wasserstand bei Lüneburg Oberwasser beträgt',
-                hasCardTitle: 'Pegel bei Lüneburg Oberwasser',
+                elicitsSlot: 'station',
+                says: 'Welche Messstelle, Artlenburg (Elbe) oder Artlenburg (Elbe-Seitenkanal)?',
+                reprompts: 'Welche Messstelle, Artlenburg (Elbe) oder Artlenburg (Elbe-Seitenkanal)?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionsToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'frankfurt', variant: '' }),
+                    [
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Frankfurt (Oder)', id: 'bffdf7f2-6200-42a2-a4bc-a8111e27e043' },
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Frankfurt Osthafen', id: '66ff3eb4-513b-478b-abd2-2f5126ea66fd' },
+                    ]),
+                elicitsSlot: 'station',
+                says: 'Welche Messstelle, Frankfurt (Oder) oder Frankfurt Osthafen?',
+                reprompts: 'Welche Messstelle, Frankfurt (Oder) oder Frankfurt Osthafen?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionsToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'koblenz', variant: '' }),
+                    [
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Koblenz (Mosel)', id: '9dbcac54-db55-4d24-88b2-74a0d75a68c4' },
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Koblenz (Rhein)', id: '4c7d796a-39f2-4f26-97a9-3aad01713e29' },
+                    ]),
+                elicitsSlot: 'station',
+                says: 'Welche Messstelle, Koblenz (Mosel) oder Koblenz (Rhein)?',
+                reprompts: 'Welche Messstelle, Koblenz (Mosel) oder Koblenz (Rhein)?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'lüneburg', variant: '' }),
+                    'station', LIST_OF_STATIONS, 'Lüneburg', 'c7364d1e-6139-4575-84cb-b420d21275c4'),
+                saysLike: 'Der Wasserstand bei Lüneburg beträgt',
+                hasCardTitle: 'Pegel bei Lüneburg',
                 repromptsNothing: true, shouldEndSession: true,
             },
-            */
+            {
+                request: alexaTest.addEntityResolutionsToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'neustadt', variant: '' }),
+                    [
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Neustadt-Glewe', id: 'c4381eb3-d21f-4bd1-bc1c-66c03b7d8bcf' },
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Neustadt (Leine)', id: 'dda39817-d01d-467f-a6a3-7487011a45d1' },
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Neustadt (Ostsee)', id: '3f0b6b74-80a9-4576-a3cb-ea967dfc349f' },
+                    ]),
+                elicitsSlot: 'station',
+                says: 'Welche Messstelle, Neustadt-Glewe, Neustadt (Leine) oder Neustadt (Ostsee)?',
+                reprompts: 'Welche Messstelle, Neustadt-Glewe, Neustadt (Leine) oder Neustadt (Ostsee)?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionsToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'nienburg', variant: '' }),
+                    [
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Nienburg (Saale)', id: 'ace7d4b0-33e5-46db-a41d-2fa7a321f67a' },
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Nienburg (Weser)', id: '38497786-6c29-47f4-93de-d96001629496' },
+                    ]),
+                elicitsSlot: 'station',
+                says: 'Welche Messstelle, Nienburg (Saale) oder Nienburg (Weser)?',
+                reprompts: 'Welche Messstelle, Nienburg (Saale) oder Nienburg (Weser)?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'sülfeld', variant: '' }),
+                    'station', LIST_OF_STATIONS, 'Sülfeld', '*a8604e8f-9330-4431-8cf6-0a68fc793c82'),
+                elicitsSlot: 'variant',
+                says: 'Welcher Pegel, Sülfeld Oberwasser oder Sülfeld Unterwasser?',
+                reprompts: 'Welcher Pegel, Sülfeld Oberwasser oder Sülfeld Unterwasser?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'uelzen', variant: '' }),
+                    'station', LIST_OF_STATIONS, 'Uelzen', '*728bd3e3-23f2-41c6-8ac5-4cfa223a5a7e'),
+                elicitsSlot: 'variant',
+                says: 'Welcher Pegel, Uelzen Oberwasser oder Uelzen Unterwasser?',
+                reprompts: 'Welcher Pegel, Uelzen Oberwasser oder Uelzen Unterwasser?',
+                shouldEndSession: false,
+            },
             {
                 request: alexaTest.addEntityResolutionsToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'Wilhelmshaven' }),
                     [
-                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Wilhelmshaven Alter Vorhafen', id: 'f85bd17b-06c7-49bd-8bfc-ee2bf3ffea99' },
                         { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Wilhelmshaven Neuer Vorhafen', id: 'f77317d9-654f-4f51-925e-004c592049da' },
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Wilhelmshaven Alter Vorhafen', id: 'f85bd17b-06c7-49bd-8bfc-ee2bf3ffea99' },
                     ]),
                 elicitsSlot: 'station',
-                says: 'Welche Messstelle, Wilhelmshaven Alter Vorhafen oder Wilhelmshaven Neuer Vorhafen?',
-                reprompts: 'Welche Messstelle, Wilhelmshaven Alter Vorhafen oder Wilhelmshaven Neuer Vorhafen?',
+                says: 'Welche Messstelle, Wilhelmshaven Neuer Vorhafen oder Wilhelmshaven Alter Vorhafen?',
+                reprompts: 'Welche Messstelle, Wilhelmshaven Neuer Vorhafen oder Wilhelmshaven Alter Vorhafen?',
                 shouldEndSession: false,
             },
             /*

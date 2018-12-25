@@ -4,7 +4,7 @@ const pegelonline = require('./pegelonline');
 
 var exports = module.exports = {};
 
-exports.getCurrentMeasurement = async function(uuid) {
+exports.getCurrentMeasurement = async uuid => {
     const result = await pegelonline.getCurrentMeasurement(uuid);
     if (result.unit.endsWith('+NN')) {
         // Bad Essen liefert "m+NN"

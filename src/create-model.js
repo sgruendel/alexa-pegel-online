@@ -7,7 +7,7 @@ const MODEL_FILE = 'models/de-DE.json';
 const UTF8 = 'utf8';
 const COUNTER_NOUNS = [ 'Messstelle', 'Messwert', 'Pegel', 'Pegelstand', 'Wasserstand', 'Wert' ];
 
-function normalizeStation(name) {
+function normalizeStation(name, water) {
     // AwK => '' (remove leading Achterwehrer Schifffahrtskanal)
     // Bhv => Bremerhaven
     // Eisenhuettenstadt Schl. => Schleuse
@@ -44,6 +44,19 @@ function normalizeStation(name) {
     // replace multiple spaces by one and remove trailing space
     name = name.replace('-', ' ').replace('_', ' ').replace('/', ' ').replace(/ +/g, ' ').trim();
 
+    // Give unique, meaningful names to non-unique stations
+    if (name === 'artlenburg' || name === 'artlenburg elk') {
+        name = 'artlenburg (' + water.toLowerCase() + ')';
+    } else if (name === 'koblenz' || name === 'koblenz up') {
+        name = 'koblenz (' + water.toLowerCase() + ')';
+    } else if (name === 'neustadt glewe op') {
+        name = 'neustadt-Glewe op';
+    } else if (name === 'neustadt') {
+        name = 'neustadt (' + water.toLowerCase() + ')';
+    } else if (name === 'nienburg') {
+        name = 'nienburg (' + water.toLowerCase() + ')';
+    }
+
     var variant;
     // OW/UW/OP/UP ...
     if (name.endsWith(' ow')) {
@@ -79,12 +92,6 @@ function normalizeStation(name) {
     } else if (name.endsWith(' of')) {
         name = name.replace(' of', '');
         variant = 'Oberfeuer';
-    } else if (name.endsWith(' abz')) {
-        name = name.replace(' abz', '');
-        variant = 'Außenbezirk';
-    } else if (name.endsWith(' elk')) {
-        name = name.replace(' elk', '');
-        variant = 'Elbe-Lübeck-Kanal';
     // TODO Nord/Ost/West ...
     } else if (name.endsWith(' mpm')) {
         name = name.replace(' mpm', ''); // TODO: Mpm???
@@ -94,8 +101,6 @@ function normalizeStation(name) {
         name = name.replace(' ams', ''); // TODO: Ams???
 
     // The following cases are no variants, just specifiers
-    } else if (name.endsWith(' dfh')) {
-        name = name.replace(' dfh', ' durchfahrtshöhe');
     } else if (name.endsWith(' nh')) {
         name = name.replace(' nh', ' neuer hafen');
     } else if (name.endsWith(' nok')) {
@@ -151,14 +156,18 @@ function hasMeasurement(station) {
             return true;
         })
         .catch(err => {
+            if (err.message.indexOf('connect ETIMEDOUT') > 0) {
+                console.log('Retrying', station.longname);
+                return hasMeasurement(station);
+            }
             console.log('Skipping', station.longname, err.message);
             return false;
         });
 }
 
 function addStation(station, listOfStations, listOfVariants) {
-    const long = normalizeStation(station.longname);
-    const short = normalizeStation(station.shortname);
+    const long = normalizeStation(station.longname, station.water.longname);
+    const short = normalizeStation(station.shortname, station.water.longname);
     const variant = long.variant || short.variant;
 
     const index = listOfStations.findIndex(s => {

@@ -11,10 +11,6 @@
     "Oberwasser:bc20d819-1782-4588-885d-129f21a27cf9",
     "Unterwasser:dd41a7d6-9b11-4ec4-9518-388266750cfa"
   ],
-  "Artlenburg": [
-    ":b3492c68-8373-4769-9b29-22f66635a478",
-    "Elbe-Lübeck-Kanal:7fec2f4f-6a2e-47ec-8f3c-016c581e4bbd"
-  ],
   "Bahnitz": [
     "Oberpegel:6c76e98e-44ca-4d25-91e7-b07c68577c5e",
     "Unterpegel:1ebd0f94-cc06-445c-8e73-43fe2b8c72dc"
@@ -183,10 +179,6 @@
     "Oberpegel:bb23b276-2c1c-4cde-bc9c-9d90d5a04890",
     "Unterpegel:38414157-862e-428a-ae2c-77ff79871227"
   ],
-  "Koblenz": [
-    ":4c7d796a-39f2-4f26-97a9-3aad01713e29",
-    "Unterpegel:9dbcac54-db55-4d24-88b2-74a0d75a68c4"
-  ],
   "Krückau Sperrwerk": [
     "Außenpegel:a653eb04-de2e-47f7-8e2c-09277cfe95ae",
     "Binnenpegel:53c277c3-7ddb-4281-9937-97dcfe3753fa"
@@ -234,10 +226,6 @@
   "Neuhaus": [
     "Oberpegel:963bdc26-34ad-43c8-b653-bbaa3466276a",
     "Unterpegel:bf48cefd-0d00-4186-a366-343c25f43615"
-  ],
-  "Neustadt": [
-    ":3f0b6b74-80a9-4576-a3cb-ea967dfc349f",
-    ":dda39817-d01d-467f-a6a3-7487011a45d1"
   ],
   "Niederfinow Schiffshebewerk": [
     "Oberpegel:414dd4ee-b38b-489f-a1fe-19b1d62f3202",

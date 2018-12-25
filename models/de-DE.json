@@ -295,9 +295,15 @@
               }
             },
             {
-              "id": "*b3492c68-8373-4769-9b29-22f66635a478",
+              "id": "b3492c68-8373-4769-9b29-22f66635a478",
               "name": {
-                "value": "Artlenburg"
+                "value": "Artlenburg (Elbe)"
+              }
+            },
+            {
+              "id": "7fec2f4f-6a2e-47ec-8f3c-016c581e4bbd",
+              "name": {
+                "value": "Artlenburg (Elbeseitenkanal)"
               }
             },
             {
@@ -730,12 +736,6 @@
               "id": "ad357e52-0978-4583-91e6-bc03a222f655",
               "name": {
                 "value": "Dalum"
-              }
-            },
-            {
-              "id": "f0f78cc4-1ab4-4548-abed-63c65a267a8a",
-              "name": {
-                "value": "Dalwigksthal"
               }
             },
             {
@@ -1726,9 +1726,15 @@
               }
             },
             {
-              "id": "*4c7d796a-39f2-4f26-97a9-3aad01713e29",
+              "id": "9dbcac54-db55-4d24-88b2-74a0d75a68c4",
               "name": {
-                "value": "Koblenz"
+                "value": "Koblenz (Mosel)"
+              }
+            },
+            {
+              "id": "4c7d796a-39f2-4f26-97a9-3aad01713e29",
+              "name": {
+                "value": "Koblenz (Rhein)"
               }
             },
             {
@@ -2173,15 +2179,21 @@
               }
             },
             {
-              "id": "*3f0b6b74-80a9-4576-a3cb-ea967dfc349f",
+              "id": "dda39817-d01d-467f-a6a3-7487011a45d1",
               "name": {
-                "value": "Neustadt"
+                "value": "Neustadt (Leine)"
+              }
+            },
+            {
+              "id": "3f0b6b74-80a9-4576-a3cb-ea967dfc349f",
+              "name": {
+                "value": "Neustadt (Ostsee)"
               }
             },
             {
               "id": "c4381eb3-d21f-4bd1-bc1c-66c03b7d8bcf",
               "name": {
-                "value": "Neustadt Glewe"
+                "value": "Neustadt-Glewe"
               }
             },
             {
@@ -2221,15 +2233,15 @@
               }
             },
             {
-              "id": "38497786-6c29-47f4-93de-d96001629496",
-              "name": {
-                "value": "Nienburg"
-              }
-            },
-            {
               "id": "ace7d4b0-33e5-46db-a41d-2fa7a321f67a",
               "name": {
                 "value": "Nienburg (Saale)"
+              }
+            },
+            {
+              "id": "38497786-6c29-47f4-93de-d96001629496",
+              "name": {
+                "value": "Nienburg (Weser)"
               }
             },
             {
@@ -3371,11 +3383,6 @@
             },
             {
               "name": {
-                "value": "Elbe-Lübeck-Kanal"
-              }
-            },
-            {
-              "name": {
                 "value": "Elbpegel"
               }
             },
@@ -3702,11 +3709,6 @@
             {
               "name": {
                 "value": "Oranienburger Kanal"
-              }
-            },
-            {
-              "name": {
-                "value": "Orke"
               }
             },
             {
