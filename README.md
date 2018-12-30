@@ -2,6 +2,9 @@
 Alexa Skill for interacting with http://www.pegelonline.wsv.de
 
 ## TODOs
+- Ilmenau is a water and a station
+- Main does not work properly, because Main-Donau-Kanal is also found
+- Berlin is not found at all
 - Handle built-in intents for DisplayInterface like NavigateHome, More, Next ...
 - Implement proper integration/simulation tests, see
   - https://github.com/hideokamoto/alexa-test-practice/blob/master/lambda/custom/tests/integrations/index.js
