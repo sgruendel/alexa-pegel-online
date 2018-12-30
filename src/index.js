@@ -32,7 +32,7 @@ const languageStrings = {
             HELP_REPROMPT: 'Welche Messstelle soll ich abfragen?',
             STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
             NOT_UNDERSTOOD_MESSAGE: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
-            CURRENT_WATER_LEVEL_MESSAGE: 'Der Wasserstand bei {{stationVariant}} beträgt {{result.currentMeasurement.value}} {{result.unit}}',
+            CURRENT_WATER_LEVEL_MESSAGE: 'Der Wasserstand bei %s beträgt %s %s',
             TREND_RISING: ', die Tendenz ist steigend',
             TREND_FALLING: ', die Tendenz ist fallend',
             TREND_STABLE: ', die Tendenz ist gleichbleibend',
@@ -42,6 +42,15 @@ const languageStrings = {
         },
     },
 };
+
+function getElicitSlotPrompt(prefix, values, getNameForElement) {
+    var result = prefix;
+    const size = values.length;
+    values.forEach((element, index) => {
+        result += ((index === size - 1) ? ' oder ' : ', ') + getNameForElement(element);
+    });
+    return result + '?';
+}
 
 // returns true if the skill is running on a device with a display (show|spot)
 function supportsDisplay(handlerInput) {
@@ -81,14 +90,7 @@ const QueryWaterLevelIntentHandler = {
 
             case ER_SUCCESS_MATCH:
                 if (rpaStation.values.length > 1) {
-                    var prompt = 'Welche Messstelle';
-                    const size = rpaStation.values.length;
-
-                    rpaStation.values.forEach((element, index) => {
-                        prompt += ((index === size - 1) ? ' oder ' : ', ') + element.value.name;
-                    });
-
-                    prompt += '?';
+                    const prompt = getElicitSlotPrompt('Welche Messstelle', rpaStation.values, elt => { return elt.value.name; });
                     logger.info('eliciting station slot: ' + prompt);
                     return handlerInput.responseBuilder
                         .speak(prompt)
@@ -145,14 +147,7 @@ const QueryWaterLevelIntentHandler = {
 
             case ER_SUCCESS_MATCH:
                 if (rpaWater.values.length > 1) {
-                    prompt = 'Welches Gewässer';
-                    const size = rpaWater.values.length;
-
-                    rpaWater.values.forEach((element, index) => {
-                        prompt += ((index === size - 1) ? ' oder ' : ', ') + element.value.name;
-                    });
-
-                    prompt += '?';
+                    const prompt = getElicitSlotPrompt('Welches Gewässer', rpaWater.values, elt => { return elt.value.name; });
                     logger.info('eliciting water slot: ' + prompt);
                     return handlerInput.responseBuilder
                         .speak(prompt)
@@ -181,8 +176,44 @@ const QueryWaterLevelIntentHandler = {
                 .getResponse();
         }
 
-        // TODO what if water?
-        const uuid = rpaStation.values[0].value.id;
+        var uuidForWater;
+        if (!station) {
+            try {
+                const result = await manager.getStations(water);
+                const size = result.length;
+                if (size === 0) {
+                    return handlerInput.responseBuilder
+                        .speak(requestAttributes.t('UNKNOWN_WATER_MESSAGE'))
+                        .getResponse();
+                } else if (size === 1) {
+                    const stationVariant = utils.normalizeStation(result[0].longname, result[0].water.longname);
+                    station = stationVariant.name;
+                    variant = stationVariant.variant;
+                    uuidForWater = result[0].uuid;
+                } else if (size <= 5) {
+                    const prompt = getElicitSlotPrompt('Welche Messstelle', result, elt => { return utils.normalizeStation(elt.longname, water).name; });
+                    logger.info('eliciting station slot: ' + prompt);
+                    return handlerInput.responseBuilder
+                        .speak(prompt)
+                        .reprompt(prompt)
+                        .addElicitSlotDirective(slots.station.name)
+                        .getResponse();
+                } else {
+                    return handlerInput.responseBuilder
+                        .speak(requestAttributes.t('Es gibt zu viele Messstellen an diesem Gewässer, bitte nenne eine konkrete, z.B. '
+                            + utils.normalizeStation(result[3].longname, water).name + '?'))
+                        .reprompt('Welche Messstelle?')
+                        .addElicitSlotDirective(slots.station.name)
+                        .getResponse();
+                }
+            } catch (err) {
+                logger.error(err.stack || err.toString());
+                return handlerInput.responseBuilder
+                    .speak(requestAttributes.t('NO_RESULT_MESSAGE'))
+                    .getResponse();
+            }
+        }
+        const uuid = uuidForWater || rpaStation.values[0].value.id;
         logger.debug('using station ' + station + ', uuid ' + uuid);
 
         var uuidForVariant;
@@ -190,20 +221,12 @@ const QueryWaterLevelIntentHandler = {
             // Need to start slot elicitation for variants
             const variantsIds = stationVariants[station];
             logger.info('station variants/ids', variantsIds);
-            prompt = 'Welcher Pegel';
 
-            variantsIds.forEach((elt, index) => {
-                const variantId = elt.split(':');
-                const variantName = variantId[0];
-                prompt += ((index === variantsIds.length - 1) ? ' oder ' : ', ') + station + ' ' + variantName;
-                if (variant === variantName) {
-                    uuidForVariant = variantId[1];
-                    logger.info('found uuid ' + uuidForVariant + ' for variant ' + variantName);
-                }
-            });
-
-            if (!uuidForVariant) {
-                prompt += '?';
+            const prompt = getElicitSlotPrompt('Welcher Pegel', variantsIds, elt => { return station + ' ' + elt.split(':')[0]; });
+            const variantId = variantsIds.find(elt => { return variant === elt.split(':')[0]; });
+            if (variantId) {
+                uuidForVariant = variantId.split(':')[1];
+            } else {
                 logger.info('eliciting variant slot: ' + prompt);
                 return handlerInput.responseBuilder
                     .speak(prompt)
@@ -218,7 +241,7 @@ const QueryWaterLevelIntentHandler = {
             const result = await manager.getCurrentMeasurement(uuidForVariant || uuid);
 
             result.currentMeasurement.value = result.currentMeasurement.value.toString().replace('.', ',');
-            var currentWaterLevel = requestAttributes.t('CURRENT_WATER_LEVEL_MESSAGE', { stationVariant, result });
+            var currentWaterLevel = requestAttributes.t('CURRENT_WATER_LEVEL_MESSAGE', stationVariant, result.currentMeasurement.value, result.unit);
             switch (result.currentMeasurement.trend) {
             case -1:
                 currentWaterLevel += requestAttributes.t('TREND_FALLING');

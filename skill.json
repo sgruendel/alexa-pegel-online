@@ -22,7 +22,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Änderungen zur letzten Version (Lambda function :5):\n* Unterstützung von Aufrufen der Art \"wie der Messwert/Pegel/... bei {Station} *ist*\" \n* Pegel-Tendenz hinzugefügt (steigend/fallend/gleichbleibend)\n* Lokale Zeit statt UTC als Messzeitpunkt\n* Aktuelle Messstellen laut pegelonline.wsv.de",
+      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 6):\n* komplett überarbeitetes Dialogmodel",
       "category": "WEATHER",
       "distributionCountries": []
     },

@@ -12,12 +12,16 @@ const wsvRequest = request.defaults({
 
 var exports = module.exports = {};
 
-exports.getStations = async => {
+exports.getStations = async water => {
+    var qs = {
+        prettyprint: false,
+    };
+    if (water) {
+        qs.waters = water;
+    }
     const options = {
         uri: 'stations.json',
-        qs: {
-            prettyprint: false,
-        },
+        qs: qs,
     };
     return wsvRequest(options);
 };

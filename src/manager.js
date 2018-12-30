@@ -4,6 +4,10 @@ const pegelonline = require('./pegelonline');
 
 var exports = module.exports = {};
 
+exports.getStations = async water => {
+    return pegelonline.getStations(water);
+};
+
 exports.getCurrentMeasurement = async uuid => {
     const result = await pegelonline.getCurrentMeasurement(uuid);
     if (result.unit.endsWith('+NN')) {

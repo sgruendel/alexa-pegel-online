@@ -6,6 +6,7 @@ const alexaTest = require('alexa-skill-test-framework');
 // custom slot types
 const LIST_OF_STATIONS = 'LIST_OF_STATIONS';
 const LIST_OF_VARIANTS = 'LIST_OF_VARIANTS';
+const LIST_OF_WATERS = 'LIST_OF_WATERS';
 
 // initialize the testing framework
 alexaTest.initialize(
@@ -78,7 +79,7 @@ describe('Pegel Online Skill', () => {
         ]);
     });
 
-    describe('QueryWaterLevelIntent', () => {
+    describe('QueryWaterLevelIntent station', () => {
         alexaTest.test([
             {
                 request: alexaTest.addEntityResolutionToRequest(
@@ -186,7 +187,7 @@ describe('Pegel Online Skill', () => {
             },
             {
                 request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'Wilhelmshaven' }),
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'wilhelmshaven' }),
                     [
                         { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Wilhelmshaven Neuer Vorhafen', id: 'f77317d9-654f-4f51-925e-004c592049da' },
                         { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Wilhelmshaven Alter Vorhafen', id: 'f85bd17b-06c7-49bd-8bfc-ee2bf3ffea99' },
@@ -196,37 +197,72 @@ describe('Pegel Online Skill', () => {
                 reprompts: 'Welche Messstelle, Wilhelmshaven Neuer Vorhafen oder Wilhelmshaven Alter Vorhafen?',
                 shouldEndSession: false,
             },
-            /*
-            {
-                request: alexaTest.getIntentRequest('QueryStationIntent', { Station: 'affoltern' }),
-                saysLike: 'Der Wasserstand bei Affoldern beträgt',
-                hasCardTitle: 'Pegel bei Affoldern',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.getIntentRequest('QueryStationIntent', { Station: 'aller' }),
-                saysLike: 'Der Wasserstand bei Eitze beträgt',
-                hasCardTitle: 'Pegel bei Eitze',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.getIntentRequest('QueryStationIntent', { Station: 'bodensee' }),
-                saysLike: 'Der Wasserstand bei Konstanz beträgt',
-                hasCardTitle: 'Pegel bei Konstanz',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            {
-                request: alexaTest.getIntentRequest('QueryStationIntent', { Station: 'wilhelmshaven' }),
-                saysLike: 'Der Wasserstand bei Wilhelmshaven Alter Vorhafen beträgt',
-                hasCardTitle: 'Pegel bei Wilhelmshaven Alter Vorhafen',
-                repromptsNothing: true, shouldEndSession: true,
-            },
-            */
             {
                 request: alexaTest.addEntityResolutionNoMatchToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent'),
                     'station', LIST_OF_STATIONS, 'xyzxyzxyz'),
                 saysLike: 'Ich kenne diese Messstelle leider nicht.',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+        ]);
+    });
+
+    describe('QueryWaterLevelIntent station variant', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.addEntityResolutionsToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'wittorf', variant: 'oberpegel' }),
+                    [
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Wittorf', id: '*eb3d4195-8c73-46b6-87e9-ef0de83edddf' },
+                        { slotName: 'variant', slotType: LIST_OF_VARIANTS, value: 'Oberpegel' },
+                    ]),
+                saysLike: 'Der Wasserstand bei Wittorf Oberpegel beträgt',
+                hasCardTitle: 'Pegel bei Wittorf Oberpegel',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+        ]);
+    });
+
+    describe('QueryWaterLevelIntent water', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: '', water: 'vils' }),
+                    'water', LIST_OF_WATERS, 'Vils'),
+                says: 'Ich kenne dieses Gewässer leider nicht.',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: '', water: 'bodensee' }),
+                    'water', LIST_OF_WATERS, 'Bodensee'),
+                saysLike: 'Der Wasserstand bei Konstanz beträgt',
+                hasCardTitle: 'Pegel bei Konstanz',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: '', water: 'aller' }),
+                    'water', LIST_OF_WATERS, 'Aller'),
+                elicitsSlot: 'station',
+                says: 'Welche Messstelle, Eitze, Rethem, Ahlden, Marklendorf oder Celle?',
+                reprompts: 'Welche Messstelle, Eitze, Rethem, Ahlden, Marklendorf oder Celle?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: '', water: 'rhein' }),
+                    'water', LIST_OF_WATERS, 'Rhein'),
+                elicitsSlot: 'station',
+                saysLike: 'Es gibt zu viele Messstellen an diesem Gewässer, bitte nenne eine konkrete, z.B. ',
+                reprompts: 'Welche Messstelle?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionNoMatchToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent'),
+                    'water', LIST_OF_STATIONS, 'vils'),
+                saysLike: 'Ich kenne dieses Gewässer leider nicht.',
                 repromptsNothing: true, shouldEndSession: true,
             },
         ]);
