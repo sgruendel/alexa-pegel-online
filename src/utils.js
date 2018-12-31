@@ -1,5 +1,9 @@
 'use strict';
 
+function isLetter(c) {
+    return c.toLowerCase() !== c.toUpperCase();
+}
+
 function pad(minutes) {
     return (minutes < 10) ? ('0' + minutes) : minutes;
 }
@@ -45,15 +49,21 @@ exports.normalizeStation = (name, water) => {
 
     // Give unique, meaningful names to non-unique stations
     if (name === 'artlenburg' || name === 'artlenburg elk') {
-        name = 'artlenburg (' + water.toLowerCase() + ')';
+        name = 'artlenburg (' + exports.normalizeWater(water) + ')';
+    } else if (name === 'dömitz') {
+        name = 'dömitz (' + exports.normalizeWater(water) + ')';
+    } else if (name === 'doemitz up') {
+        name = 'dömitz (' + exports.normalizeWater(water) + ') up';
+    } else if (name === 'doemitz op') {
+        name = 'dömitz (' + exports.normalizeWater(water) + ') op';
     } else if (name === 'koblenz' || name === 'koblenz up') {
-        name = 'koblenz (' + water.toLowerCase() + ')';
+        name = 'koblenz (' + exports.normalizeWater(water) + ')';
     } else if (name === 'neustadt') {
-        name = 'neustadt (' + water.toLowerCase() + ')';
+        name = 'neustadt (' + exports.normalizeWater(water) + ')';
     } else if (name === 'neustadt glewe op') {
         name = 'neustadt-Glewe op';
     } else if (name === 'nienburg') {
-        name = 'nienburg (' + water.toLowerCase() + ')';
+        name = 'nienburg (' + exports.normalizeWater(water) + ')';
     }
 
     var variant;
@@ -90,6 +100,12 @@ exports.normalizeStation = (name, water) => {
         variant = 'Unterfeuer';
 
     // TODO Nord/Ost/West ...
+    } else if (name.endsWith(' mpm')) {
+        name = name.replace(' mpm', ''); // TODO: Mpm???
+    } else if (name.endsWith(' wd')) {
+        name = name.replace(' wd', ''); // TODO: Wd???
+    } else if (name.endsWith(' ams')) {
+        name = name.replace(' ams', ''); // TODO: Ams???
 
     // The following cases are no variants, just specifiers
     } else if (name.endsWith(' nh')) {
@@ -107,7 +123,7 @@ exports.normalizeStation = (name, water) => {
     // capitalize letters after spaces (checking for non letter chars after space, e.g. in "Frankfurt (Oder)")
     name = name.split(' ').map(str => {
         var i = 0;
-        while (i < str.length && (str.charAt(i) < 'a' || str.charAt(i) > 'z')) i++;
+        while (i < str.length && !isLetter(str.charAt(i))) i++;
         return str.slice(0, i) + str.charAt(i).toUpperCase() + str.slice(i + 1);
     }).join(' ');
 
@@ -117,6 +133,7 @@ exports.normalizeStation = (name, water) => {
 exports.normalizeWater = water => {
     water = water.toLowerCase()
         .replace('gewaesser', 'gewässer')
+        .replace('strasse', 'straße')
         // capitalize letters after hyphens
         .split('-').map(str => {
             return str.charAt(0).toUpperCase() + str.slice(1);

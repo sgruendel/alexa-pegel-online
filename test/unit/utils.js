@@ -17,6 +17,21 @@ describe('utils', () => {
             expect(result).to.deep.equal({ name: 'Artlenburg (Elbeseitenkanal)', variant: undefined });
         });
 
+        it('should work for Dömitz (Elbe)', () => {
+            const result = utils.normalizeStation('DÖMITZ', 'ELBE');
+            expect(result).to.deep.equal({ name: 'Dömitz (Elbe)', variant: undefined });
+        });
+
+        it('should work for Dömitz (MEW) UP', () => {
+            const result = utils.normalizeStation('DOEMITZ UP', 'MÜRITZ-ELDE-WASSERSTRASSE');
+            expect(result).to.deep.equal({ name: 'Dömitz (Müritz-Elde-Wasserstraße)', variant: 'Unterpegel' });
+        });
+
+        it('should work for Dömitz (MEW) OP', () => {
+            const result = utils.normalizeStation('DOEMITZ OP', 'MÜRITZ-ELDE-WASSERSTRASSE');
+            expect(result).to.deep.equal({ name: 'Dömitz (Müritz-Elde-Wasserstraße)', variant: 'Oberpegel' });
+        });
+
         it('should work for Koblenz (Rhein)', () => {
             const result = utils.normalizeStation('KOBLENZ', 'RHEIN');
             expect(result).to.deep.equal({ name: 'Koblenz (Rhein)', variant: undefined });

@@ -71,10 +71,6 @@
     "Oberwasser:4dd743e9-3040-4f11-8c7c-d5c5789d80b4",
     "Unterwasser:06c498e3-786a-48be-83be-6a6293ea3b8c"
   ],
-  "Doemitz": [
-    "Oberpegel:ec8188ee-f4e4-4f5e-91ae-472e765060cd",
-    "Unterpegel:ad3a51da-2e25-4818-b96f-6a6d8a20d803"
-  ],
   "Dorsten Schleuse": [
     "Oberwasser:6610cf2e-7bfd-4686-b9ac-b105f492d708",
     "Unterwasser:5db8ab4b-315b-466e-b9d5-5ba5a19f5f08"
@@ -82,6 +78,10 @@
   "Duisburg Meiderich Schleuse": [
     "Oberwasser:f18e81da-1fec-4308-a881-6defa7c6d18b",
     "Unterwasser:48780245-36f2-453e-b430-5fa838851d6d"
+  ],
+  "Dömitz (Müritz-Elde-Wasserstraße)": [
+    "Oberpegel:ec8188ee-f4e4-4f5e-91ae-472e765060cd",
+    "Unterpegel:ad3a51da-2e25-4818-b96f-6a6d8a20d803"
   ],
   "Eichhorst": [
     "Oberpegel:42805eb1-aca9-4f32-a373-24a9cf839aed",

@@ -112,6 +112,18 @@ describe('Pegel Online Skill', () => {
             },
             {
                 request: alexaTest.addEntityResolutionsToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'dömitz', variant: '' }),
+                    [
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Dömitz (Elbe)', id: '6e3ea719-48b1-408a-bc55-0986c1e94cd5' },
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Dömitz (Müritz-Elde-Wasserstraße)', id: '*ec8188ee-f4e4-4f5e-91ae-472e765060cd' },
+                    ]),
+                elicitsSlot: 'station',
+                says: 'Welche Messstelle, Dömitz (Elbe) oder Dömitz (Müritz-Elde-Wasserstraße)?',
+                reprompts: 'Welche Messstelle, Dömitz (Elbe) oder Dömitz (Müritz-Elde-Wasserstraße)?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionsToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'frankfurt', variant: '' }),
                     [
                         { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Frankfurt (Oder)', id: 'bffdf7f2-6200-42a2-a4bc-a8111e27e043' },
