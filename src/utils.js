@@ -50,6 +50,10 @@ exports.normalizeStation = (name, water) => {
     // Give unique, meaningful names to non-unique stations
     if (name === 'artlenburg' || name === 'artlenburg elk') {
         name = 'artlenburg (' + exports.normalizeWater(water) + ')';
+    } else if (name === 'brunsbüttel') {
+        name = 'brunsbüttel (' + exports.normalizeWater(water) + ')';
+    } else if (name === 'brunsbüttel mole 1') {
+        name = 'brunsbüttel mole eins';
     } else if (name === 'dömitz') {
         name = 'dömitz (' + exports.normalizeWater(water) + ')';
     } else if (name === 'doemitz up') {

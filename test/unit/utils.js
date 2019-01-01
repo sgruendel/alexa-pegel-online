@@ -17,6 +17,16 @@ describe('utils', () => {
             expect(result).to.deep.equal({ name: 'Artlenburg (Elbeseitenkanal)', variant: undefined });
         });
 
+        it('should work for Brunsbüttel (Nord-Ostsee-Kanal)', () => {
+            const result = utils.normalizeStation('BRUNSBÜTTEL', 'NORD-OSTSEE-KANAL');
+            expect(result).to.deep.equal({ name: 'Brunsbüttel (Nord-Ostsee-Kanal)', variant: undefined });
+        });
+
+        it('should work for Brunsbüttel Mole 1', () => {
+            const result = utils.normalizeStation('BRUNSBÜTTEL MOLE 1', 'ELBE');
+            expect(result).to.deep.equal({ name: 'Brunsbüttel Mole Eins', variant: undefined });
+        });
+
         it('should work for Dömitz (Elbe)', () => {
             const result = utils.normalizeStation('DÖMITZ', 'ELBE');
             expect(result).to.deep.equal({ name: 'Dömitz (Elbe)', variant: undefined });

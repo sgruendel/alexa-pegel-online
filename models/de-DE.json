@@ -621,13 +621,13 @@
             {
               "id": "85fc0dac-a53f-4638-880d-40b24bb282f3",
               "name": {
-                "value": "Brunsbüttel"
+                "value": "Brunsbüttel (Nord-Ostsee-Kanal)"
               }
             },
             {
               "id": "12847496-b0e9-4cb3-905c-b1b1c3c087db",
               "name": {
-                "value": "Brunsbüttel Mole 1"
+                "value": "Brunsbüttel Mole Eins"
               }
             },
             {
@@ -2665,12 +2665,6 @@
               }
             },
             {
-              "id": "4ed5f6da-b7a0-4431-ab1f-1a26e69a21bc",
-              "name": {
-                "value": "Ruehen"
-              }
-            },
-            {
               "id": "6629a4ca-4e2e-40b8-a66c-964d906c6911",
               "name": {
                 "value": "Ruhlsdorf"
@@ -2953,12 +2947,6 @@
               }
             },
             {
-              "id": "*a8604e8f-9330-4431-8cf6-0a68fc793c82",
-              "name": {
-                "value": "Sülfeld"
-              }
-            },
-            {
               "id": "13e91b77-90f3-41a5-a320-641748e9c311",
               "name": {
                 "value": "Tangermünde"
@@ -3094,12 +3082,6 @@
               "id": "ae93f2a5-612e-4514-b5fd-9c8aecdd73c7",
               "name": {
                 "value": "Vockerode"
-              }
-            },
-            {
-              "id": "dbb2bb9f-0f80-4df4-9d5c-98af2ee41826",
-              "name": {
-                "value": "Vorsfelde"
               }
             },
             {
