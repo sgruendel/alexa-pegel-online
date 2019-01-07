@@ -149,14 +149,18 @@ exports.normalizeWater = water => {
     return water;
 };
 
-exports.getTimeDesc = (date, locale) => {
-    const today = new Date();
+exports.getTimeDesc = (date, locale, today = new Date()) => {
     if (date.getDate() === today.getDate()) {
         // today, use "hours:minutes"
         return pad(date.getHours()) + ':' + pad(date.getMinutes());
-    } else if ((date.getDate() + 1) === today.getDate()) {
+    }
+
+    var yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    if ((date.getDate()) === yesterday.getDate()) {
         // yesterday, use "yesterday hours:minutes"
         return 'gestern ' + pad(date.getHours()) + ':' + pad(date.getMinutes());
     }
+
     return date.toLocaleString(locale);
 };

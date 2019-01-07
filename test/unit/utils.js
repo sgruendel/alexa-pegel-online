@@ -175,6 +175,16 @@ describe('utils', () => {
             expect(result).to.equal('gestern 08:01');
         });
 
+        it('should format yesterday on Jan 1st', () => {
+            const result = utils.getTimeDesc(new Date('December 31, 2018 08:01:00'), LOCALE, new Date('January 01, 2019'));
+            expect(result).to.equal('gestern 08:01');
+        });
+
+        it('should format yesterday on Mar 1st', () => {
+            const result = utils.getTimeDesc(new Date('February 28, 2018 08:02:00'), LOCALE, new Date('March 01, 2018'));
+            expect(result).to.equal('gestern 08:02');
+        });
+
         it('should format the day before yesterday', () => {
             var dby = new Date();
             dby.setDate(dby.getDate() - 2);
