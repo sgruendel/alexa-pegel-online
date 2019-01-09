@@ -52,6 +52,26 @@ describe('utils', () => {
             expect(result).to.deep.equal({ name: 'Koblenz (Mosel)', variant: undefined });
         });
 
+        it('should work for Konstanz (Bodensee)', () => {
+            const result = utils.normalizeStation('KONSTANZ', 'BODENSEE');
+            expect(result).to.deep.equal({ name: 'Konstanz (Bodensee)', variant: undefined });
+        });
+
+        it('should work for Konstanz (Rhein)', () => {
+            const result = utils.normalizeStation('KONSTANZ-RHEIN', 'RHEIN');
+            expect(result).to.deep.equal({ name: 'Konstanz (Rhein)', variant: undefined });
+        });
+
+        it('should work for Mannheim (Neckar)', () => {
+            const result = utils.normalizeStation('MANNHEIM NECKAR', 'NECKAR');
+            expect(result).to.deep.equal({ name: 'Mannheim (Neckar)', variant: undefined });
+        });
+
+        it('should work for Mannheim (Rhein)', () => {
+            const result = utils.normalizeStation('MANNHEIM', 'RHEIN');
+            expect(result).to.deep.equal({ name: 'Mannheim (Rhein)', variant: undefined });
+        });
+
         it('should work for Neustadt (Leine)', () => {
             const result = utils.normalizeStation('NEUSTADT', 'LEINE');
             expect(result).to.deep.equal({ name: 'Neustadt (Leine)', variant: undefined });

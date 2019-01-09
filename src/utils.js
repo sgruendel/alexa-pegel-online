@@ -62,6 +62,10 @@ exports.normalizeStation = (name, water) => {
         name = 'dömitz (' + exports.normalizeWater(water) + ') op';
     } else if (name === 'koblenz' || name === 'koblenz up') {
         name = 'koblenz (' + exports.normalizeWater(water) + ')';
+    } else if (name === 'konstanz' || name === 'konstanz rhein') {
+        name = 'konstanz (' + exports.normalizeWater(water) + ')';
+    } else if (name === 'mannheim' || name === 'mannheim neckar') {
+        name = 'mannheim (' + exports.normalizeWater(water) + ')';
     } else if (name === 'neustadt') {
         name = 'neustadt (' + exports.normalizeWater(water) + ')';
     } else if (name === 'neustadt glewe op') {

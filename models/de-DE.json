@@ -739,6 +739,12 @@
               }
             },
             {
+              "id": "f0f78cc4-1ab4-4548-abed-63c65a267a8a",
+              "name": {
+                "value": "Dalwigksthal"
+              }
+            },
+            {
               "id": "c233674f-259a-4304-b81f-dce1f415d85b",
               "name": {
                 "value": "Damnatz"
@@ -1746,13 +1752,13 @@
             {
               "id": "aa9179c1-17ef-4c61-a48a-74193fa7bfdf",
               "name": {
-                "value": "Konstanz"
+                "value": "Konstanz (Bodensee)"
               }
             },
             {
               "id": "e020e651-e422-46d3-ae28-34887c5a4a8e",
               "name": {
-                "value": "Konstanz Rhein"
+                "value": "Konstanz (Rhein)"
               }
             },
             {
@@ -2026,15 +2032,15 @@
               }
             },
             {
-              "id": "57090802-c51a-4d09-8340-b4453cd0e1f5",
+              "id": "25582d3f-dc5f-4c70-bd08-e84fd13201ca",
               "name": {
-                "value": "Mannheim"
+                "value": "Mannheim (Neckar)"
               }
             },
             {
-              "id": "25582d3f-dc5f-4c70-bd08-e84fd13201ca",
+              "id": "57090802-c51a-4d09-8340-b4453cd0e1f5",
               "name": {
-                "value": "Mannheim Neckar"
+                "value": "Mannheim (Rhein)"
               }
             },
             {
@@ -2554,12 +2560,6 @@
               "id": "16508b11-4349-48f7-be51-1227b7888585",
               "name": {
                 "value": "Rhede"
-              }
-            },
-            {
-              "id": "50a449ba-af4c-42c7-b2c4-9a3eda37e1e3",
-              "name": {
-                "value": "Rheine Unterschleuse"
               }
             },
             {
@@ -3691,6 +3691,11 @@
             {
               "name": {
                 "value": "Oranienburger Kanal"
+              }
+            },
+            {
+              "name": {
+                "value": "Orke"
               }
             },
             {
