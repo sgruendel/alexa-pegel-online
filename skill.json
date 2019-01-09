@@ -22,7 +22,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 6):\n* komplett überarbeitetes Dialogmodel",
+      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 7):\n* korrekte Behandlung der nicht-eindeutigen Messstellen Dömitz, Brunsbüttel, Konstanz und Mannheim\n* korrekte Behandlung von Gewässern, die Namensbestandteil eines anderen Gewässers sind, z.b. Main/Main-Donau-Kanal oder Ems/Dortmund-Ems-Kanal",
       "category": "WEATHER",
       "distributionCountries": []
     },
