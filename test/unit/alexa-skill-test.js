@@ -271,6 +271,17 @@ describe('Pegel Online Skill', () => {
                 shouldEndSession: false,
             },
             {
+                request: alexaTest.addEntityResolutionsToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: '', water: 'main' }),
+                    [
+                        { slotName: 'water', slotType: LIST_OF_WATERS, value: 'Main' },
+                        { slotName: 'water', slotType: LIST_OF_WATERS, value: 'Main-Donau-Kanal' },
+                    ]),
+                saysLike: 'Es gibt zu viele Messstellen an diesem Gewässer, bitte nenne eine konkrete, z.B. ',
+                reprompts: 'Welche Messstelle?',
+                shouldEndSession: false,
+            },
+            {
                 request: alexaTest.addEntityResolutionNoMatchToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent'),
                     'water', LIST_OF_STATIONS, 'vils'),

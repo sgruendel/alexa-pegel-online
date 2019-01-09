@@ -146,7 +146,7 @@ const QueryWaterLevelIntentHandler = {
                     .getResponse();
 
             case ER_SUCCESS_MATCH:
-                if (rpaWater.values.length > 1) {
+                if (rpaWater.values.length > 1 && rpaWater.values[0].value.name.toLowerCase() !== slots.water.value) {
                     const prompt = getElicitSlotPrompt('Welches Gewässer', rpaWater.values, elt => { return elt.value.name; });
                     logger.info('eliciting water slot: ' + prompt);
                     return handlerInput.responseBuilder
