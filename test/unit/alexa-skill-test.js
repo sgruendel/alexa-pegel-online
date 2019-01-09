@@ -248,8 +248,8 @@ describe('Pegel Online Skill', () => {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: '', water: 'bodensee' }),
                     'water', LIST_OF_WATERS, 'Bodensee'),
-                saysLike: 'Der Wasserstand bei Konstanz beträgt',
-                hasCardTitle: 'Pegel bei Konstanz',
+                saysLike: 'Der Wasserstand bei Konstanz (Bodensee) beträgt',
+                hasCardTitle: 'Pegel bei Konstanz (Bodensee)',
                 repromptsNothing: true, shouldEndSession: true,
             },
             {
