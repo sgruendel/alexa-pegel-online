@@ -48,18 +48,17 @@ exports.normalizeStation = (name, water) => {
     name = name.replace('-', ' ').replace('_', ' ').replace('/', ' ').replace(/ +/g, ' ').trim();
 
     // Give unique, meaningful names to non-unique stations
+    const doemitz = /^d(ö|oe)mitz( [a-z]{2})?/;
+    const rothenburg = /^rothenburg( [a-z]{2})/;
     if (name === 'artlenburg' || name === 'artlenburg elk') {
         name = 'artlenburg (' + exports.normalizeWater(water) + ')';
     } else if (name === 'brunsbüttel') {
         name = 'brunsbüttel (' + exports.normalizeWater(water) + ')';
     } else if (name === 'brunsbüttel mole 1') {
         name = 'brunsbüttel mole eins';
-    } else if (name === 'dömitz') {
-        name = 'dömitz (' + exports.normalizeWater(water) + ')';
-    } else if (name === 'doemitz up') {
-        name = 'dömitz (' + exports.normalizeWater(water) + ') up';
-    } else if (name === 'doemitz op') {
-        name = 'dömitz (' + exports.normalizeWater(water) + ') op';
+    } else if (name.match(doemitz)) {
+        const result = doemitz.exec(name);
+        name = 'dömitz (' + exports.normalizeWater(water) + ')' + (result[2] || '');
     } else if (name === 'koblenz' || name === 'koblenz up') {
         name = 'koblenz (' + exports.normalizeWater(water) + ')';
     } else if (name === 'konstanz' || name === 'konstanz rhein') {
@@ -72,6 +71,11 @@ exports.normalizeStation = (name, water) => {
         name = 'neustadt-Glewe op';
     } else if (name === 'nienburg') {
         name = 'nienburg (' + exports.normalizeWater(water) + ')';
+    } else if (name === 'rotenburg') {
+        name = 'rotenburg (' + exports.normalizeWater(water) + ')';
+    } else if (name.match(rothenburg)) {
+        const result = rothenburg.exec(name);
+        name = 'rothenburg (' + exports.normalizeWater(water) + ')' + result[1];
     }
 
     var variant;

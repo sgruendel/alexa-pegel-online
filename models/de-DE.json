@@ -1012,7 +1012,7 @@
               }
             },
             {
-              "id": "*c33c3667-b8c5-484a-8ea0-b92933b5a9f0",
+              "id": "bb62b28f-9947-42b1-92e4-743a1e0c4a76",
               "name": {
                 "value": "Fahrenholz"
               }
@@ -2643,13 +2643,16 @@
             {
               "id": "d1ba62a4-767b-49ba-9ce8-ab17537b2fe1",
               "name": {
-                "value": "Rotenburg"
+                "value": "Rotenburg (Fulda)"
               }
             },
             {
               "id": "*5a7e1d4a-53aa-4f9f-a59b-50e01b7260c7",
               "name": {
-                "value": "Rothenburg"
+                "value": "Rothenburg (Saale)",
+                "synonyms": [
+                  "Rotenburg (Saale)"
+                ]
               }
             },
             {

@@ -99,10 +99,6 @@
     "Außenpegel:227b83f7-1302-4d7e-8d70-899036ff4ce2",
     "Binnenpegel:5fea1a12-326f-4919-ac9a-02f9fa11ab57"
   ],
-  "Fahrenholz": [
-    "Oberpegel:c33c3667-b8c5-484a-8ea0-b92933b5a9f0",
-    "Unterpegel:bb62b28f-9947-42b1-92e4-743a1e0c4a76"
-  ],
   "Flaesheim Schleuse": [
     "Oberwasser:f833a494-961b-42d3-9843-e4e61607b5be",
     "Unterwasser:a7ffcc9e-fecd-431c-8044-e004682d023f"
@@ -275,7 +271,7 @@
     "Oberwasser:ca0e4a68-bd50-494c-bd45-abb33c5e1b0a",
     "Unterwasser:4a0061f0-7355-4a95-9c70-f05c8920d790"
   ],
-  "Rothenburg": [
+  "Rothenburg (Saale)": [
     "Oberpegel:5a7e1d4a-53aa-4f9f-a59b-50e01b7260c7",
     "Unterpegel:e70e39ec-e476-4991-a39d-7d0e009556ef"
   ],

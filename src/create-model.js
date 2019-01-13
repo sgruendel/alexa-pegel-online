@@ -52,6 +52,10 @@ function addStation(station, listOfStations, listOfVariants) {
         if (short.name !== long.name) {
             stationValue.name.synonyms = [ short.name ];
         }
+        if (short.name === 'Rothenburg (Saale)') {
+            // Need to add synonym with wrong spelling, as this is what Alexa understands ...
+            stationValue.name.synonyms = [ 'Rotenburg (Saale)' ];
+        }
         listOfStations.push(stationValue);
     } else {
         stationValue = listOfStations[index];

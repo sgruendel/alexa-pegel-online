@@ -4,7 +4,6 @@ Alexa Skill for interacting with http://www.pegelonline.wsv.de
 ## TODOs
 - Ilmenau is a water and a station
 - Berlin is not found at all
-- Rotenburg vs. Rothenburg
 - When counting stations for water, count variants as one station, see especially Warnow, Wentow Gewässer, Werbelliner Gewässer and Stör Wasserstraße
 - Handle built-in intents for DisplayInterface like NavigateHome, More, Next ...
 - Implement proper integration/simulation tests, see

@@ -97,6 +97,21 @@ describe('utils', () => {
             expect(result).to.deep.equal({ name: 'Nienburg (Weser)', variant: undefined });
         });
 
+        it('should work for Rotenburg (Fulda)', () => {
+            const result = utils.normalizeStation('ROTENBURG', 'FULDA');
+            expect(result).to.deep.equal({ name: 'Rotenburg (Fulda)', variant: undefined });
+        });
+
+        it('should work for Rothenburg (Saale) OP', () => {
+            const result = utils.normalizeStation('ROTHENBURG OP', 'SAALE');
+            expect(result).to.deep.equal({ name: 'Rothenburg (Saale)', variant: 'Oberpegel' });
+        });
+
+        it('should work for Rothenburg (Saale) UP', () => {
+            const result = utils.normalizeStation('ROTHENBURG UP', 'SAALE');
+            expect(result).to.deep.equal({ name: 'Rothenburg (Saale)', variant: 'Unterpegel' });
+        });
+
         it('should work for Oberwasser (OW)', () => {
             const result = utils.normalizeStation('DATTELN SCHLEUSE OW', 'WESEL-DATTELN-KANAL');
             expect(result).to.deep.equal({ name: 'Datteln Schleuse', variant: 'Oberwasser' });
