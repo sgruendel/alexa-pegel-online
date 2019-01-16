@@ -22,7 +22,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 7):\n* korrekte Behandlung der nicht-eindeutigen Messstellen Dömitz, Brunsbüttel, Konstanz und Mannheim\n* korrekte Behandlung von Gewässern, die Namensbestandteil eines anderen Gewässers sind, z.b. Main/Main-Donau-Kanal oder Ems/Dortmund-Ems-Kanal",
+      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 8):\n* korrekte Behandlung der phonetisch nicht-eindeutigen Messstellen Rotenburg und Rothenburg\n* bei Frage nach Karlsruhe wird die Messstelle Maxau verwendet\n* bei Frage nach Halle wird die Messstelle Trotha verwendet",
       "category": "WEATHER",
       "distributionCountries": []
     },

@@ -135,6 +135,23 @@ describe('Pegel Online Skill', () => {
                 shouldEndSession: false,
             },
             {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'Halle', variant: '' }),
+                    'station', LIST_OF_STATIONS, 'Trotha', '*ea6870dc-507e-4ec4-a38c-cd8a5e8b7025'),
+                elicitsSlot: 'variant',
+                says: 'Welcher Pegel, Trotha Oberpegel oder Trotha Unterpegel?',
+                reprompts: 'Welcher Pegel, Trotha Oberpegel oder Trotha Unterpegel?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'karlsruhe', variant: '' }),
+                    'station', LIST_OF_STATIONS, 'Maxau', 'b6c6d5c8-e2d5-4469-8dd8-fa972ef7eaea'),
+                saysLike: 'Der Wasserstand bei Maxau beträgt',
+                hasCardTitle: 'Pegel bei Maxau',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
                 request: alexaTest.addEntityResolutionsToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'koblenz', variant: '' }),
                     [
@@ -179,6 +196,7 @@ describe('Pegel Online Skill', () => {
                 reprompts: 'Welche Messstelle, Nienburg (Saale) oder Nienburg (Weser)?',
                 shouldEndSession: false,
             },
+            /*
             {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'sülfeld', variant: '' }),
@@ -188,6 +206,7 @@ describe('Pegel Online Skill', () => {
                 reprompts: 'Welcher Pegel, Sülfeld Oberwasser oder Sülfeld Unterwasser?',
                 shouldEndSession: false,
             },
+            */
             {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'uelzen', variant: '' }),
