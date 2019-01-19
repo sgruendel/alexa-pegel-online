@@ -13,8 +13,9 @@ var exports = module.exports = {};
 exports.normalizeStation = (name, water) => {
     // AwK => '' (remove leading Achterwehrer Schifffahrtskanal)
     // Bhv => Bremerhaven
-    // Eisenhuettenstadt Schl. => Schleuse
+    // Eisenhüttenstadt Schl. => Schleuse
     // Frankfurt1 (oder) => Frankfurt (Oder)
+    // Fuerstenwalde => Fürstenwalde
     // Giessen => Gießen
     // Hann. Münden => Hannoversch Münden
     // Hann. => Hannover
@@ -30,7 +31,9 @@ exports.normalizeStation = (name, water) => {
         .replace('awk ', '')
         .replace('bhv ', 'bremerhaven ')
         .replace('schl.', 'schleuse')
+        .replace('eisenhuettenstadt', 'eisenhüttenstadt')
         .replace('frankfurt1', 'frankfurt')
+        .replace('fuerstenwalde', 'fürstenwalde')
         .replace('giessen', 'gießen')
         .replace('hann.muenden', 'hannoversch münden')
         .replace('hann.', 'hannover ')
@@ -59,6 +62,8 @@ exports.normalizeStation = (name, water) => {
     } else if (name.match(doemitz)) {
         const result = doemitz.exec(name);
         name = 'dömitz (' + exports.normalizeWater(water) + ')' + (result[2] || '');
+    } else if (name === 'eisenhüttenstadt') {
+        name = 'eisenhüttenstadt (' + exports.normalizeWater(water) + ')';
     } else if (name === 'koblenz' || name === 'koblenz up') {
         name = 'koblenz (' + exports.normalizeWater(water) + ')';
     } else if (name === 'konstanz' || name === 'konstanz rhein') {

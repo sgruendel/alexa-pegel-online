@@ -928,15 +928,15 @@
               }
             },
             {
-              "id": "*df242a51-7ed5-4205-be60-47e0e1f46fad",
+              "id": "8675aa70-cfbc-471a-8566-dcc851f201d3",
               "name": {
-                "value": "Eisenhuettenstadt Schleuse"
+                "value": "Eisenhüttenstadt (Oder)"
               }
             },
             {
-              "id": "8675aa70-cfbc-471a-8566-dcc851f201d3",
+              "id": "*df242a51-7ed5-4205-be60-47e0e1f46fad",
               "name": {
-                "value": "Eisenhüttenstadt"
+                "value": "Eisenhüttenstadt Schleuse"
               }
             },
             {
@@ -1090,12 +1090,6 @@
               }
             },
             {
-              "id": "*53088d32-226a-49b7-962d-a5879c3aba29",
-              "name": {
-                "value": "Fuerstenwalde"
-              }
-            },
-            {
               "id": "3a8ed45f-28e7-4263-8437-d926c6a194f4",
               "name": {
                 "value": "Fuestrup"
@@ -1111,6 +1105,12 @@
               "id": "*2c95f83d-4669-4553-a18d-3f493176d34d",
               "name": {
                 "value": "Fürstenberg"
+              }
+            },
+            {
+              "id": "*53088d32-226a-49b7-962d-a5879c3aba29",
+              "name": {
+                "value": "Fürstenwalde"
               }
             },
             {
@@ -2563,6 +2563,12 @@
               "id": "16508b11-4349-48f7-be51-1227b7888585",
               "name": {
                 "value": "Rhede"
+              }
+            },
+            {
+              "id": "50a449ba-af4c-42c7-b2c4-9a3eda37e1e3",
+              "name": {
+                "value": "Rheine Unterschleuse"
               }
             },
             {

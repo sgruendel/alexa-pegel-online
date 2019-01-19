@@ -42,6 +42,21 @@ describe('utils', () => {
             expect(result).to.deep.equal({ name: 'Dömitz (Müritz-Elde-Wasserstraße)', variant: 'Oberpegel' });
         });
 
+        it('should work for Eisenhüttenstadt (Oder)', () => {
+            const result = utils.normalizeStation('EISENHÜTTENSTADT', 'ODER');
+            expect(result).to.deep.equal({ name: 'Eisenhüttenstadt (Oder)', variant: undefined });
+        });
+
+        it('should work for Fürstenwalde (UP)', () => {
+            const result = utils.normalizeStation('FUERSTENWALDE UP', 'SPREE-ODER-WASSERSTRASSE');
+            expect(result).to.deep.equal({ name: 'Fürstenwalde', variant: 'Unterpegel' });
+        });
+
+        it('should work for Fürstenwalde (OP)', () => {
+            const result = utils.normalizeStation('FUERSTENWALDE OP', 'SPREE-ODER-WASSERSTRASSE');
+            expect(result).to.deep.equal({ name: 'Fürstenwalde', variant: 'Oberpegel' });
+        });
+
         it('should work for Koblenz (Rhein)', () => {
             const result = utils.normalizeStation('KOBLENZ', 'RHEIN');
             expect(result).to.deep.equal({ name: 'Koblenz (Rhein)', variant: undefined });
