@@ -63,7 +63,7 @@
     "Oberpegel:308f5979-4ab8-48ab-b618-081aa285559e",
     "Unterpegel:470acd2a-f3e7-4fd2-96b0-e90344ee51bf"
   ],
-  "Calbe": [
+  "Calbe (Saale)": [
     "Oberpegel:184200bc-cdb6-4116-a7cf-ac986c2d4fb8",
     "Unterpegel:46a3350b-f3e6-4f5d-a297-2652c43bfac8"
   ],
@@ -141,6 +141,7 @@
   ],
   "Havelberg": [
     "Elbpegel:bb6fd2f0-458a-4ea5-aa58-e1c1a2fbd56d",
+    "Stadt:c203d5fb-96d7-4643-b2ef-b13b1d88c75b",
     "Unterpegel:ce086a21-29c2-444c-b53d-f3b70b086b2f"
   ],
   "Henrichenburg": [

@@ -675,13 +675,13 @@
             {
               "id": "*184200bc-cdb6-4116-a7cf-ac986c2d4fb8",
               "name": {
-                "value": "Calbe"
+                "value": "Calbe (Saale)"
               }
             },
             {
               "id": "8d1fdc5b-b63a-4745-baeb-5e266d247e99",
               "name": {
-                "value": "Calbe Grizehne"
+                "value": "Calbe-Grizehne"
               }
             },
             {
@@ -964,15 +964,15 @@
               }
             },
             {
-              "id": "eba772d4-509e-4fe7-ba51-d9a29b190432",
+              "id": "531da758-b2f5-471d-9d9f-a78576081079",
               "name": {
-                "value": "Elsfleth"
+                "value": "Elsfleth (Hunte)"
               }
             },
             {
-              "id": "531da758-b2f5-471d-9d9f-a78576081079",
+              "id": "eba772d4-509e-4fe7-ba51-d9a29b190432",
               "name": {
-                "value": "Elsfleth Ohrt"
+                "value": "Elsfleth (Weser)"
               }
             },
             {
@@ -1339,12 +1339,6 @@
               "id": "*bb6fd2f0-458a-4ea5-aa58-e1c1a2fbd56d",
               "name": {
                 "value": "Havelberg"
-              }
-            },
-            {
-              "id": "c203d5fb-96d7-4643-b2ef-b13b1d88c75b",
-              "name": {
-                "value": "Havelberg Stadt"
               }
             },
             {
@@ -2214,7 +2208,7 @@
             {
               "id": "dc407f1e-e25f-4995-9feb-5bacc8658149",
               "name": {
-                "value": "Neuwied Stadt"
+                "value": "Neuwied"
               }
             },
             {
@@ -3391,6 +3385,11 @@
             {
               "name": {
                 "value": "Oberwasser"
+              }
+            },
+            {
+              "name": {
+                "value": "Stadt"
               }
             },
             {

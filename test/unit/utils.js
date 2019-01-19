@@ -27,6 +27,21 @@ describe('utils', () => {
             expect(result).to.deep.equal({ name: 'Brunsbüttel Mole Eins', variant: undefined });
         });
 
+        it('should work for Calbe-Grizehne', () => {
+            const result = utils.normalizeStation('CALBE GRIZEHNE', 'SAALE');
+            expect(result).to.deep.equal({ name: 'Calbe-Grizehne', variant: undefined });
+        });
+
+        it('should work for Calbe (Saale) (UP)', () => {
+            const result = utils.normalizeStation('CALBE UP', 'SAALE');
+            expect(result).to.deep.equal({ name: 'Calbe (Saale)', variant: 'Unterpegel' });
+        });
+
+        it('should work for Calbe (Saale) (OP)', () => {
+            const result = utils.normalizeStation('CALBE OP', 'SAALE');
+            expect(result).to.deep.equal({ name: 'Calbe (Saale)', variant: 'Oberpegel' });
+        });
+
         it('should work for Dömitz (Elbe)', () => {
             const result = utils.normalizeStation('DÖMITZ', 'ELBE');
             expect(result).to.deep.equal({ name: 'Dömitz (Elbe)', variant: undefined });
@@ -42,6 +57,16 @@ describe('utils', () => {
             expect(result).to.deep.equal({ name: 'Dömitz (Müritz-Elde-Wasserstraße)', variant: 'Oberpegel' });
         });
 
+        it('should work for Elsfleth (Hunte)', () => {
+            const result = utils.normalizeStation('ELSFLETH OHRT', 'HUNTE');
+            expect(result).to.deep.equal({ name: 'Elsfleth (Hunte)', variant: undefined });
+        });
+
+        it('should work for Elsfleth (Weser)', () => {
+            const result = utils.normalizeStation('ELSFLETH', 'WESER');
+            expect(result).to.deep.equal({ name: 'Elsfleth (Weser)', variant: undefined });
+        });
+
         it('should work for Eisenhüttenstadt (Oder)', () => {
             const result = utils.normalizeStation('EISENHÜTTENSTADT', 'ODER');
             expect(result).to.deep.equal({ name: 'Eisenhüttenstadt (Oder)', variant: undefined });
@@ -55,6 +80,11 @@ describe('utils', () => {
         it('should work for Fürstenwalde (OP)', () => {
             const result = utils.normalizeStation('FUERSTENWALDE OP', 'SPREE-ODER-WASSERSTRASSE');
             expect(result).to.deep.equal({ name: 'Fürstenwalde', variant: 'Oberpegel' });
+        });
+
+        it('should work for Havelberg (Stadt)', () => {
+            const result = utils.normalizeStation('HAVELBERG STADT', 'UNTERE HAVEL-WASSERSTRASSE');
+            expect(result).to.deep.equal({ name: 'Havelberg', variant: 'Stadt' });
         });
 
         it('should work for Koblenz (Rhein)', () => {
@@ -100,6 +130,11 @@ describe('utils', () => {
         it('should work for Neustadt-Glewe', () => {
             const result = utils.normalizeStation('NEUSTADT GLEWE OP', 'MÜRITZ-ELDE-WASSERSTRASSE');
             expect(result).to.deep.equal({ name: 'Neustadt-Glewe', variant: 'Oberpegel' });
+        });
+
+        it('should work for Neuwied', () => {
+            const result = utils.normalizeStation('NEUWIED STADT', 'RHEIN');
+            expect(result).to.deep.equal({ name: 'Neuwied', variant: undefined });
         });
 
         it('should work for Nienburg (Saale)', () => {

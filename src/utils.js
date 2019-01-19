@@ -51,6 +51,7 @@ exports.normalizeStation = (name, water) => {
     name = name.replace('-', ' ').replace('_', ' ').replace('/', ' ').replace(/ +/g, ' ').trim();
 
     // Give unique, meaningful names to non-unique stations
+    const calbe = /^calbe( [a-z]{2})/;
     const doemitz = /^d(ö|oe)mitz( [a-z]{2})?/;
     const rothenburg = /^rothenburg( [a-z]{2})/;
     if (name === 'artlenburg' || name === 'artlenburg elk') {
@@ -59,11 +60,18 @@ exports.normalizeStation = (name, water) => {
         name = 'brunsbüttel (' + exports.normalizeWater(water) + ')';
     } else if (name === 'brunsbüttel mole 1') {
         name = 'brunsbüttel mole eins';
+    } else if (name === 'calbe grizehne') {
+        name = 'calbe-Grizehne';
+    } else if (name.match(calbe)) {
+        const result = calbe.exec(name);
+        name = 'calbe (' + exports.normalizeWater(water) + ')' + result[1];
     } else if (name.match(doemitz)) {
         const result = doemitz.exec(name);
         name = 'dömitz (' + exports.normalizeWater(water) + ')' + (result[2] || '');
     } else if (name === 'eisenhüttenstadt') {
         name = 'eisenhüttenstadt (' + exports.normalizeWater(water) + ')';
+    } else if (name === 'elsfleth' || name === 'elsfleth ohrt') {
+        name = 'elsfleth (' + exports.normalizeWater(water) + ')';
     } else if (name === 'koblenz' || name === 'koblenz up') {
         name = 'koblenz (' + exports.normalizeWater(water) + ')';
     } else if (name === 'konstanz' || name === 'konstanz rhein') {
@@ -74,6 +82,8 @@ exports.normalizeStation = (name, water) => {
         name = 'neustadt (' + exports.normalizeWater(water) + ')';
     } else if (name === 'neustadt glewe op') {
         name = 'neustadt-Glewe op';
+    } else if (name === 'neuwied stadt') {
+        name = 'neuwied';
     } else if (name === 'nienburg') {
         name = 'nienburg (' + exports.normalizeWater(water) + ')';
     } else if (name === 'rotenburg') {
@@ -115,6 +125,9 @@ exports.normalizeStation = (name, water) => {
     } else if (name.endsWith(' uf')) {
         name = name.replace(' uf', '');
         variant = 'Unterfeuer';
+    } else if (name.endsWith(' stadt')) {
+        name = name.replace(' stadt', '');
+        variant = 'Stadt';
 
     // TODO Nord/Ost/West ...
     } else if (name.endsWith(' mpm')) {
