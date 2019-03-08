@@ -1,6 +1,6 @@
 {
   "name": "alexa-pegel-online",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Alexa Skill for interacting with http://www.pegelonline.wsv.de",
   "main": "index.js",
   "scripts": {
@@ -26,22 +26,22 @@
   },
   "homepage": "https://github.com/sgruendel/alexa-pegel-online#readme",
   "dependencies": {
-    "ask-sdk-core": "^2.3.0",
-    "ask-sdk-model": "^1.11.2",
-    "dashbot": "^10.2.4",
-    "i18next": "^13.1.2",
+    "ask-sdk-core": "^2.5.1",
+    "ask-sdk-model": "^1.12.0",
+    "dashbot": "^10.3.3",
+    "i18next": "^15.0.6",
     "i18next-sprintf-postprocessor": "^0.2.2",
     "request": "^2.88.0",
-    "request-promise-native": "^1.0.5",
-    "winston": "^3.1.0"
+    "request-promise-native": "^1.0.7",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "alexa-skill-test-framework": "^1.2.4",
     "chai": "^4.2.0",
-    "eslint": "^5.12.0",
+    "eslint": "^5.15.1",
     "eslint-config-strongloop": "^2.1.0",
-    "mocha": "^5.2.0",
-    "nyc": "^13.1.0"
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0"
   },
   "eslintConfig": {
     "parserOptions": {
