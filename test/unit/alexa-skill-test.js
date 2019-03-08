@@ -196,7 +196,6 @@ describe('Pegel Online Skill', () => {
                 reprompts: 'Welche Messstelle, Nienburg (Saale) oder Nienburg (Weser)?',
                 shouldEndSession: false,
             },
-            /*
             {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'sülfeld', variant: '' }),
@@ -206,7 +205,6 @@ describe('Pegel Online Skill', () => {
                 reprompts: 'Welcher Pegel, Sülfeld Oberwasser oder Sülfeld Unterwasser?',
                 shouldEndSession: false,
             },
-            */
             {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'uelzen', variant: '' }),

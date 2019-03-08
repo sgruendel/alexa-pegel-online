@@ -34,14 +34,12 @@
               "samples": [
                 "{water}",
                 "am {water}",
-                "auf {water}",
-                "an {water}",
                 "an der {water}",
-                "bei {water}",
-                "bei der {water}",
                 "der {water}",
                 "des {water}",
-                "in {water}",
+                "für {water}",
+                "für den {water}",
+                "für die {water}",
                 "vom {water}",
                 "von {water}"
               ]
@@ -54,7 +52,6 @@
           "samples": [
             "{station}",
             "{station} {variant}",
-            "{water}",
             "am {station}",
             "am {station} {variant}",
             "auf {station}",
@@ -79,6 +76,7 @@
             "vom {station} {variant}",
             "von {station}",
             "von {station} {variant}",
+            "der {counterNoun} {station}",
             "der {counterNoun} {station} {variant}",
             "dem {counterNoun} {station} {variant}",
             "der {counterNoun} am {station} {variant}",
@@ -118,35 +116,8 @@
             "wie der {counterNoun} in {station} {variant} ist",
             "wie der {counterNoun} vom {station} {variant} ist",
             "wie der {counterNoun} von {station} {variant} ist",
-            "der {counterNoun} {water}",
-            "dem {counterNoun} {water}",
-            "der {counterNoun} am {water}",
-            "dem {counterNoun} am {water}",
-            "der {counterNoun} an der {water}",
-            "dem {counterNoun} an der {water}",
-            "der {counterNoun} der {water}",
-            "dem {counterNoun} der {water}",
-            "der {counterNoun} des {water}",
-            "dem {counterNoun} des {water}",
-            "der {counterNoun} für {water}",
-            "dem {counterNoun} für {water}",
-            "der {counterNoun} für den {water}",
-            "dem {counterNoun} für den {water}",
-            "der {counterNoun} für die {water}",
-            "dem {counterNoun} für die {water}",
-            "der {counterNoun} vom {water}",
-            "dem {counterNoun} vom {water}",
-            "der {counterNoun} von {water}",
-            "dem {counterNoun} von {water}",
-            "wie der {counterNoun} am {water} ist",
-            "wie der {counterNoun} an der {water} ist",
-            "wie der {counterNoun} der {water} ist",
-            "wie der {counterNoun} des {water} ist",
-            "wie der {counterNoun} für {water} ist",
-            "wie der {counterNoun} für den {water} ist",
-            "wie der {counterNoun} für die {water} ist",
-            "wie der {counterNoun} vom {water} ist",
-            "wie der {counterNoun} von {water} ist"
+            "einer {counterNoun} am Gewässer {water}",
+            "einem {counterNoun} am Gewässer {water}"
           ]
         },
         {
@@ -322,6 +293,12 @@
               "id": "*6c76e98e-44ca-4d25-91e7-b07c68577c5e",
               "name": {
                 "value": "Bahnitz"
+              }
+            },
+            {
+              "id": "e8daa3e2-77d1-4cfa-9ac9-501e7b2b4b0a",
+              "name": {
+                "value": "Bake A"
               }
             },
             {
@@ -1012,7 +989,7 @@
               }
             },
             {
-              "id": "bb62b28f-9947-42b1-92e4-743a1e0c4a76",
+              "id": "*c33c3667-b8c5-484a-8ea0-b92933b5a9f0",
               "name": {
                 "value": "Fahrenholz"
               }
@@ -2077,12 +2054,6 @@
               }
             },
             {
-              "id": "be05603a-83e4-48d4-90d9-e074b7d34dcd",
-              "name": {
-                "value": "Mehrum"
-              }
-            },
-            {
               "id": "24440872-5bd2-4fb3-8554-907b49816c49",
               "name": {
                 "value": "Meissen"
@@ -2671,6 +2642,12 @@
               }
             },
             {
+              "id": "4ed5f6da-b7a0-4431-ab1f-1a26e69a21bc",
+              "name": {
+                "value": "Ruehen"
+              }
+            },
+            {
               "id": "6629a4ca-4e2e-40b8-a66c-964d906c6911",
               "name": {
                 "value": "Ruhlsdorf"
@@ -2863,12 +2840,6 @@
               }
             },
             {
-              "id": "ab0d9117-83f3-412d-bce5-b3e698246c0b",
-              "name": {
-                "value": "Sehnde"
-              }
-            },
-            {
               "id": "2cb8ae5b-c5c9-4fa8-bac0-bb724f2754f4",
               "name": {
                 "value": "Speyer"
@@ -2950,6 +2921,12 @@
               "id": "30bff0df-8333-49ec-8fd7-a2d4c0db1cb1",
               "name": {
                 "value": "Stützkow"
+              }
+            },
+            {
+              "id": "*a8604e8f-9330-4431-8cf6-0a68fc793c82",
+              "name": {
+                "value": "Sülfeld"
               }
             },
             {
@@ -3091,6 +3068,12 @@
               "id": "ae93f2a5-612e-4514-b5fd-9c8aecdd73c7",
               "name": {
                 "value": "Vockerode"
+              }
+            },
+            {
+              "id": "dbb2bb9f-0f80-4df4-9d5c-98af2ee41826",
+              "name": {
+                "value": "Vorsfelde"
               }
             },
             {
@@ -3810,11 +3793,6 @@
             {
               "name": {
                 "value": "Spree-Oder-Wasserstraße"
-              }
-            },
-            {
-              "name": {
-                "value": "Stichkanal Hildesheim"
               }
             },
             {

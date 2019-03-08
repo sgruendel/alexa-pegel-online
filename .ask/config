@@ -5,16 +5,16 @@
       "was_cloned": false,
       "resources": {
         "manifest": {
-          "eTag": "9c8346f70997279a384165603ddc1865"
+          "eTag": "c9dc4b0f5a8d5a80c7d3ca60b7698cc3"
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "02e270c63926a9b2a569a8e8bf50f289"
+            "eTag": "a8dc0e457d65db91460b56fc8df6f711"
           }
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:10",
             "awsRegion": "eu-west-1",
             "functionName": "pegelOnline",
             "alexaUsage": [
@@ -29,7 +29,7 @@
           "apis": {
             "custom": {
               "endpoint": {
-                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline"
+                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:10"
               }
             }
           }
