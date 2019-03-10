@@ -3,37 +3,30 @@
     "default": {
       "skill_id": "amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1",
       "was_cloned": false,
+      "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "c9dc4b0f5a8d5a80c7d3ca60b7698cc3"
+          "eTag": "187c2ea5b95e5a449d59dfff121ad705"
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "a8dc0e457d65db91460b56fc8df6f711"
+            "eTag": "31c058e7e313f8682de549f438a9a56c"
           }
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:10",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:11",
             "awsRegion": "eu-west-1",
             "functionName": "pegelOnline",
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "93772079-a310-46c3-9b71-89c3aca8bef2"
+            "revisionId": "85c1d651-fb26-48c9-ad9f-f3a21b1b4fb1",
+            "codeUri": "src",
+            "handler": "index.handler",
+            "runtime": "nodejs8.10"
           }
         ]
-      },
-      "merge": {
-        "manifest": {
-          "apis": {
-            "custom": {
-              "endpoint": {
-                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:10"
-              }
-            }
-          }
-        }
       }
     }
   }

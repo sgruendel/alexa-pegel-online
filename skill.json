@@ -1,35 +1,10 @@
 {
   "manifest": {
-    "publishingInformation": {
-      "locales": {
-        "de-DE": {
-          "summary": "Aktuelle Pegelstände in Deutschland",
-          "examplePhrases": [
-            "Alexa, öffne Pegel Online",
-            "Alexa, frage Pegel Online nach dem Wasserstand in Würzburg",
-            "Alexa, frage Pegel Online nach dem Pegel bei Husum"
-          ],
-          "keywords": [
-            "gewässer",
-            "wasserstand",
-            "pegelstand",
-            "pegelonline"
-          ],
-          "name": "Pegel Online",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/e6053a0a41924c859dd9be47afe20699/APP_ICON?versionId=_eM8a3H2G3PGFA5jPU8YuccrTg1hKmwH&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1544539728&Signature=n24NFStxkT8yUCKusbhLAi87TyE%3D",
-          "description": "Liefert die aktuellen Pegelstände von über 500 Messstellen in Deutschland zurück; Quelle www.pegelonline.wsv.de. Die Karte in der Alexa App zeigt zusätzlich den Pegelverlauf der letzten 7 Tage.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4dfe/b330178ef7f84b85b1759abe853bef2d/APP_ICON_LARGE?versionId=RLJTatpRh3OxobKUNXnN6vkz6dE0FMSk&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1544539728&Signature=cWzVlbtLcZzVWAzmNaeuDxunieI%3D"
-        }
-      },
-      "isAvailableWorldwide": true,
-      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 9):\n* korrekte Behandlung der nicht-eindeutigen Messstellen Eisenhüttenstadt, Calbe, Elsfleth und Havelberg\n* Korrekturen am Dialogmodel\n* Aktualisierte Messstellen",
-      "category": "WEATHER",
-      "distributionCountries": []
-    },
     "apis": {
       "custom": {
         "endpoint": {
-          "sourceDir": "./src"
+          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:11",
+          "sourceDir": "src"
         },
         "interfaces": [
           {
@@ -42,11 +17,41 @@
     "manifestVersion": "1.0",
     "permissions": [],
     "privacyAndCompliance": {
+      "locales": {
+        "de-DE": {}
+      },
       "allowsPurchases": false,
-      "isExportCompliant": true,
-      "containsAds": false,
+      "usesPersonalInfo": false,
       "isChildDirected": false,
-      "usesPersonalInfo": false
+      "isExportCompliant": true,
+      "containsAds": false
+    },
+    "publishingInformation": {
+      "locales": {
+        "de-DE": {
+          "name": "Pegel Online",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/e6053a0a41924c859dd9be47afe20699/APP_ICON?versionId=_eM8a3H2G3PGFA5jPU8YuccrTg1hKmwH&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552320554&Signature=G0jwvfPNuGjJZVupeX7rk8%2FXLxM%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4dfe/b330178ef7f84b85b1759abe853bef2d/APP_ICON_LARGE?versionId=RLJTatpRh3OxobKUNXnN6vkz6dE0FMSk&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552320554&Signature=JZSeyHOQNo%2FmYDtLLLN4G3BbOC0%3D",
+          "summary": "Aktuelle Pegelstände in Deutschland",
+          "description": "Liefert die aktuellen Pegelstände von über 500 Messstellen in Deutschland zurück; Quelle www.pegelonline.wsv.de. Die Karte in der Alexa App zeigt zusätzlich den Pegelverlauf der letzten 7 Tage.",
+          "examplePhrases": [
+            "Alexa, öffne Pegel Online",
+            "Alexa, frage Pegel Online nach dem Wasserstand in Würzburg",
+            "Alexa, frage Pegel Online nach dem Pegel bei Husum"
+          ],
+          "keywords": [
+            "gewässer",
+            "wasserstand",
+            "pegelstand",
+            "pegelonline"
+          ],
+          "updatesDescription": "korrekte Behandlung der nicht-eindeutigen Messstellen Eisenhüttenstadt, Calbe, Elsfleth und Havelberg"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 9):\n* korrekte Behandlung der nicht-eindeutigen Messstellen Eisenhüttenstadt, Calbe, Elsfleth und Havelberg\n* Korrekturen am Dialogmodel\n* Aktualisierte Messstellen",
+      "category": "WEATHER",
+      "distributionCountries": []
     }
   }
 }
