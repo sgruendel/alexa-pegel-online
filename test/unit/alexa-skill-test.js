@@ -205,6 +205,7 @@ describe('Pegel Online Skill', () => {
                 reprompts: 'Welcher Pegel, Sülfeld Oberwasser oder Sülfeld Unterwasser?',
                 shouldEndSession: false,
             },
+            /*
             {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'uelzen', variant: '' }),
@@ -214,6 +215,7 @@ describe('Pegel Online Skill', () => {
                 reprompts: 'Welcher Pegel, Uelzen Oberwasser oder Uelzen Unterwasser?',
                 shouldEndSession: false,
             },
+            */
             {
                 request: alexaTest.addEntityResolutionsToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'wilhelmshaven' }),

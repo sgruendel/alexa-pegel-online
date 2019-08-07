@@ -176,10 +176,6 @@
     "Oberpegel:b577a043-b6b8-4db8-80e7-8abbb565c8c5",
     "Unterpegel:b2204ea2-eb50-439f-a64d-98062ea1d21f"
   ],
-  "Kleinmachnow": [
-    "Oberpegel:bb23b276-2c1c-4cde-bc9c-9d90d5a04890",
-    "Unterpegel:38414157-862e-428a-ae2c-77ff79871227"
-  ],
   "Krückau Sperrwerk": [
     "Außenpegel:a653eb04-de2e-47f7-8e2c-09277cfe95ae",
     "Binnenpegel:53c277c3-7ddb-4281-9937-97dcfe3753fa"
@@ -311,10 +307,6 @@
   "Trotha": [
     "Oberpegel:ea6870dc-507e-4ec4-a38c-cd8a5e8b7025",
     "Unterpegel:33193e2b-1203-4681-a23d-f87b9fab4b60"
-  ],
-  "Uelzen": [
-    "Oberwasser:728bd3e3-23f2-41c6-8ac5-4cfa223a5a7e",
-    "Unterwasser:0d0082cf-0b4b-4c8b-8e97-5d37b511916b"
   ],
   "Wanne Eickel Schleuse": [
     "Oberwasser:05ca0e33-5c71-4368-b824-2243fcff656c",

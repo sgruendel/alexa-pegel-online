@@ -440,12 +440,6 @@
               }
             },
             {
-              "id": "b8997708-53d0-4932-8fbf-265083e11517",
-              "name": {
-                "value": "Bevensen"
-              }
-            },
-            {
               "id": "0309cd61-90c9-470e-99d4-2ee4fb2c5f84",
               "name": {
                 "value": "Bingen"
@@ -560,6 +554,12 @@
               }
             },
             {
+              "id": "4a904d59-d48f-4878-af7b-cbd955f342e0",
+              "name": {
+                "value": "Breiholz"
+              }
+            },
+            {
               "id": "9da1ad2b-88db-4cbb-8132-eddfab07d5ba",
               "name": {
                 "value": "Breisach"
@@ -593,6 +593,12 @@
               "id": "1125a391-6586-4951-865f-3a2c72f2c81a",
               "name": {
                 "value": "Broxten"
+              }
+            },
+            {
+              "id": "d4f5f719-8c52-4f8d-945d-1c31404cc628",
+              "name": {
+                "value": "Brunsbüttel"
               }
             },
             {
@@ -665,12 +671,6 @@
               "id": "b475386c-30cc-453a-b3b7-1d17ace13595",
               "name": {
                 "value": "Celle"
-              }
-            },
-            {
-              "id": "97e17be5-d4ec-40a9-9461-68025a277d6d",
-              "name": {
-                "value": "Coburg"
               }
             },
             {
@@ -788,6 +788,12 @@
               "id": "eadedeb6-c31e-483f-b6c4-ca0153359ad7",
               "name": {
                 "value": "Diez Hafen"
+              }
+            },
+            {
+              "id": "5b94e4b9-cc96-433f-abf7-08287137ec54",
+              "name": {
+                "value": "Dornbusch Brücke"
               }
             },
             {
@@ -1169,6 +1175,12 @@
               }
             },
             {
+              "id": "7398029b-c6a1-484f-b1f6-1afe568ee1e2",
+              "name": {
+                "value": "Grauerort Reede"
+              }
+            },
+            {
               "id": "acd63934-e40d-4650-a094-01cea45432be",
               "name": {
                 "value": "Grebenau"
@@ -1511,12 +1523,6 @@
               }
             },
             {
-              "id": "92f96a62-9a70-4c3c-a822-7348fd44c100",
-              "name": {
-                "value": "Hüttendorf"
-              }
-            },
-            {
               "id": "b02be240-1364-4c97-8bb6-675d7d842332",
               "name": {
                 "value": "Iffezheim"
@@ -1673,7 +1679,7 @@
               }
             },
             {
-              "id": "*bb23b276-2c1c-4cde-bc9c-9d90d5a04890",
+              "id": "bb23b276-2c1c-4cde-bc9c-9d90d5a04890",
               "name": {
                 "value": "Kleinmachnow"
               }
@@ -1748,6 +1754,12 @@
               "id": "e651fe4a-d759-49c5-8e00-55137d0f2975",
               "name": {
                 "value": "Krautsand"
+              }
+            },
+            {
+              "id": "8c20b4dc-1540-4b14-8c88-0e1d87de22c4",
+              "name": {
+                "value": "Krautsand Reede"
               }
             },
             {
@@ -2054,6 +2066,12 @@
               }
             },
             {
+              "id": "be05603a-83e4-48d4-90d9-e074b7d34dcd",
+              "name": {
+                "value": "Mehrum"
+              }
+            },
+            {
               "id": "24440872-5bd2-4fb3-8554-907b49816c49",
               "name": {
                 "value": "Meissen"
@@ -2081,12 +2099,6 @@
               "id": "3ff99b92-4396-4fa7-af73-02b9c015dcad",
               "name": {
                 "value": "Mittelgrund"
-              }
-            },
-            {
-              "id": "b770244c-2fcf-4d9a-9cb5-92730a17581a",
-              "name": {
-                "value": "Muesse"
               }
             },
             {
@@ -2366,12 +2378,6 @@
               "id": "9aae4921-bda4-4081-b67b-2e0c5ab8bc54",
               "name": {
                 "value": "Petershagen"
-              }
-            },
-            {
-              "id": "2c74029d-6146-4d16-bf68-09b79f4f1257",
-              "name": {
-                "value": "Pettstadt"
               }
             },
             {
@@ -2840,6 +2846,12 @@
               }
             },
             {
+              "id": "ab0d9117-83f3-412d-bce5-b3e698246c0b",
+              "name": {
+                "value": "Sehnde"
+              }
+            },
+            {
               "id": "2cb8ae5b-c5c9-4fa8-bac0-bb724f2754f4",
               "name": {
                 "value": "Speyer"
@@ -3023,12 +3035,6 @@
               }
             },
             {
-              "id": "*728bd3e3-23f2-41c6-8ac5-4cfa223a5a7e",
-              "name": {
-                "value": "Uelzen"
-              }
-            },
-            {
               "id": "575da86f-d975-4837-b6f5-6f19c3a5e4b6",
               "name": {
                 "value": "Uetersen"
@@ -3049,7 +3055,10 @@
             {
               "id": "6de43652-2db9-4627-a255-9cb1f8efb820",
               "name": {
-                "value": "Versen"
+                "value": "Versen",
+                "synonyms": [
+                  "Versen Wehrdurchstich"
+                ]
               }
             },
             {
@@ -3542,11 +3551,6 @@
             },
             {
               "name": {
-                "value": "Itz"
-              }
-            },
-            {
-              "name": {
                 "value": "Jade"
               }
             },
@@ -3732,11 +3736,6 @@
             },
             {
               "name": {
-                "value": "Regnitz"
-              }
-            },
-            {
-              "name": {
                 "value": "Rhein"
               }
             },
@@ -3793,6 +3792,11 @@
             {
               "name": {
                 "value": "Spree-Oder-Wasserstraße"
+              }
+            },
+            {
+              "name": {
+                "value": "Stichkanal Hildesheim"
               }
             },
             {
