@@ -52,16 +52,6 @@ function getElicitSlotPrompt(prefix, values, getNameForElement) {
     return result + '?';
 }
 
-// returns true if the skill is running on a device with a display (show|spot)
-function supportsDisplay(handlerInput) {
-    const { context } = handlerInput.requestEnvelope;
-    return context
-        && context.System
-        && context.System.device
-        && context.System.device.supportedInterfaces
-        && context.System.device.supportedInterfaces.Display;
-}
-
 const QueryWaterLevelIntentHandler = {
     canHandle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
@@ -269,14 +259,14 @@ const QueryWaterLevelIntentHandler = {
                 measurementTime = 'Messung von '
                     + utils.getTimeDesc(
                         new Date(result.currentMeasurement.timestamp),
-                        request.locale)
+                        Alexa.getLocale(handlerInput.requestEnvelope))
                     + ' Uhr';
                 cardContent = measurementTime + ': ' + cardContent;
             }
             logger.info(cardContent);
 
             const title = 'Pegel bei ' + stationVariant;
-            if (supportsDisplay(handlerInput)) {
+            if (Alexa.getSupportedInterfaces(handlerInput.requestEnvelope).Display) {
                 const measurementImage = new Alexa.ImageHelper()
                     .withDescription('Wasserstandsdaten')
                     .addImageInstance(result.image.xsmall.url, 'X_SMALL', result.image.xsmall.width, result.image.xsmall.height)
@@ -381,7 +371,7 @@ const ErrorHandler = {
 const LocalizationInterceptor = {
     process(handlerInput) {
         i18next.use(sprintf).init({
-            lng: handlerInput.requestEnvelope.request.locale,
+            lng: Alexa.getLocale(handlerInput.requestEnvelope),
             overloadTranslationOptionHandler: sprintf.overloadTranslationOptionHandler,
             resources: languageStrings,
             returnObjects: true,
