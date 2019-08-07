@@ -135,6 +135,18 @@ describe('Pegel Online Skill', () => {
                 shouldEndSession: false,
             },
             {
+                request: alexaTest.addEntityResolutionsToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'geesthacht', variant: '' }),
+                    [
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Geesthacht (Elbe)', id: '44f7e955-c97d-45c8-9ed7-19406806fb4c' },
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Wehr Geesthacht', id: '0f7f58a8-411f-43d9-b42a-e897e63c4faa' },
+                    ]),
+                elicitsSlot: 'station',
+                says: 'Welche Messstelle, Geesthacht (Elbe) oder Wehr Geesthacht?',
+                reprompts: 'Welche Messstelle, Geesthacht (Elbe) oder Wehr Geesthacht?',
+                shouldEndSession: false,
+            },
+            {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'Halle', variant: '' }),
                     'station', LIST_OF_STATIONS, 'Trotha', '*ea6870dc-507e-4ec4-a38c-cd8a5e8b7025'),

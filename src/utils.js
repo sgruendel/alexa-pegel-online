@@ -72,6 +72,8 @@ exports.normalizeStation = (name, water) => {
         name = 'eisenhüttenstadt (' + exports.normalizeWater(water) + ')';
     } else if (name === 'elsfleth' || name === 'elsfleth ohrt') {
         name = 'elsfleth (' + exports.normalizeWater(water) + ')';
+    } else if (name === 'geesthacht') {
+        name = 'geesthacht (' + exports.normalizeWater(water) + ')';
     } else if (name === 'koblenz' || name === 'koblenz up') {
         name = 'koblenz (' + exports.normalizeWater(water) + ')';
     } else if (name === 'konstanz' || name === 'konstanz rhein') {
