@@ -86,7 +86,7 @@ describe('utils', () => {
             const result = utils.normalizeStation('GEESTHACHT', 'ELBE');
             expect(result).to.deep.equal({ name: 'Geesthacht (Elbe)', variant: undefined });
         });
-        
+
         it('should work for Havelberg (Stadt)', () => {
             const result = utils.normalizeStation('HAVELBERG STADT', 'UNTERE HAVEL-WASSERSTRASSE');
             expect(result).to.deep.equal({ name: 'Havelberg', variant: 'Stadt' });
