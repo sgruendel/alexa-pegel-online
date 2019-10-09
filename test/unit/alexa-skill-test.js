@@ -111,6 +111,14 @@ describe('Pegel Online Skill', () => {
                 shouldEndSession: false,
             },
             {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'bad karlshafen', variant: '' }),
+                    'station', LIST_OF_STATIONS, 'Karlshafen', '1e51195c-f9d7-4cff-9db1-d92bb855005c'),
+                saysLike: 'Der Wasserstand bei Karlshafen beträgt',
+                hasCardTitle: 'Pegel bei Karlshafen',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
                 request: alexaTest.addEntityResolutionsToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'dömitz', variant: '' }),
                     [
