@@ -39,7 +39,7 @@
     "Oberpegel:ee52ce62-212c-4735-b438-26fbdc37e3e2",
     "Unterpegel:45721a68-566c-4e2a-a6c7-a7595982a779"
   ],
-  "Berlin Spandau Schleuse": [
+  "Berlin Spandau": [
     "Oberpegel:e607a4b6-85cc-4f12-a53d-116cb6eef4f5",
     "Unterpegel:2c68509c-bf1e-4866-9ec4-b26b231e5e04"
   ],
@@ -176,6 +176,10 @@
     "Oberpegel:b577a043-b6b8-4db8-80e7-8abbb565c8c5",
     "Unterpegel:b2204ea2-eb50-439f-a64d-98062ea1d21f"
   ],
+  "Kleinmachnow": [
+    "Oberpegel:bb23b276-2c1c-4cde-bc9c-9d90d5a04890",
+    "Unterpegel:38414157-862e-428a-ae2c-77ff79871227"
+  ],
   "Krückau Sperrwerk": [
     "Außenpegel:a653eb04-de2e-47f7-8e2c-09277cfe95ae",
     "Binnenpegel:53c277c3-7ddb-4281-9937-97dcfe3753fa"
@@ -216,7 +220,7 @@
     "Oberwasser:ccd3e8f1-39e9-4e09-aa41-625afda84460",
     "Unterwasser:ed260406-bdd6-42ef-bf2a-1246eea392f9"
   ],
-  "Neue Mühle": [
+  "Neue Mühle Schleuse": [
     "Oberpegel:0e0dbcc9-0a7d-494a-bc92-52e56a7fffe2",
     "Unterpegel:c9a6c3bf-02d4-4945-83e8-b7c6cf9701fa"
   ],
@@ -307,6 +311,10 @@
   "Trotha": [
     "Oberpegel:ea6870dc-507e-4ec4-a38c-cd8a5e8b7025",
     "Unterpegel:33193e2b-1203-4681-a23d-f87b9fab4b60"
+  ],
+  "Uelzen": [
+    "Oberwasser:728bd3e3-23f2-41c6-8ac5-4cfa223a5a7e",
+    "Unterwasser:0d0082cf-0b4b-4c8b-8e97-5d37b511916b"
   ],
   "Wanne Eickel Schleuse": [
     "Oberwasser:05ca0e33-5c71-4368-b824-2243fcff656c",

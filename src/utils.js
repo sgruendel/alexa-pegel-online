@@ -20,7 +20,7 @@ exports.normalizeStation = (name, water) => {
     // Hann. Münden => Hannoversch Münden
     // Hann. => Hannover
     // Lt => Leuchtturm
-    // Luenburg => Lüneburg
+    // Lueneburg => Lüneburg
     // Nok => '' (removing leading Nord-Ostsee-Kanal)
     // St. => Sankt
     // Shw => Schiffshebewerk
@@ -28,6 +28,7 @@ exports.normalizeStation = (name, water) => {
     // Suelfeld => Sülfeld
     // Whv => Wilhelmshaven
     name = name.toLowerCase()
+        .replace('aussen', 'außen')
         .replace('awk ', '')
         .replace('bhv ', 'bremerhaven ')
         .replace('schl.', 'schleuse')
