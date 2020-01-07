@@ -10,7 +10,7 @@
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "0bae739e4a7ba77fb72eb908e3ee3e34"
+            "eTag": "8c19e32cb6f24224ac2d0b8a049df08a"
           }
         },
         "lambda": [
@@ -24,7 +24,7 @@
             "revisionId": "85c1d651-fb26-48c9-ad9f-f3a21b1b4fb1",
             "codeUri": "src",
             "handler": "index.handler",
-            "runtime": "nodejs8.10"
+            "runtime": "nodejs12.x"
           }
         ]
       }
