@@ -294,12 +294,6 @@
               }
             },
             {
-              "id": "*bc20d819-1782-4588-885d-129f21a27cf9",
-              "name": {
-                "value": "Anderten"
-              }
-            },
-            {
               "id": "22fd01e0-090b-476b-80aa-f4586e259785",
               "name": {
                 "value": "Anklam"
@@ -312,21 +306,9 @@
               }
             },
             {
-              "id": "7fec2f4f-6a2e-47ec-8f3c-016c581e4bbd",
-              "name": {
-                "value": "Artlenburg (Elbeseitenkanal)"
-              }
-            },
-            {
               "id": "3de69bf8-dcbb-4afb-a15b-a8683a6a689c",
               "name": {
                 "value": "Astheim"
-              }
-            },
-            {
-              "id": "6760b547-a7e7-408a-b3aa-529fe376bfcd",
-              "name": {
-                "value": "Bad Essen"
               }
             },
             {
@@ -405,12 +387,6 @@
               "id": "a9e93be0-cb0e-4418-ba3c-94e7869f6199",
               "name": {
                 "value": "Belum"
-              }
-            },
-            {
-              "id": "d2c8f60e-fda4-4744-9017-9c727fdcfe1f",
-              "name": {
-                "value": "Berenbusch"
               }
             },
             {
@@ -516,12 +492,6 @@
               }
             },
             {
-              "id": "5310aed3-784c-4290-bfff-806c75b831d9",
-              "name": {
-                "value": "Bodenwerder"
-              }
-            },
-            {
               "id": "33e0bce0-13df-4ffc-be9d-f1a79e795e1c",
               "name": {
                 "value": "Boizenburg"
@@ -576,12 +546,6 @@
               }
             },
             {
-              "id": "bec8a6a5-c3de-4322-856a-870ceb992fe4",
-              "name": {
-                "value": "Bramsche"
-              }
-            },
-            {
               "id": "*16d180c2-63aa-486b-8966-81a6041360bc",
               "name": {
                 "value": "Brandenburg"
@@ -633,12 +597,6 @@
               "id": "610ab204-d3c4-4a11-a38b-e31461fdcf27",
               "name": {
                 "value": "Brokdorf"
-              }
-            },
-            {
-              "id": "1125a391-6586-4951-865f-3a2c72f2c81a",
-              "name": {
-                "value": "Broxten"
               }
             },
             {
@@ -788,10 +746,7 @@
             {
               "id": "b7e238e8-29ec-4522-8252-b2cae7d4f58e",
               "name": {
-                "value": "Demmin Meyenkrebsbrücke",
-                "synonyms": [
-                  "Demmin"
-                ]
+                "value": "Demmin"
               }
             },
             {
@@ -1035,6 +990,12 @@
               }
             },
             {
+              "id": "ee861944-647f-4242-bf61-60f9b9d75fb7",
+              "name": {
+                "value": "Enkirch"
+              }
+            },
+            {
               "id": "99619dc5-9c88-45e9-a97d-653c41cda8a1",
               "name": {
                 "value": "Erlau"
@@ -1053,6 +1014,12 @@
               }
             },
             {
+              "id": "583420a8-8903-485e-8c35-003814506838",
+              "name": {
+                "value": "Fankel"
+              }
+            },
+            {
               "id": "cca92e6d-e2c3-4c5f-be56-5b8682b353eb",
               "name": {
                 "value": "Farge"
@@ -1067,7 +1034,7 @@
             {
               "id": "a5902c55-6ff4-4bbe-88a1-ebba45b03cec",
               "name": {
-                "value": "Findshier"
+                "value": "Findenwirunshier"
               }
             },
             {
@@ -1128,12 +1095,6 @@
               "id": "3a8ed45f-28e7-4263-8437-d926c6a194f4",
               "name": {
                 "value": "Fuestrup"
-              }
-            },
-            {
-              "id": "eaedd67b-723b-4800-a1ae-56341b0d9e22",
-              "name": {
-                "value": "Fuhse Ost"
               }
             },
             {
@@ -1311,18 +1272,6 @@
               }
             },
             {
-              "id": "ac970eb0-f5cf-4db0-90f0-e281f5d4775c",
-              "name": {
-                "value": "Hahlen"
-              }
-            },
-            {
-              "id": "90d92801-c13c-4b1a-8885-83d1a07d6db8",
-              "name": {
-                "value": "Haldensleben"
-              }
-            },
-            {
               "id": "706e5110-c5e2-4915-9989-c071fcb492ec",
               "name": {
                 "value": "Hamburg Harburg"
@@ -1344,12 +1293,6 @@
               "id": "*4dbce62d-a015-4011-afcd-423bb8d4b7a1",
               "name": {
                 "value": "Hamm"
-              }
-            },
-            {
-              "id": "27dfd137-3b88-42e8-9baf-6bee76e0717c",
-              "name": {
-                "value": "Hannover List"
               }
             },
             {
@@ -1476,12 +1419,6 @@
               "id": "a26e57c9-1cb8-4fca-ba80-9e02abc81df8",
               "name": {
                 "value": "Hitzacker"
-              }
-            },
-            {
-              "id": "6c7c180f-6dc1-4c4d-97bd-814080df8bcf",
-              "name": {
-                "value": "Hoerstel"
               }
             },
             {
@@ -1647,7 +1584,7 @@
               }
             },
             {
-              "id": "*a869dd39-dcf7-46f2-b9bf-b210816109ac",
+              "id": "4457a320-1f99-4352-8a43-ff24109d99ea",
               "name": {
                 "value": "Kannenburg"
               }
@@ -1800,12 +1737,6 @@
               }
             },
             {
-              "id": "c0f33a36-cac4-4e47-a3f5-d1863c2f0f99",
-              "name": {
-                "value": "Koserow"
-              }
-            },
-            {
               "id": "36243256-7786-4e69-922f-50785d8904bf",
               "name": {
                 "value": "Kotthausen"
@@ -1899,6 +1830,12 @@
               "id": "f099ce74-1a3d-4d47-9810-75c2b1b178b6",
               "name": {
                 "value": "Leesenbrueck"
+              }
+            },
+            {
+              "id": "dc1bb420-ec60-4bc3-bce2-b3869a2513df",
+              "name": {
+                "value": "Lehmen"
               }
             },
             {
@@ -1998,18 +1935,6 @@
               }
             },
             {
-              "id": "516c4814-d70b-47bf-99bf-a76844b94e5e",
-              "name": {
-                "value": "Lohnde"
-              }
-            },
-            {
-              "id": "c2aa9164-1073-4271-82ef-44344fbe456e",
-              "name": {
-                "value": "Luebbecke"
-              }
-            },
-            {
               "id": "f4f9f7fb-eeff-46dc-9727-04d8aa56240a",
               "name": {
                 "value": "Lübeck Bauhof"
@@ -2037,12 +1962,6 @@
               "id": "d7a8df36-2978-45b8-99d1-76d84cf34c01",
               "name": {
                 "value": "Lüne"
-              }
-            },
-            {
-              "id": "c7364d1e-6139-4575-84cb-b420d21275c4",
-              "name": {
-                "value": "Lüneburg"
               }
             },
             {
@@ -2139,12 +2058,6 @@
               }
             },
             {
-              "id": "be05603a-83e4-48d4-90d9-e074b7d34dcd",
-              "name": {
-                "value": "Mehrum"
-              }
-            },
-            {
               "id": "24440872-5bd2-4fb3-8554-907b49816c49",
               "name": {
                 "value": "Meissen"
@@ -2178,6 +2091,12 @@
               "id": "46644438-83d6-4da8-a2a1-1deb2cb67561",
               "name": {
                 "value": "Mölln"
+              }
+            },
+            {
+              "id": "edc67ca3-b597-402a-9037-ff39ee816452",
+              "name": {
+                "value": "Müden"
               }
             },
             {
@@ -2283,12 +2202,6 @@
               }
             },
             {
-              "id": "864a8111-d0c1-4b74-b94e-515f0869355e",
-              "name": {
-                "value": "Nienbruegge"
-              }
-            },
-            {
               "id": "ace7d4b0-33e5-46db-a41d-2fa7a321f67a",
               "name": {
                 "value": "Nienburg (Saale)"
@@ -2364,12 +2277,6 @@
               "id": "c1f059dd-5063-468a-9dfa-0360fe0b030d",
               "name": {
                 "value": "Oslebshausen"
-              }
-            },
-            {
-              "id": "6c5b6422-126d-4bf0-8856-7b86d74ea1b3",
-              "name": {
-                "value": "Osloss"
               }
             },
             {
@@ -2565,12 +2472,6 @@
               }
             },
             {
-              "id": "7af19499-8bc8-4a91-964d-88618ea8998a",
-              "name": {
-                "value": "Recke"
-              }
-            },
-            {
               "id": "2f025389-fac8-4557-94d3-7d0428878c86",
               "name": {
                 "value": "Rees"
@@ -2661,18 +2562,6 @@
               }
             },
             {
-              "id": "6288de60-38be-4291-9ff6-dcf6c0f58cea",
-              "name": {
-                "value": "Rodenberger Aue Ost"
-              }
-            },
-            {
-              "id": "eb24b5a3-5102-429b-93a9-15656fee850f",
-              "name": {
-                "value": "Rodenberger Aue West"
-              }
-            },
-            {
               "id": "133f0f6c-2ca1-4798-9360-5b5f417dd839",
               "name": {
                 "value": "Rogätz"
@@ -2718,12 +2607,6 @@
               }
             },
             {
-              "id": "4ed5f6da-b7a0-4431-ab1f-1a26e69a21bc",
-              "name": {
-                "value": "Ruehen"
-              }
-            },
-            {
               "id": "6629a4ca-4e2e-40b8-a66c-964d906c6911",
               "name": {
                 "value": "Ruhlsdorf"
@@ -2733,12 +2616,6 @@
               "id": "12a3037f-cbf3-49d3-8da5-77fb38730bba",
               "name": {
                 "value": "Ruhrwehr"
-              }
-            },
-            {
-              "id": "c1f06401-9488-4a27-b932-59cce52c5819",
-              "name": {
-                "value": "Rusbend"
               }
             },
             {
@@ -2769,6 +2646,12 @@
               "id": "f4c55f77-ab80-4e00-bed3-aa6631aba074",
               "name": {
                 "value": "Sandau"
+              }
+            },
+            {
+              "id": "20640279-2334-4acd-afb5-c8f3afc18379",
+              "name": {
+                "value": "Sankt Aldegund"
               }
             },
             {
@@ -2916,12 +2799,6 @@
               }
             },
             {
-              "id": "ab0d9117-83f3-412d-bce5-b3e698246c0b",
-              "name": {
-                "value": "Sehnde"
-              }
-            },
-            {
               "id": "2cb8ae5b-c5c9-4fa8-bac0-bb724f2754f4",
               "name": {
                 "value": "Speyer"
@@ -3006,12 +2883,6 @@
               }
             },
             {
-              "id": "*a8604e8f-9330-4431-8cf6-0a68fc793c82",
-              "name": {
-                "value": "Sülfeld"
-              }
-            },
-            {
               "id": "13e91b77-90f3-41a5-a320-641748e9c311",
               "name": {
                 "value": "Tangermünde"
@@ -3033,12 +2904,6 @@
               "id": "d1c9bb3c-2929-46a8-a338-adfddf0ef524",
               "name": {
                 "value": "Thiessow"
-              }
-            },
-            {
-              "id": "42b865fb-5dd8-4204-a7aa-260704d69e21",
-              "name": {
-                "value": "Thune"
               }
             },
             {
@@ -3153,18 +3018,6 @@
               }
             },
             {
-              "id": "dbb2bb9f-0f80-4df4-9d5c-98af2ee41826",
-              "name": {
-                "value": "Vorsfelde"
-              }
-            },
-            {
-              "id": "314ef522-a060-4033-ba14-8169dd26bb8d",
-              "name": {
-                "value": "Wahmbeck"
-              }
-            },
-            {
               "id": "facc5c16-f700-4248-9893-a395bffaf2e4",
               "name": {
                 "value": "Waltrop"
@@ -3186,12 +3039,6 @@
               "id": "*05ca0e33-5c71-4368-b824-2243fcff656c",
               "name": {
                 "value": "Wanne Eickel Schleuse"
-              }
-            },
-            {
-              "id": "2f1080ba-97a2-40b3-af4e-3ac3d53d27de",
-              "name": {
-                "value": "Warber Graben"
               }
             },
             {
@@ -3330,12 +3177,6 @@
               "id": "cbf3cd49-91bd-49cc-8926-ccc6c0e7eca4",
               "name": {
                 "value": "Wittenberge"
-              }
-            },
-            {
-              "id": "9cf795ce-8bdf-494b-b8c6-ef1bfb89c08b",
-              "name": {
-                "value": "Wittingen"
               }
             },
             {
@@ -3859,11 +3700,6 @@
             {
               "name": {
                 "value": "Spree-Oder-Wasserstraße"
-              }
-            },
-            {
-              "name": {
-                "value": "Stichkanal Hildesheim"
               }
             },
             {
