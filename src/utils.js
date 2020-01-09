@@ -10,7 +10,7 @@ function pad(minutes) {
 
 var exports = module.exports = {};
 
-exports.normalizeStation = (name, water) => {
+exports.normalizeStation = (name, water, addVariantToName = false) => {
     // AwK => '' (remove leading Achterwehrer Schifffahrtskanal)
     // Bhv => Bremerhaven
     // Eisenhüttenstadt Schl. => Schleuse
@@ -132,7 +132,7 @@ exports.normalizeStation = (name, water) => {
         name = name.replace(' stadt', '');
         variant = 'Stadt';
 
-    // TODO Nord/Ost/West ...
+        // TODO Nord/Ost/West ...
     } else if (name.endsWith(' mpm')) {
         name = name.replace(' mpm', ''); // TODO: Mpm???
     } else if (name.endsWith(' wd')) {
@@ -140,7 +140,7 @@ exports.normalizeStation = (name, water) => {
     } else if (name.endsWith(' ams')) {
         name = name.replace(' ams', ''); // TODO: Ams???
 
-    // The following cases are no variants, just specifiers
+        // The following cases are no variants, just specifiers
     } else if (name.endsWith(' nh')) {
         name = name.replace(' nh', ' neuer hafen');
     } else if (name.endsWith(' nok')) {
@@ -160,6 +160,9 @@ exports.normalizeStation = (name, water) => {
         return str.slice(0, i) + str.charAt(i).toUpperCase() + str.slice(i + 1);
     }).join(' ');
 
+    if (addVariantToName && variant) {
+        name = name + ' ' + variant;
+    }
     return { name: name, variant: variant };
 };
 

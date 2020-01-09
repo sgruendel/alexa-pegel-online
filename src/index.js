@@ -181,7 +181,7 @@ const QueryWaterLevelIntentHandler = {
                     variant = stationVariant.variant;
                     uuidForWater = result[0].uuid;
                 } else if (size <= 5) {
-                    const prompt = getElicitSlotPrompt('Welche Messstelle', result, elt => { return utils.normalizeStation(elt.longname, water).name; });
+                    const prompt = getElicitSlotPrompt('Welche Messstelle', result, elt => { return utils.normalizeStation(elt.longname, water, true).name; });
                     logger.info('eliciting station slot: ' + prompt);
                     return handlerInput.responseBuilder
                         .speak(prompt)
