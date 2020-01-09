@@ -306,6 +306,24 @@ describe('Pegel Online Skill', () => {
             },
             {
                 request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: '', water: 'oranienburger kanal' }),
+                    'water', LIST_OF_WATERS, 'Oranienburger Kanal'),
+                elicitsSlot: 'station',
+                says: 'Welche Messstelle, Sachsenhausen Unterpegel oder Sachsenhausen Oberpegel?',
+                reprompts: 'Welche Messstelle, Sachsenhausen Unterpegel oder Sachsenhausen Oberpegel?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: '', water: 'datteln-hamm-kanal' }),
+                    'water', LIST_OF_WATERS, 'Datteln-Hamm-Kanal'),
+                elicitsSlot: 'station',
+                says: 'Welche Messstelle, Waltrop, Hamm Unterwasser, Hamm Oberwasser oder Werries Oberwasser?',
+                reprompts: 'Welche Messstelle, Waltrop, Hamm Unterwasser, Hamm Oberwasser oder Werries Oberwasser?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: '', water: 'rhein' }),
                     'water', LIST_OF_WATERS, 'Rhein'),
                 elicitsSlot: 'station',
