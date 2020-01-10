@@ -16,7 +16,6 @@ describe('manager', () => {
             expect(result.currentMeasurement.trend).to.be.a('number');
         });
 
-        /*
         it('should remove +NN in unit', async function() {
             const result = await manager.getCurrentMeasurement('6760b547-a7e7-408a-b3aa-529fe376bfcd');
             expect(result.unit).to.not.contain('+NN');
@@ -26,6 +25,5 @@ describe('manager', () => {
             const result = await manager.getCurrentMeasurement('6760b547-a7e7-408a-b3aa-529fe376bfcd');
             expect(result.currentMeasurement.timestamp).to.not.contain('+');
         });
-        */
     });
 });

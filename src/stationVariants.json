@@ -7,6 +7,10 @@
     "Oberpegel:9fb9abce-e1ac-4c11-94b2-a32d63f6fb40",
     "Unterpegel:93ddc1e6-072c-45f6-99c0-d7d7df9d39cf"
   ],
+  "Anderten": [
+    "Oberwasser:bc20d819-1782-4588-885d-129f21a27cf9",
+    "Unterwasser:dd41a7d6-9b11-4ec4-9518-388266750cfa"
+  ],
   "Bahnitz": [
     "Oberpegel:6c76e98e-44ca-4d25-91e7-b07c68577c5e",
     "Unterpegel:1ebd0f94-cc06-445c-8e73-43fe2b8c72dc"
@@ -31,7 +35,7 @@
     "Oberpegel:24ce3282-39dd-4f2f-ba80-9676e59de7c7",
     "Unterpegel:c42ad3df-cfe3-4dca-9dcf-dbbaac569a2f"
   ],
-  "Berlin Ploetzensee": [
+  "Berlin Plötzensee": [
     "Oberpegel:ee52ce62-212c-4735-b438-26fbdc37e3e2",
     "Unterpegel:45721a68-566c-4e2a-a6c7-a7595982a779"
   ],
@@ -196,6 +200,10 @@
     "Oberpegel:6f81b35f-8339-4012-8029-ca193403e52c",
     "Unterpegel:79d783d3-e423-4c6d-b914-d7b7d161a89f"
   ],
+  "Lüneburg": [
+    "Oberwasser:c7364d1e-6139-4575-84cb-b420d21275c4",
+    "Unterwasser:d18033cd-9cf6-4800-9176-57758bb444dc"
+  ],
   "Malliss": [
     "Oberpegel:497c29ee-32b2-4535-ac5f-3881a106c793",
     "Unterpegel:a64918a6-e6f5-495e-ad2d-a8e3655c9424"
@@ -291,6 +299,10 @@
   "Stör Sperrwerk": [
     "Außenpegel:d9acdbec-61ff-4308-978a-2f4d1c2c4059",
     "Binnenpegel:e5b8e9f3-f0cc-4ad7-8707-577ee1b25b3e"
+  ],
+  "Sülfeld": [
+    "Oberwasser:a8604e8f-9330-4431-8cf6-0a68fc793c82",
+    "Unterwasser:892183d6-3a28-4347-afb4-bc89602ca927"
   ],
   "Templin": [
     "Oberpegel:71357738-c8e2-4cb7-a41a-365659bb8d58",
