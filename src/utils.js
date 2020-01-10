@@ -13,38 +13,69 @@ var exports = module.exports = {};
 exports.normalizeStation = (name, water, addVariantToName = false) => {
     // AwK => '' (remove leading Achterwehrer Schifffahrtskanal)
     // Bhv => Bremerhaven
+    // Buessau => Büssau
     // Eisenhüttenstadt Schl. => Schleuse
     // Frankfurt1 (oder) => Frankfurt (Oder)
     // Fuerstenwalde => Fürstenwalde
     // Giessen => Gießen
+    // Grafenbrueck => Grafenbrück
+    // Gueritz => Güritz
     // Hann. Münden => Hannoversch Münden
     // Hann. => Hannover
+    // Hoerstel => Hörstel
+    // Huntebrueck => Huntebrück
+    // Leesenbreuck => Leesenbrück
     // Lt => Leuchtturm
+    // Luebbecke => Lübbecke
     // Lueneburg => Lüneburg
+    // Nienbruegge => Nienbrügge
     // Nok => '' (removing leading Nord-Ostsee-Kanal)
+    // Ploetzensee => Plötzensee
+    // Ragoese => Ragöse
+    // Reithoerne => Reithörne
+    // Ruehen => Rühen
+    // Schl. => Schleuse
+    // Schmoeckwitz => Schmöckwitz
+    // Schoepfurth => Schöpfurth
     // St. => Sankt
     // Shw => Schiffshebewerk
     // strohplao => Strohauser Plate Ost
     // Suelfeld => Sülfeld
+    // Truebengraben => Trübengraben
     // Whv => Wilhelmshaven
     name = name.toLowerCase()
         .replace('aussen', 'außen')
         .replace('awk ', '')
         .replace('bhv ', 'bremerhaven ')
-        .replace('schl.', 'schleuse')
+        .replace('buessau', 'büssau')
         .replace('eisenhuettenstadt', 'eisenhüttenstadt')
         .replace('frankfurt1', 'frankfurt')
         .replace('fuerstenwalde', 'fürstenwalde')
         .replace('giessen', 'gießen')
+        .replace('grafenbrueck', 'grafenbrück')
+        .replace('gueritz', 'güritz')
         .replace('hann.muenden', 'hannoversch münden')
         .replace('hann.', 'hannover ')
+        .replace('hoerstel', 'hörstel')
+        .replace('huntebrueck', 'huntebrück')
+        .replace('leesenbrueck', 'leesenbrück')
         .replace('lt ', 'leuchtturm ')
+        .replace('luebbecke', 'lübbecke')
         .replace('lueneburg', 'lüneburg')
+        .replace('nienbruegge', 'nienbrügge')
         .replace('nok ', '')
+        .replace('ploetzensee', 'plötzensee')
+        .replace('ragoese', 'ragöse')
+        .replace('reithoerne', 'reithörne')
+        .replace('ruehen', 'rühen')
+        .replace('schl.', 'schleuse')
+        .replace('schmoeckwitz', 'schmöckwitz')
+        .replace('schoepfurth', 'schöpfurth')
         .replace('st.', 'sankt ')
         .replace('shw ', 'schiffshebewerk ')
         .replace('strohplao', 'strohauser plate ost')
         .replace('suelfeld', 'sülfeld')
+        .replace('truebengraben', 'trübengraben')
         .replace('whv ', 'wilhelmshaven ');
 
     // replace hyphens, underscores and slashes by spaces as Alexa won't add them to slot values
