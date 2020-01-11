@@ -122,6 +122,8 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
         name = 'elsfleth (' + exports.normalizeWater(water) + ')';
     } else if (name === 'geesthacht') {
         name = 'geesthacht (' + exports.normalizeWater(water) + ')';
+    } else if (name === 'ilmenau') {
+        name = 'ilmenau (' + exports.normalizeWater(water) + ')';
     } else if (name === 'koblenz' || name === 'koblenz up') {
         name = 'koblenz (' + exports.normalizeWater(water) + ')';
     } else if (name === 'konstanz' || name === 'konstanz rhein') {

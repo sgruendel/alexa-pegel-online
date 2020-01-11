@@ -92,6 +92,11 @@ describe('utils', () => {
             expect(result).to.deep.equal({ name: 'Havelberg', variant: 'Stadt' });
         });
 
+        it('should work for Ilmenau (Ilm)', () => {
+            const result = utils.normalizeStation('ILMENAU', 'ILM');
+            expect(result).to.deep.equal({ name: 'Ilmenau (Ilm)', variant: undefined });
+        });
+
         it('should work for Koblenz (Rhein)', () => {
             const result = utils.normalizeStation('KOBLENZ', 'RHEIN');
             expect(result).to.deep.equal({ name: 'Koblenz (Rhein)', variant: undefined });

@@ -1112,7 +1112,7 @@
             {
               "id": "721313e7-935a-4bb8-8c6d-0e014211b2ec",
               "name": {
-                "value": "Friedrichstadt Strassenbrücke"
+                "value": "Friedrichstadt Straßenbrücke"
               }
             },
             {
@@ -1262,19 +1262,19 @@
             {
               "id": "2203fce7-9d1e-4586-84ab-0797468863a1",
               "name": {
-                "value": "Gross Rosenburg"
+                "value": "Groß Rosenburg"
               }
             },
             {
               "id": "*81630fdd-5949-412b-a2e0-d3da8bc8bcda",
               "name": {
-                "value": "Grosse Tränke Wehr"
+                "value": "Große Tränke Wehr"
               }
             },
             {
               "id": "b26bfc88-eb8a-45b9-9dd0-0e41949a2648",
               "name": {
-                "value": "Grosse Weserbrücke"
+                "value": "Große Weserbrücke"
               }
             },
             {
@@ -1586,7 +1586,7 @@
             {
               "id": "003200ab-d138-49d9-aa52-217817941f85",
               "name": {
-                "value": "Ilmenau"
+                "value": "Ilmenau (Ilm)"
               }
             },
             {
@@ -1598,7 +1598,7 @@
             {
               "id": "824a046b-9ca3-4db8-993d-e755122854e0",
               "name": {
-                "value": "Ingolstadt Luitpoldstrasse"
+                "value": "Ingolstadt Luitpoldstraße"
               }
             },
             {
@@ -2087,7 +2087,7 @@
             {
               "id": "*497c29ee-32b2-4535-ac5f-3881a106c793",
               "name": {
-                "value": "Malliss"
+                "value": "Malliß"
               }
             },
             {
@@ -2150,7 +2150,7 @@
             {
               "id": "24440872-5bd2-4fb3-8554-907b49816c49",
               "name": {
-                "value": "Meissen"
+                "value": "Meißen"
               }
             },
             {
@@ -2216,7 +2216,7 @@
             {
               "id": "30739ff3-9d71-4e38-991c-0f7a2f54ed2d",
               "name": {
-                "value": "Neu Kalliss"
+                "value": "Neu Kaliß"
               }
             },
             {
@@ -2378,7 +2378,7 @@
             {
               "id": "6c5b6422-126d-4bf0-8856-7b86d74ea1b3",
               "name": {
-                "value": "Osloss"
+                "value": "Osloß"
               }
             },
             {
@@ -2688,12 +2688,6 @@
               }
             },
             {
-              "id": "e97116a4-7d30-4671-8ba1-cdce0a153d1d",
-              "name": {
-                "value": "Rosslau"
-              }
-            },
-            {
               "id": "*ca0e4a68-bd50-494c-bd45-abb33c5e1b0a",
               "name": {
                 "value": "Rostock Mühlendamm"
@@ -2718,6 +2712,12 @@
               "id": "e30f2e83-b80b-4b96-8f39-fa60317afcc7",
               "name": {
                 "value": "Rothensee"
+              }
+            },
+            {
+              "id": "e97116a4-7d30-4671-8ba1-cdce0a153d1d",
+              "name": {
+                "value": "Roßlau"
               }
             },
             {
@@ -2837,7 +2837,7 @@
             {
               "id": "36fb2c81-5fc0-4f2c-8f37-347c822a4b59",
               "name": {
-                "value": "Schlossbrücke Mülheim"
+                "value": "Schloßbrücke Mülheim"
               }
             },
             {
@@ -3527,7 +3527,7 @@
             },
             {
               "name": {
-                "value": "Dyhrssenmoor"
+                "value": "Dyhrrsenmoor"
               }
             },
             {
