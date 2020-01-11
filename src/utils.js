@@ -19,26 +19,34 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
     // Fuerstenwalde => Fürstenwalde
     // Giessen => Gießen
     // Grafenbrueck => Grafenbrück
+    // Gross => Groß
     // Gueritz => Güritz
     // Hann. Münden => Hannoversch Münden
     // Hann. => Hannover
     // Hoerstel => Hörstel
     // Huntebrueck => Huntebrück
+    // Kalliss => Kaliß (typo in WSV data)
     // Leesenbreuck => Leesenbrück
     // Lt => Leuchtturm
     // Luebbecke => Lübbecke
     // Lueneburg => Lüneburg
+    // Malliss => Malliß
+    // Meissen => Meißen
     // Nienbruegge => Nienbrügge
     // Nok => '' (removing leading Nord-Ostsee-Kanal)
+    // Osloss => Osloß
     // Ploetzensee => Plötzensee
     // Ragoese => Ragöse
     // Reithoerne => Reithörne
+    // Rosslau => Roßlau
     // Ruehen => Rühen
     // Schl. => Schleuse
+    // Schloss => Schloß
     // Schmoeckwitz => Schmöckwitz
     // Schoepfurth => Schöpfurth
-    // St. => Sankt
     // Shw => Schiffshebewerk
+    // St. => Sankt
+    // Strasse => Straße
     // strohplao => Strohauser Plate Ost
     // Suelfeld => Sülfeld
     // Truebengraben => Trübengraben
@@ -53,26 +61,34 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
         .replace('fuerstenwalde', 'fürstenwalde')
         .replace('giessen', 'gießen')
         .replace('grafenbrueck', 'grafenbrück')
+        .replace('gross', 'groß')
         .replace('gueritz', 'güritz')
         .replace('hann.muenden', 'hannoversch münden')
         .replace('hann.', 'hannover ')
         .replace('hoerstel', 'hörstel')
         .replace('huntebrueck', 'huntebrück')
+        .replace('kalliss', 'kaliß')
         .replace('leesenbrueck', 'leesenbrück')
         .replace('lt ', 'leuchtturm ')
         .replace('luebbecke', 'lübbecke')
         .replace('lueneburg', 'lüneburg')
+        .replace('malliss', 'malliß')
+        .replace('meissen', 'meißen')
         .replace('nienbruegge', 'nienbrügge')
         .replace('nok ', '')
+        .replace('osloss', 'osloß')
         .replace('ploetzensee', 'plötzensee')
         .replace('ragoese', 'ragöse')
         .replace('reithoerne', 'reithörne')
+        .replace('rosslau', 'roßlau')
         .replace('ruehen', 'rühen')
         .replace('schl.', 'schleuse')
+        .replace('schloss', 'schloß')
         .replace('schmoeckwitz', 'schmöckwitz')
         .replace('schoepfurth', 'schöpfurth')
-        .replace('st.', 'sankt ')
         .replace('shw ', 'schiffshebewerk ')
+        .replace('st.', 'sankt ')
+        .replace('strasse', 'straße')
         .replace('strohplao', 'strohauser plate ost')
         .replace('suelfeld', 'sülfeld')
         .replace('truebengraben', 'trübengraben')
@@ -199,6 +215,7 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
 
 exports.normalizeWater = water => {
     water = water.toLowerCase()
+        .replace('dyhrssenmoor', 'dyhrrsenmoor') // (typo in WSV data)
         .replace('gewaesser', 'gewässer')
         .replace('strasse', 'straße')
         // capitalize letters after hyphens
