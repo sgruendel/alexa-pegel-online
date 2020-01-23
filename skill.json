@@ -3,7 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:14",
+          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:15",
           "sourceDir": "src"
         },
         "interfaces": [
@@ -45,11 +45,11 @@
             "pegelstand",
             "pegelonline"
           ],
-          "updatesDescription": "korrekte Behandlung der nicht-eindeutigen Messstellen Geesthacht, Eisenhüttenstadt, Calbe, Elsfleth und Havelberg"
+          "updatesDescription": "korrekte Behandlung der nicht-eindeutigen Messstelle Ilmenau (Gewässer/Stadt)"
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 13):\n* Korrektur von Umlauten bei Messstellen\n* Aktualisierte Messstellen",
+      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 14):\n* Korrektur von 'ss'/'ß' bei Messstellen\n* Unterscheidung Ilmenau Gewässer/Stadt\n* Aktualisierte Messstellen",
       "category": "WEATHER",
       "distributionCountries": []
     }
