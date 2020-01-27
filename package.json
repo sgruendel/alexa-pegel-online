@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "invoke": "aws lambda invoke --function-name pegelOnline --payload fileb://test/events/alexa-start-session.json test/out.txt && cat test/out.txt",
-    "test:unit": "nyc --reporter=lcov --reporter=text mocha --timeout=5000 test/unit/*",
+    "test:unit": "nyc --reporter=lcov --reporter=text mocha --timeout=7000 test/unit/*",
     "test:integration": "mocha --timeout=20000 test/integration/*",
     "test": "npm run test:unit",
     "deploy-lambda": "npm prune --production && npm run lambda-zip && npm run lambda-update && npm install",
