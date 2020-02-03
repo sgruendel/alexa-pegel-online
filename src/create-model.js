@@ -45,7 +45,7 @@ function addStation(station, listOfStations, listOfVariants) {
         return s.name.value === long.name;
     });
     if (index < 0) {
-        var stationValue = {
+        let stationValue = {
             id: getId(variant, station.uuid),
             name: { value: long.name },
         };
@@ -64,7 +64,7 @@ function addStation(station, listOfStations, listOfVariants) {
         }
         listOfStations.push(stationValue);
     } else {
-        stationValue = listOfStations[index];
+        let stationValue = listOfStations[index];
         stationValue.id += ',' + getId(variant, station.uuid);
         if (short.name !== long.name) {
             if (!stationValue.name.synonyms.includes(short.name)) {
@@ -85,9 +85,9 @@ async function createModel() {
     const getStations = pegelonline.getStations();
     const getWaters = pegelonline.getWaters();
 
-    var listOfStations = [];
-    var listOfVariants = [];
-    var measurementChecks = [];
+    let listOfStations = [];
+    let listOfVariants = [];
+    let measurementChecks = [];
     getStations
         .then(stations => {
             stations.forEach(station => {
@@ -101,7 +101,7 @@ async function createModel() {
             });
         });
 
-    var listOfWaters = [];
+    let listOfWaters = [];
     getWaters
         .then((waters) => {
             waters.forEach(water => {
@@ -111,7 +111,7 @@ async function createModel() {
         });
 
     // read existing interaction model
-    var model = JSON.parse(fs.readFileSync(MODEL_FILE, UTF8));
+    let model = JSON.parse(fs.readFileSync(MODEL_FILE, UTF8));
 
     await getStations;
     await Promise.all(measurementChecks);
@@ -119,7 +119,7 @@ async function createModel() {
     // sort stations by name
     listOfStations.sort(compareValues);
 
-    var stationVariants = {};
+    let stationVariants = {};
     listOfStations = listOfStations.map(station => {
         const ids = station.id.split(',');
         if (ids.length === 1) {

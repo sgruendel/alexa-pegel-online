@@ -145,7 +145,7 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
         name = 'rothenburg (' + exports.normalizeWater(water) + ')' + result[1];
     }
 
-    var variant;
+    let variant;
     // OW/UW/OP/UP ...
     if (name.endsWith(' ow')) {
         name = name.replace(' ow', '');
@@ -204,7 +204,7 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
 
     // capitalize letters after spaces (checking for non letter chars after space, e.g. in "Frankfurt (Oder)")
     name = name.split(' ').map(str => {
-        var i = 0;
+        let i = 0;
         while (i < str.length && !isLetter(str.charAt(i))) i++;
         return str.slice(0, i) + str.charAt(i).toUpperCase() + str.slice(i + 1);
     }).join(' ');
@@ -237,7 +237,7 @@ exports.getTimeDesc = (date, locale, today = new Date()) => {
         return pad(date.getHours()) + ':' + pad(date.getMinutes());
     }
 
-    var yesterday = new Date(today);
+    let yesterday = new Date(today);
     yesterday.setDate(today.getDate() - 1);
     if ((date.getDate()) === yesterday.getDate()) {
         // yesterday, use "yesterday hours:minutes"

@@ -44,7 +44,7 @@ const languageStrings = {
 };
 
 function getElicitSlotPrompt(prefix, values, getNameForElement) {
-    var result = prefix;
+    let result = prefix;
     const size = values.length;
     values.forEach((element, index) => {
         result += ((index === size - 1) ? ' oder ' : ', ') + getNameForElement(element);
@@ -68,7 +68,7 @@ const QueryWaterLevelIntentHandler = {
             && slots.station
             && slots.station.resolutions
             && slots.station.resolutions.resolutionsPerAuthority[0];
-        var station;
+        let station;
         if (rpaStation) {
             switch (rpaStation.status.code) {
             case ER_SUCCESS_NO_MATCH:
@@ -101,7 +101,7 @@ const QueryWaterLevelIntentHandler = {
             && slots.variant
             && slots.variant.resolutions
             && slots.variant.resolutions.resolutionsPerAuthority[0];
-        var variant;
+        let variant;
         if (rpaVariant) {
             switch (rpaVariant.status.code) {
             case ER_SUCCESS_NO_MATCH:
@@ -125,7 +125,7 @@ const QueryWaterLevelIntentHandler = {
             && slots.water
             && slots.water.resolutions
             && slots.water.resolutions.resolutionsPerAuthority[0];
-        var water;
+        let water;
         if (rpaWater) {
             switch (rpaWater.status.code) {
             case ER_SUCCESS_NO_MATCH:
@@ -166,7 +166,7 @@ const QueryWaterLevelIntentHandler = {
                 .getResponse();
         }
 
-        var uuidForWater;
+        let uuidForWater;
         if (!station) {
             try {
                 const result = await manager.getStations(water);
@@ -206,7 +206,7 @@ const QueryWaterLevelIntentHandler = {
         const uuid = uuidForWater || rpaStation.values[0].value.id;
         logger.debug('using station ' + station + ', uuid ' + uuid);
 
-        var uuidForVariant;
+        let uuidForVariant;
         if (uuid.startsWith('*')) {
             // Need to start slot elicitation for variants
             const variantsIds = stationVariants[station];
@@ -231,7 +231,7 @@ const QueryWaterLevelIntentHandler = {
             const result = await manager.getCurrentMeasurement(uuidForVariant || uuid);
 
             result.currentMeasurement.value = result.currentMeasurement.value.toString().replace('.', ',');
-            var currentWaterLevel = requestAttributes.t('CURRENT_WATER_LEVEL_MESSAGE', stationVariant, result.currentMeasurement.value, result.unit);
+            let currentWaterLevel = requestAttributes.t('CURRENT_WATER_LEVEL_MESSAGE', stationVariant, result.currentMeasurement.value, result.unit);
             switch (result.currentMeasurement.trend) {
             case -1:
                 currentWaterLevel += requestAttributes.t('TREND_FALLING');
@@ -253,8 +253,8 @@ const QueryWaterLevelIntentHandler = {
             const speechOutput = currentWaterLevel;
             logger.debug(speechOutput);
 
-            var measurementTime;
-            var cardContent = currentWaterLevel;
+            let measurementTime;
+            let cardContent = currentWaterLevel;
             if (result.currentMeasurement.timestamp) {
                 measurementTime = 'Messung von '
                     + utils.getTimeDesc(

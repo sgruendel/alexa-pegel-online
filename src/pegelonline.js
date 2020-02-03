@@ -13,7 +13,7 @@ const wsvRequest = request.defaults({
 var exports = module.exports = {};
 
 exports.getStations = async water => {
-    var qs = {
+    let qs = {
         prettyprint: false,
     };
     if (water) {
