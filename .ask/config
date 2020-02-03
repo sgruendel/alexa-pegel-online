@@ -6,7 +6,7 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "70c7bd8757acb1bb63a5328a6cea5391"
+          "eTag": "f6c7c4c908b2891f085dd88ad3e31087"
         },
         "interactionModel": {
           "de-DE": {
@@ -15,7 +15,7 @@
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:15",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:16",
             "awsRegion": "eu-west-1",
             "functionName": "pegelOnline",
             "alexaUsage": [
