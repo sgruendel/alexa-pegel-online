@@ -172,6 +172,11 @@ describe('utils', () => {
             expect(result).to.deep.equal({ name: 'Rothenburg (Saale)', variant: 'Unterpegel' });
         });
 
+        it('should work for Waren (Müritz)', () => {
+            const result = utils.normalizeStation('WAREN', 'MÜRITZ-ELDE-WASSERSTRASSE');
+            expect(result).to.deep.equal({ name: 'Waren (Müritz)', variant: undefined });
+        });
+
         it('should work for Oberwasser (OW)', () => {
             const result = utils.normalizeStation('DATTELN SCHLEUSE OW', 'WESEL-DATTELN-KANAL');
             expect(result).to.deep.equal({ name: 'Datteln Schleuse', variant: 'Oberwasser' });

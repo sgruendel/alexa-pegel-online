@@ -143,6 +143,8 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
     } else if (name.match(rothenburg)) {
         const result = rothenburg.exec(name);
         name = 'rothenburg (' + exports.normalizeWater(water) + ')' + result[1];
+    } else if (name === 'waren') {
+        name = 'waren (müritz)';
     }
 
     let variant;
