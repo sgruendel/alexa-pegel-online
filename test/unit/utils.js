@@ -17,6 +17,16 @@ describe('utils', () => {
             expect(result).to.deep.equal({ name: 'Artlenburg (Elbeseitenkanal)', variant: undefined });
         });
 
+        it('should work for Besigheim Seilkrananlage', () => {
+            const result = utils.normalizeStation('BESIGHEIM SKA', 'NECKAR');
+            expect(result).to.deep.equal({ name: 'Besigheim Seilkrananlage', variant: undefined });
+        });
+
+        it('should work for Brunsbüttel Multiparameterstation', () => {
+            const result = utils.normalizeStation('BRUNSBÜTTEL MPM', 'NORD-OSTSEE-KANAL');
+            expect(result).to.deep.equal({ name: 'Brunsbüttel Multiparameterstation', variant: undefined });
+        });
+
         it('should work for Brunsbüttel (Nord-Ostsee-Kanal)', () => {
             const result = utils.normalizeStation('BRUNSBÜTTEL', 'NORD-OSTSEE-KANAL');
             expect(result).to.deep.equal({ name: 'Brunsbüttel (Nord-Ostsee-Kanal)', variant: undefined });
@@ -117,6 +127,11 @@ describe('utils', () => {
             expect(result).to.deep.equal({ name: 'Konstanz (Rhein)', variant: undefined });
         });
 
+        it('should work for Magdeburg', () => {
+            const result = utils.normalizeStation('MAGDEBURG RO NWS', 'ROTHENSEER-VERBINDUNGSKANAL');
+            expect(result).to.deep.equal({ name: 'Magdeburg Rothensee Niedrigwasserschleuse', variant: undefined });
+        });
+
         it('should work for Mannheim (Neckar)', () => {
             const result = utils.normalizeStation('MANNHEIM NECKAR', 'NECKAR');
             expect(result).to.deep.equal({ name: 'Mannheim (Neckar)', variant: undefined });
@@ -170,6 +185,11 @@ describe('utils', () => {
         it('should work for Rothenburg (Saale) UP', () => {
             const result = utils.normalizeStation('ROTHENBURG UP', 'SAALE');
             expect(result).to.deep.equal({ name: 'Rothenburg (Saale)', variant: 'Unterpegel' });
+        });
+
+        it('should work for Schleimünde Seepegel', () => {
+            const result = utils.normalizeStation('SCHLEIMÜNDE SP', 'OSTSEE');
+            expect(result).to.deep.equal({ name: 'Schleimünde Seepegel', variant: undefined });
         });
 
         it('should work for Waren (Müritz)', () => {
