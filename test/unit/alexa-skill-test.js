@@ -155,6 +155,17 @@ describe('Pegel Online Skill', () => {
                 shouldEndSession: false,
             },
             {
+                request: alexaTest.addEntityResolutionsToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'grauerort', variant: '' }),
+                    [
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Grauerort', id: 'ccf0645d-ddad-4c9e-b4f1-dc1f1edb2aa4' },
+                        { slotName: 'station', slotType: LIST_OF_STATIONS, value: 'Grauerort Reede', id: '7398029b-c6a1-484f-b1f6-1afe568ee1e2' },
+                    ]),
+                saysLike: 'Der Wasserstand bei Grauerort beträgt',
+                hasCardTitle: 'Pegel bei Grauerort',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'Halle', variant: '' }),
                     'station', LIST_OF_STATIONS, 'Trotha', '*ea6870dc-507e-4ec4-a38c-cd8a5e8b7025'),

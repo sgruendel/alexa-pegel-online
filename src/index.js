@@ -79,18 +79,21 @@ const QueryWaterLevelIntentHandler = {
                     .getResponse();
 
             case ER_SUCCESS_MATCH:
-                if (rpaStation.values.length > 1) {
-                    const prompt = getElicitSlotPrompt('Welche Messstelle', rpaStation.values, elt => { return elt.value.name; });
-                    logger.info('eliciting station slot: ' + prompt);
-                    return handlerInput.responseBuilder
-                        .speak(prompt)
-                        .reprompt(prompt)
-                        .addElicitSlotDirective(slots.station.name)
-                        .getResponse();
+                // If we have only one match or an exact match, we use it.
+                if (rpaStation.values.length === 1
+                    || rpaStation.values[0].value.name.toLowerCase() === slots.station.value.toLowerCase()) {
+
+                    station = rpaStation.values[0].value.name;
+                    logger.debug('using station ' + station);
+                    break;
                 }
-                station = rpaStation.values[0].value.name;
-                logger.debug('using station ' + station);
-                break;
+                const prompt = getElicitSlotPrompt('Welche Messstelle', rpaStation.values, elt => { return elt.value.name; });
+                logger.info('eliciting station slot: ' + prompt);
+                return handlerInput.responseBuilder
+                    .speak(prompt)
+                    .reprompt(prompt)
+                    .addElicitSlotDirective(slots.station.name)
+                    .getResponse();
 
             default:
                 logger.error('unexpected status code ' + rpaStation.status.code);
@@ -136,18 +139,19 @@ const QueryWaterLevelIntentHandler = {
                     .getResponse();
 
             case ER_SUCCESS_MATCH:
-                if (rpaWater.values.length > 1 && rpaWater.values[0].value.name.toLowerCase() !== slots.water.value) {
-                    const prompt = getElicitSlotPrompt('Welches Gewässer', rpaWater.values, elt => { return elt.value.name; });
-                    logger.info('eliciting water slot: ' + prompt);
-                    return handlerInput.responseBuilder
-                        .speak(prompt)
-                        .reprompt(prompt)
-                        .addElicitSlotDirective(slots.water.name)
-                        .getResponse();
+                // If we have only one match or an exact match, we use it.
+                if (rpaWater.values.length === 1 || rpaWater.values[0].value.name.toLowerCase() === slots.water.value) {
+                    water = rpaWater.values[0].value.name;
+                    logger.debug('using water ' + water);
+                    break;
                 }
-                water = rpaWater.values[0].value.name;
-                logger.debug('using water ' + water);
-                break;
+                const prompt = getElicitSlotPrompt('Welches Gewässer', rpaWater.values, elt => { return elt.value.name; });
+                logger.info('eliciting water slot: ' + prompt);
+                return handlerInput.responseBuilder
+                    .speak(prompt)
+                    .reprompt(prompt)
+                    .addElicitSlotDirective(slots.water.name)
+                    .getResponse();
 
             default:
                 logger.error('unexpected status code ' + rpaWater.status.code);
