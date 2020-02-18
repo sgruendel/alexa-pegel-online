@@ -55,12 +55,14 @@ function addStation(station, listOfStations, listOfVariants) {
         if (short.name === 'Maxau') {
             stationValue.name.synonyms = [ 'Karlsruhe' ];
         } else if (short.name === 'Karlshafen') {
-            stationValue.name.synonyms = ['Bad Karlshafen'];
+            stationValue.name.synonyms = [ 'Bad Karlshafen' ];
         } else if (short.name === 'Rothenburg (Saale)') {
             // Need to add synonym with wrong spelling, as this is what Alexa understands ...
-            stationValue.name.synonyms = ['Rotenburg (Saale)'];
+            stationValue.name.synonyms = [ 'Rotenburg (Saale)' ];
         } else if (short.name === 'Trotha') {
             stationValue.name.synonyms = [ 'Halle' ];
+        } else if (short.name.endsWith(' MPM')) {
+            stationValue.name.synonyms = [ short.name.replace(' MPM', ' Multiparameterstation') ];
         }
         listOfStations.push(stationValue);
     } else {

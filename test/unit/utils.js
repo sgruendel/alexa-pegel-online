@@ -22,9 +22,9 @@ describe('utils', () => {
             expect(result).to.deep.equal({ name: 'Besigheim Seilkrananlage', variant: undefined });
         });
 
-        it('should work for Brunsbüttel Multiparameterstation', () => {
+        it('should work for Brunsbüttel MPM', () => {
             const result = utils.normalizeStation('BRUNSBÜTTEL MPM', 'NORD-OSTSEE-KANAL');
-            expect(result).to.deep.equal({ name: 'Brunsbüttel Multiparameterstation', variant: undefined });
+            expect(result).to.deep.equal({ name: 'Brunsbüttel MPM', variant: undefined });
         });
 
         it('should work for Brunsbüttel (Nord-Ostsee-Kanal)', () => {

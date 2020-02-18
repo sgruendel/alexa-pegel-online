@@ -183,10 +183,9 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
         name = name.replace(' stadt', '');
         variant = 'Stadt';
 
-    } else if (name.endsWith(' mpm')) {
-        name = name.replace(' mpm', ' multiparameterstation');
-
         // The following cases are no variants, just specifiers
+    } else if (name.endsWith(' mpm')) {
+        name = name.replace(' mpm', ' MPM'); // Multiparameterstation, is added as synonym later
     } else if (name.endsWith(' nh')) {
         name = name.replace(' nh', ' neuer hafen');
     } else if (name.endsWith(' ro nws')) {
