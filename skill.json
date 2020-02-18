@@ -3,7 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:16",
+          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:17",
           "sourceDir": "src"
         },
         "interfaces": [
@@ -45,11 +45,11 @@
             "pegelstand",
             "pegelonline"
           ],
-          "updatesDescription": "korrekte Behandlung der nicht-eindeutigen Messstelle Ilmenau (Gewässer/Stadt)"
+          "updatesDescription": "korrekte Behandlung der nicht-eindeutigen Messstelle Grauerort und Krautsand"
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 15):\n* Aktualisierte Messstellen",
+      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 16):\n* aktualisierte Messstellen\n* erweitertes Dialogmodel",
       "category": "WEATHER",
       "distributionCountries": []
     }
