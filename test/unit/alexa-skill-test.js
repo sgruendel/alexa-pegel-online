@@ -280,6 +280,17 @@ describe('Pegel Online Skill', () => {
                 hasCardTitle: 'Pegel bei Wittorf Oberpegel',
                 repromptsNothing: true, shouldEndSession: true,
             },
+            // there are periodic invocations where someone queries a station and a water, but the water is matched as variant
+            {
+                request: alexaTest.addEntityResolutionNoMatchToRequest(
+                    alexaTest.addEntityResolutionToRequest(
+                        alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'höxter', variant: 'weser' }),
+                        'station', LIST_OF_STATIONS, 'Höxter', '763633e7-3b4b-470a-978e-f9e456e4df7c'),
+                    'variant', LIST_OF_VARIANTS, 'weser'),
+                saysLike: 'Der Wasserstand bei Höxter beträgt',
+                hasCardTitle: 'Pegel bei Höxter',
+                repromptsNothing: true, shouldEndSession: true,
+            },
         ]);
     });
 
@@ -345,6 +356,18 @@ describe('Pegel Online Skill', () => {
                     ]),
                 saysLike: 'Es gibt zu viele Messstellen an diesem Gewässer, bitte nenne eine konkrete, z.B. ',
                 reprompts: 'Welche Messstelle?',
+                shouldEndSession: false,
+            },
+            {
+                request: alexaTest.addEntityResolutionsToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: '', water: 'verbindungskanal' }),
+                    [
+                        { slotName: 'water', slotType: LIST_OF_WATERS, value: 'Niegripper Verbindungskanal' },
+                        { slotName: 'water', slotType: LIST_OF_WATERS, value: 'Verbindungskanal Hohensaaten' },
+                    ]),
+                elicitsSlot: 'water',
+                says: 'Welches Gewässer, Niegripper Verbindungskanal oder Verbindungskanal Hohensaaten?',
+                reprompts: 'Welches Gewässer, Niegripper Verbindungskanal oder Verbindungskanal Hohensaaten?',
                 shouldEndSession: false,
             },
             {
