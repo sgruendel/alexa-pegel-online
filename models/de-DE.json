@@ -52,6 +52,7 @@
           "samples": [
             "{station}",
             "{station} {variant}",
+            "{station} {water}",
             "am {station}",
             "am {station} {variant}",
             "auf {station}",
@@ -3211,6 +3212,12 @@
               "id": "26656fda-cacf-4e92-9935-3ae6e717fe5b",
               "name": {
                 "value": "Wangerooge Ost"
+              }
+            },
+            {
+              "id": "70039212-c8a8-43fc-82a5-150d95831772",
+              "name": {
+                "value": "Wangerooge West"
               }
             },
             {
