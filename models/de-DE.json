@@ -1537,7 +1537,10 @@
             {
               "id": "fac30fe9-a39c-445a-84de-637a199f1dfa",
               "name": {
-                "value": "Hooksielplate"
+                "value": "Hooksielplate",
+                "synonyms": [
+                  "Hooksiel"
+                ]
               }
             },
             {
@@ -1667,7 +1670,7 @@
               }
             },
             {
-              "id": "*a869dd39-dcf7-46f2-b9bf-b210816109ac",
+              "id": "4457a320-1f99-4352-8a43-ff24109d99ea",
               "name": {
                 "value": "Kannenburg"
               }
@@ -2836,7 +2839,11 @@
             {
               "id": "b1cda5a0-115f-4976-a0a6-9d427ff6dceb",
               "name": {
-                "value": "Schillig"
+                "value": "Schillig",
+                "synonyms": [
+                  "Horumersiel",
+                  "Wangersiel"
+                ]
               }
             },
             {
