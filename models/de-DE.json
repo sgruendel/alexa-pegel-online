@@ -959,12 +959,6 @@
               }
             },
             {
-              "id": "*42805eb1-aca9-4f32-a373-24a9cf839aed",
-              "name": {
-                "value": "Eichhorst"
-              }
-            },
-            {
               "id": "*04acd7e5-3cbc-4cdd-b4a9-f452e868f4d6",
               "name": {
                 "value": "Eider Sperrwerk"
@@ -1580,12 +1574,6 @@
               }
             },
             {
-              "id": "6c7c180f-6dc1-4c4d-97bd-814080df8bcf",
-              "name": {
-                "value": "Hörstel"
-              }
-            },
-            {
               "id": "763633e7-3b4b-470a-978e-f9e456e4df7c",
               "name": {
                 "value": "Höxter"
@@ -1820,6 +1808,12 @@
               "id": "e020e651-e422-46d3-ae28-34887c5a4a8e",
               "name": {
                 "value": "Konstanz (Rhein)"
+              }
+            },
+            {
+              "id": "c0f33a36-cac4-4e47-a3f5-d1863c2f0f99",
+              "name": {
+                "value": "Koserow"
               }
             },
             {
@@ -2119,7 +2113,10 @@
             {
               "id": "57090802-c51a-4d09-8340-b4453cd0e1f5",
               "name": {
-                "value": "Mannheim (Rhein)"
+                "value": "Mannheim (Rhein)",
+                "synonyms": [
+                  "Ludwigshafen"
+                ]
               }
             },
             {
@@ -2597,12 +2594,6 @@
               "id": "116572da-c036-4486-ac18-a92932424e30",
               "name": {
                 "value": "Rechtenfleth"
-              }
-            },
-            {
-              "id": "7af19499-8bc8-4a91-964d-88618ea8998a",
-              "name": {
-                "value": "Recke"
               }
             },
             {
@@ -3949,11 +3940,6 @@
             {
               "name": {
                 "value": "Wentow-Gewässer"
-              }
-            },
-            {
-              "name": {
-                "value": "Werbelliner Gewässer"
               }
             },
             {
