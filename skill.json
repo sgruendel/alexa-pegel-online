@@ -49,7 +49,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 18):\n* aktualisierte Messstellen und Synonyme",
+      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 19):\n* aktualisierte Messstellen und Synonyme",
       "category": "WEATHER",
       "distributionCountries": []
     }
