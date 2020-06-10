@@ -815,12 +815,6 @@
               }
             },
             {
-              "id": "dc344605-c507-4054-b4e3-293cf0602bc4",
-              "name": {
-                "value": "Detzem"
-              }
-            },
-            {
               "id": "3d276f8d-a38c-407b-9727-b2a77b06284b",
               "name": {
                 "value": "Dgw1"
@@ -956,6 +950,12 @@
               "id": "c6e9f744-4dbf-4e8e-a219-cab051ec610c",
               "name": {
                 "value": "Edertalsperre"
+              }
+            },
+            {
+              "id": "*42805eb1-aca9-4f32-a373-24a9cf839aed",
+              "name": {
+                "value": "Eichhorst"
               }
             },
             {
@@ -1145,12 +1145,6 @@
               }
             },
             {
-              "id": "eaedd67b-723b-4800-a1ae-56341b0d9e22",
-              "name": {
-                "value": "Fuhse Ost"
-              }
-            },
-            {
               "id": "*2c95f83d-4669-4553-a18d-3f493176d34d",
               "name": {
                 "value": "Fürstenberg"
@@ -1285,7 +1279,10 @@
             {
               "id": "b26bfc88-eb8a-45b9-9dd0-0e41949a2648",
               "name": {
-                "value": "Große Weserbrücke"
+                "value": "Große Weserbrücke",
+                "synonyms": [
+                  "Bremen"
+                ]
               }
             },
             {
@@ -1628,12 +1625,6 @@
               }
             },
             {
-              "id": "33bdec83-6184-4ca5-a075-f44185aef302",
-              "name": {
-                "value": "Jade Weser Port"
-              }
-            },
-            {
               "id": "a3328262-207d-4e65-96d8-202368ca0cb8",
               "name": {
                 "value": "Jarmen"
@@ -1814,12 +1805,6 @@
               "id": "e020e651-e422-46d3-ae28-34887c5a4a8e",
               "name": {
                 "value": "Konstanz (Rhein)"
-              }
-            },
-            {
-              "id": "c0f33a36-cac4-4e47-a3f5-d1863c2f0f99",
-              "name": {
-                "value": "Koserow"
               }
             },
             {
@@ -2162,12 +2147,6 @@
                 "synonyms": [
                   "Karlsruhe"
                 ]
-              }
-            },
-            {
-              "id": "be05603a-83e4-48d4-90d9-e074b7d34dcd",
-              "name": {
-                "value": "Mehrum"
               }
             },
             {
@@ -2955,12 +2934,6 @@
               "id": "816affba-0118-4668-887f-fb882ed573b2",
               "name": {
                 "value": "Seemannshöft"
-              }
-            },
-            {
-              "id": "ab0d9117-83f3-412d-bce5-b3e698246c0b",
-              "name": {
-                "value": "Sehnde"
               }
             },
             {
@@ -3896,11 +3869,6 @@
             },
             {
               "name": {
-                "value": "Stichkanal Hildesheim"
-              }
-            },
-            {
-              "name": {
                 "value": "Storkower Gewässer"
               }
             },
@@ -3952,6 +3920,11 @@
             {
               "name": {
                 "value": "Wentow-Gewässer"
+              }
+            },
+            {
+              "name": {
+                "value": "Werbelliner Gewässer"
               }
             },
             {
