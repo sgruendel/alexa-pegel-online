@@ -52,7 +52,9 @@ function addStation(station, listOfStations, listOfVariants) {
         if (short.name !== long.name) {
             stationValue.name.synonyms = [ short.name ];
         }
-        if (short.name === 'Große Weserbrücke') {
+        if (short.name === 'Althagen') {
+            stationValue.name.synonyms = [ 'Ahrenshoop' ];
+        } else if (short.name === 'Große Weserbrücke') {
             stationValue.name.synonyms = [ 'Bremen' ];
         } else if (short.name === 'Hooksielplate') {
             stationValue.name.synonyms = [ 'Hooksiel' ];

@@ -292,7 +292,10 @@
             {
               "id": "b8d05bf9-2ef2-416d-ba70-b5dba74fe777",
               "name": {
-                "value": "Althagen"
+                "value": "Althagen",
+                "synonyms": [
+                  "Ahrenshoop"
+                ]
               }
             },
             {
@@ -812,6 +815,12 @@
               "id": "a7b1eda9-bed4-4456-8e54-529828cdcbf9",
               "name": {
                 "value": "Detershagen"
+              }
+            },
+            {
+              "id": "dc344605-c507-4054-b4e3-293cf0602bc4",
+              "name": {
+                "value": "Detzem"
               }
             },
             {
