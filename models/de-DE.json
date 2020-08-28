@@ -635,12 +635,6 @@
               }
             },
             {
-              "id": "cf8a3ea2-d5d2-4bf2-ba6b-cf1309d18bb1",
-              "name": {
-                "value": "Bremervörde"
-              }
-            },
-            {
               "id": "610ab204-d3c4-4a11-a38b-e31461fdcf27",
               "name": {
                 "value": "Brokdorf"
@@ -1268,12 +1262,6 @@
               }
             },
             {
-              "id": "69308142-f78e-4877-9af8-e7221b01d303",
-              "name": {
-                "value": "Grevenmacher"
-              }
-            },
-            {
               "id": "2203fce7-9d1e-4586-84ab-0797468863a1",
               "name": {
                 "value": "Groß Rosenburg"
@@ -1400,12 +1388,6 @@
               "id": "*bb6fd2f0-458a-4ea5-aa58-e1c1a2fbd56d",
               "name": {
                 "value": "Havelberg"
-              }
-            },
-            {
-              "id": "e5e02890-87bd-4fab-b590-ffa557c3532e",
-              "name": {
-                "value": "Hechthausen"
               }
             },
             {
@@ -1664,7 +1646,7 @@
               }
             },
             {
-              "id": "4457a320-1f99-4352-8a43-ff24109d99ea",
+              "id": "*a869dd39-dcf7-46f2-b9bf-b210816109ac",
               "name": {
                 "value": "Kannenburg"
               }
@@ -2853,6 +2835,12 @@
               "id": "4e4fac1a-6fb4-4ce2-a041-bdc4a668d95d",
               "name": {
                 "value": "Schleuse Rothensee"
+              }
+            },
+            {
+              "id": "36fb2c81-5fc0-4f2c-8f37-347c822a4b59",
+              "name": {
+                "value": "Schloßbrücke Mülheim"
               }
             },
             {
