@@ -3,7 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:21",
+          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:22",
           "sourceDir": "src"
         },
         "interfaces": [
@@ -49,7 +49,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 20):\n* aktualisierte Messstellen und Synonyme",
+      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 21):\n* aktualisierte Messstellen",
       "category": "WEATHER",
       "distributionCountries": []
     }
