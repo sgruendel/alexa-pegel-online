@@ -27,13 +27,6 @@ describe('pegelonline', () => {
         });
     });
 
-    describe('#getUuidsForWater()', () => {
-        it('should return UUID for Konstanz when querying Bodensee', async() => {
-            const result = await pegelonline.getUuidsForWater('bodensee');
-            expect(result).to.eql(['aa9179c1-17ef-4c61-a48a-74193fa7bfdf']);
-        });
-    });
-
     describe('#getCurrentMeasurement()', () => {
         it('should give current measurement for Würzburg', async() => {
             const result = await pegelonline.getCurrentMeasurement('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');

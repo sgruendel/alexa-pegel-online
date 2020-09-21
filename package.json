@@ -1,6 +1,6 @@
 {
   "name": "alexa-pegel-online",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "description": "Alexa Skill for interacting with http://www.pegelonline.wsv.de",
   "main": "index.js",
   "scripts": {
@@ -30,8 +30,7 @@
     "ask-sdk-model": "1.32.0",
     "i18next": "19.7.0",
     "i18next-sprintf-postprocessor": "0.2.2",
-    "request": "2.88.2",
-    "request-promise-native": "1.0.9",
+    "node-fetch": "2.6.1",
     "winston": "3.3.3"
   },
   "devDependencies": {

@@ -1,61 +1,30 @@
 'use strict';
 
-const request = require('request-promise-native');
+const fetch = require('node-fetch');
 
 const BASE_URL = 'https://www.pegelonline.wsv.de/webservices/rest-api/v2/';
-
-const wsvRequest = request.defaults({
-    baseUrl: BASE_URL,
-    gzip: true,
-    json: true,
-});
 
 var exports = module.exports = {};
 
 exports.getStations = async water => {
-    let qs = {
-        prettyprint: false,
-    };
+    let qs = 'prettyprint=false';
     if (water) {
-        qs.waters = water;
+        qs += '&waters=' + encodeURI(water);
     }
-    const options = {
-        uri: 'stations.json',
-        qs: qs,
-    };
-    return wsvRequest(options);
+    const response = await fetch(BASE_URL + 'stations.json?' + qs);
+    return response.json();
 };
 
-exports.getWaters = async => {
-    const options = {
-        uri: 'waters.json',
-        qs: {
-            prettyprint: false,
-        },
-    };
-    return wsvRequest(options);
-};
-
-exports.getUuidsForWater = async water => {
-    const options = {
-        uri: 'stations.json',
-        qs: {
-            waters: encodeURI(water),
-            prettyprint: false,
-        },
-    };
-    return (await wsvRequest(options)).map(station => { return station.uuid; });
+exports.getWaters = async() => {
+    const qs = 'prettyprint=false';
+    const response = await fetch(BASE_URL + 'waters.json?' + qs);
+    return response.json();
 };
 
 exports.getCurrentMeasurement = async station => {
-    const options = {
-        uri: 'stations/' + encodeURI(station) + '/W.json',
-        qs: {
-            includeCurrentMeasurement: true,
-            prettyprint: false,
-        },
-    };
-    return wsvRequest(options);
+    const qs = 'prettyprint=false&includeCurrentMeasurement=true';
+    const response = await fetch(BASE_URL + 'stations/' + encodeURI(station) + '/W.json?' + qs);
+    return response.json();
 };
 
 exports.getImage = station => {
