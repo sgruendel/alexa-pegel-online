@@ -16,9 +16,14 @@ describe('manager', () => {
             expect(result.currentMeasurement.trend).to.be.a('number');
         });
 
-        it('should remove +NN in unit', async function() {
+        it('should remove +NN in unit for Bad Essen', async function() {
             const result = await manager.getCurrentMeasurement('6760b547-a7e7-408a-b3aa-529fe376bfcd');
-            expect(result.unit).to.not.contain('+NN');
+            expect(result.unit).to.equal('m');
+        });
+
+        it('should remove +PNP in unit for Edertalsperre', async function() {
+            const result = await manager.getCurrentMeasurement('c6e9f744-4dbf-4e8e-a219-cab051ec610c');
+            expect(result.unit).to.equal('m');
         });
 
         it('should have local time in timestamp', async function() {

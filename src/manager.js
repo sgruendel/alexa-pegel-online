@@ -13,6 +13,9 @@ exports.getCurrentMeasurement = async uuid => {
     if (result.unit.endsWith('+NN')) {
         // Bad Essen liefert "m+NN"
         result.unit = result.unit.slice(0, result.unit.length - 3);
+    } else if (result.unit.endsWith('+PNP')) {
+        // Talsperren liefern "m+PNP"
+        result.unit = result.unit.slice(0, result.unit.length - 4);
     }
 
     if (result.currentMeasurement.timestamp) {
