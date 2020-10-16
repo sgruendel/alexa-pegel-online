@@ -23,7 +23,11 @@ function compareValues(v1, v2) {
 // check if measurement is available for a station
 function hasMeasurement(station) {
     return pegelonline.getCurrentMeasurement(station.uuid)
-        .then(() => {
+        .then(result => {
+            if (result.status) {
+                console.log(station.longname, result.status, result.message);
+                return false;
+            }
             return true;
         })
         .catch(err => {
