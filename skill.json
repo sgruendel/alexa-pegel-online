@@ -3,7 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:23",
+          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:24",
           "sourceDir": "src"
         },
         "interfaces": [
@@ -33,7 +33,7 @@
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/e6053a0a41924c859dd9be47afe20699/APP_ICON?versionId=_eM8a3H2G3PGFA5jPU8YuccrTg1hKmwH&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190807T090820Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190807%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ce03b410f6c452a9038dc51650042455623d71bcba5cb086ca6b8299a90b900b",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4dfe/b330178ef7f84b85b1759abe853bef2d/APP_ICON_LARGE?versionId=RLJTatpRh3OxobKUNXnN6vkz6dE0FMSk&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20190807T090820Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20190807%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0ab3272cdec0788ac2be6a8ed6f872f7f90030378a09f16da8a8d3b595c67865",
           "summary": "Aktuelle Pegelstände in Deutschland",
-          "description": "Liefert die aktuellen Pegelstände von über 500 Messstellen in Deutschland zurück; Quelle www.pegelonline.wsv.de. Die Karte in der Alexa App zeigt zusätzlich den Pegelverlauf der letzten 7 Tage.",
+          "description": "Liefert die aktuellen Pegelstände von über 500 Messstellen in Deutschland zurück; Quelle www.pegelonline.wsv.de. Die Karte in der Alexa App zeigt zusätzlich den Pegelverlauf der letzten 7 Tage.\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-pegel-online/issues/new.",
           "examplePhrases": [
             "Alexa, öffne Pegel Online",
             "Alexa, frage Pegel Online nach dem Wasserstand in Würzburg",
@@ -45,11 +45,11 @@
             "pegelstand",
             "pegelonline"
           ],
-          "updatesDescription": "korrekte Behandlung der nicht-eindeutigen Messstelle Grauerort und Krautsand"
+          "updatesDescription": "korrekte Wiedergabe der Einheit für Diemeltalsperre und Edertalsperre"
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 22):\n* aktualisierte Messstellen",
+      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 23):\n* aktualisierte Messstellen\n* korrekte Wiedergabe der Einheit für Diemeltalsperre und Edertalsperre",
       "category": "WEATHER",
       "distributionCountries": []
     }

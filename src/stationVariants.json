@@ -216,6 +216,10 @@
     "Oberpegel:60b6ecb0-4ed5-4b8a-b875-07ae33a92b07",
     "Unterpegel:23636a08-775b-4101-a1af-1b57fb466d81"
   ],
+  "Mirow": [
+    "Oberpegel:ab13c115-6924-4d88-822c-0704b8df4767",
+    "Unterpegel:19cc3b9a-546b-43dd-96a3-b0bf903672d2"
+  ],
   "Münster": [
     "Oberwasser:ccd3e8f1-39e9-4e09-aa41-625afda84460",
     "Unterwasser:ed260406-bdd6-42ef-bf2a-1246eea392f9"
@@ -271,6 +275,10 @@
   "Rathenow": [
     "Oberpegel:43ca90f5-3b4c-4b35-86ac-cab0fe1c2ce5",
     "Unterpegel:4de8a51c-4c6a-4334-92dd-0b1cbb8e0573"
+  ],
+  "Rischmühle": [
+    "Oberpegel:31dfddc7-80a5-45ff-907b-7bf2c1d825c5",
+    "Unterpegel:cde0f9b6-6b13-4de9-adfe-cad1fe085e30"
   ],
   "Rostock Mühlendamm": [
     "Oberwasser:ca0e4a68-bd50-494c-bd45-abb33c5e1b0a",
