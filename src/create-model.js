@@ -64,6 +64,8 @@ function addStation(station, listOfStations, listOfVariants) {
             stationValue.name.synonyms = [ 'Hooksiel' ];
         } else if (short.name === 'Karlshafen') {
             stationValue.name.synonyms = [ 'Bad Karlshafen' ];
+        } else if (short.name === 'Kelheimwinzer') {
+            stationValue.name.synonyms = [ 'Kelheim' ];
         } else if (short.name === 'Mannheim (Rhein)') {
             stationValue.name.synonyms = [ 'Ludwigshafen' ];
         } else if (short.name === 'Maxau') {
