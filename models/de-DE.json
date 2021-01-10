@@ -1331,12 +1331,6 @@
               }
             },
             {
-              "id": "90d92801-c13c-4b1a-8885-83d1a07d6db8",
-              "name": {
-                "value": "Haldensleben"
-              }
-            },
-            {
               "id": "706e5110-c5e2-4915-9989-c071fcb492ec",
               "name": {
                 "value": "Hamburg Harburg"
@@ -1711,7 +1705,10 @@
             {
               "id": "c9409937-b794-4b69-b36b-38467daab09a",
               "name": {
-                "value": "Kelheimwinzer"
+                "value": "Kelheimwinzer",
+                "synonyms": [
+                  "Kelheim"
+                ]
               }
             },
             {
@@ -2850,12 +2847,6 @@
               }
             },
             {
-              "id": "77e80c08-afb2-4f96-8bd8-54a5482dbfa4",
-              "name": {
-                "value": "Schleuse Dörpen"
-              }
-            },
-            {
               "id": "4e4fac1a-6fb4-4ce2-a041-bdc4a668d95d",
               "name": {
                 "value": "Schleuse Rothensee"
@@ -3120,12 +3111,6 @@
               "id": "a77aad00-caa0-44a2-95cb-8afd9c4ff00c",
               "name": {
                 "value": "Trunstadt"
-              }
-            },
-            {
-              "id": "ddb249c5-360b-4c4f-a7f6-1f6822d236c8",
-              "name": {
-                "value": "Trübengraben Polder"
               }
             },
             {
