@@ -6,16 +6,16 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "f772b90c8ef52967c7bc2ba35439b515"
+          "eTag": "0a5f5e773ec309f2b67acd0d70448f74"
         },
         "interactionModel": {
           "de-DE": {
-            "eTag": "e46ac15e350c4409e6d90286ab8b28af"
+            "eTag": "e83477a3fa305654d981e55f35537e36"
           }
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:26",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:27",
             "awsRegion": "eu-west-1",
             "functionName": "pegelOnline",
             "alexaUsage": [

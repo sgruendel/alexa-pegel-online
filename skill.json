@@ -3,7 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:26",
+          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:pegelOnline:27",
           "sourceDir": "src"
         },
         "interfaces": [
@@ -45,11 +45,11 @@
             "pegelstand",
             "pegelonline"
           ],
-          "updatesDescription": "korrekte Wiedergabe der Einheit für Diemeltalsperre und Edertalsperre"
+          "updatesDescription": "aktualisierte Messstellen"
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 25):\n* Kelheim als Synonym für Kelheimwinzer",
+      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 26):\n* aktualisierte Messstellen",
       "category": "WEATHER",
       "distributionCountries": []
     }
