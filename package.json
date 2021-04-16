@@ -27,7 +27,7 @@
   "homepage": "https://github.com/sgruendel/alexa-pegel-online#readme",
   "dependencies": {
     "ask-sdk-core": "2.10.2",
-    "ask-sdk-model": "1.35.0",
+    "ask-sdk-model": "1.35.1",
     "i18next": "20.2.1",
     "i18next-sprintf-postprocessor": "0.2.2",
     "node-fetch": "2.6.1",
