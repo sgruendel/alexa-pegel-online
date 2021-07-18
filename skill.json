@@ -75,9 +75,6 @@
               }
             ],
             "type": "ALEXA_PRESENTATION_APL"
-          },
-          {
-            "type": "CAN_FULFILL_INTENT_REQUEST"
           }
         ]
       }
