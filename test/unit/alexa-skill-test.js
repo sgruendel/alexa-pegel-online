@@ -183,6 +183,14 @@ describe('Pegel Online Skill', () => {
                 repromptsNothing: true, shouldEndSession: true,
             },
             {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'kelheim', variant: '' }),
+                    'station', LIST_OF_STATIONS, 'Kelheimwinzer', 'c9409937-b794-4b69-b36b-38467daab09a'),
+                saysLike: 'Der Wasserstand bei Kelheimwinzer beträgt',
+                hasCardTitle: 'Pegel bei Kelheimwinzer',
+                repromptsNothing: true, shouldEndSession: true,
+            },
+            {
                 request: alexaTest.addEntityResolutionsToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', { station: 'koblenz', variant: '' }),
                     [

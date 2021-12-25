@@ -41,6 +41,11 @@ const languageStrings = {
         },
     },
 };
+i18next.use(sprintf).init({
+    overloadTranslationOptionHandler: sprintf.overloadTranslationOptionHandler,
+    resources: languageStrings,
+    returnObjects: true,
+});
 
 function getElicitSlotPrompt(prefix, values, getNameForElement) {
     let result = prefix;
@@ -269,24 +274,47 @@ const QueryWaterLevelIntentHandler = {
             logger.info(cardContent);
 
             const title = 'Pegel bei ' + stationVariant;
-            if (Alexa.getSupportedInterfaces(handlerInput.requestEnvelope).Display) {
-                const measurementImage = new Alexa.ImageHelper()
-                    .withDescription('Wasserstandsdaten')
-                    .addImageInstance(result.image.xsmall.url, 'X_SMALL', result.image.xsmall.width, result.image.xsmall.height)
-                    .addImageInstance(result.image.medium.url, 'MEDIUM', result.image.medium.width, result.image.medium.height)
-                    .getImage();
-                const textContent = new Alexa.PlainTextContentHelper()
-                    .withPrimaryText(speechOutput)
-                    .withSecondaryText(measurementTime)
-                    .getTextContent();
+            if (Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)['Alexa.Presentation.APL']) {
+                const document = {
+                    type: 'APL',
+                    version: '1.6',
+                    import: [
+                        {
+                            name: 'alexa-layouts',
+                            version: '1.3.0',
+                        },
+                    ],
+                    mainTemplate: {
+                        parameters: [
+                            'detailTemplateData',
+                        ],
+                        item: [
+                            {
+                                type: 'AlexaDetail',
+                                headerTitle: '${detailTemplateData.headerTitle}',
+                                primaryText: '${detailTemplateData.primaryText}',
+                                secondaryText: '${detailTemplateData.secondaryText}',
+                                imageSource: '${detailTemplateData.imageSource}',
+                            },
+                        ],
+                    },
+                };
+                const datasources = {
+                    detailTemplateData: {
+                        headerTitle: title,
+                        primaryText: speechOutput,
+                        secondaryText: measurementTime,
+                        imageSource: result.image.medium.url,
+                    },
+                };
                 handlerInput.responseBuilder
-                    .addRenderTemplateDirective({
-                        type: 'BodyTemplate2',
-                        backButton: 'HIDDEN',
-                        image: measurementImage,
-                        title: title,
-                        textContent: textContent,
+                    .addDirective({
+                        type: 'Alexa.Presentation.APL.RenderDocument',
+                        version: '1.1',
+                        document,
+                        datasources,
                     });
+
             }
             return handlerInput.responseBuilder
                 .speak(speechOutput)
@@ -373,12 +401,7 @@ const ErrorHandler = {
 
 const LocalizationInterceptor = {
     process(handlerInput) {
-        i18next.use(sprintf).init({
-            lng: Alexa.getLocale(handlerInput.requestEnvelope),
-            overloadTranslationOptionHandler: sprintf.overloadTranslationOptionHandler,
-            resources: languageStrings,
-            returnObjects: true,
-        });
+        i18next.changeLanguage(Alexa.getLocale(handlerInput.requestEnvelope));
 
         const attributes = handlerInput.attributesManager.getRequestAttributes();
         attributes.t = (...args) => {
