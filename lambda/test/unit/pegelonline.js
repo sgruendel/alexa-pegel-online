@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const pegelonline = require('../../src/pegelonline');
+const pegelonline = require('../../pegelonline');
 
 describe('pegelonline', () => {
     describe('#getStations()', () => {

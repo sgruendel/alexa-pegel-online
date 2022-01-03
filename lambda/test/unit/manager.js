@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const manager = require('../../src/manager');
+const manager = require('../../manager');
 
 describe('manager', () => {
 
