@@ -23,7 +23,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 28):\n* aktualisierte Messstellen",
+      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 29):\n* Messstelle Cranz wird jetzt erkannt\n* Saarbrücken als Synonym für Sankt Arnual",
       "category": "WEATHER",
       "distributionCountries": []
     },

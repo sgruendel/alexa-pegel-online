@@ -4,7 +4,7 @@ const fs = require('fs');
 const pegelonline = require('./pegelonline');
 const utils = require('./utils');
 
-const MODEL_FILE = 'models/de-DE.json';
+const MODEL_FILE = '../skill-package/interactionModels/custom/de-DE.json';
 const UTF8 = 'utf8';
 const COUNTER_NOUNS = [ 'Messstelle', 'Messwert', 'Pegel', 'Pegelstand', 'Wasserstand', 'Wert' ];
 
@@ -60,6 +60,9 @@ function addStation(station, listOfStations, listOfVariants) {
             stationValue.name.synonyms = [ 'Ahrenshoop' ];
         } else if (short.name === 'Große Weserbrücke') {
             stationValue.name.synonyms = [ 'Bremen' ];
+        } else if (short.name === 'Cranz') {
+            // Need to add synonym with wrong spelling, as this is what Alexa understands ...
+            stationValue.name.synonyms = [ 'Kranz' ];
         } else if (short.name === 'Hooksielplate') {
             stationValue.name.synonyms = [ 'Hooksiel' ];
         } else if (short.name === 'Karlshafen') {
@@ -73,6 +76,8 @@ function addStation(station, listOfStations, listOfVariants) {
         } else if (short.name === 'Rothenburg (Saale)') {
             // Need to add synonym with wrong spelling, as this is what Alexa understands ...
             stationValue.name.synonyms = [ 'Rotenburg (Saale)' ];
+        } else if (short.name === 'Sankt Arnual') {
+            stationValue.name.synonyms = [ 'Saarbrücken' ];
         } else if (short.name === 'Schillig') {
             stationValue.name.synonyms = [ 'Horumersiel', 'Wangersiel' ];
         } else if (short.name === 'Trotha') {
@@ -160,7 +165,7 @@ async function createModel() {
     listOfWaters.sort(compareValues);
 
     // store station variants to resolve slots with ids starting with '*'
-    const stream = fs.createWriteStream('src/stationVariants.json');
+    const stream = fs.createWriteStream('stationVariants.json');
     stream.write(JSON.stringify(stationVariants, null, 2));
     stream.end();
 

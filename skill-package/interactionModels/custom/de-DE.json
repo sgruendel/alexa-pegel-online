@@ -748,7 +748,10 @@
             {
               "id": "e6b42536-6bf8-42e3-8ef5-7d1a283a8608",
               "name": {
-                "value": "Cranz"
+                "value": "Cranz",
+                "synonyms": [
+                  "Kranz"
+                ]
               }
             },
             {
@@ -2815,7 +2818,10 @@
             {
               "id": "a9ca43e9-ef92-4f1c-ac02-a6c8ccad7b9f",
               "name": {
-                "value": "Sankt Arnual"
+                "value": "Sankt Arnual",
+                "synonyms": [
+                  "Saarbrücken"
+                ]
               }
             },
             {
