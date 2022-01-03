@@ -4,16 +4,11 @@
   "description": "Alexa Skill for interacting with http://www.pegelonline.wsv.de",
   "main": "index.js",
   "scripts": {
-    "invoke": "aws lambda invoke --function-name pegelOnline --payload fileb://test/events/alexa-start-session.json test/out.txt && cat test/out.txt",
+    "reinstall": "rm -rf ./node_modules && npm install",
+    "create-model": "node create-model.js",
     "test:unit": "nyc --reporter=lcov --reporter=text mocha --timeout=7000 test/unit/*",
     "test:integration": "mocha --timeout=20000 test/integration/*",
-    "test": "npm run test:unit",
-    "deploy-lambda": "npm prune --production && npm run lambda-zip && npm run lambda-update && npm install",
-    "lambda-zip": "zip -x 'node_modules/.cache/*' -r index.zip node_modules && cd src && zip ../index.zip *",
-    "lambda-update": "aws lambda update-function-code --function-name pegelOnline --zip-file fileb://index.zip",
-    "deploy-skill": "ask deploy --target skill",
-    "deploy-model": "npm run create-model && ask deploy --target model",
-    "create-model": "node src/create-model.js"
+    "test": "npm run test:unit"
   },
   "repository": {
     "type": "git",
@@ -43,10 +38,11 @@
   },
   "eslintConfig": {
     "parserOptions": {
-      "ecmaVersion": 2017
+      "ecmaVersion": 2020
     },
     "extends": "strongloop",
     "env": {
+      "commonjs": true,
       "es6": true,
       "node": true,
       "mocha": true
