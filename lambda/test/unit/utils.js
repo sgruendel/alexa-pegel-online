@@ -104,7 +104,7 @@ describe('utils', () => {
 
         it('should work for Ilmenau (Ilm)', () => {
             const result = utils.normalizeStation('ILMENAU', 'ILM');
-            expect(result).to.deep.equal({ name: 'Ilmenau (Ilm)', variant: undefined });
+            expect(result).to.deep.equal({ name: 'Ilmenau an der Ilm', variant: undefined });
         });
 
         it('should work for Koblenz (Rhein)', () => {
@@ -174,7 +174,7 @@ describe('utils', () => {
 
         it('should work for Rotenburg (Fulda)', () => {
             const result = utils.normalizeStation('ROTENBURG', 'FULDA');
-            expect(result).to.deep.equal({ name: 'Rotenburg (Fulda)', variant: undefined });
+            expect(result).to.deep.equal({ name: 'Rotenburg an der Fulda', variant: undefined });
         });
 
         it('should work for Rothenburg (Saale) OP', () => {

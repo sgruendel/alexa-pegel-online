@@ -123,7 +123,7 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
     } else if (name === 'geesthacht') {
         name = 'geesthacht (' + exports.normalizeWater(water) + ')';
     } else if (name === 'ilmenau') {
-        name = 'ilmenau (' + exports.normalizeWater(water) + ')';
+        name = 'ilmenau an der ' + exports.normalizeWater(water);
     } else if (name === 'koblenz' || name === 'koblenz up') {
         name = 'koblenz (' + exports.normalizeWater(water) + ')';
     } else if (name === 'konstanz' || name === 'konstanz rhein') {
@@ -139,7 +139,7 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
     } else if (name === 'nienburg') {
         name = 'nienburg (' + exports.normalizeWater(water) + ')';
     } else if (name === 'rotenburg') {
-        name = 'rotenburg (' + exports.normalizeWater(water) + ')';
+        name = 'rotenburg an der ' + exports.normalizeWater(water);
     } else if (name.match(rothenburg)) {
         const result = rothenburg.exec(name);
         name = 'rothenburg (' + exports.normalizeWater(water) + ')' + result[1];
@@ -201,7 +201,8 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
         let i = 0;
         while (i < str.length && !isLetter(str.charAt(i))) i++;
         return str.slice(0, i) + str.charAt(i).toUpperCase() + str.slice(i + 1);
-    }).join(' ');
+    }).join(' ')
+        .replace(' An Der ', ' an der ');
 
     if (addVariantToName && variant) {
         name = name + ' ' + variant;

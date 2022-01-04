@@ -1583,15 +1583,15 @@
               }
             },
             {
-              "id": "003200ab-d138-49d9-aa52-217817941f85",
-              "name": {
-                "value": "Ilmenau (Ilm)"
-              }
-            },
-            {
               "id": "6b05e8dc-3089-497a-a602-f40c4283d8bb",
               "name": {
                 "value": "Ilmenau Sperrwerk"
+              }
+            },
+            {
+              "id": "003200ab-d138-49d9-aa52-217817941f85",
+              "name": {
+                "value": "Ilmenau an der Ilm"
               }
             },
             {
@@ -2725,16 +2725,13 @@
             {
               "id": "d1ba62a4-767b-49ba-9ce8-ab17537b2fe1",
               "name": {
-                "value": "Rotenburg (Fulda)"
+                "value": "Rotenburg an der Fulda"
               }
             },
             {
               "id": "*5a7e1d4a-53aa-4f9f-a59b-50e01b7260c7",
               "name": {
-                "value": "Rothenburg (Saale)",
-                "synonyms": [
-                  "Rotenburg (Saale)"
-                ]
+                "value": "Rothenburg (Saale)"
               }
             },
             {
@@ -2970,12 +2967,6 @@
               "id": "2cb8ae5b-c5c9-4fa8-bac0-bb724f2754f4",
               "name": {
                 "value": "Speyer"
-              }
-            },
-            {
-              "id": "662c4b5e-0241-456d-ac7d-9f62fd95c0d1",
-              "name": {
-                "value": "Spiekeroog"
               }
             },
             {
