@@ -1,8 +1,18 @@
 'use strict';
 
 const fetch = require('node-fetch');
+const https = require('https');
 
 const BASE_URL = 'https://www.pegelonline.wsv.de/webservices/rest-api/v2/';
+
+const httpsAgent = new https.Agent({
+    keepAlive: true,
+});
+const options = {
+    agent: _parsedURL => {
+        return httpsAgent;
+    },
+};
 
 var exports = module.exports = {};
 
@@ -11,19 +21,19 @@ exports.getStations = async water => {
     if (water) {
         qs += '&waters=' + encodeURI(water);
     }
-    const response = await fetch(BASE_URL + 'stations.json?' + qs);
+    const response = await fetch(BASE_URL + 'stations.json?' + qs, options);
     return response.json();
 };
 
 exports.getWaters = async() => {
     const qs = 'prettyprint=false';
-    const response = await fetch(BASE_URL + 'waters.json?' + qs);
+    const response = await fetch(BASE_URL + 'waters.json?' + qs, options);
     return response.json();
 };
 
 exports.getCurrentMeasurement = async station => {
     const qs = 'prettyprint=false&includeCurrentMeasurement=true';
-    const response = await fetch(BASE_URL + 'stations/' + encodeURI(station) + '/W.json?' + qs);
+    const response = await fetch(BASE_URL + 'stations/' + encodeURI(station) + '/W.json?' + qs, options);
     return response.json();
 };
 
