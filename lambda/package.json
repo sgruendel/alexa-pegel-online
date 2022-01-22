@@ -25,7 +25,7 @@
     "ask-sdk-model": "1.37.1",
     "i18next": "21.6.5",
     "i18next-sprintf-postprocessor": "0.2.2",
-    "node-fetch": "^2.6.7",
+    "node-fetch": "^3.2.0",
     "winston": "3.3.3"
   },
   "devDependencies": {
