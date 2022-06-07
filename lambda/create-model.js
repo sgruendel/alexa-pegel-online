@@ -73,8 +73,12 @@ function addStation(station, listOfStations, listOfVariants) {
             stationValue.name.synonyms = [ 'Ludwigshafen' ];
         } else if (short.name === 'Maxau') {
             stationValue.name.synonyms = [ 'Karlsruhe' ];
+        } else if (short.name === 'Pogum') {
+            stationValue.name.synonyms = [ 'Ditzum' ];
         } else if (short.name === 'Sankt Arnual') {
             stationValue.name.synonyms = [ 'Saarbrücken' ];
+        } else if (short.name === 'Sankt Goar') {
+            stationValue.name.synonyms = [ 'Loreley' ];
         } else if (short.name === 'Schillig') {
             stationValue.name.synonyms = [ 'Horumersiel', 'Wangersiel' ];
         } else if (short.name === 'Trotha') {

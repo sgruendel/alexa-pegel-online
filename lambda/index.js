@@ -189,7 +189,7 @@ const QueryWaterLevelIntentHandler = {
                     variant = stationVariant.variant;
                     uuidForWater = result[0].uuid;
                 } else if (size <= 5) {
-                    const prompt = getElicitSlotPrompt('Welche Messstelle', result, elt => { return utils.normalizeStation(elt.longname, water, true).name; });
+                    const prompt = getElicitSlotPrompt('Welche Messstelle', result, elt => utils.normalizeStation(elt.longname, water, true).name);
                     logger.info('eliciting station slot: ' + prompt);
                     return handlerInput.responseBuilder
                         .speak(prompt)
@@ -220,8 +220,8 @@ const QueryWaterLevelIntentHandler = {
             const variantsIds = stationVariants[station];
             logger.info('station variants/ids', variantsIds);
 
-            const prompt = getElicitSlotPrompt('Welcher Pegel', variantsIds, elt => { return station + ' ' + elt.split(':')[0]; });
-            const variantId = variantsIds.find(elt => { return variant === elt.split(':')[0]; });
+            const prompt = getElicitSlotPrompt('Welcher Pegel', variantsIds, elt => station + ' ' + elt.split(':')[0]);
+            const variantId = variantsIds.find(elt => variant === elt.split(':')[0]);
             if (variantId) {
                 uuidForVariant = variantId.split(':')[1];
             } else {
