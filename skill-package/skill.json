@@ -1,32 +1,5 @@
 {
   "manifest": {
-    "publishingInformation": {
-      "locales": {
-        "de-DE": {
-          "summary": "Aktuelle Pegelstände in Deutschland",
-          "examplePhrases": [
-            "Alexa, öffne Pegel Online",
-            "Alexa, frage Pegel Online nach dem Wasserstand in Würzburg",
-            "Alexa, frage Pegel Online nach dem Pegel bei Husum"
-          ],
-          "keywords": [
-            "gewässer",
-            "wasserstand",
-            "pegelstand",
-            "pegelonline"
-          ],
-          "name": "Pegel Online",
-          "description": "Liefert die aktuellen Pegelstände von über 500 Messstellen in Deutschland zurück; Quelle www.pegelonline.wsv.de. Die Karte in der Alexa App zeigt zusätzlich den Pegelverlauf der letzten 7 Tage.\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-pegel-online/issues/new.",
-          "updatesDescription": "aktualisierte Messstellen",
-          "smallIconUri": "file://assets/small_icon.png",
-          "largeIconUri": "file://assets/large_icon.png"
-        }
-      },
-      "isAvailableWorldwide": true,
-      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 29):\n* Messstelle Cranz wird jetzt erkannt\n* Saarbrücken als Synonym für Sankt Arnual",
-      "category": "WEATHER",
-      "distributionCountries": []
-    },
     "apis": {
       "custom": {
         "endpoint": {
@@ -36,68 +9,68 @@
           {
             "supportedViewports": [
               {
-                "minHeight": 540,
-                "mode": "TV",
-                "shape": "RECTANGLE",
                 "maxHeight": 540,
+                "maxWidth": 960,
+                "minHeight": 540,
                 "minWidth": 960,
-                "maxWidth": 960
+                "mode": "TV",
+                "shape": "RECTANGLE"
               },
               {
-                "minHeight": 100,
-                "mode": "HUB",
-                "shape": "ROUND",
                 "maxHeight": 599,
+                "maxWidth": 599,
+                "minHeight": 100,
                 "minWidth": 100,
-                "maxWidth": 599
+                "mode": "HUB",
+                "shape": "ROUND"
               },
               {
-                "minHeight": 600,
-                "mode": "HUB",
-                "shape": "RECTANGLE",
                 "maxHeight": 959,
-                "minWidth": 960,
-                "maxWidth": 1279
-              },
-              {
+                "maxWidth": 1279,
                 "minHeight": 600,
+                "minWidth": 960,
                 "mode": "HUB",
-                "shape": "RECTANGLE",
+                "shape": "RECTANGLE"
+              },
+              {
                 "maxHeight": 1279,
+                "maxWidth": 1920,
+                "minHeight": 600,
                 "minWidth": 1280,
-                "maxWidth": 1920
-              },
-              {
-                "minHeight": 100,
                 "mode": "HUB",
-                "shape": "RECTANGLE",
+                "shape": "RECTANGLE"
+              },
+              {
                 "maxHeight": 599,
+                "maxWidth": 1279,
+                "minHeight": 100,
                 "minWidth": 960,
-                "maxWidth": 1279
+                "mode": "HUB",
+                "shape": "RECTANGLE"
               },
               {
-                "minHeight": 320,
-                "mode": "MOBILE",
-                "shape": "RECTANGLE",
                 "maxHeight": 1920,
+                "maxWidth": 959,
+                "minHeight": 320,
                 "minWidth": 600,
-                "maxWidth": 959
+                "mode": "MOBILE",
+                "shape": "RECTANGLE"
               },
               {
-                "minHeight": 320,
-                "mode": "MOBILE",
-                "shape": "RECTANGLE",
                 "maxHeight": 1920,
+                "maxWidth": 1279,
+                "minHeight": 320,
                 "minWidth": 960,
-                "maxWidth": 1279
+                "mode": "MOBILE",
+                "shape": "RECTANGLE"
               },
               {
-                "minHeight": 320,
-                "mode": "MOBILE",
-                "shape": "RECTANGLE",
                 "maxHeight": 1920,
+                "maxWidth": 1920,
+                "minHeight": 320,
                 "minWidth": 1280,
-                "maxWidth": 1920
+                "mode": "MOBILE",
+                "shape": "RECTANGLE"
               }
             ],
             "type": "ALEXA_PRESENTATION_APL"
@@ -109,13 +82,40 @@
     "permissions": [],
     "privacyAndCompliance": {
       "allowsPurchases": false,
+      "containsAds": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
       "locales": {
         "de-DE": {}
       },
-      "containsAds": false,
-      "isExportCompliant": true,
-      "isChildDirected": false,
       "usesPersonalInfo": false
+    },
+    "publishingInformation": {
+      "category": "WEATHER",
+      "distributionCountries": [],
+      "isAvailableWorldwide": true,
+      "locales": {
+        "de-DE": {
+          "description": "Liefert die aktuellen Pegelstände von über 500 Messstellen in Deutschland zurück; Quelle www.pegelonline.wsv.de. Die Karte in der Alexa App zeigt zusätzlich den Pegelverlauf der letzten 7 Tage.\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-pegel-online/issues/new.",
+          "examplePhrases": [
+            "Alexa, öffne Pegel Online",
+            "Alexa, frage Pegel Online nach dem Wasserstand in Würzburg",
+            "Alexa, frage Pegel Online nach dem Pegel bei Husum"
+          ],
+          "keywords": [
+            "gewässer",
+            "wasserstand",
+            "pegelstand",
+            "pegelonline"
+          ],
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/4f18/e618ba13e05b419e854519bcac3b2c0d/APP_ICON_LARGE?versionId=spGAx6O_91IhfyqRnR6Eh3fRGNSW8xj1&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220103T132925Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QMJORANUO%2F20220103%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=e0a2fc88f022b309517237dd700c510849002f2fe5412b3b35d51532cb48c6c5",
+          "name": "Pegel Online",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/e6053a0a41924c859dd9be47afe20699/APP_ICON?versionId=_eM8a3H2G3PGFA5jPU8YuccrTg1hKmwH&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220103T132925Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAWBV6LQ4QMJORANUO%2F20220103%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=3fc91ff9116dd4dbdc8b8cab6d03ef44276ac1845933b0369100ec3958844d55",
+          "summary": "Aktuelle Pegelstände in Deutschland",
+          "updatesDescription": "aktualisierte Messstellen"
+        }
+      },
+      "testingInstructions": "Änderungen zur letzten Version (Lambda Version 29):\n* Ditzum als Synonym für Pogum\n* Loreley als Synonym für Sankt Goar"
     }
   }
 }

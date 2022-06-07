@@ -272,6 +272,12 @@
               }
             },
             {
+              "id": "dfdfb4ff-370c-4795-a44e-0c2503674932",
+              "name": {
+                "value": "Aldingen Schleuse"
+              }
+            },
+            {
               "id": "5b58af00-6817-4214-b151-34830ac563cc",
               "name": {
                 "value": "Allendorf"
@@ -353,12 +359,6 @@
               }
             },
             {
-              "id": "f0197bcf-6846-4c0a-9659-0c2626a9bcf0",
-              "name": {
-                "value": "Bake C Scharhörn"
-              }
-            },
-            {
               "id": "104fdc24-1dc6-4cb7-b44f-10bd02e13f40",
               "name": {
                 "value": "Bake Z"
@@ -410,6 +410,12 @@
               "id": "94f6eff1-4f3f-4850-82e0-a086198e9ffd",
               "name": {
                 "value": "Basel Rheinhalle"
+              }
+            },
+            {
+              "id": "8a2e3048-7bb0-4d8e-bf8a-3fc85a2d4b89",
+              "name": {
+                "value": "Beihingen Wehr"
               }
             },
             {
@@ -485,9 +491,21 @@
               }
             },
             {
+              "id": "57db82c7-2785-44d0-bede-21de0686a6be",
+              "name": {
+                "value": "Besigheim Schleuse"
+              }
+            },
+            {
               "id": "46d8ed02-73fd-4958-8e2e-006c047d0576",
               "name": {
                 "value": "Besigheim Seilkrananlage"
+              }
+            },
+            {
+              "id": "42c11b7a-d5ff-4372-b5ee-3b755ea4cb6f",
+              "name": {
+                "value": "Besigheim Wehr"
               }
             },
             {
@@ -506,12 +524,6 @@
               "id": "*16a780aa-475d-41dc-a8ec-20488415b6d7",
               "name": {
                 "value": "Bischofswerder"
-              }
-            },
-            {
-              "id": "bacb459b-0f24-4233-bb35-cd224a51678e",
-              "name": {
-                "value": "Blankenese"
               }
             },
             {
@@ -668,12 +680,6 @@
               }
             },
             {
-              "id": "12847496-b0e9-4cb3-905c-b1b1c3c087db",
-              "name": {
-                "value": "Brunsbüttel Mole Eins"
-              }
-            },
-            {
               "id": "ae1b91d0-e746-4f65-9f64-2d2e23603a82",
               "name": {
                 "value": "Bunthaus"
@@ -725,6 +731,12 @@
               "id": "8d1fdc5b-b63a-4745-baeb-5e266d247e99",
               "name": {
                 "value": "Calbe-Grizehne"
+              }
+            },
+            {
+              "id": "7068d262-f466-44e1-9bfa-832fcc16c433",
+              "name": {
+                "value": "Cannstatt Schleuse"
               }
             },
             {
@@ -794,6 +806,12 @@
               "id": "53d40547-8a09-4b25-988c-2e6d8d8d98ee",
               "name": {
                 "value": "Deggendorf"
+              }
+            },
+            {
+              "id": "c5b6243d-5b7e-4ec6-be61-2009085388d0",
+              "name": {
+                "value": "Deizisau Schleuse"
               }
             },
             {
@@ -1034,6 +1052,12 @@
               "id": "99619dc5-9c88-45e9-a97d-653c41cda8a1",
               "name": {
                 "value": "Erlau"
+              }
+            },
+            {
+              "id": "130a3761-e060-482e-944c-f2a75d6744b7",
+              "name": {
+                "value": "Esslingen Schleuse"
               }
             },
             {
@@ -1478,6 +1502,12 @@
               }
             },
             {
+              "id": "cf2af1a4-41a9-4a48-871b-f241daad04cc",
+              "name": {
+                "value": "Hofen Schleuse"
+              }
+            },
+            {
               "id": "616dd98e-816d-4e17-b8cd-57b163dbc8a2",
               "name": {
                 "value": "Hofkirchen"
@@ -1520,6 +1550,18 @@
                 "synonyms": [
                   "Hooksiel"
                 ]
+              }
+            },
+            {
+              "id": "b76bf04c-45e7-40c7-8940-3e1419c6da15",
+              "name": {
+                "value": "Horkheim Schleuse"
+              }
+            },
+            {
+              "id": "d9b441a5-a585-4ac4-ae65-351a5fce3aa5",
+              "name": {
+                "value": "Horkheim Wehr"
               }
             },
             {
@@ -1646,12 +1688,6 @@
               "id": "32b997c2-d97c-452a-a5c1-ee4592a15b4c",
               "name": {
                 "value": "Kanalbrücke"
-              }
-            },
-            {
-              "id": "*a869dd39-dcf7-46f2-b9bf-b210816109ac",
-              "name": {
-                "value": "Kannenburg"
               }
             },
             {
@@ -1880,6 +1916,12 @@
               "id": "8559d1a0-4a03-410a-8910-44a089a07df8",
               "name": {
                 "value": "Lauffen"
+              }
+            },
+            {
+              "id": "2f7cb553-73a0-4fb8-816e-af276ca4ccb7",
+              "name": {
+                "value": "Lauffen Schleuse"
               }
             },
             {
@@ -2114,6 +2156,12 @@
               }
             },
             {
+              "id": "456974a8-8cc8-4349-ba9f-b272ee6dcf3b",
+              "name": {
+                "value": "Marbach Schleuse"
+              }
+            },
+            {
               "id": "a73a9cb4-5bc2-4d42-b7cd-191d5e1ee307",
               "name": {
                 "value": "Marbach Wehr"
@@ -2345,6 +2393,18 @@
               }
             },
             {
+              "id": "cbfae6bc-7978-4aac-9207-7939c8080507",
+              "name": {
+                "value": "Oberesslingen Schleuse"
+              }
+            },
+            {
+              "id": "9de0843a-2b79-40e5-b312-31d86e91ce4d",
+              "name": {
+                "value": "Oberesslingen Wehr"
+              }
+            },
+            {
               "id": "*e251f943-ce2f-4003-b208-e2797aa72202",
               "name": {
                 "value": "Oberhausen Schleuse"
@@ -2360,6 +2420,12 @@
               "id": "e476bcad-b898-4f68-9c26-4f1a1159dff6",
               "name": {
                 "value": "Oberndorf"
+              }
+            },
+            {
+              "id": "80e002d8-bc6a-4685-9aab-88edbfc069e0",
+              "name": {
+                "value": "Obertürkheim Schleuse"
               }
             },
             {
@@ -2531,6 +2597,12 @@
               }
             },
             {
+              "id": "6e183f4b-a506-4706-aeed-cf33b34e76ad",
+              "name": {
+                "value": "Pleidelsheim Schleuse"
+              }
+            },
+            {
               "id": "6b774802-fcb5-49ae-8ecb-ecaf1a278b1c",
               "name": {
                 "value": "Plittersdorf"
@@ -2545,7 +2617,16 @@
             {
               "id": "5d1e4350-0f39-4428-84c3-6f8f0bbe80d4",
               "name": {
-                "value": "Pogum"
+                "value": "Pogum",
+                "synonyms": [
+                  "Ditzum"
+                ]
+              }
+            },
+            {
+              "id": "f4854a4c-490a-43df-bc06-d2711ddf9b70",
+              "name": {
+                "value": "Poppenweiler Schleuse"
               }
             },
             {
@@ -2824,13 +2905,22 @@
             {
               "id": "550eb7e9-172e-48e4-ae1e-d1b761b42223",
               "name": {
-                "value": "Sankt Goar"
+                "value": "Sankt Goar",
+                "synonyms": [
+                  "Loreley"
+                ]
               }
             },
             {
               "id": "9e7b2a4d-cfe8-4524-8a1e-c196ea897e9f",
               "name": {
                 "value": "Sassnitz"
+              }
+            },
+            {
+              "id": "f0197bcf-6846-4c0a-9659-0c2626a9bcf0",
+              "name": {
+                "value": "Scharhörn"
               }
             },
             {
@@ -2970,15 +3060,15 @@
               }
             },
             {
-              "id": "80f0fc4d-9fc7-449d-9d68-ee89333f0eff",
+              "id": "662c4b5e-0241-456d-ac7d-9f62fd95c0d1",
               "name": {
-                "value": "Stadersand"
+                "value": "Spiekeroog"
               }
             },
             {
-              "id": "dfdf753b-75bd-46f0-8cde-15545be9bfba",
+              "id": "80f0fc4d-9fc7-449d-9d68-ee89333f0eff",
               "name": {
-                "value": "Stadtbredimus"
+                "value": "Stadersand"
               }
             },
             {
@@ -3153,6 +3243,12 @@
               }
             },
             {
+              "id": "a5ca02fb-9a83-4da5-80f0-0e7007350af8",
+              "name": {
+                "value": "Untertürkheim Schleuse"
+              }
+            },
+            {
               "id": "3f3b4445-9a6a-44c3-8575-d86ce30e2de0",
               "name": {
                 "value": "Vegesack"
@@ -3312,6 +3408,12 @@
               "id": "*c42ff4c7-f4c6-4568-8b5c-0b556bd55926",
               "name": {
                 "value": "Weserwehr"
+              }
+            },
+            {
+              "id": "1e237d42-66cb-4145-ab99-c8fde205b281",
+              "name": {
+                "value": "Westspange"
               }
             },
             {
@@ -3495,11 +3597,6 @@
             },
             {
               "name": {
-                "value": "Unterfeuer"
-              }
-            },
-            {
-              "name": {
                 "value": "Unterpegel"
               }
             },
@@ -3556,6 +3653,11 @@
             {
               "name": {
                 "value": "Dortmund-Ems-Kanal"
+              }
+            },
+            {
+              "name": {
+                "value": "Dyhrrsenmoor"
               }
             },
             {
@@ -4058,7 +4160,8 @@
             }
           ]
         }
-      ]
+      ],
+      "delegationStrategy": "SKILL_RESPONSE"
     },
     "prompts": [
       {
@@ -4080,6 +4183,5 @@
         ]
       }
     ]
-  },
-  "version": "17"
+  }
 }
