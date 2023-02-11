@@ -254,7 +254,8 @@ const QueryWaterLevelIntentHandler = {
                 logger.debug('Tendenz kann nicht ermittelt werden.');
                 break;
             default:
-                logger.error('Undefinierte Tendenz: ' + result.currentMeasurement.trend);
+                // trend no longer is available, so just ignore
+                // logger.error('Undefinierte Tendenz: ' + result.currentMeasurement.trend);
             }
             currentWaterLevel += '.';
 

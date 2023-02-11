@@ -13,7 +13,6 @@ describe('manager', () => {
             expect(result.image.large.url).to.be.a('string');
             expect(result.currentMeasurement.timestamp).to.be.a('string');
             expect(result.currentMeasurement.value).to.be.a('number');
-            expect(result.currentMeasurement.trend).to.be.a('number');
         });
 
         it('should remove +NN in unit for Bad Essen', async() => {
