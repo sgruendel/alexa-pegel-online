@@ -527,6 +527,12 @@
               }
             },
             {
+              "id": "bacb459b-0f24-4233-bb35-cd224a51678e",
+              "name": {
+                "value": "Blankenese"
+              }
+            },
+            {
               "id": "6aa1cd8e-e528-4bcb-ba8e-705b6dcb7da2",
               "name": {
                 "value": "Bleckede"
@@ -1058,6 +1064,12 @@
               "id": "130a3761-e060-482e-944c-f2a75d6744b7",
               "name": {
                 "value": "Esslingen Schleuse"
+              }
+            },
+            {
+              "id": "31c32a38-aced-410c-b6a0-87506d14361f",
+              "name": {
+                "value": "Esslingen Wehr"
               }
             },
             {
@@ -2443,13 +2455,13 @@
             {
               "id": "8b51c505-9b1c-40d0-957f-7461473602e1",
               "name": {
-                "value": "Ohv Km 1,467 (Blaues Wunder)"
+                "value": "Ohv Km 1.467 (Blaues Wunder)"
               }
             },
             {
               "id": "eea7e3dc-d158-4173-ae7d-d322dd917aa4",
               "name": {
-                "value": "Ohv Km 3,014 (Hochspannung)"
+                "value": "Ohv Km 3.014 (Hochspannung)"
               }
             },
             {
@@ -2958,6 +2970,12 @@
               }
             },
             {
+              "id": "36fb2c81-5fc0-4f2c-8f37-347c822a4b59",
+              "name": {
+                "value": "Schloßbrücke Mülheim"
+              }
+            },
+            {
               "id": "d2155fa6-b03d-468c-884e-ccf6fefc40bd",
               "name": {
                 "value": "Schmittlotheim"
@@ -3297,6 +3315,15 @@
               }
             },
             {
+              "id": "*09b422f7-3c5e-42f1-8680-ffd8fe381b86",
+              "name": {
+                "value": "Vosswinkel",
+                "synonyms": [
+                  "Voßwinkel"
+                ]
+              }
+            },
+            {
               "id": "314ef522-a060-4033-ba14-8169dd26bb8d",
               "name": {
                 "value": "Wahmbeck"
@@ -3597,6 +3624,11 @@
             },
             {
               "name": {
+                "value": "Unterfeuer"
+              }
+            },
+            {
+              "name": {
                 "value": "Unterpegel"
               }
             },
@@ -3762,6 +3794,11 @@
             },
             {
               "name": {
+                "value": "Jizera"
+              }
+            },
+            {
+              "name": {
                 "value": "Kleines Haff"
               }
             },
@@ -3887,6 +3924,11 @@
             },
             {
               "name": {
+                "value": "Ohre"
+              }
+            },
+            {
+              "name": {
                 "value": "Oranienburger Havel"
               }
             },
@@ -3898,6 +3940,11 @@
             {
               "name": {
                 "value": "Orke"
+              }
+            },
+            {
+              "name": {
+                "value": "Orlice"
               }
             },
             {
@@ -3923,6 +3970,11 @@
             {
               "name": {
                 "value": "Pinnau"
+              }
+            },
+            {
+              "name": {
+                "value": "Ploucnice"
               }
             },
             {
@@ -4033,6 +4085,11 @@
             {
               "name": {
                 "value": "Verbindungskanal Hohensaaten"
+              }
+            },
+            {
+              "name": {
+                "value": "Vlatava"
               }
             },
             {

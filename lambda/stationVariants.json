@@ -320,6 +320,10 @@
     "Oberwasser:728bd3e3-23f2-41c6-8ac5-4cfa223a5a7e",
     "Unterwasser:0d0082cf-0b4b-4c8b-8e97-5d37b511916b"
   ],
+  "Vosswinkel": [
+    "Oberpegel:09b422f7-3c5e-42f1-8680-ffd8fe381b86",
+    "Unterpegel:2bcef51a-5104-469d-bbbc-f16a0dfd4206"
+  ],
   "Wanne Eickel Schleuse": [
     "Oberwasser:05ca0e33-5c71-4368-b824-2243fcff656c",
     "Unterwasser:23045f8b-e7e8-4534-8162-b7dba81764db"
