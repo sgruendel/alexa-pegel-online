@@ -135,10 +135,6 @@
     "Oberpegel:5553e209-1b44-47f5-917d-2c6951ecc044",
     "Unterpegel:c62aa674-db07-4251-a50b-1676c11a9a25"
   ],
-  "Hamm": [
-    "Oberwasser:4dbce62d-a015-4011-afcd-423bb8d4b7a1",
-    "Unterwasser:4ef9dd9c-b32b-43fc-bc5e-3849d4ab7ecc"
-  ],
   "Havelberg": [
     "Elbpegel:bb6fd2f0-458a-4ea5-aa58-e1c1a2fbd56d",
     "Stadt:c203d5fb-96d7-4643-b2ef-b13b1d88c75b",
@@ -159,10 +155,6 @@
   "Hohensaaten West": [
     "Außenpegel:99309d3e-58d6-4200-b212-c8499467b4ce",
     "Binnenpegel:3404a6e5-8dfe-42b1-90f6-c0c3741b6ac8"
-  ],
-  "Hünxe Schleuse": [
-    "Oberwasser:5c1b6183-eaaf-436c-b863-8a191d9e1f5a",
-    "Unterwasser:14699a51-aaa5-4ae4-98a6-d35aa9a80ec3"
   ],
   "Kersdorf": [
     "Oberpegel:b577a043-b6b8-4db8-80e7-8abbb565c8c5",
@@ -199,6 +191,10 @@
   "Lüneburg": [
     "Oberwasser:c7364d1e-6139-4575-84cb-b420d21275c4",
     "Unterwasser:d18033cd-9cf6-4800-9176-57758bb444dc"
+  ],
+  "Malliß": [
+    "Oberpegel:497c29ee-32b2-4535-ac5f-3881a106c793",
+    "Unterpegel:a64918a6-e6f5-495e-ad2d-a8e3655c9424"
   ],
   "Marienthal": [
     "Oberpegel:60b6ecb0-4ed5-4b8a-b875-07ae33a92b07",

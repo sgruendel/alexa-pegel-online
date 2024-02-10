@@ -1376,12 +1376,6 @@
               }
             },
             {
-              "id": "*4dbce62d-a015-4011-afcd-423bb8d4b7a1",
-              "name": {
-                "value": "Hamm"
-              }
-            },
-            {
               "id": "27dfd137-3b88-42e8-9baf-6bee76e0717c",
               "name": {
                 "value": "Hannover List"
@@ -1628,12 +1622,6 @@
               "id": "763633e7-3b4b-470a-978e-f9e456e4df7c",
               "name": {
                 "value": "Höxter"
-              }
-            },
-            {
-              "id": "*5c1b6183-eaaf-436c-b863-8a191d9e1f5a",
-              "name": {
-                "value": "Hünxe Schleuse"
               }
             },
             {
@@ -2147,7 +2135,7 @@
               }
             },
             {
-              "id": "497c29ee-32b2-4535-ac5f-3881a106c793",
+              "id": "*497c29ee-32b2-4535-ac5f-3881a106c793",
               "name": {
                 "value": "Malliß"
               }
