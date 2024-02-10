@@ -1,9 +1,7 @@
-'use strict';
+import { execFile } from 'child_process';
+import { expect } from 'chai';
 
-const { execFile } = require('child_process');
-const expect = require('chai').expect;
-
-const ask = require('../ask');
+import * as ask from '../ask.js';
 
 function verifyResponse(error, stdout, stderr, expectFn) {
     const result = ask.verifyResult(error, stderr);
@@ -18,28 +16,31 @@ function verifyResponse(error, stdout, stderr, expectFn) {
 
 describe('Messstelle Hamburg', () => {
     it('should elicit stations', (done) => {
-        const args = ask.execArgs.concat([ 'test/integration/hamburg.json' ]);
+        const args = ask.execArgs.concat(['test/integration/hamburg.json']);
         execFile(ask.execFile, args, (error, stdout, stderr) => {
-            verifyResponse(error, stdout, stderr,
-                (val, msg) => expect(val, msg).to.eq('Welche Messstelle, Hamburg Harburg oder Hamburg Sankt Pauli?'));
+            verifyResponse(error, stdout, stderr, (val, msg) =>
+                expect(val, msg).to.eq('Welche Messstelle, Hamburg Harburg oder Hamburg Sankt Pauli?'),
+            );
             done();
         });
     });
 
     it('should find Hamburg Harburg', (done) => {
-        const args = ask.execArgs.concat([ 'test/integration/hamburg_harburg.json' ]);
+        const args = ask.execArgs.concat(['test/integration/hamburg_harburg.json']);
         execFile(ask.execFile, args, (error, stdout, stderr) => {
-            verifyResponse(error, stdout, stderr,
-                (val, msg) => expect(val, msg).to.have.string('Der Wasserstand bei Hamburg Harburg beträgt '));
+            verifyResponse(error, stdout, stderr, (val, msg) =>
+                expect(val, msg).to.have.string('Der Wasserstand bei Hamburg Harburg beträgt '),
+            );
             done();
         });
     });
 
     it('should find Hamburg Sankt Pauli', (done) => {
-        const args = ask.execArgs.concat([ 'test/integration/hamburg_sankt_pauli.json' ]);
+        const args = ask.execArgs.concat(['test/integration/hamburg_sankt_pauli.json']);
         execFile(ask.execFile, args, (error, stdout, stderr) => {
-            verifyResponse(error, stdout, stderr,
-                (val, msg) => expect(val, msg).to.have.string('Der Wasserstand bei Hamburg Sankt Pauli beträgt '));
+            verifyResponse(error, stdout, stderr, (val, msg) =>
+                expect(val, msg).to.have.string('Der Wasserstand bei Hamburg Sankt Pauli beträgt '),
+            );
             done();
         });
     });

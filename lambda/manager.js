@@ -1,14 +1,10 @@
-'use strict';
+import * as pegelonline from './pegelonline.js';
 
-const pegelonline = require('./pegelonline');
-
-var exports = module.exports = {};
-
-exports.getStations = async water => {
+export async function getStations(water) {
     return pegelonline.getStations(water);
 };
 
-exports.getCurrentMeasurement = async uuid => {
+export async function getCurrentMeasurement(uuid) {
     const result = await pegelonline.getCurrentMeasurement(uuid);
     if (result.unit.endsWith('+NN')) {
         // Bad Essen liefert "m+NN"

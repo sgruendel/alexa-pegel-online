@@ -1,9 +1,7 @@
-'use strict';
+import { execFile } from 'child_process';
+import { expect } from 'chai';
 
-const { execFile } = require('child_process');
-const expect = require('chai').expect;
-
-const ask = require('../ask');
+import * as ask from '../ask.js';
 
 function verifyResponse(error, stdout, stderr, expectFn) {
     const result = ask.verifyResult(error, stderr);
@@ -18,21 +16,22 @@ function verifyResponse(error, stdout, stderr, expectFn) {
 
 describe('Messstelle Ilmenau an der Ilm', () => {
     it('should elicit stations', (done) => {
-        const args = ask.execArgs.concat([ 'test/integration/ilmenau.json' ]);
+        const args = ask.execArgs.concat(['test/integration/ilmenau.json']);
         execFile(ask.execFile, args, (error, stdout, stderr) => {
-            verifyResponse(error, stdout, stderr,
-                (val, msg) => expect(val, msg).to.eq('Welche Messstelle, Ilmenau Sperrwerk oder Ilmenau an der Ilm?'));
+            verifyResponse(error, stdout, stderr, (val, msg) =>
+                expect(val, msg).to.eq('Welche Messstelle, Ilmenau Sperrwerk oder Ilmenau an der Ilm?'),
+            );
             done();
         });
     });
 
     it('should return measurement', (done) => {
-        const args = ask.execArgs.concat([ 'test/integration/ilmenau_an_der_ilm.json' ]);
+        const args = ask.execArgs.concat(['test/integration/ilmenau_an_der_ilm.json']);
         execFile(ask.execFile, args, (error, stdout, stderr) => {
-            verifyResponse(error, stdout, stderr,
-                (val, msg) => expect(val, msg).to.have.string('Der Wasserstand bei Ilmenau an der Ilm beträgt '));
+            verifyResponse(error, stdout, stderr, (val, msg) =>
+                expect(val, msg).to.have.string('Der Wasserstand bei Ilmenau an der Ilm beträgt '),
+            );
             done();
         });
     });
-
 });

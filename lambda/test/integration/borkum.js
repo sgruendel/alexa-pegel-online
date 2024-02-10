@@ -1,9 +1,7 @@
-'use strict';
+import { execFile } from 'child_process';
+import { expect } from 'chai';
 
-const { execFile } = require('child_process');
-const expect = require('chai').expect;
-
-const ask = require('../ask');
+import * as ask from '../ask.js';
 
 function verifyResponse(error, stdout, stderr, expectFn) {
     const result = ask.verifyResult(error, stderr);
@@ -18,28 +16,31 @@ function verifyResponse(error, stdout, stderr, expectFn) {
 
 describe('Messstelle Borkum', () => {
     it('should elicit stations', (done) => {
-        const args = ask.execArgs.concat([ 'test/integration/borkum.json' ]);
+        const args = ask.execArgs.concat(['test/integration/borkum.json']);
         execFile(ask.execFile, args, (error, stdout, stderr) => {
-            verifyResponse(error, stdout, stderr,
-                (val, msg) => expect(val, msg).to.eq('Welche Messstelle, Borkum Südstrand oder Borkum Fischerbalje?'));
+            verifyResponse(error, stdout, stderr, (val, msg) =>
+                expect(val, msg).to.eq('Welche Messstelle, Borkum Südstrand oder Borkum Fischerbalje?'),
+            );
             done();
         });
     });
 
     it('should find Borkum Südstrand', (done) => {
-        const args = ask.execArgs.concat([ 'test/integration/borkum_südstrand.json' ]);
+        const args = ask.execArgs.concat(['test/integration/borkum_südstrand.json']);
         execFile(ask.execFile, args, (error, stdout, stderr) => {
-            verifyResponse(error, stdout, stderr,
-                (val, msg) => expect(val, msg).to.have.string('Der Wasserstand bei Borkum Südstrand beträgt '));
+            verifyResponse(error, stdout, stderr, (val, msg) =>
+                expect(val, msg).to.have.string('Der Wasserstand bei Borkum Südstrand beträgt '),
+            );
             done();
         });
     });
 
     it('should find Borkum Fischerbalje', (done) => {
-        const args = ask.execArgs.concat([ 'test/integration/borkum_fischerbalje.json' ]);
+        const args = ask.execArgs.concat(['test/integration/borkum_fischerbalje.json']);
         execFile(ask.execFile, args, (error, stdout, stderr) => {
-            verifyResponse(error, stdout, stderr,
-                (val, msg) => expect(val, msg).to.have.string('Der Wasserstand bei Borkum Fischerbalje beträgt '));
+            verifyResponse(error, stdout, stderr, (val, msg) =>
+                expect(val, msg).to.have.string('Der Wasserstand bei Borkum Fischerbalje beträgt '),
+            );
             done();
         });
     });

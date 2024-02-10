@@ -1,9 +1,7 @@
-'use strict';
+import { execFile } from 'child_process';
+import { expect } from 'chai';
 
-const { execFile } = require('child_process');
-const expect = require('chai').expect;
-
-const ask = require('../ask');
+import * as ask from '../ask.js';
 
 function verifyResponse(error, stdout, stderr, expectFn) {
     const result = ask.verifyResult(error, stderr);
@@ -18,10 +16,11 @@ function verifyResponse(error, stdout, stderr, expectFn) {
 
 describe('Messstelle Havelberg', () => {
     it('should elicit stations', (done) => {
-        const args = ask.execArgs.concat([ 'test/integration/havelberg.json' ]);
+        const args = ask.execArgs.concat(['test/integration/havelberg.json']);
         execFile(ask.execFile, args, (error, stdout, stderr) => {
-            verifyResponse(error, stdout, stderr,
-                (val, msg) => expect(val, msg).to.eq('Welcher Pegel, Havelberg Elbpegel, Havelberg Stadt oder Havelberg Unterpegel?'));
+            verifyResponse(error, stdout, stderr, (val, msg) =>
+                expect(val, msg).to.eq('Welcher Pegel, Havelberg Elbpegel, Havelberg Stadt oder Havelberg Unterpegel?'),
+            );
             done();
         });
     });

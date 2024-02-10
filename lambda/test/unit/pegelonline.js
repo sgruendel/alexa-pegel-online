@@ -1,26 +1,25 @@
-'use strict';
+import { expect } from 'chai';
 
-const expect = require('chai').expect;
-const pegelonline = require('../../pegelonline');
+import * as pegelonline from '../../pegelonline.js';
 
 describe('pegelonline', () => {
     describe('#getStations()', () => {
-        it('should return all stations', async() => {
+        it('should return all stations', async () => {
             const result = await pegelonline.getStations();
             expect(result).to.have.length.above(500);
 
-            result.forEach(station => {
+            result.forEach((station) => {
                 expect(station.uuid).to.be.a('string');
             });
         });
     });
 
     describe('#getWaters()', () => {
-        it('should return all waters', async() => {
+        it('should return all waters', async () => {
             const result = await pegelonline.getWaters();
             expect(result).to.have.length.above(90);
 
-            result.forEach(water => {
+            result.forEach((water) => {
                 expect(water.shortname).to.be.a('string');
                 expect(water.longname).to.be.a('string');
             });
@@ -28,13 +27,13 @@ describe('pegelonline', () => {
     });
 
     describe('#getCurrentMeasurement()', () => {
-        it('should give current measurement for Würzburg', async() => {
+        it('should give current measurement for Würzburg', async () => {
             const result = await pegelonline.getCurrentMeasurement('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
             expect(result.unit).to.be.a('string');
             expect(result.currentMeasurement.value).to.be.a('number');
         });
 
-        it('should not find Anderten', async() => {
+        it('should not find Anderten', async () => {
             try {
                 await pegelonline.getCurrentMeasurement('98daae03-5aaa-4284-9717-7d52da4fe063');
             } catch (err) {

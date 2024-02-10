@@ -1,9 +1,7 @@
-'use strict';
+import { execFile } from 'child_process';
+import { expect } from 'chai';
 
-const { execFile } = require('child_process');
-const expect = require('chai').expect;
-
-const ask = require('../ask');
+import * as ask from '../ask.js';
 
 function verifyResponse(error, stdout, stderr, expectFn) {
     const result = ask.verifyResult(error, stderr);
@@ -18,10 +16,13 @@ function verifyResponse(error, stdout, stderr, expectFn) {
 
 describe('Messstelle Brunsbüttel', () => {
     it('should elicit stations', (done) => {
-        const args = ask.execArgs.concat([ 'test/integration/brunsbüttel.json' ]);
+        const args = ask.execArgs.concat(['test/integration/brunsbüttel.json']);
         execFile(ask.execFile, args, (error, stdout, stderr) => {
-            verifyResponse(error, stdout, stderr,
-                (val, msg) => expect(val, msg).to.eq('Welche Messstelle, Brunsbüttel MPM, Brunsbüttel Mole Eins oder Brunsbüttel (Nord-Ostsee-Kanal)?'));
+            verifyResponse(error, stdout, stderr, (val, msg) =>
+                expect(val, msg).to.eq(
+                    'Welche Messstelle, Brunsbüttel MPM, Brunsbüttel Mole Eins oder Brunsbüttel (Nord-Ostsee-Kanal)?',
+                ),
+            );
             done();
         });
     });

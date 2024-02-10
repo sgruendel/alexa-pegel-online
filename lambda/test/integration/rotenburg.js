@@ -1,9 +1,7 @@
-'use strict';
+import { execFile } from 'child_process';
+import { expect } from 'chai';
 
-const { execFile } = require('child_process');
-const expect = require('chai').expect;
-
-const ask = require('../ask');
+import * as ask from '../ask.js';
 
 function verifyResponse(error, stdout, stderr, expectFn) {
     const result = ask.verifyResult(error, stderr);
@@ -18,10 +16,11 @@ function verifyResponse(error, stdout, stderr, expectFn) {
 
 describe('Messstelle Rotenburg an der Fulda', () => {
     it('should return measurement', (done) => {
-        const args = ask.execArgs.concat([ 'test/integration/rotenburg.json' ]);
+        const args = ask.execArgs.concat(['test/integration/rotenburg.json']);
         execFile(ask.execFile, args, (error, stdout, stderr) => {
-            verifyResponse(error, stdout, stderr,
-                (val, msg) => expect(val, msg).to.have.string('Der Wasserstand bei Rotenburg an der Fulda beträgt '));
+            verifyResponse(error, stdout, stderr, (val, msg) =>
+                expect(val, msg).to.have.string('Der Wasserstand bei Rotenburg an der Fulda beträgt '),
+            );
             done();
         });
     });

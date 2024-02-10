@@ -1,5 +1,3 @@
-'use strict';
-
 function isLetter(c) {
     return c.toLowerCase() !== c.toUpperCase();
 }
@@ -8,9 +6,7 @@ function pad(minutes) {
     return (minutes < 10) ? ('0' + minutes) : minutes;
 }
 
-var exports = module.exports = {};
-
-exports.normalizeStation = (name, water, addVariantToName = false) => {
+export function normalizeStation(name, water, addVariantToName = false) {
     // AwK => '' (remove leading Achterwehrer Schifffahrtskanal)
     // Bhv => Bremerhaven
     // Buessau => Büssau
@@ -103,46 +99,46 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
     const doemitz = /^d(ö|oe)mitz( [a-z]{2})?/;
     const rothenburg = /^rothenburg( [a-z]{2})/;
     if (name === 'artlenburg' || name === 'artlenburg elk') {
-        name = 'artlenburg (' + exports.normalizeWater(water) + ')';
+        name = 'artlenburg (' + normalizeWater(water) + ')';
     } else if (name === 'brunsbüttel') {
-        name = 'brunsbüttel (' + exports.normalizeWater(water) + ')';
+        name = 'brunsbüttel (' + normalizeWater(water) + ')';
     } else if (name === 'brunsbüttel mole 1') {
         name = 'brunsbüttel mole eins';
     } else if (name === 'calbe grizehne') {
         name = 'calbe-Grizehne';
     } else if (name.match(calbe)) {
         const result = calbe.exec(name);
-        name = 'calbe (' + exports.normalizeWater(water) + ')' + result[1];
+        name = 'calbe (' + normalizeWater(water) + ')' + result[1];
     } else if (name.match(doemitz)) {
         const result = doemitz.exec(name);
-        name = 'dömitz (' + exports.normalizeWater(water) + ')' + (result[2] || '');
+        name = 'dömitz (' + normalizeWater(water) + ')' + (result[2] || '');
     } else if (name === 'eisenhüttenstadt') {
-        name = 'eisenhüttenstadt (' + exports.normalizeWater(water) + ')';
+        name = 'eisenhüttenstadt (' + normalizeWater(water) + ')';
     } else if (name === 'elsfleth' || name === 'elsfleth ohrt') {
-        name = 'elsfleth (' + exports.normalizeWater(water) + ')';
+        name = 'elsfleth (' + normalizeWater(water) + ')';
     } else if (name === 'geesthacht') {
-        name = 'geesthacht (' + exports.normalizeWater(water) + ')';
+        name = 'geesthacht (' + normalizeWater(water) + ')';
     } else if (name === 'ilmenau') {
-        name = 'ilmenau an der ' + exports.normalizeWater(water);
+        name = 'ilmenau an der ' + normalizeWater(water);
     } else if (name === 'koblenz' || name === 'koblenz up') {
-        name = 'koblenz (' + exports.normalizeWater(water) + ')';
+        name = 'koblenz (' + normalizeWater(water) + ')';
     } else if (name === 'konstanz' || name === 'konstanz rhein') {
-        name = 'konstanz (' + exports.normalizeWater(water) + ')';
+        name = 'konstanz (' + normalizeWater(water) + ')';
     } else if (name === 'mannheim' || name === 'mannheim neckar') {
-        name = 'mannheim (' + exports.normalizeWater(water) + ')';
+        name = 'mannheim (' + normalizeWater(water) + ')';
     } else if (name === 'neustadt') {
-        name = 'neustadt (' + exports.normalizeWater(water) + ')';
+        name = 'neustadt (' + normalizeWater(water) + ')';
     } else if (name === 'neustadt glewe op') {
         name = 'neustadt-Glewe op';
     } else if (name === 'neuwied stadt') {
         name = 'neuwied';
     } else if (name === 'nienburg') {
-        name = 'nienburg (' + exports.normalizeWater(water) + ')';
+        name = 'nienburg (' + normalizeWater(water) + ')';
     } else if (name === 'rotenburg') {
-        name = 'rotenburg an der ' + exports.normalizeWater(water);
+        name = 'rotenburg an der ' + normalizeWater(water);
     } else if (name.match(rothenburg)) {
         const result = rothenburg.exec(name);
-        name = 'rothenburg (' + exports.normalizeWater(water) + ')' + result[1];
+        name = 'rothenburg (' + normalizeWater(water) + ')' + result[1];
     } else if (name === 'waren') {
         name = 'waren (müritz)';
     }
@@ -210,7 +206,7 @@ exports.normalizeStation = (name, water, addVariantToName = false) => {
     return { name: name, variant: variant };
 };
 
-exports.normalizeWater = water => {
+export function normalizeWater(water) {
     water = water.toLowerCase()
         .replace('dyhrssenmoor', 'dyhrrsenmoor') // (typo in WSV data)
         .replace('gewaesser', 'gewässer')
@@ -226,7 +222,7 @@ exports.normalizeWater = water => {
     return water;
 };
 
-exports.getTimeDesc = (date, locale, today = new Date()) => {
+export function getTimeDesc(date, locale, today = new Date()) {
     if (date.getDate() === today.getDate()) {
         // today, use "hours:minutes"
         return pad(date.getHours()) + ':' + pad(date.getMinutes());

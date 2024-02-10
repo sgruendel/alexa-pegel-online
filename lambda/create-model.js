@@ -1,8 +1,6 @@
-'use strict';
-
-const fs = require('fs');
-const pegelonline = require('./pegelonline');
-const utils = require('./utils');
+import fs from 'fs';
+import * as pegelonline from './pegelonline.js';
+import * as utils from './utils.js';
 
 const MODEL_FILE = '../skill-package/interactionModels/custom/de-DE.json';
 const UTF8 = 'utf8';

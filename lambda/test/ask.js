@@ -1,13 +1,9 @@
-'use strict';
+import { expect } from 'chai';
 
-const expect = require('chai').expect;
+export const execFile = 'ask';
+export const execArgs = [ 'dialog', '-s', 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1', '-l', 'de-DE', '-g', 'development', '--debug', '-r' ];
 
-var exports = module.exports = {};
-
-exports.execFile = 'ask';
-exports.execArgs = [ 'dialog', '-s', 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1', '-l', 'de-DE', '-g', 'development', '--debug', '-r' ];
-
-exports.verifyResult = (error, output) => {
+export function verifyResult(error, output) {
     expect(error).to.be.null;
     const lastBody = output.lastIndexOf('Response body: "');
     if (lastBody < 0) {
