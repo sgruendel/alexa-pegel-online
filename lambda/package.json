@@ -7,7 +7,7 @@
     "scripts": {
         "reinstall": "rm -rf ./node_modules && npm install",
         "create-model": "node create-model.js",
-        "test:unit": "nyc --reporter=lcov --reporter=text mocha --timeout=7000 test/unit/*",
+        "test:unit": "c8 --reporter=lcov --reporter=text mocha --timeout=7000 test/unit/*",
         "test:integration": "mocha --timeout=20000 test/integration/*",
         "test": "npm run test:unit"
     },
@@ -31,11 +31,11 @@
     },
     "devDependencies": {
         "alexa-skill-test-framework": "^1.2.4",
+        "c8": "^9.1.0",
         "chai": "^5.0.3",
         "eslint": "^8.56.0",
         "eslint-config-strongloop": "^2.1.0",
-        "mocha": "^10.3.0",
-        "nyc": "^15.1.0"
+        "mocha": "^10.3.0"
     },
     "eslintConfig": {
         "parserOptions": {
