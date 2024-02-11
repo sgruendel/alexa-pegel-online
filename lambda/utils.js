@@ -1,11 +1,28 @@
+/**
+ * Checks if a character is a letter or not.
+ * @param {string} c character to check
+ * @returns a boolean value indicating whether the input character is a letter or not.
+ */
 function isLetter(c) {
     return c.toLowerCase() !== c.toUpperCase();
 }
 
-function pad(minutes) {
-    return (minutes < 10) ? ('0' + minutes) : minutes;
+/**
+ * Adds a leading zero to a number if it is less than 10 and returns it as string.
+ * @param {number} n number to pad, must be >= 0
+ * @returns number as string, padded with a leading zero if the value is less than 10.
+ */
+function pad(n) {
+    return n < 10 ? '0' + n : n.toString();
 }
 
+/**
+ * Normalize station name based on water, and an optional flag to add a variant to the name.
+ * @param {string} name name of station
+ * @param {string} water name of water of station
+ * @param {boolean} [addVariantToName=false] should station's variant be added to the name returned?
+ * @returns Object containing normalized name and variant of station.
+ */
 export function normalizeStation(name, water, addVariantToName = false) {
     // AwK => '' (remove leading Achterwehrer Schifffahrtskanal)
     // Bhv => Bremerhaven
@@ -47,7 +64,8 @@ export function normalizeStation(name, water, addVariantToName = false) {
     // Suelfeld => Sülfeld
     // Truebengraben => Trübengraben
     // Whv => Wilhelmshaven
-    name = name.toLowerCase()
+    name = name
+        .toLowerCase()
         .replace('aussen', 'außen')
         .replace('awk ', '')
         .replace('bhv ', 'bremerhaven ')
@@ -193,35 +211,57 @@ export function normalizeStation(name, water, addVariantToName = false) {
     }
 
     // capitalize letters after spaces (checking for non letter chars after space, e.g. in "Frankfurt (Oder)")
-    name = name.split(' ').map(str => {
-        let i = 0;
-        while (i < str.length && !isLetter(str.charAt(i))) i++;
-        return str.slice(0, i) + str.charAt(i).toUpperCase() + str.slice(i + 1);
-    }).join(' ')
+    name = name
+        .split(' ')
+        .map((str) => {
+            let i = 0;
+            while (i < str.length && !isLetter(str.charAt(i))) i++;
+            return str.slice(0, i) + str.charAt(i).toUpperCase() + str.slice(i + 1);
+        })
+        .join(' ')
         .replace(' An Der ', ' an der ');
 
     if (addVariantToName && variant) {
         name = name + ' ' + variant;
     }
     return { name: name, variant: variant };
-};
+}
 
+/**
+ * Normalize water name.
+ * @param {string} water name of water
+ * @returns normalized water name
+ */
 export function normalizeWater(water) {
-    water = water.toLowerCase()
+    return water
+        .toLowerCase()
         .replace('dyhrssenmoor', 'dyhrrsenmoor') // (typo in WSV data)
         .replace('gewaesser', 'gewässer')
         .replace('strasse', 'straße')
         // capitalize letters after hyphens
-        .split('-').map(str => {
+        .split('-')
+        .map((str) => {
             return str.charAt(0).toUpperCase() + str.slice(1);
-        }).join('-')
+        })
+        .join('-')
         // capitalize letters after spaces
-        .split(' ').map(str => {
+        .split(' ')
+        .map((str) => {
             return str.charAt(0).toUpperCase() + str.slice(1);
-        }).join(' ');
-    return water;
-};
+        })
+        .join(' ');
+}
 
+/**
+ * Returns a description of a date in comparison to today.
+ * If date is on the same day as today, returns just the time as "hours:minutes".
+ * If date is yesterday, returns just the time as "yesterday hours:minutes".
+ * Otherwise, returns date/time according to locale.
+ * @param {Date} date the date for which to get the description
+ * @param {string} locale locale for formatting
+ * @param {Date=} today date to use as today reference
+ * @returns description of date  in comparison to today
+ */
 export function getTimeDesc(date, locale, today = new Date()) {
     if (date.getDate() === today.getDate()) {
         // today, use "hours:minutes"
@@ -230,10 +270,10 @@ export function getTimeDesc(date, locale, today = new Date()) {
 
     let yesterday = new Date(today);
     yesterday.setDate(today.getDate() - 1);
-    if ((date.getDate()) === yesterday.getDate()) {
+    if (date.getDate() === yesterday.getDate()) {
         // yesterday, use "yesterday hours:minutes"
         return 'gestern ' + pad(date.getHours()) + ':' + pad(date.getMinutes());
     }
 
     return date.toLocaleString(locale);
-};
+}
