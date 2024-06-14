@@ -605,8 +605,8 @@ describe('Pegel Online Skill', () => {
                     'Datteln-Hamm-Kanal',
                 ),
                 elicitsSlot: 'station',
-                says: 'Welche Messstelle, Waltrop oder Werries Oberwasser?',
-                reprompts: 'Welche Messstelle, Waltrop oder Werries Oberwasser?',
+                says: 'Welche Messstelle, Waltrop, Hamm Unterwasser, Hamm Oberwasser oder Werries Oberwasser?',
+                reprompts: 'Welche Messstelle, Waltrop, Hamm Unterwasser, Hamm Oberwasser oder Werries Oberwasser?',
                 shouldEndSession: false,
             },
             {
