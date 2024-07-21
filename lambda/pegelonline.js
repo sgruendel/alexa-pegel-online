@@ -53,7 +53,7 @@ const options = {
  */
 
 /**
- * @typedef {Object} Image
+ * @typedef {Object} ImageUrls
  * @property {Object} xsmall - Information about the xsmall image size.
  * @property {string} xsmall.url - The URL for the xsmall image.
  * @property {number} xsmall.width - The width of the xsmall image.
@@ -124,15 +124,15 @@ export async function getCurrentMeasurement(uuid) {
 }
 
 /**
- * Get image info for a station.
+ * Get image URLs for a station.
  * @param {string} uuid UUID of station
  * @returns an object with different sizes of image URLs and their corresponding width and height
  * values.
  */
-export function getImage(uuid) {
+export function getImageUrls(uuid) {
     const common = BASE_URL + 'stations/' + uuid + '/W/measurements.png?start=P7D';
 
-    /** @type {Image} */
+    /** @type {ImageUrls} */
     const image = {
         xsmall: {
             url: common + '&width=480&height=320',

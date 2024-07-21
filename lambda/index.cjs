@@ -13,6 +13,9 @@ const logger = winston.createLogger({
     exitOnError: false,
 });
 
+// as index.cjs is CommonJS, we need to use the asynchronous import()
+const handlersPromise = import('./handlers.js');
+
 const SKILL_ID = 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1';
 
 const languageStrings = {
@@ -33,15 +36,12 @@ const languageStrings = {
         },
     },
 };
+
 i18next.use(sprintf).init({
     overloadTranslationOptionHandler: sprintf.overloadTranslationOptionHandler,
     resources: languageStrings,
     returnObjects: true,
 });
-
-// this will contain the imported ESM handlers.js; as index.cjs is CommonJS, we need to use the asynchronous import()
-// and will assign below when the Promise resolves
-let handlers;
 
 const QueryWaterLevelIntentHandler = {
     canHandle(handlerInput) {
@@ -49,7 +49,7 @@ const QueryWaterLevelIntentHandler = {
         return request.type === 'IntentRequest' && request.intent.name === 'QueryWaterLevelIntent';
     },
     async handle(handlerInput) {
-        return handlers.handleQueryWaterLevelIntent(handlerInput);
+        return (await handlersPromise).handleQueryWaterLevelIntent(handlerInput);
     },
 };
 
@@ -133,17 +133,15 @@ const LocalizationInterceptor = {
         };
     },
 };
-import('./handlers.js').then((resolvedHandlers) => {
-    handlers = resolvedHandlers;
-    exports.handler = Alexa.SkillBuilders.custom()
-        .addRequestHandlers(
-            QueryWaterLevelIntentHandler,
-            HelpIntentHandler,
-            CancelAndStopIntentHandler,
-            SessionEndedRequestHandler,
-        )
-        .addRequestInterceptors(LocalizationInterceptor)
-        .addErrorHandlers(ErrorHandler)
-        .withSkillId(SKILL_ID)
-        .lambda();
-});
+
+exports.handler = Alexa.SkillBuilders.custom()
+    .addRequestHandlers(
+        QueryWaterLevelIntentHandler,
+        HelpIntentHandler,
+        CancelAndStopIntentHandler,
+        SessionEndedRequestHandler,
+    )
+    .addRequestInterceptors(LocalizationInterceptor)
+    .addErrorHandlers(ErrorHandler)
+    .withSkillId(SKILL_ID)
+    .lambda();

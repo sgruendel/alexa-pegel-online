@@ -7,8 +7,8 @@ describe('manager', () => {
         it('should find current measurement for Würzburg', async () => {
             const result = await manager.getCurrentMeasurement('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
             expect(result.unit).to.be.a('string');
-            expect(result.image.small.url).to.be.a('string');
-            expect(result.image.large.url).to.be.a('string');
+            expect(result.imageUrls.small.url).to.be.a('string');
+            expect(result.imageUrls.large.url).to.be.a('string');
             expect(result.currentMeasurement.timestamp).to.be.a('string');
             expect(result.currentMeasurement.value).to.be.a('number');
         });

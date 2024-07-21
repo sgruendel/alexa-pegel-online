@@ -16,7 +16,7 @@ import * as pegelonline from './pegelonline.js';
  * @property {string} gaugeZero.unit - The unit of measurement for the gauge zero.
  * @property {number} gaugeZero.value - The value of the gauge zero.
  * @property {string} gaugeZero.validFrom - The date from which the gauge zero value is valid.
- * @property {pegelonline.Image} image - img
+ * @property {pegelonline.ImageUrls} imageUrls - image URLs
  */
 
 /**
@@ -35,7 +35,7 @@ export async function getStations(water) {
  */
 export async function getCurrentMeasurement(uuid) {
     /** @type {CurrentMeasurement} */
-    const result = { ...(await pegelonline.getCurrentMeasurement(uuid)), image: pegelonline.getImage(uuid) };
+    const result = { ...(await pegelonline.getCurrentMeasurement(uuid)), imageUrls: pegelonline.getImageUrls(uuid) };
     if (result.unit.endsWith('+NN')) {
         // Bad Essen liefert "m+NN"
         result.unit = result.unit.slice(0, result.unit.length - 3);

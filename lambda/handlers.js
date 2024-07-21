@@ -35,9 +35,11 @@ function getElicitSlotPrompt(prefix, values, getNameForElement) {
 }
 
 /**
+ * TODO rewrite
+ *
  * The function `handleQueryWaterLevelIntent` is an async function that handles the intent to query the
  * water level.
- * @param {Alexa.HandlerInput} handlerInput - The `handlerInput` parameter is an object that contains information about the
+ * TODO param {Alexa.HandlerInput} handlerInput - The `handlerInput` parameter is an object that contains information about the
  * current request and response. It includes properties such as `requestEnvelope` (which contains the
  * request data), `attributesManager` (which allows you to get and set session attributes), and
  * `responseBuilder` (which helps you build
@@ -47,8 +49,7 @@ function getElicitSlotPrompt(prefix, values, getNameForElement) {
  */
 export async function handleQueryWaterLevelIntent(handlerInput) {
     /** @type {services.IntentRequest} */
-    // @ts-ignore
-    const { request } = handlerInput.requestEnvelope;
+    const request = handlerInput.requestEnvelope.request;
     logger.debug('request', request);
 
     const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
@@ -297,7 +298,7 @@ export async function handleQueryWaterLevelIntent(handlerInput) {
                     headerTitle: title,
                     primaryText: speechOutput,
                     secondaryText: measurementTime,
-                    imageSource: result.image.medium.url,
+                    imageSource: result.imageUrls.medium.url,
                 },
             };
             handlerInput.responseBuilder.addDirective({
@@ -309,7 +310,7 @@ export async function handleQueryWaterLevelIntent(handlerInput) {
         }
         return handlerInput.responseBuilder
             .speak(speechOutput)
-            .withStandardCard(title, cardContent, result.image.small.url, result.image.large.url)
+            .withStandardCard(title, cardContent, result.imageUrls.small.url, result.imageUrls.large.url)
             .getResponse();
     } catch (err) {
         logger.error(err.stack || err.toString());

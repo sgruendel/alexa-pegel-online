@@ -42,8 +42,8 @@ describe('pegelonline', () => {
         });
     });
 
-    describe('#getImage()', () => {
-        const result = pegelonline.getImage('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
+    describe('#getImageUrls()', () => {
+        const result = pegelonline.getImageUrls('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
 
         it('should give xsmall image for Würzburg', () => {
             expect(result.xsmall.url).to.be.a('string');
