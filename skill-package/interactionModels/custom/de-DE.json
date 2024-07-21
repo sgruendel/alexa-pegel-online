@@ -995,12 +995,6 @@
               }
             },
             {
-              "id": "eebd633a-3af0-4b79-83d5-b6490765e06c",
-              "name": {
-                "value": "Eiserne Brücke"
-              }
-            },
-            {
               "id": "47174d8f-1b8e-4599-8a59-b580dd55bc87",
               "name": {
                 "value": "Eitze"
@@ -1376,6 +1370,12 @@
               }
             },
             {
+              "id": "*4dbce62d-a015-4011-afcd-423bb8d4b7a1",
+              "name": {
+                "value": "Hamm"
+              }
+            },
+            {
               "id": "27dfd137-3b88-42e8-9baf-6bee76e0717c",
               "name": {
                 "value": "Hannover List"
@@ -1460,7 +1460,7 @@
               }
             },
             {
-              "id": "df06a523-8012-41cd-bd3c-47979d66e45e",
+              "id": "5d0f9471-f1cb-4b53-9996-067d68d2ce2a",
               "name": {
                 "value": "Herbrum"
               }
@@ -1499,6 +1499,12 @@
               "id": "599c23b1-4550-41e3-a7e7-3056989927f1",
               "name": {
                 "value": "Hetlingen"
+              }
+            },
+            {
+              "id": "58ccd6f0-2e67-4e01-8a04-9d1cbd2f7cb9",
+              "name": {
+                "value": "Hilkenbrook"
               }
             },
             {
@@ -1625,6 +1631,12 @@
               }
             },
             {
+              "id": "*5c1b6183-eaaf-436c-b863-8a191d9e1f5a",
+              "name": {
+                "value": "Hünxe Schleuse"
+              }
+            },
+            {
               "id": "b02be240-1364-4c97-8bb6-675d7d842332",
               "name": {
                 "value": "Iffezheim"
@@ -1669,7 +1681,7 @@
             {
               "id": "0fd56e0a-e32e-4b56-9cda-e0ce93d715c4",
               "name": {
-                "value": "Kachlet"
+                "value": "Kachlet Schleuse"
               }
             },
             {
@@ -1694,6 +1706,12 @@
               "id": "32b997c2-d97c-452a-a5c1-ee4592a15b4c",
               "name": {
                 "value": "Kanalbrücke"
+              }
+            },
+            {
+              "id": "*a869dd39-dcf7-46f2-b9bf-b210816109ac",
+              "name": {
+                "value": "Kannenburg"
               }
             },
             {
@@ -2339,6 +2357,12 @@
               }
             },
             {
+              "id": "57c8e437-560c-4a5b-a9a0-b8e109804546",
+              "name": {
+                "value": "Niederbiel Schleuse Kanal"
+              }
+            },
+            {
               "id": "36e85829-2fb3-41a0-8a1b-aa9e76431b47",
               "name": {
                 "value": "Niederblockland"
@@ -2408,12 +2432,6 @@
               "id": "9de0843a-2b79-40e5-b312-31d86e91ce4d",
               "name": {
                 "value": "Oberesslingen Wehr"
-              }
-            },
-            {
-              "id": "*e251f943-ce2f-4003-b208-e2797aa72202",
-              "name": {
-                "value": "Oberhausen Schleuse"
               }
             },
             {
@@ -2702,6 +2720,12 @@
               }
             },
             {
+              "id": "eebd633a-3af0-4b79-83d5-b6490765e06c",
+              "name": {
+                "value": "Regensburg Eiserne Brücke"
+              }
+            },
+            {
               "id": "eb28e62a-5009-4e07-9d63-225e31abe62d",
               "name": {
                 "value": "Rehlingen"
@@ -2882,6 +2906,12 @@
               }
             },
             {
+              "id": "15456f75-fb0b-48ad-8887-544ff0108dd3",
+              "name": {
+                "value": "Rühle"
+              }
+            },
+            {
               "id": "*adbd3144-1774-45e8-8eb7-60f01a712426",
               "name": {
                 "value": "Sachsenhausen"
@@ -2979,6 +3009,12 @@
               "id": "550e3885-a9d1-4e55-bd25-34228bd6d988",
               "name": {
                 "value": "Schnackenburg"
+              }
+            },
+            {
+              "id": "6bb310e3-5c89-439b-85e2-54a44a70cc67",
+              "name": {
+                "value": "Schoden"
               }
             },
             {
@@ -3087,6 +3123,12 @@
               "id": "80f0fc4d-9fc7-449d-9d68-ee89333f0eff",
               "name": {
                 "value": "Stadersand"
+              }
+            },
+            {
+              "id": "dfdf753b-75bd-46f0-8cde-15545be9bfba",
+              "name": {
+                "value": "Stadtbredimus"
               }
             },
             {
@@ -3327,6 +3369,12 @@
                 "synonyms": [
                   "Voßwinkel"
                 ]
+              }
+            },
+            {
+              "id": "88698229-ada0-4c89-b006-675ef1f63bc8",
+              "name": {
+                "value": "Wachendorf"
               }
             },
             {

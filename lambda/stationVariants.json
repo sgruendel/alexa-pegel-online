@@ -135,6 +135,10 @@
     "Oberpegel:5553e209-1b44-47f5-917d-2c6951ecc044",
     "Unterpegel:c62aa674-db07-4251-a50b-1676c11a9a25"
   ],
+  "Hamm": [
+    "Oberwasser:4dbce62d-a015-4011-afcd-423bb8d4b7a1",
+    "Unterwasser:4ef9dd9c-b32b-43fc-bc5e-3849d4ab7ecc"
+  ],
   "Havelberg": [
     "Elbpegel:bb6fd2f0-458a-4ea5-aa58-e1c1a2fbd56d",
     "Stadt:c203d5fb-96d7-4643-b2ef-b13b1d88c75b",
@@ -155,6 +159,14 @@
   "Hohensaaten West": [
     "Außenpegel:99309d3e-58d6-4200-b212-c8499467b4ce",
     "Binnenpegel:3404a6e5-8dfe-42b1-90f6-c0c3741b6ac8"
+  ],
+  "Hünxe Schleuse": [
+    "Oberwasser:5c1b6183-eaaf-436c-b863-8a191d9e1f5a",
+    "Unterwasser:14699a51-aaa5-4ae4-98a6-d35aa9a80ec3"
+  ],
+  "Kannenburg": [
+    "Oberpegel:a869dd39-dcf7-46f2-b9bf-b210816109ac",
+    "Unterpegel:4457a320-1f99-4352-8a43-ff24109d99ea"
   ],
   "Kersdorf": [
     "Oberpegel:b577a043-b6b8-4db8-80e7-8abbb565c8c5",
@@ -227,10 +239,6 @@
   "Nordfeld": [
     "Oberwasser:61394669-3f1b-44e5-ae37-50fd2512f4fa",
     "Unterwasser:cb93548e-c1ce-43f6-b3a1-6903f8835b33"
-  ],
-  "Oberhausen Schleuse": [
-    "Oberwasser:e251f943-ce2f-4003-b208-e2797aa72202",
-    "Unterwasser:12f63015-c66a-4e89-a69b-ddd069872d40"
   ],
   "Oste Sperrwerk": [
     "Außenpegel:8c3295dc-fe73-45bc-9a7b-679d4aaad0cf",
