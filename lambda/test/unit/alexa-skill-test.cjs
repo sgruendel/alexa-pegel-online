@@ -577,8 +577,8 @@ describe('Pegel Online Skill', () => {
                     'Aller',
                 ),
                 elicitsSlot: 'station',
-                says: 'Welche Messstelle, Eitze, Rethem, Ahlden, Marklendorf oder Celle?',
-                reprompts: 'Welche Messstelle, Eitze, Rethem, Ahlden, Marklendorf oder Celle?',
+                says: 'Welche Messstelle, Celle, Marklendorf, Ahlden, Rethem oder Eitze?',
+                reprompts: 'Welche Messstelle, Celle, Marklendorf, Ahlden, Rethem oder Eitze?',
                 shouldEndSession: false,
             },
             {
