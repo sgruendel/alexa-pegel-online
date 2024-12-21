@@ -15,6 +15,10 @@
     "Oberpegel:6c76e98e-44ca-4d25-91e7-b07c68577c5e",
     "Unterpegel:1ebd0f94-cc06-445c-8e73-43fe2b8c72dc"
   ],
+  "Banzkow": [
+    "Oberpegel:a9320108-ad58-41b8-b7b5-f52163a23927",
+    "Unterpegel:69fb4730-4866-4838-9b18-2c0ee9dce80d"
+  ],
   "Bardowick": [
     "Oberpegel:07830b68-c5b8-42dd-bf48-7176802130d0",
     "Unterpegel:a238b70f-1198-4b2f-8c03-41f3503e5389"
@@ -148,6 +152,10 @@
     "Oberwasser:70bee932-1c14-42f8-b4df-9a85589ca80e",
     "Unterwasser:e6b68bc2-6814-4bbf-b37e-44a0b7807c2d"
   ],
+  "Herbrum": [
+    "Oberwasser:df06a523-8012-41cd-bd3c-47979d66e45e",
+    "Unterwasser:5d0f9471-f1cb-4b53-9996-067d68d2ce2a"
+  ],
   "Herne": [
     "Oberwasser:ac6c4362-1fb1-4b7a-9406-016bed804804",
     "Unterwasser:b9975ea1-5b45-4e27-abb8-4c3f7878b1f7"
@@ -239,6 +247,10 @@
   "Nordfeld": [
     "Oberwasser:61394669-3f1b-44e5-ae37-50fd2512f4fa",
     "Unterwasser:cb93548e-c1ce-43f6-b3a1-6903f8835b33"
+  ],
+  "Oberhausen Schleuse": [
+    "Oberwasser:e251f943-ce2f-4003-b208-e2797aa72202",
+    "Unterwasser:12f63015-c66a-4e89-a69b-ddd069872d40"
   ],
   "Oste Sperrwerk": [
     "Außenpegel:8c3295dc-fe73-45bc-9a7b-679d4aaad0cf",

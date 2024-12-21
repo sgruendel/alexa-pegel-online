@@ -371,7 +371,7 @@
               }
             },
             {
-              "id": "a9320108-ad58-41b8-b7b5-f52163a23927",
+              "id": "*a9320108-ad58-41b8-b7b5-f52163a23927",
               "name": {
                 "value": "Banzkow"
               }
@@ -854,6 +854,12 @@
               "id": "5cdc6555-87d7-4fcd-834d-cbbe24c9d08b",
               "name": {
                 "value": "Diemeltalsperre"
+              }
+            },
+            {
+              "id": "d6426c42-3af0-4173-94a8-a7b56a5c5026",
+              "name": {
+                "value": "Diemitz"
               }
             },
             {
@@ -1460,7 +1466,7 @@
               }
             },
             {
-              "id": "5d0f9471-f1cb-4b53-9996-067d68d2ce2a",
+              "id": "*df06a523-8012-41cd-bd3c-47979d66e45e",
               "name": {
                 "value": "Herbrum"
               }
@@ -1670,6 +1676,12 @@
               "id": "d863cbc3-5e5e-4095-855c-026f0850dd58",
               "name": {
                 "value": "Itzehoe Hafen"
+              }
+            },
+            {
+              "id": "33bdec83-6184-4ca5-a075-f44185aef302",
+              "name": {
+                "value": "Jade Weser-port"
               }
             },
             {
@@ -2435,6 +2447,12 @@
               }
             },
             {
+              "id": "*e251f943-ce2f-4003-b208-e2797aa72202",
+              "name": {
+                "value": "Oberhausen Schleuse"
+              }
+            },
+            {
               "id": "3c7cfb10-c866-404b-b11c-0d79986f865a",
               "name": {
                 "value": "Obernau"
@@ -2522,12 +2540,6 @@
                 "synonyms": [
                   "Otterndorf Multiparameterstation"
                 ]
-              }
-            },
-            {
-              "id": "b02ce5c0-64e9-4d24-90b9-269a28a1e9f9",
-              "name": {
-                "value": "Over"
               }
             },
             {
@@ -3081,12 +3093,6 @@
               "id": "fed4c295-7a01-463c-998e-70ebad8cd2cc",
               "name": {
                 "value": "Schöpfstelle"
-              }
-            },
-            {
-              "id": "6386de1c-0426-4795-b23d-7ea2754ec782",
-              "name": {
-                "value": "Schöpfurth"
               }
             },
             {
