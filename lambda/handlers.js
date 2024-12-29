@@ -62,12 +62,13 @@ export async function handleQueryWaterLevelIntent(handlerInput) {
     let station;
     if (rpaStation) {
         switch (rpaStation.status.code) {
-            case ER_SUCCESS_NO_MATCH:
+            case ER_SUCCESS_NO_MATCH: {
                 logger.error('no match for station ' + slots.station.value);
                 const speechOutput = requestAttributes.t('UNKNOWN_STATION_MESSAGE');
                 return handlerInput.responseBuilder.speak(speechOutput).getResponse();
+            }
 
-            case ER_SUCCESS_MATCH:
+            case ER_SUCCESS_MATCH: {
                 // If we have only one match or an exact match, we use it.
                 if (
                     rpaStation.values.length === 1 ||
@@ -86,6 +87,7 @@ export async function handleQueryWaterLevelIntent(handlerInput) {
                     .reprompt(prompt)
                     .addElicitSlotDirective(slots.station.name)
                     .getResponse();
+            }
 
             default:
                 logger.error('unexpected status code ' + rpaStation.status.code);
@@ -120,12 +122,13 @@ export async function handleQueryWaterLevelIntent(handlerInput) {
     let water;
     if (rpaWater) {
         switch (rpaWater.status.code) {
-            case ER_SUCCESS_NO_MATCH:
+            case ER_SUCCESS_NO_MATCH: {
                 logger.error('no match for water ' + slots.water.value);
                 const speechOutput = requestAttributes.t('UNKNOWN_WATER_MESSAGE');
                 return handlerInput.responseBuilder.speak(speechOutput).getResponse();
+            }
 
-            case ER_SUCCESS_MATCH:
+            case ER_SUCCESS_MATCH: {
                 // If we have only one match or an exact match, we use it.
                 if (rpaWater.values.length === 1 || rpaWater.values[0].value.name.toLowerCase() === slots.water.value) {
                     water = rpaWater.values[0].value.name;
@@ -141,6 +144,7 @@ export async function handleQueryWaterLevelIntent(handlerInput) {
                     .reprompt(prompt)
                     .addElicitSlotDirective(slots.water.name)
                     .getResponse();
+            }
 
             default:
                 logger.error('unexpected status code ' + rpaWater.status.code);
