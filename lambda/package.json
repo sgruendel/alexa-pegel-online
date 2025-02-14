@@ -30,16 +30,16 @@
         "winston": "^3.17.0"
     },
     "devDependencies": {
-        "@eslint/js": "^9.19.0",
+        "@eslint/js": "^9.20.0",
         "@types/chai": "^5.0.1",
         "@types/mocha": "^10.0.10",
         "@types/node": "^22.13.1",
         "alexa-skill-test-framework": "^1.2.4",
         "c8": "^10.1.3",
         "chai": "^5.1.2",
-        "eslint": "^9.19.0",
+        "eslint": "^9.20.1",
         "eslint-config-strongloop": "^2.1.0",
-        "globals": "^15.14.0",
+        "globals": "^15.15.0",
         "mocha": "^11.1.0"
     }
 }
