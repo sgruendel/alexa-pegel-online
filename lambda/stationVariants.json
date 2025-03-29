@@ -139,10 +139,6 @@
     "Oberpegel:5553e209-1b44-47f5-917d-2c6951ecc044",
     "Unterpegel:c62aa674-db07-4251-a50b-1676c11a9a25"
   ],
-  "Hamm": [
-    "Oberwasser:4dbce62d-a015-4011-afcd-423bb8d4b7a1",
-    "Unterwasser:4ef9dd9c-b32b-43fc-bc5e-3849d4ab7ecc"
-  ],
   "Havelberg": [
     "Elbpegel:bb6fd2f0-458a-4ea5-aa58-e1c1a2fbd56d",
     "Stadt:c203d5fb-96d7-4643-b2ef-b13b1d88c75b",
@@ -355,6 +351,10 @@
   "Wettin": [
     "Oberpegel:632a133b-fcc2-467f-8f9c-1ec63144f8d6",
     "Unterpegel:af82bc24-a355-4247-9532-b305eb57e16f"
+  ],
+  "Wintrich": [
+    "Oberpegel:cb4789e4-0c13-45ff-8173-c3803f5e6e93",
+    "Unterpegel:a392113c-d040-4b36-b47d-9099275bb308"
   ],
   "Wittorf": [
     "Oberpegel:eb3d4195-8c73-46b6-87e9-ef0de83edddf",
