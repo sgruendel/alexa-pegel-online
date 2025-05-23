@@ -236,7 +236,6 @@ describe('Pegel Online Skill', () => {
                 reprompts: 'Welche Messstelle, Geesthacht (Elbe) oder Wehr Geesthacht?',
                 shouldEndSession: false,
             },
-            /* TODO Herbrum not available
             {
                 request: alexaTest.addEntityResolutionsToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', {
@@ -263,7 +262,6 @@ describe('Pegel Online Skill', () => {
                 repromptsNothing: true,
                 shouldEndSession: true,
             },
-            */
             {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', {
