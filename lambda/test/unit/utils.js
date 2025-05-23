@@ -12,7 +12,7 @@ describe('utils', () => {
         });
 
         it('should work for Artlenburg (Elbeseitenkanal)', () => {
-            const result = utils.normalizeStation('ARTLENBURG-ELK', 'ELBESEITENKANAL');
+            const result = utils.normalizeStation('ARTLENBURG-ESK', 'ELBESEITENKANAL');
             expect(result).to.deep.equal({ name: 'Artlenburg (Elbeseitenkanal)', variant: undefined });
         });
 

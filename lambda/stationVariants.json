@@ -67,9 +67,21 @@
     "Oberpegel:184200bc-cdb6-4116-a7cf-ac986c2d4fb8",
     "Unterpegel:46a3350b-f3e6-4f5d-a297-2652c43bfac8"
   ],
+  "Cramberg Schleuse": [
+    "Oberpegel:24fe419b-ed78-45d0-af54-05108098854a",
+    "Unterpegel:3abb36d1-d5b1-41a6-bd59-5b943d828c58"
+  ],
   "Datteln Schleuse": [
     "Oberwasser:4dd743e9-3040-4f11-8c7c-d5c5789d80b4",
     "Unterwasser:06c498e3-786a-48be-83be-6a6293ea3b8c"
+  ],
+  "Dausenau Schleuse": [
+    "Oberpegel:9ceb358c-bb9d-4807-b081-49cd048f5c72",
+    "Unterpegel:eae91991-768c-4713-8cca-3b18d4af885e"
+  ],
+  "Diez Schleuse": [
+    "Oberpegel:ea62ec5f-9a88-4e6a-9062-847bf8347e51",
+    "Unterpegel:31750a0f-24a8-4bc3-9e84-f058c05b70d8"
   ],
   "Dorsten Schleuse": [
     "Oberwasser:6610cf2e-7bfd-4686-b9ac-b105f492d708",
@@ -139,6 +151,10 @@
     "Oberpegel:5553e209-1b44-47f5-917d-2c6951ecc044",
     "Unterpegel:c62aa674-db07-4251-a50b-1676c11a9a25"
   ],
+  "Hamm": [
+    "Oberwasser:4dbce62d-a015-4011-afcd-423bb8d4b7a1",
+    "Unterwasser:4ef9dd9c-b32b-43fc-bc5e-3849d4ab7ecc"
+  ],
   "Havelberg": [
     "Elbpegel:bb6fd2f0-458a-4ea5-aa58-e1c1a2fbd56d",
     "Stadt:c203d5fb-96d7-4643-b2ef-b13b1d88c75b",
@@ -147,10 +163,6 @@
   "Henrichenburg": [
     "Oberwasser:70bee932-1c14-42f8-b4df-9a85589ca80e",
     "Unterwasser:e6b68bc2-6814-4bbf-b37e-44a0b7807c2d"
-  ],
-  "Herbrum": [
-    "Oberwasser:df06a523-8012-41cd-bd3c-47979d66e45e",
-    "Unterwasser:5d0f9471-f1cb-4b53-9996-067d68d2ce2a"
   ],
   "Herne": [
     "Oberwasser:ac6c4362-1fb1-4b7a-9406-016bed804804",
@@ -163,6 +175,10 @@
   "Hohensaaten West": [
     "Außenpegel:99309d3e-58d6-4200-b212-c8499467b4ce",
     "Binnenpegel:3404a6e5-8dfe-42b1-90f6-c0c3741b6ac8"
+  ],
+  "Hollerich Schleuse": [
+    "Oberpegel:cedc9b0c-274a-44f1-8e68-5d035bc90c94",
+    "Unterpegel:9beb7290-7585-4578-998e-9c7c11d7365e"
   ],
   "Hünxe Schleuse": [
     "Oberwasser:5c1b6183-eaaf-436c-b863-8a191d9e1f5a",
@@ -187,6 +203,10 @@
   "Kummersdorf": [
     "Oberpegel:9e4adf71-ed15-453a-b50e-de03d2077e04",
     "Unterpegel:2d9f473e-f2b6-4f50-bb4d-96362230a976"
+  ],
+  "Lahnstein Schleuse": [
+    "Oberpegel:664d68ea-c4f0-4975-8856-a04d3e4c241f",
+    "Unterpegel:6b6b31e2-e5c7-4c85-8405-b8d0b6e158c4"
   ],
   "Lehnitz": [
     "Oberpegel:c8a1cf0a-9441-47aa-8c64-64e8962a9bd4",
@@ -223,6 +243,10 @@
   "Münster": [
     "Oberwasser:ccd3e8f1-39e9-4e09-aa41-625afda84460",
     "Unterwasser:ed260406-bdd6-42ef-bf2a-1246eea392f9"
+  ],
+  "Nassau Schleuse": [
+    "Oberpegel:29cb44a2-5004-4419-b419-51c77add55cc",
+    "Unterpegel:3a90a346-e825-4d38-a67a-27351276cc3c"
   ],
   "Neue Mühle Schleuse": [
     "Oberpegel:0e0dbcc9-0a7d-494a-bc92-52e56a7fffe2",
@@ -291,6 +315,10 @@
   "Sachsenhausen": [
     "Oberpegel:adbd3144-1774-45e8-8eb7-60f01a712426",
     "Unterpegel:0a6fe221-9fc9-46e0-802f-9c367a32ed72"
+  ],
+  "Scheidt Schleuse": [
+    "Oberpegel:15a50d2b-d662-4368-a6c9-297a37305d3b",
+    "Unterpegel:7dfe4776-c0d4-459f-ad15-72d44ab7d2c6"
   ],
   "Schwedt Schleuse": [
     "Außenpegel:aac1846d-a0ea-46f3-984d-b3938b0cb82d",

@@ -341,6 +341,18 @@
               }
             },
             {
+              "id": "c005afb9-175d-4c7a-a9c3-7766f929d81f",
+              "name": {
+                "value": "Bad Ems Schleuse"
+              }
+            },
+            {
+              "id": "f2295e77-acc0-4c24-b762-90391a38059d",
+              "name": {
+                "value": "Bad Ems Wehr"
+              }
+            },
+            {
               "id": "6760b547-a7e7-408a-b3aa-529fe376bfcd",
               "name": {
                 "value": "Bad Essen"
@@ -770,6 +782,12 @@
               }
             },
             {
+              "id": "*24fe419b-ed78-45d0-af54-05108098854a",
+              "name": {
+                "value": "Cramberg Schleuse"
+              }
+            },
+            {
               "id": "e6b42536-6bf8-42e3-8ef5-7d1a283a8608",
               "name": {
                 "value": "Cranz",
@@ -812,6 +830,12 @@
               "id": "*4dd743e9-3040-4f11-8c7c-d5c5789d80b4",
               "name": {
                 "value": "Datteln Schleuse"
+              }
+            },
+            {
+              "id": "*9ceb358c-bb9d-4807-b081-49cd048f5c72",
+              "name": {
+                "value": "Dausenau Schleuse"
               }
             },
             {
@@ -866,6 +890,12 @@
               "id": "eadedeb6-c31e-483f-b6c4-ca0153359ad7",
               "name": {
                 "value": "Diez Hafen"
+              }
+            },
+            {
+              "id": "*ea62ec5f-9a88-4e6a-9062-847bf8347e51",
+              "name": {
+                "value": "Diez Schleuse"
               }
             },
             {
@@ -1109,6 +1139,12 @@
               }
             },
             {
+              "id": "48a939b9-a3cf-49f5-a804-94b45f4eb8dc",
+              "name": {
+                "value": "Feudenheim Schleuse"
+              }
+            },
+            {
               "id": "a5902c55-6ff4-4bbe-88a1-ebba45b03cec",
               "name": {
                 "value": "Findenwirunshier"
@@ -1172,6 +1208,12 @@
               "id": "3a8ed45f-28e7-4263-8437-d926c6a194f4",
               "name": {
                 "value": "Fuestrup"
+              }
+            },
+            {
+              "id": "34af0fca-d2c6-4243-a924-9ce1b3b6452d",
+              "name": {
+                "value": "Fürfurt Schleuse"
               }
             },
             {
@@ -1334,6 +1376,12 @@
               }
             },
             {
+              "id": "bd36404b-ec92-43c0-8d28-3f2c246d51fc",
+              "name": {
+                "value": "Guttenbach Schleuse"
+              }
+            },
+            {
               "id": "f112a50a-d94a-49d3-a140-0a0402baf0d3",
               "name": {
                 "value": "Gülpe"
@@ -1373,6 +1421,12 @@
               "id": "fa886080-4271-4684-9999-1b6862a20ac1",
               "name": {
                 "value": "Hameln Wehrbergen"
+              }
+            },
+            {
+              "id": "*4dbce62d-a015-4011-afcd-423bb8d4b7a1",
+              "name": {
+                "value": "Hamm"
               }
             },
             {
@@ -1424,6 +1478,12 @@
               }
             },
             {
+              "id": "f77df170-d23a-451c-9c43-b1580ccd3e2c",
+              "name": {
+                "value": "Heilbronn Schleuse"
+              }
+            },
+            {
               "id": "06219dd9-a2c4-463c-9619-623b3c026cbc",
               "name": {
                 "value": "Heiligenhafen"
@@ -1460,7 +1520,7 @@
               }
             },
             {
-              "id": "*df06a523-8012-41cd-bd3c-47979d66e45e",
+              "id": "df06a523-8012-41cd-bd3c-47979d66e45e",
               "name": {
                 "value": "Herbrum"
               }
@@ -1514,6 +1574,12 @@
               }
             },
             {
+              "id": "acf505dd-60c9-4a57-a483-556ed0b2794f",
+              "name": {
+                "value": "Hirschhorn Schleuse"
+              }
+            },
+            {
               "id": "a26e57c9-1cb8-4fca-ba80-9e02abc81df8",
               "name": {
                 "value": "Hitzacker"
@@ -1553,6 +1619,12 @@
               "id": "d9289367-c8aa-4b6a-b1ad-857fec94c6bb",
               "name": {
                 "value": "Hohnstorf"
+              }
+            },
+            {
+              "id": "*cedc9b0c-274a-44f1-8e68-5d035bc90c94",
+              "name": {
+                "value": "Hollerich Schleuse"
               }
             },
             {
@@ -1709,6 +1781,12 @@
               }
             },
             {
+              "id": "a7034573-06b3-4490-bb7e-6aa70724a0ba",
+              "name": {
+                "value": "Kalkofen Schleuse"
+              }
+            },
+            {
               "id": "32b997c2-d97c-452a-a5c1-ee4592a15b4c",
               "name": {
                 "value": "Kanalbrücke"
@@ -1853,6 +1931,12 @@
               }
             },
             {
+              "id": "8f695e71-5747-4fba-8962-c3873f549b89",
+              "name": {
+                "value": "Kochendorf Schleuse"
+              }
+            },
+            {
               "id": "3ed90357-4b01-4119-b1c5-bd2c62871e7b",
               "name": {
                 "value": "Kollmar"
@@ -1919,7 +2003,7 @@
               }
             },
             {
-              "id": "6b6b31e2-e5c7-4c85-8405-b8d0b6e158c4",
+              "id": "*664d68ea-c4f0-4975-8856-a04d3e4c241f",
               "name": {
                 "value": "Lahnstein Schleuse"
               }
@@ -2291,6 +2375,24 @@
               }
             },
             {
+              "id": "*29cb44a2-5004-4419-b419-51c77add55cc",
+              "name": {
+                "value": "Nassau Schleuse"
+              }
+            },
+            {
+              "id": "d64d07f7-495f-454c-b2e6-f94a287a48c4",
+              "name": {
+                "value": "Neckarsteinach Schleuse"
+              }
+            },
+            {
+              "id": "f00c7183-ab6c-4497-ac33-218d4944f46c",
+              "name": {
+                "value": "Neckarzimmern Schleuse"
+              }
+            },
+            {
               "id": "67d6e882-b60c-40d3-975c-a6d7a2b4e40a",
               "name": {
                 "value": "Neu Darchau"
@@ -2528,6 +2630,12 @@
                 "synonyms": [
                   "Otterndorf Multiparameterstation"
                 ]
+              }
+            },
+            {
+              "id": "b02ce5c0-64e9-4d24-90b9-269a28a1e9f9",
+              "name": {
+                "value": "Over"
               }
             },
             {
@@ -2810,6 +2918,12 @@
               }
             },
             {
+              "id": "5ab4f00f-24bd-4695-96b0-d013dc723c9c",
+              "name": {
+                "value": "Rockenau Schleuse"
+              }
+            },
+            {
               "id": "4c00a166-7d6d-48d7-b4dc-673b96b4041e",
               "name": {
                 "value": "Rockenau Seilkrananlage"
@@ -2879,6 +2993,12 @@
               "id": "12a3037f-cbf3-49d3-8da5-77fb38730bba",
               "name": {
                 "value": "Ruhrwehr"
+              }
+            },
+            {
+              "id": "b85b17cc-0569-45b2-9c84-07b57f0c442f",
+              "name": {
+                "value": "Runkel Schleuse"
               }
             },
             {
@@ -2972,6 +3092,12 @@
               }
             },
             {
+              "id": "*15a50d2b-d662-4368-a6c9-297a37305d3b",
+              "name": {
+                "value": "Scheidt Schleuse"
+              }
+            },
+            {
               "id": "b1cda5a0-115f-4976-a0a6-9d427ff6dceb",
               "name": {
                 "value": "Schillig",
@@ -2997,6 +3123,12 @@
               "id": "4e4fac1a-6fb4-4ce2-a041-bdc4a668d95d",
               "name": {
                 "value": "Schleuse Rothensee"
+              }
+            },
+            {
+              "id": "36fb2c81-5fc0-4f2c-8f37-347c822a4b59",
+              "name": {
+                "value": "Schloßbrücke Mülheim"
               }
             },
             {
@@ -3027,6 +3159,12 @@
               "id": "7644f1d7-3198-4313-9340-abefd459a4f3",
               "name": {
                 "value": "Schwabelweis"
+              }
+            },
+            {
+              "id": "ec9d3a4d-029f-475e-acbf-03352252b54f",
+              "name": {
+                "value": "Schwabenheim Schleuse"
               }
             },
             {
@@ -3737,7 +3875,7 @@
             },
             {
               "name": {
-                "value": "Dyhrrsenmoor"
+                "value": "Dyhrssenmoor"
               }
             },
             {

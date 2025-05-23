@@ -116,7 +116,7 @@ export function normalizeStation(name, water, addVariantToName = false) {
     const calbe = /^calbe( [a-z]{2})/;
     const doemitz = /^d(ö|oe)mitz( [a-z]{2})?/;
     const rothenburg = /^rothenburg( [a-z]{2})/;
-    if (name === 'artlenburg' || name === 'artlenburg elk') {
+    if (name === 'artlenburg' || name === 'artlenburg esk') {
         name = 'artlenburg (' + normalizeWater(water) + ')';
     } else if (name === 'brunsbüttel') {
         name = 'brunsbüttel (' + normalizeWater(water) + ')';
@@ -235,7 +235,6 @@ export function normalizeStation(name, water, addVariantToName = false) {
 export function normalizeWater(water) {
     return water
         .toLowerCase()
-        .replace('dyhrssenmoor', 'dyhrrsenmoor') // (typo in WSV data)
         .replace('gewaesser', 'gewässer')
         .replace('strasse', 'straße')
         // capitalize letters after hyphens
