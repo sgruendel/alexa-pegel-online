@@ -79,6 +79,14 @@
     "Oberpegel:9ceb358c-bb9d-4807-b081-49cd048f5c72",
     "Unterpegel:eae91991-768c-4713-8cca-3b18d4af885e"
   ],
+  "Detzem": [
+    "Oberpegel:c40912fd-8217-41d0-be2d-3e4073f0df35",
+    "Unterpegel:dc344605-c507-4054-b4e3-293cf0602bc4"
+  ],
+  "Diemitz": [
+    "Oberpegel:d6426c42-3af0-4173-94a8-a7b56a5c5026",
+    "Unterpegel:6b3b55e2-edb4-4945-82f4-523a8c4d5cfb"
+  ],
   "Diez Schleuse": [
     "Oberpegel:ea62ec5f-9a88-4e6a-9062-847bf8347e51",
     "Unterpegel:31750a0f-24a8-4bc3-9e84-f058c05b70d8"
@@ -106,6 +114,10 @@
   "Eisenhüttenstadt Schleuse": [
     "Oberpegel:df242a51-7ed5-4205-be60-47e0e1f46fad",
     "Unterpegel:9c336515-b238-4a1a-947f-dabe47f4b502"
+  ],
+  "Enkirch": [
+    "Oberpegel:87207dcd-5f3d-4672-a660-5a3b1563baa4",
+    "Unterpegel:ee861944-647f-4242-bf61-60f9b9d75fb7"
   ],
   "Este Inneres Sperrwerk": [
     "Außenpegel:227b83f7-1302-4d7e-8d70-899036ff4ce2",
@@ -151,6 +163,10 @@
     "Oberpegel:5553e209-1b44-47f5-917d-2c6951ecc044",
     "Unterpegel:c62aa674-db07-4251-a50b-1676c11a9a25"
   ],
+  "Güdingen": [
+    "Oberpegel:4270b713-dd98-46e8-b317-5ce54fefdd06",
+    "Unterpegel:13c69cb9-ef9c-459c-a48b-74c1ba4994f7"
+  ],
   "Hamm": [
     "Oberwasser:4dbce62d-a015-4011-afcd-423bb8d4b7a1",
     "Unterwasser:4ef9dd9c-b32b-43fc-bc5e-3849d4ab7ecc"
@@ -188,6 +204,10 @@
     "Oberpegel:a869dd39-dcf7-46f2-b9bf-b210816109ac",
     "Unterpegel:4457a320-1f99-4352-8a43-ff24109d99ea"
   ],
+  "Kanzem": [
+    "Oberpegel:8486572c-715d-421f-9fb0-a5714d9e394c",
+    "Unterpegel:17a33d45-2c12-4c91-8204-ec87680d77c4"
+  ],
   "Kersdorf": [
     "Oberpegel:b577a043-b6b8-4db8-80e7-8abbb565c8c5",
     "Unterpegel:b2204ea2-eb50-439f-a64d-98062ea1d21f"
@@ -208,6 +228,10 @@
     "Oberpegel:664d68ea-c4f0-4975-8856-a04d3e4c241f",
     "Unterpegel:6b6b31e2-e5c7-4c85-8405-b8d0b6e158c4"
   ],
+  "Lehmen": [
+    "Oberpegel:d0abe01a-f5e4-4d04-9518-d1c75fcd1706",
+    "Unterpegel:dc1bb420-ec60-4bc3-bce2-b3869a2513df"
+  ],
   "Lehnitz": [
     "Oberpegel:c8a1cf0a-9441-47aa-8c64-64e8962a9bd4",
     "Unterpegel:5bb1f56d-7c56-4b01-9da0-2a08a0aaedeb"
@@ -224,6 +248,10 @@
     "Oberpegel:6f81b35f-8339-4012-8029-ca193403e52c",
     "Unterpegel:79d783d3-e423-4c6d-b914-d7b7d161a89f"
   ],
+  "Lisdorf": [
+    "Oberpegel:3675f292-b4e7-44dc-b12f-470f4a08145b",
+    "Unterpegel:1cc71bb2-99e5-4479-8ae9-8375568ed22c"
+  ],
   "Lüneburg": [
     "Oberwasser:c7364d1e-6139-4575-84cb-b420d21275c4",
     "Unterwasser:d18033cd-9cf6-4800-9176-57758bb444dc"
@@ -236,9 +264,17 @@
     "Oberpegel:60b6ecb0-4ed5-4b8a-b875-07ae33a92b07",
     "Unterpegel:23636a08-775b-4101-a1af-1b57fb466d81"
   ],
+  "Mettlach": [
+    "Oberpegel:f71ba9d8-8889-4a41-89b0-226a954f6d4f",
+    "Unterpegel:50881379-70ca-4e85-9bf2-752a7e5aea8c"
+  ],
   "Mirow": [
     "Oberpegel:ab13c115-6924-4d88-822c-0704b8df4767",
     "Unterpegel:19cc3b9a-546b-43dd-96a3-b0bf903672d2"
+  ],
+  "Müden": [
+    "Oberpegel:a5c880a3-c4cb-41c6-a8be-ca9c3f23a295",
+    "Unterpegel:edc67ca3-b597-402a-9037-ff39ee816452"
   ],
   "Münster": [
     "Oberwasser:ccd3e8f1-39e9-4e09-aa41-625afda84460",
@@ -300,6 +336,10 @@
     "Oberpegel:43ca90f5-3b4c-4b35-86ac-cab0fe1c2ce5",
     "Unterpegel:4de8a51c-4c6a-4334-92dd-0b1cbb8e0573"
   ],
+  "Rehlingen": [
+    "Oberpegel:0ede0e75-8897-41fe-a89a-6b552538d935",
+    "Unterpegel:eb28e62a-5009-4e07-9d63-225e31abe62d"
+  ],
   "Rischmühle": [
     "Oberpegel:31dfddc7-80a5-45ff-907b-7bf2c1d825c5",
     "Unterpegel:cde0f9b6-6b13-4de9-adfe-cad1fe085e30"
@@ -312,13 +352,25 @@
     "Oberpegel:5a7e1d4a-53aa-4f9f-a59b-50e01b7260c7",
     "Unterpegel:e70e39ec-e476-4991-a39d-7d0e009556ef"
   ],
+  "Saarbrücken": [
+    "Oberpegel:a1f437ff-6d45-43b4-bf7d-d45c9fd8fbcb",
+    "Unterpegel:e0bbdb2e-e4e9-4a85-aa42-8db7885e5593"
+  ],
   "Sachsenhausen": [
     "Oberpegel:adbd3144-1774-45e8-8eb7-60f01a712426",
     "Unterpegel:0a6fe221-9fc9-46e0-802f-9c367a32ed72"
   ],
+  "Sankt Aldegund": [
+    "Oberpegel:e4d6a271-c0a9-44cd-8066-7f7311fb0b99",
+    "Unterpegel:20640279-2334-4acd-afb5-c8f3afc18379"
+  ],
   "Scheidt Schleuse": [
     "Oberpegel:15a50d2b-d662-4368-a6c9-297a37305d3b",
     "Unterpegel:7dfe4776-c0d4-459f-ad15-72d44ab7d2c6"
+  ],
+  "Schoden": [
+    "Oberpegel:2ce9a933-07ea-4a67-b6e6-735bc6a3868c",
+    "Unterpegel:6bb310e3-5c89-439b-85e2-54a44a70cc67"
   ],
   "Schwedt Schleuse": [
     "Außenpegel:aac1846d-a0ea-46f3-984d-b3938b0cb82d",
@@ -327,6 +379,10 @@
   "Schönwalde": [
     "Oberpegel:d8ef9f21-479e-4504-8bf7-aef2dbe6184d",
     "Unterpegel:b6650b13-582b-4d54-adac-991ac140e039"
+  ],
+  "Serrig": [
+    "Oberpegel:928b840c-8926-4847-8818-e7e667dc3aae",
+    "Unterpegel:707ef20a-440d-4599-8dca-385eb5c3d020"
   ],
   "Storkow": [
     "Oberpegel:4e6a3d17-1855-4458-b3fc-e71921a4da7b",
@@ -343,6 +399,10 @@
   "Templin": [
     "Oberpegel:71357738-c8e2-4cb7-a41a-365659bb8d58",
     "Unterpegel:5918b484-597f-4a1c-8262-0d0cbbb7986d"
+  ],
+  "Trier": [
+    "Oberpegel:9d2b4126-6ac3-4693-ae6a-e4dc88e150f3",
+    "Unterpegel:3bec53ca-444e-4014-a7b0-07b3591e954b"
   ],
   "Trotha": [
     "Oberpegel:ea6870dc-507e-4ec4-a38c-cd8a5e8b7025",
@@ -403,6 +463,10 @@
   "Zehdenick": [
     "Oberpegel:a9b8e24c-012a-48dc-a823-d48c1637cb42",
     "Unterpegel:721d7dbf-c947-405c-8dba-e672a091f4c0"
+  ],
+  "Zeltingen": [
+    "Oberpegel:8b802863-402e-4bb9-8d39-976d27519796",
+    "Unterpegel:d867e7e9-feb9-4d36-8757-4afd865e697b"
   ],
   "Zerben": [
     "Oberpegel:64c37072-db97-4e08-8981-c67f0282de5c",

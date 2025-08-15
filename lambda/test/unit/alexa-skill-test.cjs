@@ -236,6 +236,7 @@ describe('Pegel Online Skill', () => {
                 reprompts: 'Welche Messstelle, Geesthacht (Elbe) oder Wehr Geesthacht?',
                 shouldEndSession: false,
             },
+            /* Herbrum no longer exists, but the test is kept for reference
             {
                 request: alexaTest.addEntityResolutionsToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', {
@@ -262,6 +263,7 @@ describe('Pegel Online Skill', () => {
                 repromptsNothing: true,
                 shouldEndSession: true,
             },
+            */
             {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('QueryWaterLevelIntent', {
@@ -590,8 +592,8 @@ describe('Pegel Online Skill', () => {
                     'Oranienburger Kanal',
                 ),
                 elicitsSlot: 'station',
-                says: 'Welche Messstelle, Sachsenhausen Unterpegel oder Sachsenhausen Oberpegel?',
-                reprompts: 'Welche Messstelle, Sachsenhausen Unterpegel oder Sachsenhausen Oberpegel?',
+                says: 'Welche Messstelle, Sachsenhausen Oberpegel oder Sachsenhausen Unterpegel?',
+                reprompts: 'Welche Messstelle, Sachsenhausen Oberpegel oder Sachsenhausen Unterpegel?',
                 shouldEndSession: false,
             },
             {
