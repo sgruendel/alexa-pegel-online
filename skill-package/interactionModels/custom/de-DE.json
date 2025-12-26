@@ -347,12 +347,6 @@
               }
             },
             {
-              "id": "f2295e77-acc0-4c24-b762-90391a38059d",
-              "name": {
-                "value": "Bad Ems Wehr"
-              }
-            },
-            {
               "id": "6760b547-a7e7-408a-b3aa-529fe376bfcd",
               "name": {
                 "value": "Bad Essen"
@@ -467,7 +461,7 @@
               }
             },
             {
-              "id": "*24ce3282-39dd-4f2f-ba80-9676e59de7c7",
+              "id": "24ce3282-39dd-4f2f-ba80-9676e59de7c7",
               "name": {
                 "value": "Berlin Oberschleuse"
               }
@@ -1121,7 +1115,7 @@
               }
             },
             {
-              "id": "583420a8-8903-485e-8c35-003814506838",
+              "id": "*68198b48-8a0f-4fa3-85fe-3aad94233a10",
               "name": {
                 "value": "Fankel"
               }
@@ -1241,7 +1235,7 @@
               }
             },
             {
-              "id": "*4c8282c1-c9c5-40c2-b379-95495ce0deee",
+              "id": "4c8282c1-c9c5-40c2-b379-95495ce0deee",
               "name": {
                 "value": "Garz"
               }
@@ -1340,15 +1334,6 @@
               "id": "*81630fdd-5949-412b-a2e0-d3da8bc8bcda",
               "name": {
                 "value": "Große Tränke Wehr"
-              }
-            },
-            {
-              "id": "b26bfc88-eb8a-45b9-9dd0-0e41949a2648",
-              "name": {
-                "value": "Große Weserbrücke",
-                "synonyms": [
-                  "Bremen"
-                ]
               }
             },
             {
@@ -1568,7 +1553,7 @@
               }
             },
             {
-              "id": "*bcdfa310-d887-49bf-a562-1e439759044a",
+              "id": "9592d736-26af-46e5-84fd-e43e89b66566",
               "name": {
                 "value": "Himmelpfort"
               }
@@ -1610,7 +1595,7 @@
               }
             },
             {
-              "id": "*99309d3e-58d6-4200-b212-c8499467b4ce",
+              "id": "99309d3e-58d6-4200-b212-c8499467b4ce",
               "name": {
                 "value": "Hohensaaten West"
               }
@@ -2015,12 +2000,6 @@
               }
             },
             {
-              "id": "*664d68ea-c4f0-4975-8856-a04d3e4c241f",
-              "name": {
-                "value": "Lahnstein Schleuse"
-              }
-            },
-            {
               "id": "5a33bf14-6bdc-4666-b2e3-ac78e3083e2a",
               "name": {
                 "value": "Langballigau"
@@ -2339,7 +2318,7 @@
               }
             },
             {
-              "id": "*f71ba9d8-8889-4a41-89b0-226a954f6d4f",
+              "id": "f71ba9d8-8889-4a41-89b0-226a954f6d4f",
               "name": {
                 "value": "Mettlach"
               }
@@ -2390,6 +2369,12 @@
               "id": "*29cb44a2-5004-4419-b419-51c77add55cc",
               "name": {
                 "value": "Nassau Schleuse"
+              }
+            },
+            {
+              "id": "7be3ff2e-5595-43a8-aeee-895e71f6b9ef",
+              "name": {
+                "value": "Neckargemünd Schleuse"
               }
             },
             {
@@ -2759,15 +2744,6 @@
               }
             },
             {
-              "id": "5d1e4350-0f39-4428-84c3-6f8f0bbe80d4",
-              "name": {
-                "value": "Pogum",
-                "synonyms": [
-                  "Ditzum"
-                ]
-              }
-            },
-            {
               "id": "f4854a4c-490a-43df-bc06-d2711ddf9b70",
               "name": {
                 "value": "Poppenweiler Schleuse"
@@ -2960,6 +2936,15 @@
               }
             },
             {
+              "id": "a36c123d-6940-464c-b972-8c330c944de4",
+              "name": {
+                "value": "Rossdorf",
+                "synonyms": [
+                  "Roßdorf"
+                ]
+              }
+            },
+            {
               "id": "*ca0e4a68-bd50-494c-bd45-abb33c5e1b0a",
               "name": {
                 "value": "Rostock Mühlendamm"
@@ -3123,6 +3108,12 @@
                   "Horumersiel",
                   "Wangersiel"
                 ]
+              }
+            },
+            {
+              "id": "5d5b3d06-e405-4b83-a005-4b3015147074",
+              "name": {
+                "value": "Schlagenthiner Stremme"
               }
             },
             {
@@ -3549,6 +3540,12 @@
               "id": "c41d42b1-5b0d-47c9-ba53-d58d3d109b64",
               "name": {
                 "value": "Wangerooge Nord"
+              }
+            },
+            {
+              "id": "26656fda-cacf-4e92-9935-3ae6e717fe5b",
+              "name": {
+                "value": "Wangerooge Ost"
               }
             },
             {

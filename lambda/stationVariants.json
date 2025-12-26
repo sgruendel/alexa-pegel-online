@@ -31,10 +31,6 @@
     "Oberpegel:6dc4e4a0-2c10-4c27-a08f-a0ca0aa13df2",
     "Unterpegel:09e15cf6-f155-4b76-b92f-6c260839121c"
   ],
-  "Berlin Oberschleuse": [
-    "Oberpegel:24ce3282-39dd-4f2f-ba80-9676e59de7c7",
-    "Unterpegel:c42ad3df-cfe3-4dca-9dcf-dbbaac569a2f"
-  ],
   "Berlin Plötzensee": [
     "Oberpegel:ee52ce62-212c-4735-b438-26fbdc37e3e2",
     "Unterpegel:45721a68-566c-4e2a-a6c7-a7595982a779"
@@ -127,6 +123,10 @@
     "Oberpegel:c33c3667-b8c5-484a-8ea0-b92933b5a9f0",
     "Unterpegel:bb62b28f-9947-42b1-92e4-743a1e0c4a76"
   ],
+  "Fankel": [
+    "Oberpegel:68198b48-8a0f-4fa3-85fe-3aad94233a10",
+    "Unterpegel:583420a8-8903-485e-8c35-003814506838"
+  ],
   "Flaesheim Schleuse": [
     "Oberwasser:f833a494-961b-42d3-9843-e4e61607b5be",
     "Unterwasser:a7ffcc9e-fecd-431c-8044-e004682d023f"
@@ -142,10 +142,6 @@
   "Fürstenwalde": [
     "Oberpegel:53088d32-226a-49b7-962d-a5879c3aba29",
     "Unterpegel:e7440532-8033-44d6-99b4-037a05da0c54"
-  ],
-  "Garz": [
-    "Oberpegel:4c8282c1-c9c5-40c2-b379-95495ce0deee",
-    "Unterpegel:914ce0a4-d900-4bf9-bace-47a6f73e7bed"
   ],
   "Gelsenkirchen Schleuse": [
     "Oberwasser:5b9f8134-8bf0-4b51-a548-72a36303bbc2",
@@ -184,14 +180,6 @@
     "Oberwasser:ac6c4362-1fb1-4b7a-9406-016bed804804",
     "Unterwasser:b9975ea1-5b45-4e27-abb8-4c3f7878b1f7"
   ],
-  "Himmelpfort": [
-    "Oberpegel:bcdfa310-d887-49bf-a562-1e439759044a",
-    "Unterpegel:9592d736-26af-46e5-84fd-e43e89b66566"
-  ],
-  "Hohensaaten West": [
-    "Außenpegel:99309d3e-58d6-4200-b212-c8499467b4ce",
-    "Binnenpegel:3404a6e5-8dfe-42b1-90f6-c0c3741b6ac8"
-  ],
   "Hollerich Schleuse": [
     "Oberpegel:cedc9b0c-274a-44f1-8e68-5d035bc90c94",
     "Unterpegel:9beb7290-7585-4578-998e-9c7c11d7365e"
@@ -223,10 +211,6 @@
   "Kummersdorf": [
     "Oberpegel:9e4adf71-ed15-453a-b50e-de03d2077e04",
     "Unterpegel:2d9f473e-f2b6-4f50-bb4d-96362230a976"
-  ],
-  "Lahnstein Schleuse": [
-    "Oberpegel:664d68ea-c4f0-4975-8856-a04d3e4c241f",
-    "Unterpegel:6b6b31e2-e5c7-4c85-8405-b8d0b6e158c4"
   ],
   "Lehmen": [
     "Oberpegel:d0abe01a-f5e4-4d04-9518-d1c75fcd1706",
@@ -263,10 +247,6 @@
   "Marienthal": [
     "Oberpegel:60b6ecb0-4ed5-4b8a-b875-07ae33a92b07",
     "Unterpegel:23636a08-775b-4101-a1af-1b57fb466d81"
-  ],
-  "Mettlach": [
-    "Oberpegel:f71ba9d8-8889-4a41-89b0-226a954f6d4f",
-    "Unterpegel:50881379-70ca-4e85-9bf2-752a7e5aea8c"
   ],
   "Mirow": [
     "Oberpegel:ab13c115-6924-4d88-822c-0704b8df4767",
