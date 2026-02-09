@@ -1,7 +1,8 @@
-const Alexa = require('ask-sdk-core');
-const i18next = require('i18next');
-const sprintf = require('i18next-sprintf-postprocessor');
-const winston = require('winston');
+import Alexa from 'ask-sdk-core';
+import i18next from 'i18next';
+import sprintf from 'i18next-sprintf-postprocessor';
+import winston from 'winston';
+import * as handlers from './handlers.js';
 
 const logger = winston.createLogger({
     level: process.env.LOG_LEVEL || 'info',
@@ -12,9 +13,6 @@ const logger = winston.createLogger({
     ],
     exitOnError: false,
 });
-
-// as index.cjs is CommonJS, we need to use the asynchronous import()
-const handlersPromise = import('./handlers.js');
 
 const SKILL_ID = 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1';
 
@@ -49,7 +47,7 @@ const QueryWaterLevelIntentHandler = {
         return request.type === 'IntentRequest' && request.intent.name === 'QueryWaterLevelIntent';
     },
     async handle(handlerInput) {
-        return (await handlersPromise).handleQueryWaterLevelIntent(handlerInput);
+        return handlers.handleQueryWaterLevelIntent(handlerInput);
     },
 };
 
@@ -134,14 +132,22 @@ const LocalizationInterceptor = {
     },
 };
 
-exports.handler = Alexa.SkillBuilders.custom()
-    .addRequestHandlers(
-        QueryWaterLevelIntentHandler,
-        HelpIntentHandler,
-        CancelAndStopIntentHandler,
-        SessionEndedRequestHandler,
-    )
-    .addRequestInterceptors(LocalizationInterceptor)
-    .addErrorHandlers(ErrorHandler)
-    .withSkillId(SKILL_ID)
-    .lambda();
+let skill;
+
+export const handler = async function (event, context) {
+    if (!skill) {
+        skill = Alexa.SkillBuilders.custom()
+            .addRequestHandlers(
+                QueryWaterLevelIntentHandler,
+                HelpIntentHandler,
+                CancelAndStopIntentHandler,
+                SessionEndedRequestHandler,
+            )
+            .addRequestInterceptors(LocalizationInterceptor)
+            .addErrorHandlers(ErrorHandler)
+            .withSkillId(SKILL_ID)
+            .create();
+    }
+
+    return skill.invoke(event, context);
+};
