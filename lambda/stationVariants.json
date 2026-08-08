@@ -7,17 +7,9 @@
     "Oberpegel:9fb9abce-e1ac-4c11-94b2-a32d63f6fb40",
     "Unterpegel:93ddc1e6-072c-45f6-99c0-d7d7df9d39cf"
   ],
-  "Anderten": [
-    "Oberwasser:bc20d819-1782-4588-885d-129f21a27cf9",
-    "Unterwasser:dd41a7d6-9b11-4ec4-9518-388266750cfa"
-  ],
   "Bahnitz": [
     "Oberpegel:6c76e98e-44ca-4d25-91e7-b07c68577c5e",
     "Unterpegel:1ebd0f94-cc06-445c-8e73-43fe2b8c72dc"
-  ],
-  "Banzkow": [
-    "Oberpegel:a9320108-ad58-41b8-b7b5-f52163a23927",
-    "Unterpegel:69fb4730-4866-4838-9b18-2c0ee9dce80d"
   ],
   "Bardowick": [
     "Oberpegel:07830b68-c5b8-42dd-bf48-7176802130d0",
@@ -31,6 +23,10 @@
     "Oberpegel:6dc4e4a0-2c10-4c27-a08f-a0ca0aa13df2",
     "Unterpegel:09e15cf6-f155-4b76-b92f-6c260839121c"
   ],
+  "Berlin Oberschleuse": [
+    "Oberpegel:24ce3282-39dd-4f2f-ba80-9676e59de7c7",
+    "Unterpegel:c42ad3df-cfe3-4dca-9dcf-dbbaac569a2f"
+  ],
   "Berlin Plötzensee": [
     "Oberpegel:ee52ce62-212c-4735-b438-26fbdc37e3e2",
     "Unterpegel:45721a68-566c-4e2a-a6c7-a7595982a779"
@@ -38,10 +34,6 @@
   "Berlin Spandau": [
     "Oberpegel:e607a4b6-85cc-4f12-a53d-116cb6eef4f5",
     "Unterpegel:2c68509c-bf1e-4866-9ec4-b26b231e5e04"
-  ],
-  "Berlin Unterschleuse": [
-    "Oberpegel:503ad891-c9de-428c-b682-434510ed9de8",
-    "Unterpegel:d198c901-fe4e-4c3f-9323-d6a771f51960"
   ],
   "Bernburg": [
     "Oberpegel:e7f52bd2-f0cb-4194-aa85-4ad76a3a0671",
@@ -62,14 +54,6 @@
   "Calbe (Saale)": [
     "Oberpegel:184200bc-cdb6-4116-a7cf-ac986c2d4fb8",
     "Unterpegel:46a3350b-f3e6-4f5d-a297-2652c43bfac8"
-  ],
-  "Cramberg Schleuse": [
-    "Oberpegel:24fe419b-ed78-45d0-af54-05108098854a",
-    "Unterpegel:3abb36d1-d5b1-41a6-bd59-5b943d828c58"
-  ],
-  "Datteln Schleuse": [
-    "Oberwasser:4dd743e9-3040-4f11-8c7c-d5c5789d80b4",
-    "Unterwasser:06c498e3-786a-48be-83be-6a6293ea3b8c"
   ],
   "Dausenau Schleuse": [
     "Oberpegel:9ceb358c-bb9d-4807-b081-49cd048f5c72",
@@ -99,10 +83,6 @@
     "Oberpegel:ec8188ee-f4e4-4f5e-91ae-472e765060cd",
     "Unterpegel:ad3a51da-2e25-4818-b96f-6a6d8a20d803"
   ],
-  "Eichhorst": [
-    "Oberpegel:42805eb1-aca9-4f32-a373-24a9cf839aed",
-    "Unterpegel:5c4c2d52-6c0d-4aa2-beed-6ce47e3e2bd7"
-  ],
   "Eider Sperrwerk": [
     "Außenpegel:04acd7e5-3cbc-4cdd-b4a9-f452e868f4d6",
     "Binnenpegel:8ac85e6c-6167-496c-b16f-fa94f81cd94a"
@@ -123,18 +103,6 @@
     "Oberpegel:c33c3667-b8c5-484a-8ea0-b92933b5a9f0",
     "Unterpegel:bb62b28f-9947-42b1-92e4-743a1e0c4a76"
   ],
-  "Fankel": [
-    "Oberpegel:68198b48-8a0f-4fa3-85fe-3aad94233a10",
-    "Unterpegel:583420a8-8903-485e-8c35-003814506838"
-  ],
-  "Flaesheim Schleuse": [
-    "Oberwasser:f833a494-961b-42d3-9843-e4e61607b5be",
-    "Unterwasser:a7ffcc9e-fecd-431c-8044-e004682d023f"
-  ],
-  "Friedrichsfeld Schleuse": [
-    "Oberwasser:e3409c98-72d7-425b-9e2d-da54f75b3be8",
-    "Unterwasser:a98b4a84-e51f-4d03-86d9-3b8bdac10e69"
-  ],
   "Fürstenberg": [
     "Oberpegel:2c95f83d-4669-4553-a18d-3f493176d34d",
     "Unterpegel:a5830277-af1d-4c64-be72-00591f36216c"
@@ -143,13 +111,17 @@
     "Oberpegel:53088d32-226a-49b7-962d-a5879c3aba29",
     "Unterpegel:e7440532-8033-44d6-99b4-037a05da0c54"
   ],
-  "Gelsenkirchen Schleuse": [
-    "Oberwasser:5b9f8134-8bf0-4b51-a548-72a36303bbc2",
-    "Unterwasser:427318d0-ee8d-4d9b-89f1-e8a8685b5d8c"
+  "Garz": [
+    "Oberpegel:4c8282c1-c9c5-40c2-b379-95495ce0deee",
+    "Unterpegel:914ce0a4-d900-4bf9-bace-47a6f73e7bed"
   ],
   "Gnevsdorf": [
     "Elbpegel:3079c709-9d83-4c59-bf91-6bed2d5ea372",
     "Oberpegel:ab53a592-0f5a-43e2-9133-bf3169b0f274"
+  ],
+  "Grevenmacher": [
+    "Oberpegel:6e72bebf-540a-4180-bcf1-18c464a0c007",
+    "Unterpegel:69308142-f78e-4877-9af8-e7221b01d303"
   ],
   "Große Tränke Wehr": [
     "Oberpegel:81630fdd-5949-412b-a2e0-d3da8bc8bcda",
@@ -180,13 +152,17 @@
     "Oberwasser:ac6c4362-1fb1-4b7a-9406-016bed804804",
     "Unterwasser:b9975ea1-5b45-4e27-abb8-4c3f7878b1f7"
   ],
+  "Himmelpfort": [
+    "Oberpegel:bcdfa310-d887-49bf-a562-1e439759044a",
+    "Unterpegel:9592d736-26af-46e5-84fd-e43e89b66566"
+  ],
+  "Hohensaaten West": [
+    "Außenpegel:99309d3e-58d6-4200-b212-c8499467b4ce",
+    "Binnenpegel:3404a6e5-8dfe-42b1-90f6-c0c3741b6ac8"
+  ],
   "Hollerich Schleuse": [
     "Oberpegel:cedc9b0c-274a-44f1-8e68-5d035bc90c94",
     "Unterpegel:9beb7290-7585-4578-998e-9c7c11d7365e"
-  ],
-  "Hünxe Schleuse": [
-    "Oberwasser:5c1b6183-eaaf-436c-b863-8a191d9e1f5a",
-    "Unterwasser:14699a51-aaa5-4ae4-98a6-d35aa9a80ec3"
   ],
   "Kannenburg": [
     "Oberpegel:a869dd39-dcf7-46f2-b9bf-b210816109ac",
@@ -200,10 +176,6 @@
     "Oberpegel:b577a043-b6b8-4db8-80e7-8abbb565c8c5",
     "Unterpegel:b2204ea2-eb50-439f-a64d-98062ea1d21f"
   ],
-  "Kleinmachnow": [
-    "Oberpegel:bb23b276-2c1c-4cde-bc9c-9d90d5a04890",
-    "Unterpegel:38414157-862e-428a-ae2c-77ff79871227"
-  ],
   "Krückau Sperrwerk": [
     "Außenpegel:a653eb04-de2e-47f7-8e2c-09277cfe95ae",
     "Binnenpegel:53c277c3-7ddb-4281-9937-97dcfe3753fa"
@@ -212,9 +184,9 @@
     "Oberpegel:9e4adf71-ed15-453a-b50e-de03d2077e04",
     "Unterpegel:2d9f473e-f2b6-4f50-bb4d-96362230a976"
   ],
-  "Lehmen": [
-    "Oberpegel:d0abe01a-f5e4-4d04-9518-d1c75fcd1706",
-    "Unterpegel:dc1bb420-ec60-4bc3-bce2-b3869a2513df"
+  "Lahnstein Schleuse": [
+    "Oberpegel:664d68ea-c4f0-4975-8856-a04d3e4c241f",
+    "Unterpegel:6b6b31e2-e5c7-4c85-8405-b8d0b6e158c4"
   ],
   "Lehnitz": [
     "Oberpegel:c8a1cf0a-9441-47aa-8c64-64e8962a9bd4",
@@ -224,10 +196,6 @@
     "Oberwasser:86c5688f-2fac-4d58-a245-ad8ce14cafbf",
     "Unterwasser:7f01fbd8-653c-40ba-8ed0-57386a9b4557"
   ],
-  "Liebenwalde": [
-    "Oberpegel:3f8ceb6d-e95d-46e6-b523-3d15fe706049",
-    "Unterpegel:a1cf60be-8149-445d-a7a6-e7c7e7051944"
-  ],
   "Liepe": [
     "Oberpegel:6f81b35f-8339-4012-8029-ca193403e52c",
     "Unterpegel:79d783d3-e423-4c6d-b914-d7b7d161a89f"
@@ -236,33 +204,21 @@
     "Oberpegel:3675f292-b4e7-44dc-b12f-470f4a08145b",
     "Unterpegel:1cc71bb2-99e5-4479-8ae9-8375568ed22c"
   ],
-  "Lüneburg": [
-    "Oberwasser:c7364d1e-6139-4575-84cb-b420d21275c4",
-    "Unterwasser:d18033cd-9cf6-4800-9176-57758bb444dc"
-  ],
   "Malliß": [
     "Oberpegel:497c29ee-32b2-4535-ac5f-3881a106c793",
     "Unterpegel:a64918a6-e6f5-495e-ad2d-a8e3655c9424"
   ],
-  "Marienthal": [
-    "Oberpegel:60b6ecb0-4ed5-4b8a-b875-07ae33a92b07",
-    "Unterpegel:23636a08-775b-4101-a1af-1b57fb466d81"
+  "Mettlach": [
+    "Oberpegel:f71ba9d8-8889-4a41-89b0-226a954f6d4f",
+    "Unterpegel:50881379-70ca-4e85-9bf2-752a7e5aea8c"
   ],
   "Mirow": [
     "Oberpegel:ab13c115-6924-4d88-822c-0704b8df4767",
     "Unterpegel:19cc3b9a-546b-43dd-96a3-b0bf903672d2"
   ],
-  "Müden": [
-    "Oberpegel:a5c880a3-c4cb-41c6-a8be-ca9c3f23a295",
-    "Unterpegel:edc67ca3-b597-402a-9037-ff39ee816452"
-  ],
   "Münster": [
     "Oberwasser:ccd3e8f1-39e9-4e09-aa41-625afda84460",
     "Unterwasser:ed260406-bdd6-42ef-bf2a-1246eea392f9"
-  ],
-  "Nassau Schleuse": [
-    "Oberpegel:29cb44a2-5004-4419-b419-51c77add55cc",
-    "Unterpegel:3a90a346-e825-4d38-a67a-27351276cc3c"
   ],
   "Neue Mühle Schleuse": [
     "Oberpegel:0e0dbcc9-0a7d-494a-bc92-52e56a7fffe2",
@@ -304,10 +260,6 @@
     "Oberpegel:3ffddb2c-4c17-47d1-a7de-e1663d4031b7",
     "Unterpegel:506e6b03-1209-4650-8b3b-3cd2d4724b5f"
   ],
-  "Plaue": [
-    "Oberpegel:aa97c894-ed26-4fdd-945f-db9667979268",
-    "Unterpegel:9829cab0-746b-4d10-9124-79ddda0a843e"
-  ],
   "Quitzöbel": [
     "Oberpegel:863359dd-3171-4641-97bb-b21f06859072",
     "Unterpegel:2d93f2be-6d57-4716-a775-92fb5a63f88f"
@@ -340,10 +292,6 @@
     "Oberpegel:adbd3144-1774-45e8-8eb7-60f01a712426",
     "Unterpegel:0a6fe221-9fc9-46e0-802f-9c367a32ed72"
   ],
-  "Sankt Aldegund": [
-    "Oberpegel:e4d6a271-c0a9-44cd-8066-7f7311fb0b99",
-    "Unterpegel:20640279-2334-4acd-afb5-c8f3afc18379"
-  ],
   "Scheidt Schleuse": [
     "Oberpegel:15a50d2b-d662-4368-a6c9-297a37305d3b",
     "Unterpegel:7dfe4776-c0d4-459f-ad15-72d44ab7d2c6"
@@ -364,21 +312,21 @@
     "Oberpegel:928b840c-8926-4847-8818-e7e667dc3aae",
     "Unterpegel:707ef20a-440d-4599-8dca-385eb5c3d020"
   ],
+  "Stadtbredimus": [
+    "Oberpegel:cceb7060-7c46-4cb7-a50a-6f7baeb8737a",
+    "Unterpegel:dfdf753b-75bd-46f0-8cde-15545be9bfba"
+  ],
   "Storkow": [
     "Oberpegel:4e6a3d17-1855-4458-b3fc-e71921a4da7b",
     "Unterpegel:b89b68fd-0d40-4941-9ee1-e4f7a56351a0"
   ],
+  "Strasen": [
+    "Oberpegel:117877ec-cdf9-4daf-8f3c-8618a38da632",
+    "Unterpegel:2cc40997-c37c-4d7b-8eec-58f6f99cd30a"
+  ],
   "Stör Sperrwerk": [
     "Außenpegel:d9acdbec-61ff-4308-978a-2f4d1c2c4059",
     "Binnenpegel:e5b8e9f3-f0cc-4ad7-8707-577ee1b25b3e"
-  ],
-  "Sülfeld": [
-    "Oberwasser:a8604e8f-9330-4431-8cf6-0a68fc793c82",
-    "Unterwasser:892183d6-3a28-4347-afb4-bc89602ca927"
-  ],
-  "Templin": [
-    "Oberpegel:71357738-c8e2-4cb7-a41a-365659bb8d58",
-    "Unterpegel:5918b484-597f-4a1c-8262-0d0cbbb7986d"
   ],
   "Trier": [
     "Oberpegel:9d2b4126-6ac3-4693-ae6a-e4dc88e150f3",
@@ -404,10 +352,6 @@
     "Oberpegel:a9299f0c-9eb8-4369-a260-4be929e72736",
     "Unterpegel:c1d6f464-f38a-4e38-9f74-4c5d22a42c88"
   ],
-  "Wernsdorf": [
-    "Oberpegel:9d7cc90a-7380-4dbf-8641-3201dfcbc75d",
-    "Unterpegel:1b8ac909-8377-4887-ab70-748de2dd9775"
-  ],
   "Wesenberg": [
     "Oberpegel:7909d3f7-ef5d-4321-b76d-712d9b0a0c68",
     "Unterpegel:da3b5de9-bb1d-4545-a172-fa29301d552e"
@@ -423,10 +367,6 @@
   "Wintrich": [
     "Oberpegel:cb4789e4-0c13-45ff-8173-c3803f5e6e93",
     "Unterpegel:a392113c-d040-4b36-b47d-9099275bb308"
-  ],
-  "Wittorf": [
-    "Oberpegel:eb3d4195-8c73-46b6-87e9-ef0de83edddf",
-    "Unterpegel:308c39b6-475f-42c3-857f-7cf257426fa1"
   ],
   "Wolfsbruch": [
     "Oberpegel:4d00c13e-e689-4dfc-85e6-a3fc8596ac8b",
