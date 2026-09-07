@@ -11,7 +11,8 @@
         "test:integration": "mocha --timeout=20000 test/integration/*",
         "test": "npm run test:unit",
         "lambda:zip": "zip -r /tmp/pegelOnline.zip node_modules/ package* *.js *.json",
-        "lambda:deploy": "npm run lambda:zip && aws lambda update-function-code --function-name pegelOnline --zip-file fileb:///tmp/pegelOnline.zip"
+        "lambda:deploy": "npm run lambda:zip && aws lambda update-function-code --function-name pegelOnline --zip-file fileb:///tmp/pegelOnline.zip",
+        "model:deploy": "node scripts/deploy-model.js"
     },
     "repository": {
         "type": "git",

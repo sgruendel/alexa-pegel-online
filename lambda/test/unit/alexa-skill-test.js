@@ -1,6 +1,7 @@
 // include the testing framework
 import alexaTest from 'alexa-skill-test-framework';
-import { handler } from '../../index.js';
+
+import { handler, SKILL_ID } from '../../index.js';
 
 // custom slot types
 const LIST_OF_STATIONS = 'LIST_OF_STATIONS';
@@ -10,7 +11,7 @@ const LIST_OF_WATERS = 'LIST_OF_WATERS';
 // initialize the testing framework
 alexaTest.initialize(
     handler,
-    'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1',
+    SKILL_ID,
     'amzn1.ask.account.VOID',
     'amzn1.ask.device.VOID',
 );

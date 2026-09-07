@@ -1,7 +1,21 @@
 import { expect } from 'chai';
 
+import { SKILL_ID } from '../index.js';
+
 export const execFile = 'ask';
-export const execArgs = [ 'dialog', '-s', 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1', '-l', 'de-DE', '-g', 'development', '--debug', '-r' ];
+// see https://github.com/alexa/ask-cli/issues/173
+export const execArgs = [
+    'dialog',
+    '-s',
+    SKILL_ID,
+    '-l',
+    'de-DE',
+    '-g',
+    'development',
+    '--save-skill-io',
+    'output.json',
+    '-r',
+];
 
 export function verifyResult(error, output) {
     expect(error).to.be.null;
