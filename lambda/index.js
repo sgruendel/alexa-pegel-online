@@ -14,7 +14,7 @@ const logger = winston.createLogger({
     exitOnError: false,
 });
 
-const SKILL_ID = 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1';
+export const SKILL_ID = 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1';
 
 const languageStrings = {
     de: {
