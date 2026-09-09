@@ -1,78 +1,112 @@
 import { expect } from 'chai';
+import nock from 'nock';
 
 import * as pegelonline from '../../pegelonline.js';
+import { BASE_URL, measurement, stations, STATION_UUID, waters } from '../fixtures/pegelonline.js';
 
 describe('pegelonline', () => {
     describe('#getStations()', () => {
-        it('should return all stations', async () => {
-            const result = await pegelonline.getStations();
-            expect(result).to.have.length.above(500);
+        it('returns all stations', async () => {
+            nock(BASE_URL)
+                .get('/webservices/rest-api/v2/stations.json')
+                .query({ prettyprint: 'false' })
+                .reply(200, stations);
 
-            result.forEach((station) => {
-                expect(station.uuid).to.be.a('string');
-            });
+            const result = await pegelonline.getStations();
+
+            expect(result).to.deep.equal(stations);
+        });
+
+        it('filters stations by water', async () => {
+            nock(BASE_URL)
+                .get('/webservices/rest-api/v2/stations.json')
+                .query({ prettyprint: 'false', waters: 'Main' })
+                .reply(200, stations);
+
+            const result = await pegelonline.getStations('Main');
+
+            expect(result).to.deep.equal(stations);
         });
     });
 
     describe('#getWaters()', () => {
-        it('should return all waters', async () => {
-            const result = await pegelonline.getWaters();
-            expect(result).to.have.length.above(90);
+        it('returns all waters', async () => {
+            nock(BASE_URL)
+                .get('/webservices/rest-api/v2/waters.json')
+                .query({ prettyprint: 'false' })
+                .reply(200, waters);
 
-            result.forEach((water) => {
-                expect(water.shortname).to.be.a('string');
-                expect(water.longname).to.be.a('string');
-            });
+            const result = await pegelonline.getWaters();
+
+            expect(result).to.deep.equal(waters);
         });
     });
 
     describe('#getCurrentMeasurement()', () => {
-        it('should give current measurement for Würzburg', async () => {
-            const result = await pegelonline.getCurrentMeasurement('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
-            expect(result.unit).to.be.a('string');
-            expect(result.currentMeasurement.value).to.be.a('number');
+        it('returns the current measurement', async () => {
+            const expected = measurement();
+            nock(BASE_URL)
+                .get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`)
+                .query({ prettyprint: 'false', includeCurrentMeasurement: 'true' })
+                .reply(200, expected);
+
+            const result = await pegelonline.getCurrentMeasurement(STATION_UUID);
+
+            expect(result).to.deep.equal(expected);
         });
 
-        it('should not find Anderten', async () => {
+        it('exposes HTTP status errors', async () => {
+            nock(BASE_URL)
+                .get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`)
+                .query({ prettyprint: 'false', includeCurrentMeasurement: 'true' })
+                .reply(404, { message: 'Not found' });
+
+            let error;
             try {
-                await pegelonline.getCurrentMeasurement('98daae03-5aaa-4284-9717-7d52da4fe063');
-            } catch (err) {
-                expect(err.statusCode).to.equal(404);
+                await pegelonline.getCurrentMeasurement(STATION_UUID);
+            } catch (caught) {
+                error = caught;
             }
+
+            expect(error).to.be.instanceOf(Error);
+            expect(error).to.be.instanceOf(pegelonline.HttpError);
+            expect(error.name).to.equal('HttpError');
+            expect(error.statusCode).to.equal(404);
         });
     });
 
     describe('#getImageUrls()', () => {
-        const result = pegelonline.getImageUrls('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
+        const result = pegelonline.getImageUrls(STATION_UUID);
 
-        it('should give xsmall image for Würzburg', () => {
-            expect(result.xsmall.url).to.be.a('string');
-            expect(result.xsmall.width).to.be.a('number');
-            expect(result.xsmall.height).to.be.a('number');
+        for (const size of ['xsmall', 'small', 'medium', 'large', 'xlarge']) {
+            it(`returns the ${size} image`, () => {
+                expect(result[size].url).to.contain(STATION_UUID);
+                expect(result[size].width).to.be.a('number');
+                expect(result[size].height).to.be.a('number');
+            });
+        }
+    });
+
+    describe('live API', function () {
+        this.timeout(20000);
+
+        before(() => {
+            nock.enableNetConnect(/pegelonline\.wsv\.de/);
         });
 
-        it('should give small image for Würzburg', () => {
-            expect(result.small.url).to.be.a('string');
-            expect(result.small.width).to.be.a('number');
-            expect(result.small.height).to.be.a('number');
+        after(() => {
+            nock.disableNetConnect();
         });
 
-        it('should give medium image for Würzburg', () => {
-            expect(result.medium.url).to.be.a('string');
-            expect(result.medium.width).to.be.a('number');
-            expect(result.medium.height).to.be.a('number');
+        it('returns the station catalog', async () => {
+            const result = await pegelonline.getStations();
+            expect(result).to.have.length.above(500);
         });
 
-        it('should give large image for Würzburg', () => {
-            expect(result.large.url).to.be.a('string');
-            expect(result.large.width).to.be.a('number');
-            expect(result.large.height).to.be.a('number');
-        });
-
-        it('should give xlarge image for Würzburg', () => {
-            expect(result.xlarge.url).to.be.a('string');
-            expect(result.xlarge.width).to.be.a('number');
-            expect(result.xlarge.height).to.be.a('number');
+        it('returns the current measurement for Würzburg', async () => {
+            const result = await pegelonline.getCurrentMeasurement(STATION_UUID);
+            expect(result.unit).to.be.a('string');
+            expect(result.currentMeasurement.value).to.be.a('number');
         });
     });
 });

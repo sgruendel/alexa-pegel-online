@@ -85,7 +85,7 @@ const CancelAndStopIntentHandler = {
 
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         const speechOutput = requestAttributes.t('STOP_MESSAGE');
-        return handlerInput.responseBuilder.speak(speechOutput).getResponse();
+        return handlerInput.responseBuilder.speak(speechOutput).withShouldEndSession(true).getResponse();
     },
 };
 
@@ -104,7 +104,7 @@ const SessionEndedRequestHandler = {
         }
 
         logger.debug('session ended', request);
-        return handlerInput.responseBuilder.getResponse();
+        return handlerInput.responseBuilder.withShouldEndSession(true).getResponse();
     },
 };
 

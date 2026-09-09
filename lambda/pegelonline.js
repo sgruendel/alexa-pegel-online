@@ -7,10 +7,34 @@ const httpsAgent = new https.Agent({
     keepAlive: true,
 });
 const options = {
-    agent: (_parsedURL) => {
+    agent: () => {
         return httpsAgent;
     },
 };
+
+export class HttpError extends Error {
+    /**
+     * @param {number} statusCode HTTP response status.
+     */
+    constructor(statusCode) {
+        super(`PegelOnline request failed with status ${statusCode}`);
+        this.name = 'HttpError';
+        this.statusCode = statusCode;
+    }
+}
+
+/**
+ * @template T
+ * @param {string} url URL to request.
+ * @returns {Promise<T>} Parsed JSON response.
+ */
+async function getJson(url) {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+        throw new HttpError(response.status);
+    }
+    return /** @type {Promise<T>} */ (response.json());
+}
 
 /**
  * see https://www.pegelonline.wsv.de/webservice/dokuRestapi#ressourcenWater
@@ -79,48 +103,33 @@ const options = {
 /**
  * Get all stations available, or all stations for a water if specified.
  * @param {string=} water If specified, only return stations for this water.
- * @returns a promise that resolves to an array of stations
+ * @returns {Promise<StationJson[]>} A promise that resolves to an array of stations.
  */
-export async function getStations(water) {
+export function getStations(water) {
     let qs = 'prettyprint=false';
     if (water) {
         qs += '&waters=' + encodeURI(water);
     }
-    const response = await fetch(BASE_URL + 'stations.json?' + qs, options);
-
-    /** @type {Promise<StationJson[]>} */
-    // @ts-ignore
-    const stations = response.json();
-    return stations;
+    return getJson(BASE_URL + 'stations.json?' + qs);
 }
 
 /**
  * Get all waters available.
- * @returns a promise that resolves to an array of waters
+ * @returns {Promise<WaterJson[]>} A promise that resolves to an array of waters.
  */
-export async function getWaters() {
+export function getWaters() {
     const qs = 'prettyprint=false';
-    const response = await fetch(BASE_URL + 'waters.json?' + qs, options);
-
-    /** @type {Promise<WaterJson[]>} */
-    // @ts-ignore
-    const waters = response.json();
-    return waters;
+    return getJson(BASE_URL + 'waters.json?' + qs);
 }
 
 /**
  * Get current measurement data for a station.
  * @param {string} uuid UUID of station
- * @returns a promise that resolves to the current measurement data
+ * @returns {Promise<CurrentMeasurementJson>} A promise that resolves to the current measurement data.
  */
-export async function getCurrentMeasurement(uuid) {
+export function getCurrentMeasurement(uuid) {
     const qs = 'prettyprint=false&includeCurrentMeasurement=true';
-    const response = await fetch(BASE_URL + 'stations/' + encodeURI(uuid) + '/W.json?' + qs, options);
-
-    /** @type {Promise<CurrentMeasurementJson>} */
-    // @ts-ignore
-    const currentMeasurement = response.json();
-    return currentMeasurement;
+    return getJson(BASE_URL + 'stations/' + encodeURI(uuid) + '/W.json?' + qs);
 }
 
 /**

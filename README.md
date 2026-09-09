@@ -9,6 +9,15 @@ ID. The local file is ignored by Git.
 GitHub Actions reads `SKILL_ID` from a repository variable. The deployed Lambda function must provide the same
 variable in its environment configuration.
 
+## Testing
+
+Run commands from the `lambda/` directory:
+
+```bash
+npm test                 # local tests with Nock plus two live PegelOnline checks
+npm run test:integration # dialog tests against the deployed Alexa development skill
+```
+
 ## TODOs
 - Integration tests:
   * borkum

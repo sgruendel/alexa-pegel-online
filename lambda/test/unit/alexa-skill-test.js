@@ -1,689 +1,250 @@
-// include the testing framework
-import alexaTest from 'alexa-skill-test-framework';
+import { expect } from 'chai';
+import nock from 'nock';
 
-import { SKILL_ID } from '../../config.js';
 import { handler } from '../../index.js';
+import { BASE_URL, measurement, stations, STATION_UUID } from '../fixtures/pegelonline.js';
+import { intentRequest, launchRequest, resolvedSlot, sessionEndedRequest, unresolvedSlot } from '../helpers/alexa.js';
 
-// custom slot types
-const LIST_OF_STATIONS = 'LIST_OF_STATIONS';
-const LIST_OF_VARIANTS = 'LIST_OF_VARIANTS';
-const LIST_OF_WATERS = 'LIST_OF_WATERS';
+const ANDERTEN_SLOT_ID = '*bc20d819-1782-4588-885d-129f21a27cf9';
+const ANDERTEN_OBERWASSER_UUID = 'bc20d819-1782-4588-885d-129f21a27cf9';
 
-// initialize the testing framework
-alexaTest.initialize(
-    handler,
-    SKILL_ID,
-    'amzn1.ask.account.VOID',
-    'amzn1.ask.device.VOID',
-);
-alexaTest.setLocale('de-DE');
+function speech(responseEnvelope) {
+    return responseEnvelope.response.outputSpeech.ssml;
+}
 
-// TODO doesn't work with index.js using async function handler
-xdescribe('Pegel Online Skill', () => {
-    describe('ErrorHandler', () => {
-        alexaTest.test([
-            {
-                request: alexaTest.getIntentRequest(''),
-                says: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
-                reprompts: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
-                shouldEndSession: false,
-            },
-        ]);
+describe('Pegel Online skill workflow', () => {
+    it('handles a launch request', async () => {
+        const result = await handler(launchRequest(), {});
+
+        expect(speech(result)).to.contain('Wie kann ich dir helfen?');
+        expect(result.response.reprompt.outputSpeech.ssml).to.contain('Welche Messstelle soll ich abfragen?');
+        expect(result.response.shouldEndSession).to.equal(false);
     });
 
-    describe('HelpIntent', () => {
-        alexaTest.test([
-            {
-                request: alexaTest.getIntentRequest('AMAZON.HelpIntent'),
-                says: 'Du kannst sagen, „Frag Pegel Online nach dem Wasserstand an einer Messstelle, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
-                reprompts: 'Welche Messstelle soll ich abfragen?',
-                shouldEndSession: false,
-            },
-        ]);
+    it('handles the stop intent', async () => {
+        const result = await handler(intentRequest('AMAZON.StopIntent'), {});
+
+        expect(speech(result)).to.contain('bis dann');
+        expect(result.response).to.not.have.property('reprompt');
+        expect(result.response.shouldEndSession).to.equal(true);
     });
 
-    describe('CancelIntent', () => {
-        alexaTest.test([
-            {
-                request: alexaTest.getIntentRequest('AMAZON.CancelIntent'),
-                says: '<say-as interpret-as="interjection">bis dann</say-as>.',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
-        ]);
+    it('handles the help intent', async () => {
+        const result = await handler(intentRequest('AMAZON.HelpIntent'), {});
+
+        expect(speech(result)).to.contain('Wie kann ich dir helfen?');
+        expect(result.response.reprompt.outputSpeech.ssml).to.contain('Welche Messstelle soll ich abfragen?');
+        expect(result.response.shouldEndSession).to.equal(false);
     });
 
-    describe('StopIntent', () => {
-        alexaTest.test([
-            {
-                request: alexaTest.getIntentRequest('AMAZON.StopIntent'),
-                says: '<say-as interpret-as="interjection">bis dann</say-as>.',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
-        ]);
+    it('handles a session-ended request', async () => {
+        const result = await handler(sessionEndedRequest('ERROR'), {});
+
+        expect(result.response).to.not.have.property('outputSpeech');
+        expect(result.response).to.not.have.property('reprompt');
+        expect(result.response.shouldEndSession).to.equal(true);
     });
 
-    describe('SessionEndedRequest', () => {
-        alexaTest.test([
-            {
-                request: alexaTest.getSessionEndedRequest(),
-                saysNothing: true,
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
-        ]);
+    it('uses the error handler for unsupported intents', async () => {
+        const result = await handler(intentRequest('UnsupportedIntent'), {});
+
+        expect(speech(result)).to.contain('Entschuldigung, das verstehe ich nicht.');
+        expect(result.response.reprompt.outputSpeech.ssml).to.contain('Entschuldigung, das verstehe ich nicht.');
+        expect(result.response.shouldEndSession).to.equal(false);
     });
 
-    describe('LaunchRequest', () => {
-        alexaTest.test([
-            {
-                request: alexaTest.getLaunchRequest(),
-                says: 'Du kannst sagen, „Frag Pegel Online nach dem Wasserstand an einer Messstelle, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
-                reprompts: 'Welche Messstelle soll ich abfragen?',
-                shouldEndSession: false,
-            },
-        ]);
+    it('reports an unknown station', async () => {
+        const station = resolvedSlot('station', 'unbekannt', [], 'ER_SUCCESS_NO_MATCH');
+
+        const result = await handler(intentRequest('QueryWaterLevelIntent', { station }), {});
+
+        expect(speech(result)).to.contain('Ich kenne diese Messstelle leider nicht.');
     });
 
-    describe('QueryWaterLevelIntent station', () => {
-        alexaTest.test([
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'würzburg',
-                        variant: '',
-                    }),
-                    'station',
-                    LIST_OF_STATIONS,
-                    'Würzburg',
-                    '915d76e1-3bf9-4e37-9a9a-4d144cd771cc',
-                ),
-                saysLike: 'Der Wasserstand bei Würzburg beträgt',
-                hasCardTitle: 'Pegel bei Würzburg',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'anderten',
-                        variant: '',
-                    }),
-                    'station',
-                    LIST_OF_STATIONS,
-                    'Anderten',
-                    '*bc20d819-1782-4588-885d-129f21a27cf9',
-                ),
-                elicitsSlot: 'variant',
-                says: 'Welcher Pegel, Anderten Oberwasser oder Anderten Unterwasser?',
-                reprompts: 'Welcher Pegel, Anderten Oberwasser oder Anderten Unterwasser?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'artlenburg',
-                        variant: '',
-                    }),
-                    [
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Artlenburg (Elbe)',
-                            id: 'b3492c68-8373-4769-9b29-22f66635a478',
-                        },
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Artlenburg (Elbe-Seitenkanal)',
-                            id: '7fec2f4f-6a2e-47ec-8f3c-016c581e4bbd',
-                        },
-                    ],
-                ),
-                elicitsSlot: 'station',
-                says: 'Welche Messstelle, Artlenburg (Elbe) oder Artlenburg (Elbe-Seitenkanal)?',
-                reprompts: 'Welche Messstelle, Artlenburg (Elbe) oder Artlenburg (Elbe-Seitenkanal)?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'bad karlshafen',
-                        variant: '',
-                    }),
-                    'station',
-                    LIST_OF_STATIONS,
-                    'Karlshafen',
-                    '1e51195c-f9d7-4cff-9db1-d92bb855005c',
-                ),
-                saysLike: 'Der Wasserstand bei Karlshafen beträgt',
-                hasCardTitle: 'Pegel bei Karlshafen',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'dömitz',
-                        variant: '',
-                    }),
-                    [
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Dömitz (Elbe)',
-                            id: '6e3ea719-48b1-408a-bc55-0986c1e94cd5',
-                        },
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Dömitz (Müritz-Elde-Wasserstraße)',
-                            id: '*ec8188ee-f4e4-4f5e-91ae-472e765060cd',
-                        },
-                    ],
-                ),
-                elicitsSlot: 'station',
-                says: 'Welche Messstelle, Dömitz (Elbe) oder Dömitz (Müritz-Elde-Wasserstraße)?',
-                reprompts: 'Welche Messstelle, Dömitz (Elbe) oder Dömitz (Müritz-Elde-Wasserstraße)?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'frankfurt',
-                        variant: '',
-                    }),
-                    [
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Frankfurt (Oder)',
-                            id: 'bffdf7f2-6200-42a2-a4bc-a8111e27e043',
-                        },
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Frankfurt Osthafen',
-                            id: '66ff3eb4-513b-478b-abd2-2f5126ea66fd',
-                        },
-                    ],
-                ),
-                elicitsSlot: 'station',
-                says: 'Welche Messstelle, Frankfurt (Oder) oder Frankfurt Osthafen?',
-                reprompts: 'Welche Messstelle, Frankfurt (Oder) oder Frankfurt Osthafen?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'geesthacht',
-                        variant: '',
-                    }),
-                    [
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Geesthacht (Elbe)',
-                            id: '44f7e955-c97d-45c8-9ed7-19406806fb4c',
-                        },
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Wehr Geesthacht',
-                            id: '0f7f58a8-411f-43d9-b42a-e897e63c4faa',
-                        },
-                    ],
-                ),
-                elicitsSlot: 'station',
-                says: 'Welche Messstelle, Geesthacht (Elbe) oder Wehr Geesthacht?',
-                reprompts: 'Welche Messstelle, Geesthacht (Elbe) oder Wehr Geesthacht?',
-                shouldEndSession: false,
-            },
-            /* Herbrum no longer exists, but the test is kept for reference
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'herbrum',
-                        variant: '',
-                    }),
-                    [
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Herbrum',
-                            id: 'df06a523-8012-41cd-bd3c-47979d66e45e',
-                        },
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Herbrum Hafendamm',
-                            id: '8177a148-5674-4b8f-8ded-050907f640f3',
-                        },
-                    ],
-                ),
-                saysLike: 'Der Wasserstand bei Herbrum beträgt',
-                hasCardTitle: 'Pegel bei Herbrum',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
-            */
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'Halle',
-                        variant: '',
-                    }),
-                    'station',
-                    LIST_OF_STATIONS,
-                    'Trotha',
-                    '*ea6870dc-507e-4ec4-a38c-cd8a5e8b7025',
-                ),
-                elicitsSlot: 'variant',
-                says: 'Welcher Pegel, Trotha Oberpegel oder Trotha Unterpegel?',
-                reprompts: 'Welcher Pegel, Trotha Oberpegel oder Trotha Unterpegel?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'karlsruhe',
-                        variant: '',
-                    }),
-                    'station',
-                    LIST_OF_STATIONS,
-                    'Maxau',
-                    'b6c6d5c8-e2d5-4469-8dd8-fa972ef7eaea',
-                ),
-                saysLike: 'Der Wasserstand bei Maxau beträgt',
-                hasCardTitle: 'Pegel bei Maxau',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'kelheim',
-                        variant: '',
-                    }),
-                    'station',
-                    LIST_OF_STATIONS,
-                    'Kelheimwinzer',
-                    'c9409937-b794-4b69-b36b-38467daab09a',
-                ),
-                saysLike: 'Der Wasserstand bei Kelheimwinzer beträgt',
-                hasCardTitle: 'Pegel bei Kelheimwinzer',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'koblenz',
-                        variant: '',
-                    }),
-                    [
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Koblenz (Mosel)',
-                            id: '9dbcac54-db55-4d24-88b2-74a0d75a68c4',
-                        },
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Koblenz (Rhein)',
-                            id: '4c7d796a-39f2-4f26-97a9-3aad01713e29',
-                        },
-                    ],
-                ),
-                elicitsSlot: 'station',
-                says: 'Welche Messstelle, Koblenz (Mosel) oder Koblenz (Rhein)?',
-                reprompts: 'Welche Messstelle, Koblenz (Mosel) oder Koblenz (Rhein)?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'lüneburg',
-                        variant: '',
-                    }),
-                    'station',
-                    LIST_OF_STATIONS,
-                    'Lüneburg',
-                    'c7364d1e-6139-4575-84cb-b420d21275c4',
-                ),
-                saysLike: 'Der Wasserstand bei Lüneburg beträgt',
-                hasCardTitle: 'Pegel bei Lüneburg',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'neustadt',
-                        variant: '',
-                    }),
-                    [
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Neustadt-Glewe',
-                            id: 'c4381eb3-d21f-4bd1-bc1c-66c03b7d8bcf',
-                        },
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Neustadt (Leine)',
-                            id: 'dda39817-d01d-467f-a6a3-7487011a45d1',
-                        },
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Neustadt (Ostsee)',
-                            id: '3f0b6b74-80a9-4576-a3cb-ea967dfc349f',
-                        },
-                    ],
-                ),
-                elicitsSlot: 'station',
-                says: 'Welche Messstelle, Neustadt-Glewe, Neustadt (Leine) oder Neustadt (Ostsee)?',
-                reprompts: 'Welche Messstelle, Neustadt-Glewe, Neustadt (Leine) oder Neustadt (Ostsee)?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'nienburg',
-                        variant: '',
-                    }),
-                    [
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Nienburg (Saale)',
-                            id: 'ace7d4b0-33e5-46db-a41d-2fa7a321f67a',
-                        },
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Nienburg (Weser)',
-                            id: '38497786-6c29-47f4-93de-d96001629496',
-                        },
-                    ],
-                ),
-                elicitsSlot: 'station',
-                says: 'Welche Messstelle, Nienburg (Saale) oder Nienburg (Weser)?',
-                reprompts: 'Welche Messstelle, Nienburg (Saale) oder Nienburg (Weser)?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'sülfeld',
-                        variant: '',
-                    }),
-                    'station',
-                    LIST_OF_STATIONS,
-                    'Sülfeld',
-                    '*a8604e8f-9330-4431-8cf6-0a68fc793c82',
-                ),
-                elicitsSlot: 'variant',
-                says: 'Welcher Pegel, Sülfeld Oberwasser oder Sülfeld Unterwasser?',
-                reprompts: 'Welcher Pegel, Sülfeld Oberwasser oder Sülfeld Unterwasser?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'uelzen',
-                        variant: '',
-                    }),
-                    'station',
-                    LIST_OF_STATIONS,
-                    'Uelzen',
-                    '*728bd3e3-23f2-41c6-8ac5-4cfa223a5a7e',
-                ),
-                elicitsSlot: 'variant',
-                says: 'Welcher Pegel, Uelzen Oberwasser oder Uelzen Unterwasser?',
-                reprompts: 'Welcher Pegel, Uelzen Oberwasser oder Uelzen Unterwasser?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'wilhelmshaven',
-                    }),
-                    [
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Wilhelmshaven Neuer Vorhafen',
-                            id: 'f77317d9-654f-4f51-925e-004c592049da',
-                        },
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Wilhelmshaven Alter Vorhafen',
-                            id: 'f85bd17b-06c7-49bd-8bfc-ee2bf3ffea99',
-                        },
-                    ],
-                ),
-                elicitsSlot: 'station',
-                says: 'Welche Messstelle, Wilhelmshaven Neuer Vorhafen oder Wilhelmshaven Alter Vorhafen?',
-                reprompts: 'Welche Messstelle, Wilhelmshaven Neuer Vorhafen oder Wilhelmshaven Alter Vorhafen?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionNoMatchToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent'),
-                    'station',
-                    LIST_OF_STATIONS,
-                    'xyzxyzxyz',
-                ),
-                saysLike: 'Ich kenne diese Messstelle leider nicht.',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
+    it('elicits a station when Alexa resolves multiple matches', async () => {
+        const station = resolvedSlot('station', 'hamburg', [
+            { name: 'Hamburg Harburg', id: 'harburg' },
+            { name: 'Hamburg Sankt Pauli', id: 'sankt-pauli' },
         ]);
+
+        const result = await handler(intentRequest('QueryWaterLevelIntent', { station }), {});
+
+        expect(speech(result)).to.contain('Welche Messstelle, Hamburg Harburg oder Hamburg Sankt Pauli?');
+        expect(result.response.directives[0]).to.include({ type: 'Dialog.ElicitSlot', slotToElicit: 'station' });
     });
 
-    describe('QueryWaterLevelIntent station variant', () => {
-        alexaTest.test([
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: 'wittorf',
-                        variant: 'oberpegel',
-                    }),
-                    [
-                        {
-                            slotName: 'station',
-                            slotType: LIST_OF_STATIONS,
-                            value: 'Wittorf',
-                            id: '*eb3d4195-8c73-46b6-87e9-ef0de83edddf',
-                        },
-                        {
-                            slotName: 'variant',
-                            slotType: LIST_OF_VARIANTS,
-                            value: 'Oberpegel',
-                        },
-                    ],
-                ),
-                saysLike: 'Der Wasserstand bei Wittorf Oberpegel beträgt',
-                hasCardTitle: 'Pegel bei Wittorf Oberpegel',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
-            // there are periodic invocations where someone queries a station and a water, but the water is matched as variant
-            {
-                request: alexaTest.addEntityResolutionNoMatchToRequest(
-                    alexaTest.addEntityResolutionToRequest(
-                        alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                            station: 'höxter',
-                            variant: 'weser',
-                        }),
-                        'station',
-                        LIST_OF_STATIONS,
-                        'Höxter',
-                        '763633e7-3b4b-470a-978e-f9e456e4df7c',
-                    ),
-                    'variant',
-                    LIST_OF_VARIANTS,
-                    'weser',
-                ),
-                saysLike: 'Der Wasserstand bei Höxter beträgt',
-                hasCardTitle: 'Pegel bei Höxter',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
-        ]);
+    it('returns a water level for a resolved station', async () => {
+        nock(BASE_URL)
+            .get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`)
+            .query({ prettyprint: 'false', includeCurrentMeasurement: 'true' })
+            .reply(200, measurement());
+        const station = resolvedSlot('station', 'würzburg', [{ name: 'Würzburg', id: STATION_UUID }]);
+
+        const result = await handler(intentRequest('QueryWaterLevelIntent', { station }), {});
+
+        expect(speech(result)).to.contain('Der Wasserstand bei Würzburg beträgt 182,4 cm, die Tendenz ist steigend.');
+        expect(result.response.card).to.include({ type: 'Standard', title: 'Pegel bei Würzburg' });
     });
 
-    describe('QueryWaterLevelIntent water', () => {
-        alexaTest.test([
+    it('elicits a variant for a station with multiple gauges', async () => {
+        const station = resolvedSlot('station', 'anderten', [{ name: 'Anderten', id: ANDERTEN_SLOT_ID }]);
+        const variant = unresolvedSlot('variant');
+
+        const result = await handler(
+            intentRequest('QueryWaterLevelIntent', { station, variant }, 'COMPLETED', { sessionNew: false }),
+            {},
+        );
+
+        expect(speech(result)).to.contain('Welcher Pegel, Anderten Oberwasser oder Anderten Unterwasser?');
+        expect(result.response.reprompt.outputSpeech.ssml).to.contain(
+            'Welcher Pegel, Anderten Oberwasser oder Anderten Unterwasser?',
+        );
+        expect(result.response.directives[0]).to.include({ type: 'Dialog.ElicitSlot', slotToElicit: 'variant' });
+        expect(result.response.shouldEndSession).to.equal(false);
+    });
+
+    it('uses the selected station variant', async () => {
+        nock(BASE_URL)
+            .get(`/webservices/rest-api/v2/stations/${ANDERTEN_OBERWASSER_UUID}/W.json`)
+            .query({ prettyprint: 'false', includeCurrentMeasurement: 'true' })
+            .reply(200, measurement());
+        const station = resolvedSlot('station', 'anderten', [{ name: 'Anderten', id: ANDERTEN_SLOT_ID }]);
+        const variant = resolvedSlot('variant', 'oberwasser', [{ name: 'Oberwasser' }]);
+
+        const result = await handler(
+            intentRequest('QueryWaterLevelIntent', { station, variant }, 'COMPLETED', { sessionNew: false }),
+            {},
+        );
+
+        expect(speech(result)).to.contain('Der Wasserstand bei Anderten Oberwasser beträgt 182,4 cm');
+        expect(result.response.card).to.include({ type: 'Standard', title: 'Pegel bei Anderten Oberwasser' });
+    });
+
+    it('returns a friendly message when PegelOnline is unavailable', async () => {
+        nock(BASE_URL)
+            .get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`)
+            .query({ prettyprint: 'false', includeCurrentMeasurement: 'true' })
+            .reply(503, { message: 'PegelOnline unavailable' });
+        const station = resolvedSlot('station', 'würzburg', [{ name: 'Würzburg', id: STATION_UUID }]);
+
+        const result = await handler(intentRequest('QueryWaterLevelIntent', { station }), {});
+
+        expect(speech(result)).to.contain('Ich kann diesen Messwert zur Zeit leider nicht bestimmen.');
+    });
+
+    it('elicits a station when a water has multiple gauges', async () => {
+        const waterStations = [
+            { ...stations[0], longname: 'CELLE', uuid: 'celle', water: { shortname: 'ALLER', longname: 'ALLER' } },
             {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: '',
-                        water: 'vils',
-                    }),
-                    'water',
-                    LIST_OF_WATERS,
-                    'Vils',
-                ),
-                says: 'Ich kenne dieses Gewässer leider nicht.',
-                repromptsNothing: true,
-                shouldEndSession: true,
+                ...stations[0],
+                longname: 'MARKLENDORF',
+                uuid: 'marklendorf',
+                water: { shortname: 'ALLER', longname: 'ALLER' },
             },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: '',
-                        water: 'bodensee',
-                    }),
-                    'water',
-                    LIST_OF_WATERS,
-                    'Bodensee',
-                ),
-                saysLike: 'Der Wasserstand bei Konstanz (Bodensee) beträgt',
-                hasCardTitle: 'Pegel bei Konstanz (Bodensee)',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: '',
-                        water: 'aller',
-                    }),
-                    'water',
-                    LIST_OF_WATERS,
-                    'Aller',
-                ),
-                elicitsSlot: 'station',
-                says: 'Welche Messstelle, Celle, Marklendorf, Ahlden, Rethem oder Eitze?',
-                reprompts: 'Welche Messstelle, Celle, Marklendorf, Ahlden, Rethem oder Eitze?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: '',
-                        water: 'oranienburger kanal',
-                    }),
-                    'water',
-                    LIST_OF_WATERS,
-                    'Oranienburger Kanal',
-                ),
-                elicitsSlot: 'station',
-                says: 'Welche Messstelle, Sachsenhausen Oberpegel oder Sachsenhausen Unterpegel?',
-                reprompts: 'Welche Messstelle, Sachsenhausen Oberpegel oder Sachsenhausen Unterpegel?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: '',
-                        water: 'datteln-hamm-kanal',
-                    }),
-                    'water',
-                    LIST_OF_WATERS,
-                    'Datteln-Hamm-Kanal',
-                ),
-                elicitsSlot: 'station',
-                says: 'Welche Messstelle, Waltrop, Hamm Unterwasser, Hamm Oberwasser oder Werries Oberwasser?',
-                reprompts: 'Welche Messstelle, Waltrop, Hamm Unterwasser, Hamm Oberwasser oder Werries Oberwasser?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: '',
-                        water: 'rhein',
-                    }),
-                    'water',
-                    LIST_OF_WATERS,
-                    'Rhein',
-                ),
-                elicitsSlot: 'station',
-                saysLike: 'Es gibt zu viele Messstellen an diesem Gewässer, bitte nenne eine konkrete, z.B. ',
-                reprompts: 'Welche Messstelle?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: '',
-                        water: 'main',
-                    }),
-                    [
-                        { slotName: 'water', slotType: LIST_OF_WATERS, value: 'Main' },
-                        {
-                            slotName: 'water',
-                            slotType: LIST_OF_WATERS,
-                            value: 'Main-Donau-Kanal',
-                        },
-                    ],
-                ),
-                saysLike: 'Es gibt zu viele Messstellen an diesem Gewässer, bitte nenne eine konkrete, z.B. ',
-                reprompts: 'Welche Messstelle?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionsToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent', {
-                        station: '',
-                        water: 'verbindungskanal',
-                    }),
-                    [
-                        {
-                            slotName: 'water',
-                            slotType: LIST_OF_WATERS,
-                            value: 'Niegripper Verbindungskanal',
-                        },
-                        {
-                            slotName: 'water',
-                            slotType: LIST_OF_WATERS,
-                            value: 'Verbindungskanal Hohensaaten',
-                        },
-                    ],
-                ),
-                elicitsSlot: 'water',
-                says: 'Welches Gewässer, Niegripper Verbindungskanal oder Verbindungskanal Hohensaaten?',
-                reprompts: 'Welches Gewässer, Niegripper Verbindungskanal oder Verbindungskanal Hohensaaten?',
-                shouldEndSession: false,
-            },
-            {
-                request: alexaTest.addEntityResolutionNoMatchToRequest(
-                    alexaTest.getIntentRequest('QueryWaterLevelIntent'),
-                    'water',
-                    LIST_OF_STATIONS,
-                    'vils',
-                ),
-                saysLike: 'Ich kenne dieses Gewässer leider nicht.',
-                repromptsNothing: true,
-                shouldEndSession: true,
-            },
+        ];
+        nock(BASE_URL)
+            .get('/webservices/rest-api/v2/stations.json')
+            .query({ prettyprint: 'false', waters: 'Aller' })
+            .reply(200, waterStations);
+        const water = resolvedSlot('water', 'aller', [{ name: 'Aller' }]);
+        const station = unresolvedSlot('station');
+
+        const result = await handler(intentRequest('QueryWaterLevelIntent', { station, water }), {});
+
+        expect(speech(result)).to.contain('Welche Messstelle, Celle oder Marklendorf?');
+        expect(result.response.directives[0]).to.include({ type: 'Dialog.ElicitSlot', slotToElicit: 'station' });
+    });
+
+    it('reports an unresolved water', async () => {
+        const water = resolvedSlot('water', 'unbekannt', [], 'ER_SUCCESS_NO_MATCH');
+
+        const result = await handler(
+            intentRequest('QueryWaterLevelIntent', { station: unresolvedSlot('station'), water }),
+            {},
+        );
+
+        expect(speech(result)).to.contain('Ich kenne dieses Gewässer leider nicht.');
+    });
+
+    it('reports a water without gauges', async () => {
+        nock(BASE_URL)
+            .get('/webservices/rest-api/v2/stations.json')
+            .query({ prettyprint: 'false', waters: 'Vils' })
+            .reply(200, []);
+        const water = resolvedSlot('water', 'vils', [{ name: 'Vils' }]);
+
+        const result = await handler(
+            intentRequest('QueryWaterLevelIntent', { station: unresolvedSlot('station'), water }),
+            {},
+        );
+
+        expect(speech(result)).to.contain('Ich kenne dieses Gewässer leider nicht.');
+    });
+
+    it('elicits a water when Alexa resolves multiple matches', async () => {
+        const water = resolvedSlot('water', 'verbindungskanal', [
+            { name: 'Niegripper Verbindungskanal' },
+            { name: 'Verbindungskanal Hohensaaten' },
         ]);
+
+        const result = await handler(
+            intentRequest('QueryWaterLevelIntent', { station: unresolvedSlot('station'), water }),
+            {},
+        );
+
+        expect(speech(result)).to.contain(
+            'Welches Gewässer, Niegripper Verbindungskanal oder Verbindungskanal Hohensaaten?',
+        );
+        expect(result.response.directives[0]).to.include({ type: 'Dialog.ElicitSlot', slotToElicit: 'water' });
+    });
+
+    it('asks for a concrete station when a water has too many gauges', async () => {
+        const waterStations = Array.from({ length: 6 }, (_, index) => ({
+            ...stations[0],
+            uuid: `rhein-${index}`,
+            longname: `RHEIN STATION ${index + 1}`,
+            water: { shortname: 'RHEIN', longname: 'RHEIN' },
+        }));
+        nock(BASE_URL)
+            .get('/webservices/rest-api/v2/stations.json')
+            .query({ prettyprint: 'false', waters: 'Rhein' })
+            .reply(200, waterStations);
+        const water = resolvedSlot('water', 'rhein', [{ name: 'Rhein' }]);
+
+        const result = await handler(
+            intentRequest('QueryWaterLevelIntent', { station: unresolvedSlot('station'), water }),
+            {},
+        );
+
+        expect(speech(result)).to.contain(
+            'Es gibt zu viele Messstellen an diesem Gewässer, bitte nenne eine konkrete, z.B. Rhein Station 4?',
+        );
+        expect(result.response.reprompt.outputSpeech.ssml).to.contain('Welche Messstelle?');
+        expect(result.response.directives[0]).to.include({ type: 'Dialog.ElicitSlot', slotToElicit: 'station' });
+    });
+
+    it('uses the only gauge for a water', async () => {
+        const waterStation = {
+            ...stations[0],
+            longname: 'KONSTANZ',
+            water: { shortname: 'BODENSEE', longname: 'BODENSEE' },
+        };
+        nock(BASE_URL)
+            .get('/webservices/rest-api/v2/stations.json')
+            .query({ prettyprint: 'false', waters: 'Bodensee' })
+            .reply(200, [waterStation]);
+        nock(BASE_URL)
+            .get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`)
+            .query({ prettyprint: 'false', includeCurrentMeasurement: 'true' })
+            .reply(200, measurement());
+        const water = resolvedSlot('water', 'bodensee', [{ name: 'Bodensee' }]);
+
+        const result = await handler(
+            intentRequest('QueryWaterLevelIntent', { station: unresolvedSlot('station'), water }),
+            {},
+        );
+
+        expect(speech(result)).to.contain('Der Wasserstand bei Konstanz (Bodensee) beträgt 182,4 cm');
+        expect(result.response.card).to.include({ type: 'Standard', title: 'Pegel bei Konstanz (Bodensee)' });
     });
 });

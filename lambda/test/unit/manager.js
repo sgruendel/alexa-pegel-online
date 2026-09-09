@@ -1,31 +1,51 @@
 import { expect } from 'chai';
+import nock from 'nock';
 
 import * as manager from '../../manager.js';
+import { BASE_URL, measurement, STATION_UUID } from '../fixtures/pegelonline.js';
+
+function mockMeasurement(uuid, overrides) {
+    return nock(BASE_URL)
+        .get(`/webservices/rest-api/v2/stations/${uuid}/W.json`)
+        .query({ prettyprint: 'false', includeCurrentMeasurement: 'true' })
+        .reply(200, measurement(overrides));
+}
 
 describe('manager', () => {
     describe('#getCurrentMeasurement()', () => {
-        it('should find current measurement for Würzburg', async () => {
-            const result = await manager.getCurrentMeasurement('915d76e1-3bf9-4e37-9a9a-4d144cd771cc');
-            expect(result.unit).to.be.a('string');
-            expect(result.imageUrls.small.url).to.be.a('string');
-            expect(result.imageUrls.large.url).to.be.a('string');
-            expect(result.currentMeasurement.timestamp).to.be.a('string');
-            expect(result.currentMeasurement.value).to.be.a('number');
+        it('returns normalized measurement data and image URLs', async () => {
+            mockMeasurement(STATION_UUID);
+
+            const result = await manager.getCurrentMeasurement(STATION_UUID);
+
+            expect(result.unit).to.equal('cm');
+            expect(result.currentMeasurement.value).to.equal(182.4);
+            expect(result.imageUrls.small.url).to.contain(STATION_UUID);
+            expect(result.imageUrls.large.url).to.contain(STATION_UUID);
         });
 
-        it('should remove +NN in unit for Bad Essen', async () => {
-            const result = await manager.getCurrentMeasurement('6760b547-a7e7-408a-b3aa-529fe376bfcd');
+        it('removes +NN from the unit', async () => {
+            mockMeasurement(STATION_UUID, { unit: 'm+NN' });
+
+            const result = await manager.getCurrentMeasurement(STATION_UUID);
+
             expect(result.unit).to.equal('m');
         });
 
-        it('should remove +PNP in unit for Edertalsperre', async () => {
-            const result = await manager.getCurrentMeasurement('c6e9f744-4dbf-4e8e-a219-cab051ec610c');
+        it('removes +PNP from the unit', async () => {
+            mockMeasurement(STATION_UUID, { unit: 'm+PNP' });
+
+            const result = await manager.getCurrentMeasurement(STATION_UUID);
+
             expect(result.unit).to.equal('m');
         });
 
-        it('should have local time in timestamp', async () => {
-            const result = await manager.getCurrentMeasurement('6760b547-a7e7-408a-b3aa-529fe376bfcd');
-            expect(result.currentMeasurement.timestamp).to.not.contain('+');
+        it('removes the timezone offset from the timestamp', async () => {
+            mockMeasurement(STATION_UUID);
+
+            const result = await manager.getCurrentMeasurement(STATION_UUID);
+
+            expect(result.currentMeasurement.timestamp).to.equal('2026-09-09T12:30:00');
         });
     });
 });

@@ -7,7 +7,7 @@
     "scripts": {
         "reinstall": "rm -rf ./node_modules && npm install",
         "create-model": "node create-model.js",
-        "test:unit": "node --env-file-if-exists=.env ./node_modules/c8/bin/c8.js --reporter=lcov --reporter=text mocha --timeout=7000 test/unit/*",
+        "test:unit": "node --env-file-if-exists=.env ./node_modules/c8/bin/c8.js --reporter=lcov --reporter=text mocha --timeout=7000 --file test/setup.js test/unit/*",
         "test:integration": "node --env-file-if-exists=.env ./node_modules/mocha/bin/mocha.js --timeout=20000 test/integration/*",
         "test": "npm run test:unit",
         "lambda:zip": "zip -r /tmp/pegelOnline.zip node_modules/ package* *.js *.json",
@@ -37,11 +37,11 @@
         "@types/chai": "^5.2.3",
         "@types/mocha": "^10.0.10",
         "@types/node": "^24.13.3",
-        "alexa-skill-test-framework": "^1.2.4",
         "c8": "^12.0.0",
         "chai": "^6.2.2",
         "eslint": "^10.9.1",
         "globals": "^17.12.0",
-        "mocha": "^12.0.0"
+        "mocha": "^12.0.0",
+        "nock": "^14.0.17"
     }
 }
