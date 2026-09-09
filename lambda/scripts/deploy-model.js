@@ -1,6 +1,6 @@
 import { spawnSync } from 'node:child_process';
 
-import { SKILL_ID } from '../index.js';
+import { SKILL_ID } from '../config.js';
 
 const result = spawnSync(
     'ask',

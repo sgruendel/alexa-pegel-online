@@ -2,6 +2,8 @@ import Alexa from 'ask-sdk-core';
 import i18next from 'i18next';
 import sprintf from 'i18next-sprintf-postprocessor';
 import winston from 'winston';
+
+import { SKILL_ID } from './config.js';
 import * as handlers from './handlers.js';
 
 const logger = winston.createLogger({
@@ -13,8 +15,6 @@ const logger = winston.createLogger({
     ],
     exitOnError: false,
 });
-
-export const SKILL_ID = 'amzn1.ask.skill.8e865c2e-e851-4cea-8cad-4035af61bda1';
 
 const languageStrings = {
     de: {

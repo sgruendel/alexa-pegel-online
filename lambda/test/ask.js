@@ -1,13 +1,11 @@
+import { fileURLToPath } from 'node:url';
+
 import { expect } from 'chai';
 
-import { SKILL_ID } from '../index.js';
-
-export const execFile = 'ask';
+export const execFile = process.execPath;
 // see https://github.com/alexa/ask-cli/issues/173
 export const execArgs = [
-    'dialog',
-    '-s',
-    SKILL_ID,
+    fileURLToPath(new URL('./run-dialog.js', import.meta.url)),
     '-l',
     'de-DE',
     '-g',

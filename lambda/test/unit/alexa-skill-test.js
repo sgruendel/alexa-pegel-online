@@ -1,7 +1,8 @@
 // include the testing framework
 import alexaTest from 'alexa-skill-test-framework';
 
-import { handler, SKILL_ID } from '../../index.js';
+import { SKILL_ID } from '../../config.js';
+import { handler } from '../../index.js';
 
 // custom slot types
 const LIST_OF_STATIONS = 'LIST_OF_STATIONS';
