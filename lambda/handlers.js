@@ -307,7 +307,7 @@ export async function handleQueryWaterLevelIntent(handlerInput) {
             };
             handlerInput.responseBuilder.addDirective({
                 type: 'Alexa.Presentation.APL.RenderDocument',
-                version: '1.1',
+                token: request.requestId,
                 document,
                 datasources,
             });

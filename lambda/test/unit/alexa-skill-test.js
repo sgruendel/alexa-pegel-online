@@ -84,6 +84,33 @@ describe('Pegel Online skill workflow', () => {
 
         expect(speech(result)).to.contain('Der Wasserstand bei Würzburg beträgt 182,4 cm, die Tendenz ist steigend.');
         expect(result.response.card).to.include({ type: 'Standard', title: 'Pegel bei Würzburg' });
+        expect(result.response).not.to.have.property('directives');
+    });
+
+    it('renders a complete APL directive on screen devices', async () => {
+        nock(BASE_URL)
+            .get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`)
+            .query({ prettyprint: 'false', includeCurrentMeasurement: 'true' })
+            .reply(200, measurement());
+        const station = resolvedSlot('station', 'würzburg', [{ name: 'Würzburg', id: STATION_UUID }]);
+        const event = intentRequest('QueryWaterLevelIntent', { station }, 'COMPLETED', {
+            supportedInterfaces: { 'Alexa.Presentation.APL': { runtime: { maxVersion: '1.6' } } },
+        });
+
+        const result = await handler(event, {});
+
+        expect(result.response.directives).to.have.length(1);
+        const directive = result.response.directives[0];
+        expect(directive).to.have.all.keys('type', 'token', 'document', 'datasources');
+        expect(directive.type).to.equal('Alexa.Presentation.APL.RenderDocument');
+        expect(directive.token).to.equal(event.request.requestId);
+        expect(directive.document).to.include({ type: 'APL', version: '1.6' });
+        expect(directive.datasources.detailTemplateData).to.include({
+            headerTitle: 'Pegel bei Würzburg',
+            primaryText: 'Der Wasserstand bei Würzburg beträgt 182,4 cm, die Tendenz ist steigend.',
+        });
+        expect(directive.datasources.detailTemplateData.imageSource).to.contain(STATION_UUID);
+        expect(result.response.card.type).to.equal('Standard');
     });
 
     it('elicits a variant for a station with multiple gauges', async () => {
