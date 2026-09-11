@@ -114,26 +114,4 @@ describe('pegelonline', () => {
         }
     });
 
-    describe('live API', function () {
-        this.timeout(20000);
-
-        before(() => {
-            nock.enableNetConnect(/pegelonline\.wsv\.de/);
-        });
-
-        after(() => {
-            nock.disableNetConnect();
-        });
-
-        it('returns the station catalog', async () => {
-            const result = await pegelonline.getStations();
-            expect(result).to.have.length.above(500);
-        });
-
-        it('returns the current measurement for Würzburg', async () => {
-            const result = await pegelonline.getCurrentMeasurement(STATION_UUID);
-            expect(result.unit).to.be.a('string');
-            expect(result.currentMeasurement.value).to.be.a('number');
-        });
-    });
 });

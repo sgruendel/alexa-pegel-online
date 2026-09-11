@@ -167,6 +167,17 @@ describe('Pegel Online skill workflow', () => {
         expect(result.response.card.type).to.equal('Standard');
     });
 
+    for (const [trend, suffix] of [[-1, ', die Tendenz ist fallend.'], [0, ', die Tendenz ist gleichbleibend.'], [-999, '.'], [null, '.']]) {
+        it(`formats measurement trend ${trend} without a timestamp`, async () => {
+            nock(BASE_URL).get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`).query(true)
+                .reply(200, measurement({ trend, timestamp: '' }));
+            const station = resolvedSlot('station', 'würzburg', [{ name: 'Würzburg', id: STATION_UUID }]);
+            const result = await handler(intentRequest('QueryWaterLevelIntent', { station }), {});
+            expect(speech(result)).to.equal(`<speak>Der Wasserstand bei Würzburg beträgt 182,4 cm${suffix}</speak>`);
+            expect(result.response.card.text).not.to.contain('Messung von');
+        });
+    }
+
     it('elicits a variant for a station with multiple gauges', async () => {
         const station = resolvedSlot('station', 'anderten', [{ name: 'Anderten', id: ANDERTEN_SLOT_ID }]);
         const variant = unresolvedSlot('variant');

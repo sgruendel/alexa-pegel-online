@@ -1,8 +1,5 @@
 import nock from 'nock';
 
-// override .env, which may set LOG_LEVEL=debug
-process.env.LOG_LEVEL = 'info';
-
 before(() => {
     nock.disableNetConnect();
 });

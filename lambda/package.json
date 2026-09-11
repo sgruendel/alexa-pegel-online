@@ -7,18 +7,21 @@
     "scripts": {
         "reinstall": "rm -rf ./node_modules && npm install",
         "create-model": "node create-model.js",
-        "test:unit": "node --env-file-if-exists=.env ./node_modules/c8/bin/c8.js --reporter=lcov --reporter=text mocha --timeout=7000 --file test/setup.js test/unit/*",
-        "test:integration": "node --env-file-if-exists=.env ./node_modules/mocha/bin/mocha.js --timeout=90000 test/integration/*",
-        "test": "npm run test:unit",
+        "test:unit": "node --import ./test/env.js ./node_modules/mocha/bin/mocha.js --timeout=7000 --file test/setup.js \"test/unit/**/*.js\"",
+        "test:integration": "node --import ./test/env.js ./node_modules/mocha/bin/mocha.js --timeout=7000 --file test/setup.js \"test/integration/**/*.js\"",
+        "test": "c8 node --import ./test/env.js ./node_modules/mocha/bin/mocha.js --timeout=7000 --file test/setup.js \"test/unit/**/*.js\" \"test/integration/**/*.js\"",
         "lambda:zip": "zip -r /tmp/pegelOnline.zip node_modules/ package* *.js *.json",
         "lambda:deploy": "npm run lambda:zip && aws lambda update-function-code --function-name pegelOnline --zip-file fileb:///tmp/pegelOnline.zip",
-        "model:deploy": "node --env-file-if-exists=.env scripts/deploy-model.js"
+        "model:deploy": "node --env-file-if-exists=.env scripts/deploy-model.js",
+        "test:contract": "node ./node_modules/mocha/bin/mocha.js \"test/contract/**/*.js\"",
+        "test:e2e": "node --env-file-if-exists=.env ./node_modules/mocha/bin/mocha.js \"test/e2e/**/*.js\"",
+        "lint": "eslint ."
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/sgruendel/alexa-pegel-online.git"
     },
-    "author": "Stefan Gründel",
+    "author": "Stefan Gr\u00fcndel",
     "license": "GPL-3.0",
     "bugs": {
         "url": "https://github.com/sgruendel/alexa-pegel-online/issues"
@@ -43,5 +46,8 @@
         "globals": "^17.12.0",
         "mocha": "^12.0.0",
         "nock": "^14.0.17"
+    },
+    "engines": {
+        "node": ">=24"
     }
 }
