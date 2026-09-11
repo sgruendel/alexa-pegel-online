@@ -36,6 +36,11 @@ export async function getStations(water, options) {
 export async function getCurrentMeasurement(uuid, options) {
     /** @type {CurrentMeasurement} */
     const result = { ...(await pegelonline.getCurrentMeasurement(uuid, options)), imageUrls: pegelonline.getImageUrls(uuid) };
+    if (typeof result.unit !== 'string' || !result.unit.trim() || !Number.isFinite(result.currentMeasurement?.value)) {
+        throw new Error('Invalid measurement data');
+    }
+    const timestamp = result.currentMeasurement.timestamp;
+    if (timestamp && !Number.isFinite(Date.parse(timestamp))) throw new Error('Invalid measurement timestamp');
     if (result.unit.endsWith('+NN')) {
         // Bad Essen liefert "m+NN"
         result.unit = result.unit.slice(0, result.unit.length - 3);
