@@ -10,19 +10,24 @@ export const execArgs = [
     'de-DE',
     '-g',
     'development',
-    '--save-skill-io',
-    'output.json',
     '-r',
 ];
 
-export function verifyResult(error, output) {
-    expect(error).to.be.null;
-    const lastBody = output.lastIndexOf('Response body: "');
-    if (lastBody < 0) {
-        console.error('response body not found', output);
-        expect(lastBody).to.be.greaterThan(0);
+export function verifyResult(error, output, diagnostics) {
+    if (error) {
+        console.error('ASK CLI command failed', diagnostics);
     }
-    const { result } = JSON.parse(JSON.parse(output.substr(output.indexOf('"', lastBody))));
+    expect(error).to.be.null;
+
+    let responseBody;
+    try {
+        responseBody = JSON.parse(output);
+    } catch (parseError) {
+        console.error('response body is not valid JSON', diagnostics, output);
+        throw parseError;
+    }
+
+    const { result } = responseBody;
     if (result.error) {
         console.error('error message in json', result.error);
         expect(result.error, result.error.message).to.be.null;
