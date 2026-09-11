@@ -1,37 +1,38 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Node.js CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [master]
   pull_request:
-    branches: [ "master" ]
+    branches: [master]
+
+permissions:
+  contents: read
 
 jobs:
-  build:
-
+  offline:
     runs-on: ubuntu-latest
-    env:
-      SKILL_ID: ${{ vars.SKILL_ID }}
-
+    timeout-minutes: 10
     strategy:
       matrix:
-        node-version: [24.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+        timezone: [UTC, Europe/Berlin]
+    env:
+      TZ: ${{ matrix.timezone }}
+    defaults:
+      run:
+        working-directory: lambda
     steps:
-    - uses: actions/checkout@v7
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v7
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-        cache-dependency-path: lambda/package-lock.json
-    - run: npm ci
-      working-directory: lambda
-    - run: npm run build --if-present
-      working-directory: lambda
-    - run: npm test
-      working-directory: lambda
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: lambda/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - uses: actions/upload-artifact@v7
+        if: ${{ always() && matrix.timezone == 'UTC' }}
+        with:
+          name: runtime-coverage
+          path: lambda/coverage/
