@@ -1,8 +1,9 @@
 import fs from 'fs';
-import * as pegelonline from './pegelonline.js';
-import * as utils from './utils.js';
+import * as pegelonline from '../pegelonline.js';
+import * as utils from '../utils.js';
 
-const MODEL_FILE = '../skill-package/interactionModels/custom/de-DE.json';
+const MODEL_FILE = new URL('../../skill-package/interactionModels/custom/de-DE.json', import.meta.url);
+const STATION_VARIANTS_FILE = new URL('../stationVariants.json', import.meta.url);
 const UTF8 = 'utf8';
 const COUNTER_NOUNS = [ 'Messstelle', 'Messwert', 'Pegel', 'Pegelstand', 'Wasserstand', 'Wert' ];
 
@@ -164,7 +165,7 @@ async function createModel() {
     listOfWaters.sort(compareValues);
 
     // store station variants to resolve slots with ids starting with '*'
-    const stream = fs.createWriteStream('stationVariants.json');
+    const stream = fs.createWriteStream(STATION_VARIANTS_FILE);
     stream.write(JSON.stringify(stationVariants, null, 2));
     stream.end();
 
