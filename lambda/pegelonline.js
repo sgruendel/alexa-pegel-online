@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
 import https from 'https';
+import { createRequestSignal } from './request-budget.js';
 
 const BASE_URL = 'https://www.pegelonline.wsv.de/webservices/rest-api/v2/';
 
@@ -28,8 +29,9 @@ export class HttpError extends Error {
  * @param {string} url URL to request.
  * @returns {Promise<T>} Parsed JSON response.
  */
-async function getJson(url) {
-    const response = await fetch(url, options);
+async function getJson(url, { signal = createRequestSignal() } = {}) {
+    signal.throwIfAborted();
+    const response = await fetch(url, { ...options, signal });
     if (!response.ok) {
         throw new HttpError(response.status);
     }
@@ -105,21 +107,21 @@ async function getJson(url) {
  * @param {string=} water If specified, only return stations for this water.
  * @returns {Promise<StationJson[]>} A promise that resolves to an array of stations.
  */
-export function getStations(water) {
+export function getStations(water, options) {
     let qs = 'prettyprint=false';
     if (water) {
-        qs += '&waters=' + encodeURI(water);
+        qs += '&waters=' + encodeURIComponent(water);
     }
-    return getJson(BASE_URL + 'stations.json?' + qs);
+    return getJson(BASE_URL + 'stations.json?' + qs, options);
 }
 
 /**
  * Get all waters available.
  * @returns {Promise<WaterJson[]>} A promise that resolves to an array of waters.
  */
-export function getWaters() {
+export function getWaters(options) {
     const qs = 'prettyprint=false';
-    return getJson(BASE_URL + 'waters.json?' + qs);
+    return getJson(BASE_URL + 'waters.json?' + qs, options);
 }
 
 /**
@@ -127,9 +129,9 @@ export function getWaters() {
  * @param {string} uuid UUID of station
  * @returns {Promise<CurrentMeasurementJson>} A promise that resolves to the current measurement data.
  */
-export function getCurrentMeasurement(uuid) {
+export function getCurrentMeasurement(uuid, options) {
     const qs = 'prettyprint=false&includeCurrentMeasurement=true';
-    return getJson(BASE_URL + 'stations/' + encodeURI(uuid) + '/W.json?' + qs);
+    return getJson(BASE_URL + 'stations/' + encodeURIComponent(uuid) + '/W.json?' + qs, options);
 }
 
 /**

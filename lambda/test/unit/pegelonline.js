@@ -55,6 +55,33 @@ describe('pegelonline', () => {
             expect(result).to.deep.equal(expected);
         });
 
+        it('aborts while waiting for a response body', async () => {
+            nock(BASE_URL)
+                .get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`)
+                .query(true)
+                .delayBody(200)
+                .reply(200, measurement());
+            try {
+                await pegelonline.getCurrentMeasurement(STATION_UUID, { signal: AbortSignal.timeout(30) });
+                expect.fail('Expected the request to be aborted');
+            } catch (error) {
+                expect(error.name).to.equal('AbortError');
+            }
+        });
+
+        it('rejects malformed JSON', async () => {
+            nock(BASE_URL)
+                .get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`)
+                .query(true)
+                .reply(200, '{');
+            try {
+                await pegelonline.getCurrentMeasurement(STATION_UUID);
+                expect.fail('Expected malformed JSON to fail');
+            } catch (error) {
+                expect(error).to.be.instanceOf(SyntaxError);
+            }
+        });
+
         it('exposes HTTP status errors', async () => {
             nock(BASE_URL)
                 .get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`)

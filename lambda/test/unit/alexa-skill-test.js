@@ -159,6 +159,21 @@ describe('Pegel Online skill workflow', () => {
         expect(speech(result)).to.contain('Ich kann diesen Messwert zur Zeit leider nicht bestimmen.');
     });
 
+    it('shares the remaining Lambda budget across sequential API calls', async () => {
+        nock(BASE_URL).get('/webservices/rest-api/v2/stations.json').query(true)
+            .delay(40).reply(200, stations);
+        nock(BASE_URL).get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`).query(true)
+            .delay(200).reply(200, measurement());
+        const water = resolvedSlot('water', 'main', [{ name: 'Main' }]);
+        let budgetReads = 0;
+        const result = await handler(
+            intentRequest('QueryWaterLevelIntent', { station: unresolvedSlot('station'), water }),
+            { getRemainingTimeInMillis() { budgetReads += 1; return 650; } },
+        );
+        expect(budgetReads).to.equal(1);
+        expect(speech(result)).to.contain('Ich kann diesen Messwert zur Zeit leider nicht bestimmen.');
+    });
+
     it('elicits a station when a water has multiple gauges', async () => {
         const waterStations = [
             { ...stations[0], longname: 'CELLE', uuid: 'celle', water: { shortname: 'ALLER', longname: 'ALLER' } },

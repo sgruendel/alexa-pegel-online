@@ -16,6 +16,7 @@ const logger = winston.createLogger({
 
 import * as manager from './manager.js';
 import * as utils from './utils.js';
+import { createRequestSignal } from './request-budget.js';
 
 /** @type {Object.<string,  string[]>} */
 // @ts-ignore
@@ -48,6 +49,7 @@ function getElicitSlotPrompt(prefix, values, getNameForElement) {
  * content, and any directives for APL (Alexa Presentation Language) if supported.
  */
 export async function handleQueryWaterLevelIntent(handlerInput) {
+    const signal = createRequestSignal(handlerInput.context);
     /** @type {services.IntentRequest} */
     const request = handlerInput.requestEnvelope.request;
     logger.debug('request', request);
@@ -164,7 +166,7 @@ export async function handleQueryWaterLevelIntent(handlerInput) {
     let uuidForWater;
     if (!station) {
         try {
-            const result = await manager.getStations(water);
+            const result = await manager.getStations(water, { signal });
             const size = result.length;
             if (size === 0) {
                 return handlerInput.responseBuilder.speak(requestAttributes.t('UNKNOWN_WATER_MESSAGE')).getResponse();
@@ -228,7 +230,7 @@ export async function handleQueryWaterLevelIntent(handlerInput) {
 
     try {
         const stationVariant = station + (variant ? ' ' + variant : '');
-        const result = await manager.getCurrentMeasurement(uuidForVariant || uuid);
+        const result = await manager.getCurrentMeasurement(uuidForVariant || uuid, { signal });
 
         const formattedValue = result.currentMeasurement.value.toString().replace('.', ',');
         let currentWaterLevel = requestAttributes.t(

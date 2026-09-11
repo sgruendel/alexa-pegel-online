@@ -24,8 +24,8 @@ import * as pegelonline from './pegelonline.js';
  * @param {string=} water If specified, only return stations for this water.
  * @returns a promise that resolves to an array of stations
  */
-export async function getStations(water) {
-    return pegelonline.getStations(water);
+export async function getStations(water, options) {
+    return pegelonline.getStations(water, options);
 }
 
 /**
@@ -33,9 +33,9 @@ export async function getStations(water) {
  * @param {string} uuid UUID of station
  * @returns a promise that resolves to the current measurement data
  */
-export async function getCurrentMeasurement(uuid) {
+export async function getCurrentMeasurement(uuid, options) {
     /** @type {CurrentMeasurement} */
-    const result = { ...(await pegelonline.getCurrentMeasurement(uuid)), imageUrls: pegelonline.getImageUrls(uuid) };
+    const result = { ...(await pegelonline.getCurrentMeasurement(uuid, options)), imageUrls: pegelonline.getImageUrls(uuid) };
     if (result.unit.endsWith('+NN')) {
         // Bad Essen liefert "m+NN"
         result.unit = result.unit.slice(0, result.unit.length - 3);
