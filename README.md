@@ -6,17 +6,20 @@ Alexa Skill for interacting with http://www.pegelonline.wsv.de
 Commands are run from the `lambda/` directory. Copy `.env.example` to `.env` and set `SKILL_ID` to the Alexa skill
 ID. The local file is ignored by Git.
 
-GitHub Actions reads `SKILL_ID` from a repository variable. The deployed Lambda function must provide the same
-variable in its environment configuration.
+The deployed Lambda function must provide `SKILL_ID` in its environment configuration. Offline tests use a
+dummy ID and require no deployment configuration.
 
 ## Testing
 
 Run commands from the `lambda/` directory:
 
 ```bash
-npm test                 # local tests with Nock plus two live PegelOnline checks
-npm run test:integration # dialog tests against the deployed Alexa development skill
+npm test                 # offline unit + integration tests with coverage
+npm run test:contract    # live PegelOnline API checks
+npm run test:e2e         # dialogs against the deployed Alexa development skill
 ```
+
+See [TESTING.md](TESTING.md) for setup, individual suites, CI, and device checks.
 
 ## TODOs
 - Integration tests:

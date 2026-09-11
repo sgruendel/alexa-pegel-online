@@ -1,51 +1,36 @@
-import { fileURLToPath } from 'node:url';
-
 import { expect } from 'chai';
+import { runDialog } from './helpers/dialog.js';
 
-/**
- * @typedef {{type: string, content: {caption: string}}} AlexaResponse
- * @typedef {{alexaResponses: AlexaResponse[]}} AlexaExecutionInfo
- * @typedef {{message: string}} SimulationError
- * @typedef {{error?: SimulationError, alexaExecutionInfo: AlexaExecutionInfo}} AlexaSimulationResult
- * @typedef {{result: AlexaSimulationResult}} SimulationResponseBody
- */
-
-export const execFile = process.execPath;
-// see https://github.com/alexa/ask-cli/issues/173
-export const execArgs = [
-    fileURLToPath(new URL('./run-dialog.js', import.meta.url)),
-    '-l',
-    'de-DE',
-    '-g',
-    'development',
-    '-r',
-];
-
-/**
- * Verifies and returns a structured ASK simulation result.
- * @param {Error | null} error subprocess error
- * @param {string} output structured response body
- * @param {string} diagnostics ASK CLI output
- * @returns {AlexaSimulationResult} simulation result
- */
-export function verifyResult(error, output, diagnostics) {
-    if (error) {
-        console.error('ASK CLI command failed', diagnostics);
+/** Assert the speech and skill request/response contract of every dialog turn. */
+export function verifyTurns(turns, expectations) {
+    expect(turns, 'dialog turns').to.have.length(expectations.length);
+    for (const [index, expected] of expectations.entries()) {
+        const result = turns[index].result;
+        const caption = result.alexaExecutionInfo.alexaResponses
+            .filter(response => response.type === 'Speech').map(response => response.content.caption.trim()).join(' ');
+        if (expected.speech) expect(caption, `turn ${index + 1} speech`).to.equal(expected.speech);
+        if (expected.speechIncludes) expect(caption, `turn ${index + 1} speech`).to.contain(expected.speechIncludes);
+        const invocations = result.skillExecutionInfo?.invocations ?? [];
+        const intentInvocation = invocations.filter(invocation => invocation.invocationRequest?.body?.request?.type === 'IntentRequest').at(-1);
+        expect(intentInvocation, `turn ${index + 1} skill invocation`).to.exist;
+        const request = intentInvocation.invocationRequest.body.request;
+        expect(request.intent.name).to.equal('QueryWaterLevelIntent');
+        const response = intentInvocation.invocationResponse?.body?.response;
+        expect(response, `turn ${index + 1} skill response`).to.exist;
+        const directives = response.directives ?? [];
+        if (expected.elicit) {
+            expect(directives.some(directive => directive.type === 'Dialog.ElicitSlot' && directive.slotToElicit === expected.elicit)).to.equal(true);
+        }
+        if (expected.delegate) expect(directives.some(directive => directive.type === 'Dialog.Delegate')).to.equal(true);
+        if (expected.station) {
+            const authorities = request.intent.slots.station?.resolutions?.resolutionsPerAuthority ?? [];
+            expect(authorities.some(authority => authority.values?.some(value => value.value.name === expected.station))).to.equal(true);
+            expect(directives.some(directive => directive.type.startsWith('Dialog.'))).to.equal(false);
+        }
     }
-    expect(error).to.be.null;
+}
 
-    let responseBody;
-    try {
-        responseBody = /** @type {SimulationResponseBody} */ (JSON.parse(output));
-    } catch (parseError) {
-        console.error('response body is not valid JSON', diagnostics, output);
-        throw parseError;
-    }
-
-    const { result } = responseBody;
-    if (result.error) {
-        console.error('error message in json', result.error);
-        expect(result.error, result.error.message).to.be.null;
-    }
-    return result;
+export async function verifyDialog(replayFile, expectations) {
+    const turns = await runDialog(replayFile, { skillId: process.env.SKILL_ID });
+    verifyTurns(turns, expectations);
 }

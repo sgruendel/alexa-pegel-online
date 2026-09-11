@@ -40,12 +40,12 @@ describe('manager', () => {
             expect(result.unit).to.equal('m');
         });
 
-        it('removes the timezone offset from the timestamp', async () => {
+        it('preserves the measurement instant and timezone offset', async () => {
             mockMeasurement(STATION_UUID);
 
             const result = await manager.getCurrentMeasurement(STATION_UUID);
 
-            expect(result.currentMeasurement.timestamp).to.equal('2026-09-09T12:30:00');
+            expect(result.currentMeasurement.timestamp).to.equal('2026-09-09T12:30:00+02:00');
         });
     });
 });

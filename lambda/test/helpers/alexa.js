@@ -2,7 +2,7 @@ import { SKILL_ID } from '../../config.js';
 
 let requestId = 0;
 
-function requestEnvelope(request, { sessionNew = true } = {}) {
+function requestEnvelope(request, { sessionNew = true, supportedInterfaces = {}, sessionId, sessionAttributes = {} } = {}) {
     requestId += 1;
     const application = { applicationId: SKILL_ID };
     const user = { userId: 'amzn1.ask.account.TEST' };
@@ -11,9 +11,9 @@ function requestEnvelope(request, { sessionNew = true } = {}) {
         version: '1.0',
         session: {
             new: sessionNew,
-            sessionId: `test-session-${requestId}`,
+            sessionId: sessionId ?? `test-session-${requestId}`,
             application,
-            attributes: {},
+            attributes: sessionAttributes,
             user,
         },
         context: {
@@ -22,7 +22,7 @@ function requestEnvelope(request, { sessionNew = true } = {}) {
                 user,
                 device: {
                     deviceId: 'test-device',
-                    supportedInterfaces: {},
+                    supportedInterfaces,
                 },
                 apiEndpoint: 'https://api.amazonalexa.com',
             },

@@ -53,6 +53,60 @@ describe('Pegel Online skill workflow', () => {
         expect(result.response.shouldEndSession).to.equal(false);
     });
 
+    for (const state of ['STARTED', 'IN_PROGRESS']) {
+        it(`delegates an empty ${state} dialog without mutating the request`, async () => {
+            const event = intentRequest('QueryWaterLevelIntent', {}, state);
+            const original = structuredClone(event);
+            const result = await handler(event, {});
+            expect(result.response.directives).to.deep.equal([{ type: 'Dialog.Delegate' }]);
+            expect(event).to.deep.equal(original);
+        });
+    }
+
+    it('asks for a station when a completed dialog has no usable slots', async () => {
+        const result = await handler(intentRequest('QueryWaterLevelIntent'), {});
+        expect(result.response.directives[0]).to.include({ type: 'Dialog.ElicitSlot', slotToElicit: 'station' });
+    });
+
+    it('re-elicits a station when entity resolution fails', async () => {
+        const station = resolvedSlot('station', 'würzburg', [], 'ER_ERROR_TIMEOUT');
+        const result = await handler(intentRequest('QueryWaterLevelIntent', { station }), {});
+        expect(result.response.directives[0]).to.include({ type: 'Dialog.ElicitSlot', slotToElicit: 'station' });
+    });
+
+    it('reports a stale station variant mapping as unavailable data', async () => {
+        const station = resolvedSlot('station', 'missing', [{ name: 'Missing', id: '*missing' }]);
+        const result = await handler(intentRequest('QueryWaterLevelIntent', { station }), {});
+        expect(speech(result)).to.contain('Ich kann diesen Messwert zur Zeit leider nicht bestimmen.');
+    });
+
+    it('elicits a variant and accepts the next turn in the same session', async () => {
+        const station = resolvedSlot('station', 'anderten', [{ name: 'Anderten', id: ANDERTEN_SLOT_ID }]);
+        const first = intentRequest('QueryWaterLevelIntent', { station, variant: unresolvedSlot('variant') }, 'STARTED');
+        const result = await handler(first, {});
+        expect(result.response.directives[0].slotToElicit).to.equal('variant');
+        const second = intentRequest('QueryWaterLevelIntent', {
+            station, variant: resolvedSlot('variant', 'oberwasser', [{ name: 'Oberwasser' }]),
+        }, 'IN_PROGRESS', {
+            sessionNew: false, sessionId: first.session.sessionId, sessionAttributes: result.sessionAttributes,
+        });
+        nock(BASE_URL).get(`/webservices/rest-api/v2/stations/${ANDERTEN_OBERWASSER_UUID}/W.json`)
+            .query(true).reply(200, measurement());
+        const answer = await handler(second, {});
+        expect(speech(answer)).to.contain('Der Wasserstand bei Anderten Oberwasser beträgt');
+        expect(second.request.dialogState).to.equal('IN_PROGRESS');
+        expect(answer.response).not.to.have.property('directives');
+    });
+
+    for (const data of [{}, { unit: 'cm', currentMeasurement: { value: null } }, measurement({ timestamp: 'invalid' })]) {
+        it('returns a friendly message for invalid measurement data', async () => {
+            nock(BASE_URL).get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`).query(true).reply(200, data);
+            const station = resolvedSlot('station', 'würzburg', [{ name: 'Würzburg', id: STATION_UUID }]);
+            const result = await handler(intentRequest('QueryWaterLevelIntent', { station }), {});
+            expect(speech(result)).to.contain('Ich kann diesen Messwert zur Zeit leider nicht bestimmen.');
+        });
+    }
+
     it('reports an unknown station', async () => {
         const station = resolvedSlot('station', 'unbekannt', [], 'ER_SUCCESS_NO_MATCH');
 
@@ -84,7 +138,45 @@ describe('Pegel Online skill workflow', () => {
 
         expect(speech(result)).to.contain('Der Wasserstand bei Würzburg beträgt 182,4 cm, die Tendenz ist steigend.');
         expect(result.response.card).to.include({ type: 'Standard', title: 'Pegel bei Würzburg' });
+        expect(result.response).not.to.have.property('directives');
     });
+
+    it('renders a complete APL directive on screen devices', async () => {
+        nock(BASE_URL)
+            .get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`)
+            .query({ prettyprint: 'false', includeCurrentMeasurement: 'true' })
+            .reply(200, measurement());
+        const station = resolvedSlot('station', 'würzburg', [{ name: 'Würzburg', id: STATION_UUID }]);
+        const event = intentRequest('QueryWaterLevelIntent', { station }, 'COMPLETED', {
+            supportedInterfaces: { 'Alexa.Presentation.APL': { runtime: { maxVersion: '1.6' } } },
+        });
+
+        const result = await handler(event, {});
+
+        expect(result.response.directives).to.have.length(1);
+        const directive = result.response.directives[0];
+        expect(directive).to.have.all.keys('type', 'token', 'document', 'datasources');
+        expect(directive.type).to.equal('Alexa.Presentation.APL.RenderDocument');
+        expect(directive.token).to.equal(event.request.requestId);
+        expect(directive.document).to.include({ type: 'APL', version: '1.6' });
+        expect(directive.datasources.detailTemplateData).to.include({
+            headerTitle: 'Pegel bei Würzburg',
+            primaryText: 'Der Wasserstand bei Würzburg beträgt 182,4 cm, die Tendenz ist steigend.',
+        });
+        expect(directive.datasources.detailTemplateData.imageSource).to.contain(STATION_UUID);
+        expect(result.response.card.type).to.equal('Standard');
+    });
+
+    for (const [trend, suffix] of [[-1, ', die Tendenz ist fallend.'], [0, ', die Tendenz ist gleichbleibend.'], [-999, '.'], [null, '.']]) {
+        it(`formats measurement trend ${trend} without a timestamp`, async () => {
+            nock(BASE_URL).get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`).query(true)
+                .reply(200, measurement({ trend, timestamp: '' }));
+            const station = resolvedSlot('station', 'würzburg', [{ name: 'Würzburg', id: STATION_UUID }]);
+            const result = await handler(intentRequest('QueryWaterLevelIntent', { station }), {});
+            expect(speech(result)).to.equal(`<speak>Der Wasserstand bei Würzburg beträgt 182,4 cm${suffix}</speak>`);
+            expect(result.response.card.text).not.to.contain('Messung von');
+        });
+    }
 
     it('elicits a variant for a station with multiple gauges', async () => {
         const station = resolvedSlot('station', 'anderten', [{ name: 'Anderten', id: ANDERTEN_SLOT_ID }]);
@@ -129,6 +221,21 @@ describe('Pegel Online skill workflow', () => {
 
         const result = await handler(intentRequest('QueryWaterLevelIntent', { station }), {});
 
+        expect(speech(result)).to.contain('Ich kann diesen Messwert zur Zeit leider nicht bestimmen.');
+    });
+
+    it('shares the remaining Lambda budget across sequential API calls', async () => {
+        nock(BASE_URL).get('/webservices/rest-api/v2/stations.json').query(true)
+            .delay(40).reply(200, stations);
+        nock(BASE_URL).get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`).query(true)
+            .delay(200).reply(200, measurement());
+        const water = resolvedSlot('water', 'main', [{ name: 'Main' }]);
+        let budgetReads = 0;
+        const result = await handler(
+            intentRequest('QueryWaterLevelIntent', { station: unresolvedSlot('station'), water }),
+            { getRemainingTimeInMillis() { budgetReads += 1; return 650; } },
+        );
+        expect(budgetReads).to.equal(1);
         expect(speech(result)).to.contain('Ich kann diesen Messwert zur Zeit leider nicht bestimmen.');
     });
 
