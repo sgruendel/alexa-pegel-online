@@ -1,0 +1,102 @@
+{
+  "rothenburg.json": [
+    {
+      "speech": "Welcher Pegel, Rothenburg (Saale) Oberpegel oder Rothenburg (Saale) Unterpegel?",
+      "elicit": "variant"
+    }
+  ],
+  "rotenburg.json": [
+    {
+      "speechIncludes": "Der Wasserstand bei Rotenburg an der Fulda beträgt ",
+      "station": "Rotenburg an der Fulda"
+    }
+  ],
+  "ilmenau.json": [
+    {
+      "speechIncludes": "Der Wasserstand bei Ilmenau Sperrwerk beträgt ",
+      "station": "Ilmenau Sperrwerk"
+    }
+  ],
+  "havelberg.json": [
+    {
+      "speech": "Welcher Pegel, Havelberg Elbpegel, Havelberg Stadt oder Havelberg Unterpegel?",
+      "elicit": "variant"
+    }
+  ],
+  "hamburg_sankt_pauli.json": [
+    {
+      "speech": "Welche Messstelle, Hamburg Harburg oder Hamburg Sankt Pauli?",
+      "elicit": "station"
+    },
+    {
+      "speechIncludes": "Der Wasserstand bei Hamburg Sankt Pauli beträgt ",
+      "station": "Hamburg Sankt Pauli"
+    }
+  ],
+  "hamburg_harburg.json": [
+    {
+      "speech": "Welche Messstelle, Hamburg Harburg oder Hamburg Sankt Pauli?",
+      "elicit": "station"
+    },
+    {
+      "speechIncludes": "Der Wasserstand bei Hamburg Harburg beträgt ",
+      "station": "Hamburg Harburg"
+    }
+  ],
+  "hamburg.json": [
+    {
+      "speech": "Welche Messstelle, Hamburg Harburg oder Hamburg Sankt Pauli?",
+      "elicit": "station"
+    }
+  ],
+  "elsfleth.json": [
+    {
+      "speech": "Welche Messstelle, Elsfleth (Hunte) oder Elsfleth (Weser)?",
+      "elicit": "station"
+    }
+  ],
+  "eisenhüttenstadt.json": [
+    {
+      "speech": "Welche Messstelle, Eisenhüttenstadt (Oder) oder Eisenhüttenstadt Schleuse?",
+      "elicit": "station"
+    }
+  ],
+  "calbe.json": [
+    {
+      "speech": "Welche Messstelle, Calbe (Saale) oder Calbe-Grizehne?",
+      "elicit": "station"
+    }
+  ],
+  "brunsbüttel.json": [
+    {
+      "speech": "Welche Messstelle?",
+      "delegate": true
+    }
+  ],
+  "borkum_südstrand.json": [
+    {
+      "speech": "Welche Messstelle, Borkum Südstrand oder Borkum Fischerbalje?",
+      "elicit": "station"
+    },
+    {
+      "speechIncludes": "Der Wasserstand bei Borkum Südstrand beträgt ",
+      "station": "Borkum Südstrand"
+    }
+  ],
+  "borkum.json": [
+    {
+      "speech": "Welche Messstelle, Borkum Südstrand oder Borkum Fischerbalje?",
+      "elicit": "station"
+    }
+  ],
+  "borkum_fischerbalje.json": [
+    {
+      "speech": "Welche Messstelle, Borkum Südstrand oder Borkum Fischerbalje?",
+      "elicit": "station"
+    },
+    {
+      "speechIncludes": "Der Wasserstand bei Borkum Fischerbalje beträgt ",
+      "station": "Borkum Fischerbalje"
+    }
+  ]
+}
