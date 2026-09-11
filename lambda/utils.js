@@ -8,15 +8,6 @@ function isLetter(c) {
 }
 
 /**
- * Adds a leading zero to a number if it is less than 10 and returns it as string.
- * @param {number} n number to pad, must be >= 0
- * @returns number as string, padded with a leading zero if the value is less than 10.
- */
-function pad(n) {
-    return n < 10 ? '0' + n : n.toString();
-}
-
-/**
  * Normalize station name based on water, and an optional flag to add a variant to the name.
  * @param {string} name name of station
  * @param {string} water name of water of station
@@ -252,27 +243,26 @@ export function normalizeWater(water) {
 }
 
 /**
- * Returns a description of a date in comparison to today.
- * If date is on the same day as today, returns just the time as "hours:minutes".
- * If date is yesterday, returns just the time as "yesterday hours:minutes".
- * Otherwise, returns date/time according to locale.
- * @param {Date} date the date for which to get the description
- * @param {string} locale locale for formatting
- * @param {Date=} today date to use as today reference
- * @returns description of date  in comparison to today
+ * Describe a measurement using calendar days in the display timezone.
+ * Keep the original instant, even across DST and host timezone changes.
+ * @param {Date} date measurement instant
+ * @param {string} locale formatting locale
+ * @param {Date} today reference instant
+ * @param {string} timeZone timezone of the German gauges
  */
-export function getTimeDesc(date, locale, today = new Date()) {
-    if (date.getDate() === today.getDate()) {
-        // today, use "hours:minutes"
-        return pad(date.getHours()) + ':' + pad(date.getMinutes());
-    }
-
-    let yesterday = new Date(today);
-    yesterday.setDate(today.getDate() - 1);
-    if (date.getDate() === yesterday.getDate()) {
-        // yesterday, use "yesterday hours:minutes"
-        return 'gestern ' + pad(date.getHours()) + ':' + pad(date.getMinutes());
-    }
-
-    return date.toLocaleString(locale);
+export function getTimeDesc(date, locale, today = new Date(), timeZone = 'Europe/Berlin') {
+    const calendar = new Intl.DateTimeFormat('en-US', {
+        timeZone, year: 'numeric', month: 'numeric', day: 'numeric',
+    });
+    const dayNumber = (instant) => {
+        const parts = Object.fromEntries(calendar.formatToParts(instant).map(({ type, value }) => [type, value]));
+        return Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day)) / 86400000;
+    };
+    const difference = dayNumber(today) - dayNumber(date);
+    const time = new Intl.DateTimeFormat(locale, {
+        timeZone, hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+    }).format(date);
+    if (difference === 0) return time;
+    if (difference === 1) return 'gestern ' + time;
+    return date.toLocaleString(locale, { timeZone });
 }

@@ -44,13 +44,5 @@ export async function getCurrentMeasurement(uuid, options) {
         result.unit = result.unit.slice(0, result.unit.length - 4);
     }
 
-    if (result.currentMeasurement.timestamp) {
-        // Zeitzonen-Offset entfernen, damit ein daraus erzeugtes Date-Objekt als Lokalzeit behandelt wird
-        result.currentMeasurement.timestamp = result.currentMeasurement.timestamp.replace(
-            /[-+][0-9][0-9]:[0-9][0-9]/,
-            '',
-        );
-    }
-
     return result;
 }

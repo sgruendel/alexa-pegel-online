@@ -265,59 +265,23 @@ describe('utils', () => {
     });
 
     describe('#getTimeDesc()', () => {
-        it('should format hours with leading zeroes', () => {
-            const today = new Date();
-            today.setHours(8, 12);
-            const result = utils.getTimeDesc(today, LOCALE);
-            expect(result).to.equal('08:12');
-        });
-
-        it('should format minutes with leading zeroes', () => {
-            const today = new Date();
-            today.setHours(12, 1);
-            const result = utils.getTimeDesc(today, LOCALE);
-            expect(result).to.equal('12:01');
-        });
-
-        it('should format 24h', () => {
-            const today = new Date();
-            today.setHours(15, 0);
-            const result = utils.getTimeDesc(today, LOCALE);
-            expect(result).to.equal('15:00');
-        });
-
-        it('should format yesterday', () => {
-            const yesterday = new Date();
-            yesterday.setDate(yesterday.getDate() - 1);
-            yesterday.setHours(8, 1);
-            const result = utils.getTimeDesc(yesterday, LOCALE);
-            expect(result).to.equal('gestern 08:01');
-        });
-
-        it('should format yesterday on Jan 1st', () => {
-            const result = utils.getTimeDesc(
-                new Date('December 31, 2018 08:01:00'),
-                LOCALE,
-                new Date('January 01, 2019'),
-            );
-            expect(result).to.equal('gestern 08:01');
-        });
-
-        it('should format yesterday on Mar 1st', () => {
-            const result = utils.getTimeDesc(
-                new Date('February 28, 2018 08:02:00'),
-                LOCALE,
-                new Date('March 01, 2018'),
-            );
-            expect(result).to.equal('gestern 08:02');
-        });
-
-        it('should format the day before yesterday', () => {
-            const dby = new Date();
-            dby.setDate(dby.getDate() - 2);
-            dby.setHours(8, 1);
-            const result = utils.getTimeDesc(dby, LOCALE);
-            expect(result).to.equal(dby.toLocaleString(LOCALE));
-        });
+        const cases = [
+            ['morning', '2026-09-11T08:12:00+02:00', '2026-09-11T18:00:00+02:00', '08:12'],
+            ['minutes', '2026-09-11T12:01:00+02:00', '2026-09-11T18:00:00+02:00', '12:01'],
+            ['afternoon', '2026-09-11T15:00:00+02:00', '2026-09-11T18:00:00+02:00', '15:00'],
+            ['yesterday', '2026-09-10T08:01:00+02:00', '2026-09-11T18:00:00+02:00', 'gestern 08:01'],
+            ['year boundary', '2025-12-31T08:01:00+01:00', '2026-01-01T00:00:00+01:00', 'gestern 08:01'],
+            ['leap day', '2024-02-29T08:02:00+01:00', '2024-03-01T00:00:00+01:00', 'gestern 08:02'],
+            ['spring DST', '2026-03-28T23:30:00+01:00', '2026-03-30T00:15:00+02:00', '28.3.2026, 23:30:00'],
+            ['autumn DST', '2026-10-25T00:30:00+02:00', '2026-10-26T00:15:00+01:00', 'gestern 00:30'],
+            ['UTC at German midnight', '2026-09-10T22:30:00Z', '2026-09-10T23:00:00Z', '00:30'],
+            ['previous month', '2026-08-11T12:30:00+02:00', '2026-09-11T13:00:00+02:00', '11.8.2026, 12:30:00'],
+            ['previous year', '2025-09-10T12:30:00+02:00', '2026-09-11T13:00:00+02:00', '10.9.2025, 12:30:00'],
+        ];
+        for (const [name, measurement, reference, expected] of cases) {
+            it(`formats ${name} in Europe/Berlin`, () => {
+                expect(utils.getTimeDesc(new Date(measurement), LOCALE, new Date(reference))).to.equal(expected);
+            });
+        }
     });
 });
