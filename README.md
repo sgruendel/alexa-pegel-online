@@ -1,5 +1,6 @@
 # alexa-pegel-online
-Alexa Skill for interacting with http://www.pegelonline.wsv.de
+
+Alexa Skill for interacting with <http://www.pegelonline.wsv.de>
 
 ## Configuration
 
