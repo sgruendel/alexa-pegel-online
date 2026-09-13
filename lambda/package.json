@@ -1,6 +1,6 @@
 {
     "name": "alexa-pegel-online",
-    "version": "2.24.0",
+    "version": "2.25.0",
     "description": "Alexa Skill for interacting with http://www.pegelonline.wsv.de",
     "main": "index.js",
     "type": "module",
@@ -52,7 +52,7 @@
         "chai": "^6.2.2",
         "eslint": "^10.10.0",
         "globals": "^17.12.0",
-        "mocha": "^12.0.0",
+        "mocha": "^12.0.1",
         "nock": "^14.0.17"
     },
     "c8": {
