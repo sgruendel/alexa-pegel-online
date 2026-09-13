@@ -1,10 +1,11 @@
 # alexa-pegel-online
 
-[![Node.js CI][ci-badge]][ci-workflow]
-[![Node.js 24][node-badge]][node-version]
-[![License: GPL-3.0][license-badge]][license]
+[![CI](https://github.com/sgruendel/alexa-pegel-online/actions/workflows/node.js.yaml/badge.svg?branch=master)](https://github.com/sgruendel/alexa-pegel-online/actions/workflows/node.js.yaml)
+[![Node.js 24](https://img.shields.io/badge/Node.js-24-339933?logo=nodedotjs&logoColor=white)](mise.toml)
+[![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
 
-The [Pegel Online skill for Alexa][alexa-skill] provides water levels from <http://www.pegelonline.wsv.de>.
+The [Pegel Online skill for Alexa](https://www.amazon.de/Stefan-Pegel-Online/dp/B06XPLVSFH)
+provides water levels from <http://www.pegelonline.wsv.de>.
 
 ## Configuration
 
