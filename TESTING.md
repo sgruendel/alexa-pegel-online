@@ -1,6 +1,7 @@
 # Testing Pegel Online
 
-Use Node 24, matching the Lambda runtime in `ask-resources.json`. Run the commands below from `lambda/` after `npm ci`.
+Run `mise install` from the repository root to install Node 24, matching the Lambda runtime in `ask-resources.json`.
+Run the commands below from `lambda/` after `npm ci`.
 
 | Command | Scope | External access |
 | --- | --- | --- |
