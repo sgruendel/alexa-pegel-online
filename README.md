@@ -1,6 +1,10 @@
 # alexa-pegel-online
 
-Alexa Skill for interacting with <http://www.pegelonline.wsv.de>
+[![Node.js CI][ci-badge]][ci-workflow]
+[![Node.js 24][node-badge]][node-version]
+[![License: GPL-3.0][license-badge]][license]
+
+The [Pegel Online skill for Alexa][alexa-skill] provides water levels from <http://www.pegelonline.wsv.de>.
 
 ## Configuration
 
