@@ -9,7 +9,7 @@ const STATION_VARIANTS_FILE = new URL('../stationVariants.json', import.meta.url
 const UTF8 = 'utf8';
 const COUNTER_NOUNS = [ 'Messstelle', 'Messwert', 'Pegel', 'Pegelstand', 'Wasserstand', 'Wert' ];
 const MEASUREMENT_CONCURRENCY = positiveInteger(process.env.MODEL_REQUEST_CONCURRENCY, 5);
-const MEASUREMENT_MAX_ATTEMPTS = positiveInteger(process.env.MODEL_REQUEST_MAX_ATTEMPTS, 5);
+const REQUEST_MAX_ATTEMPTS = positiveInteger(process.env.MODEL_REQUEST_MAX_ATTEMPTS, 5);
 const RETRY_BASE_DELAY_MS = positiveInteger(process.env.MODEL_RETRY_BASE_DELAY_MS, 500);
 const RETRY_MAX_DELAY_MS = 10000;
 const RETRYABLE_ERROR_CODES = new Set([
@@ -38,6 +38,31 @@ export function isRetryableError(error) {
     return isRetryableError(error.cause);
 }
 
+export async function requestWithRetry(description, request, options = {}) {
+    const sleep = options.sleep || delay;
+    const random = options.random || Math.random;
+    const logger = options.logger || console;
+    const maxAttempts = options.maxAttempts || REQUEST_MAX_ATTEMPTS;
+    const baseDelayMs = options.baseDelayMs || RETRY_BASE_DELAY_MS;
+
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        try {
+            return await request();
+        } catch (error) {
+            if (attempt === maxAttempts || !isRetryableError(error)) throw error;
+
+            const exponentialDelay = baseDelayMs * (2 ** (attempt - 1));
+            const jitteredDelay = Math.round(exponentialDelay * (0.75 + random() * 0.5));
+            const retryDelay = Math.min(jitteredDelay, RETRY_MAX_DELAY_MS);
+            logger.log(
+                `Retrying ${description} in ${retryDelay}ms ` +
+                `(attempt ${attempt + 1}/${maxAttempts}): ${error.message}`,
+            );
+            await sleep(retryDelay);
+        }
+    }
+}
+
 function getId(variant, uuid) {
     return (variant || '') + ':' + uuid;
 }
@@ -54,34 +79,22 @@ function compareValues(v1, v2) {
 // exponential backoff, while p-map concurrency in createModel limits overall API load.
 export async function hasMeasurement(station, options = {}) {
     const getCurrentMeasurement = options.getCurrentMeasurement || pegelonline.getCurrentMeasurement;
-    const sleep = options.sleep || delay;
-    const random = options.random || Math.random;
     const logger = options.logger || console;
-    const maxAttempts = options.maxAttempts || MEASUREMENT_MAX_ATTEMPTS;
-    const baseDelayMs = options.baseDelayMs || RETRY_BASE_DELAY_MS;
 
-    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-        try {
-            const result = await getCurrentMeasurement(station.uuid);
-            if (result.status) {
-                logger.log(station.longname, result.status, result.message);
-                return false;
-            }
-            return true;
-        } catch (error) {
-            if (attempt < maxAttempts && isRetryableError(error)) {
-                const exponentialDelay = Math.min(baseDelayMs * (2 ** (attempt - 1)), RETRY_MAX_DELAY_MS);
-                const retryDelay = Math.round(exponentialDelay * (0.75 + random() * 0.5));
-                logger.log(
-                    `Retrying ${station.longname} in ${retryDelay}ms ` +
-                    `(attempt ${attempt + 1}/${maxAttempts}): ${error.message}`,
-                );
-                await sleep(retryDelay);
-                continue;
-            }
-            logger.log('Skipping', station.longname, error.message);
+    try {
+        const result = await requestWithRetry(
+            station.longname,
+            () => getCurrentMeasurement(station.uuid),
+            options,
+        );
+        if (result.status) {
+            logger.log(station.longname, result.status, result.message);
             return false;
         }
+        return true;
+    } catch (error) {
+        logger.log('Skipping', station.longname, error.message);
+        return false;
     }
 }
 
@@ -152,8 +165,8 @@ function addStation(station, listOfStations, listOfVariants) {
 
 export async function createModel() {
     const [ stations, waters ] = await Promise.all([
-        pegelonline.getStations(),
-        pegelonline.getWaters(),
+        requestWithRetry('station catalog', () => pegelonline.getStations()),
+        requestWithRetry('water catalog', () => pegelonline.getWaters()),
     ]);
     let listOfStations = [];
     let listOfVariants = [];
