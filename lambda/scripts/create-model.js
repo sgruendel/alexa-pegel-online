@@ -1,4 +1,6 @@
 import fs from 'fs';
+import pMap from 'p-map';
+import { pathToFileURL } from 'url';
 import * as pegelonline from '../pegelonline.js';
 import * as utils from '../utils.js';
 
@@ -6,6 +8,60 @@ const MODEL_FILE = new URL('../../skill-package/interactionModels/custom/de-DE.j
 const STATION_VARIANTS_FILE = new URL('../stationVariants.json', import.meta.url);
 const UTF8 = 'utf8';
 const COUNTER_NOUNS = [ 'Messstelle', 'Messwert', 'Pegel', 'Pegelstand', 'Wasserstand', 'Wert' ];
+const MEASUREMENT_CONCURRENCY = positiveInteger(process.env.MODEL_REQUEST_CONCURRENCY, 5);
+const REQUEST_MAX_ATTEMPTS = positiveInteger(process.env.MODEL_REQUEST_MAX_ATTEMPTS, 5);
+const RETRY_BASE_DELAY_MS = positiveInteger(process.env.MODEL_RETRY_BASE_DELAY_MS, 500);
+const RETRY_MAX_DELAY_MS = 10000;
+const RETRYABLE_ERROR_CODES = new Set([
+    'ECONNRESET',
+    'ETIMEDOUT',
+    'ECONNREFUSED',
+    'EPIPE',
+    'EAI_AGAIN',
+    'ENOTFOUND',
+]);
+
+function positiveInteger(value, fallback) {
+    const parsed = Number.parseInt(value, 10);
+    return Number.isInteger(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function delay(milliseconds) {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
+
+export function isRetryableError(error) {
+    if (!error) return false;
+    if (RETRYABLE_ERROR_CODES.has(error.code)) return true;
+    if (error.name === 'AbortError' || error.name === 'TimeoutError') return true;
+    if (error.statusCode === 408 || error.statusCode === 429 || error.statusCode >= 500) return true;
+    return isRetryableError(error.cause);
+}
+
+export async function requestWithRetry(description, request, options = {}) {
+    const sleep = options.sleep || delay;
+    const random = options.random || Math.random;
+    const logger = options.logger || console;
+    const maxAttempts = options.maxAttempts || REQUEST_MAX_ATTEMPTS;
+    const baseDelayMs = options.baseDelayMs || RETRY_BASE_DELAY_MS;
+
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        try {
+            return await request();
+        } catch (error) {
+            if (attempt === maxAttempts || !isRetryableError(error)) throw error;
+
+            const exponentialDelay = baseDelayMs * (2 ** (attempt - 1));
+            const jitteredDelay = Math.round(exponentialDelay * (0.75 + random() * 0.5));
+            const retryDelay = Math.min(jitteredDelay, RETRY_MAX_DELAY_MS);
+            logger.log(
+                `Retrying ${description} in ${retryDelay}ms ` +
+                `(attempt ${attempt + 1}/${maxAttempts}): ${error.message}`,
+            );
+            await sleep(retryDelay);
+        }
+    }
+}
 
 function getId(variant, uuid) {
     return (variant || '') + ':' + uuid;
@@ -19,24 +75,27 @@ function compareValues(v1, v2) {
     return v1.name.value > v2.name.value ? 1 : ((v2.name.value > v1.name.value) ? -1 : 0);
 }
 
-// check if measurement is available for a station
-function hasMeasurement(station) {
-    return pegelonline.getCurrentMeasurement(station.uuid)
-        .then(result => {
-            if (result.status) {
-                console.log(station.longname, result.status, result.message);
-                return false;
-            }
-            return true;
-        })
-        .catch(err => {
-            if (err.message.indexOf('connect ETIMEDOUT') > 0) {
-                console.log('Retrying', station.longname);
-                return hasMeasurement(station);
-            }
-            console.log('Skipping', station.longname, err.message);
+// Check if measurement is available for a station. Transient failures are retried with
+// exponential backoff, while p-map concurrency in createModel limits overall API load.
+export async function hasMeasurement(station, options = {}) {
+    const getCurrentMeasurement = options.getCurrentMeasurement || pegelonline.getCurrentMeasurement;
+    const logger = options.logger || console;
+
+    try {
+        const result = await requestWithRetry(
+            station.longname,
+            () => getCurrentMeasurement(station.uuid),
+            options,
+        );
+        if (result.status) {
+            logger.log(station.longname, result.status, result.message);
             return false;
-        });
+        }
+        return true;
+    } catch (error) {
+        logger.log('Skipping', station.longname, error.message);
+        return false;
+    }
 }
 
 function addStation(station, listOfStations, listOfVariants) {
@@ -104,40 +163,30 @@ function addStation(station, listOfStations, listOfVariants) {
     }
 }
 
-async function createModel() {
-    const getStations = pegelonline.getStations();
-    const getWaters = pegelonline.getWaters();
-
+export async function createModel() {
+    const [ stations, waters ] = await Promise.all([
+        requestWithRetry('station catalog', () => pegelonline.getStations()),
+        requestWithRetry('water catalog', () => pegelonline.getWaters()),
+    ]);
     let listOfStations = [];
     let listOfVariants = [];
-    let measurementChecks = [];
-    getStations
-        .then(stations => {
-            stations.forEach(station => {
-                const measurementCheck = hasMeasurement(station);
-                measurementChecks.push(measurementCheck);
-                measurementCheck.then(result => {
-                    if (result) {
-                        addStation(station, listOfStations, listOfVariants);
-                    }
-                });
-            });
-        });
+    console.log(`Checking ${stations.length} stations with up to ${MEASUREMENT_CONCURRENCY} concurrent requests`);
+    const measurementChecks = await pMap(
+        stations,
+        station => hasMeasurement(station),
+        { concurrency: MEASUREMENT_CONCURRENCY },
+    );
+    stations.forEach((station, index) => {
+        if (measurementChecks[index]) addStation(station, listOfStations, listOfVariants);
+    });
 
-    let listOfWaters = [];
-    getWaters
-        .then((waters) => {
-            waters.forEach(water => {
-                const name = (water.shortname.length > water.longname.length) ? water.shortname : water.longname;
-                listOfWaters.push(value(utils.normalizeWater(name)));
-            });
-        });
+    const listOfWaters = waters.map(water => {
+        const name = (water.shortname.length > water.longname.length) ? water.shortname : water.longname;
+        return value(utils.normalizeWater(name));
+    });
 
     // read existing interaction model
     let model = JSON.parse(fs.readFileSync(MODEL_FILE, UTF8));
-
-    await getStations;
-    await Promise.all(measurementChecks);
 
     // sort stations by name
     listOfStations.sort(compareValues);
@@ -169,7 +218,6 @@ async function createModel() {
     stream.write(JSON.stringify(stationVariants, null, 2));
     stream.end();
 
-    await getWaters;
     model.interactionModel.languageModel.types = [
         {
             name: 'LIST_OF_STATIONS',
@@ -192,4 +240,9 @@ async function createModel() {
     fs.writeFileSync(MODEL_FILE, JSON.stringify(model, null, 2), UTF8);
 }
 
-createModel();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+    createModel().catch(error => {
+        console.error(error);
+        process.exitCode = 1;
+    });
+}
