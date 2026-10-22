@@ -59,7 +59,7 @@ describe('pegelonline', () => {
             nock(BASE_URL)
                 .get(`/webservices/rest-api/v2/stations/${STATION_UUID}/W.json`)
                 .query(true)
-                .delayBody(200)
+                .delay(200)
                 .reply(200, measurement());
             try {
                 await pegelonline.getCurrentMeasurement(STATION_UUID, { signal: AbortSignal.timeout(30) });
