@@ -815,12 +815,6 @@
               }
             },
             {
-              "id": "f0f78cc4-1ab4-4548-abed-63c65a267a8a",
-              "name": {
-                "value": "Dalwigksthal"
-              }
-            },
-            {
               "id": "c233674f-259a-4304-b81f-dce1f415d85b",
               "name": {
                 "value": "Damnatz"
@@ -2570,6 +2564,12 @@
               "id": "*414dd4ee-b38b-489f-a1fe-19b1d62f3202",
               "name": {
                 "value": "Niederfinow Schiffshebewerk"
+              }
+            },
+            {
+              "id": "0a0b48c6-adf3-4993-ac8d-2cead20ce439",
+              "name": {
+                "value": "Niederwinzer"
               }
             },
             {
@@ -4337,11 +4337,6 @@
             {
               "name": {
                 "value": "Oranienburger Kanal"
-              }
-            },
-            {
-              "name": {
-                "value": "Orke"
               }
             },
             {
